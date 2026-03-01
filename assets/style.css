@@ -1,0 +1,13 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
+:root {
+  --stone-charcoal:    #4A4A4A; /* Navbar, footer */
+  --crimson-banner:    #B22222; /* Main Headings */
+  --gold-burnished:    #D4AF37; /* Buttons in Navbar and Footer*/
+  --slate-iron:        #2F4F4F; /* secondary text*/
+  --parchment:         #F5F5F5; /* Main backgrounds*/
+  --white:              #FFFFFF; /* Secondary Background*/
+  --prussian-blue:     #1E3A8A; /* Buttons in Main */
+  --royal-blue:     #4169E1; /*hover*/
+
+}

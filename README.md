@@ -26,3 +26,24 @@
  6. I want to see tour prices and dates upfront, so I know if a tour fits my budget and schedule before reading details.
 
  ## Design Features
+
+ ### Typography
+  - Merriweather Serif Font for Headings, Buttons
+  - Manrope Sans-Serif for Text.
+
+ ### Palette
+
+  --stone-charcoal:    #4A4A4A; /* Navbar, footer */
+  --crimson-banner:    #B22222; /* Main Headings */
+  --gold-burnished:    #D4AF37; /* Buttons in Navbar and Footer*/
+  --slate-iron:        #2F4F4F; /* secondary text*/
+  --parchment:         #F5F5F5; /* Main backgrounds*/
+  --white:              #FFFFFF; /* Secondary Background*/
+  --prussian-blue:     #1E3A8A; /* Buttons in Main */
+  --royal-blue:     #4169E1; /*hover*/
+
+## Wireframes
+
+1. Home Page
+![Home Page with Styling](assets/wireframes/Home-Page_Wireframe.png)
+
