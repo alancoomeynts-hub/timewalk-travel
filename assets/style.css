@@ -1,13 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Manrope&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
+/* CSS Variables */
+
 :root {
-  --stone-charcoal:    #4A4A4A; /* Navbar, footer */
-  --crimson-banner:    #B22222; /* Main Headings */
-  --gold-burnished:    #D4AF37; /* Buttons in Navbar and Footer*/
-  --slate-iron:        #2F4F4F; /* secondary text*/
-  --parchment:         #F5F5F5; /* Main backgrounds*/
-  --white:              #FFFFFF; /* Secondary Background*/
-  --prussian-blue:     #1E3A8A; /* Buttons in Main */
-  --royal-blue:     #4169E1; /*hover*/
+  --color-bg-primary: #f5f5f5;      /* Parchment - Main page background */
+  --color-bg-secondary: #ffffff;    /* White - Cards, sections, hero forms */
+  --color-text-primary: #4a4a4a;    /* Charcoal - Main headings, body text */
+  --color-text-secondary: #2f4f4f;  /* Slate - Subtext, links, captions */
+  --color-accent-primary: #d4af37;     /* Primary buttons (navbar/footer) */
+  --color-accent-primary-hover: #b8942e; /* Primary button hover */
+  --color-accent-secondary: #b22222;   /* Hero headings, prices */
+  --color-action-primary: #1e3a8a;     /* Secondary buttons */
+  --color-action-primary-hover: #4169e1; /* Secondary button hover */
 
+  --font-primary: "Manrope", sans-serif;
+  --font-secondary: "Merryweather", serif;
+}
+/* CSS Variables */
+body {
+  background-color: var(--primaryBackground);
+  font-family: var(--font-primary);
+  color: var(--primary-color);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-secondary);
+  color: var(--crimson-banner);
 }
