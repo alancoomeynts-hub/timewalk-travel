@@ -3,9 +3,9 @@
 /* CSS Variables */
 
 :root {
-  --color-bg-primary: #f5f5f5;      /* Parchment - Main page background */
-  --color-bg-secondary: #ffffff;    /* White - Cards, sections, hero forms */
-  --color-text-primary: #4a4a4a;    /* Charcoal - Main headings, body text */
+  --color-bg-secondary: #f5f5f5;      /* Parchment - Main page background */
+  --color-bg-tertiary: #ffffff;    /* White - Cards, sections, hero forms */
+  --color-bg-primary: #4a4a4a;    /* Charcoal - Main headings, body text */
   --color-text-secondary: #2f4f4f;  /* Slate - Subtext, links, captions */
   --color-accent-primary: #d4af37;     /* Primary buttons (navbar/footer) */
   --color-accent-primary-hover: #b8942e; /* Primary button hover */
@@ -18,16 +18,20 @@
 }
 /* CSS Variables */
 body {
-  background-color: var(--primaryBackground);
+  background-color: var(--color-bg-secondary);
   font-family: var(--font-primary);
-  color: var(--primary-color);
+  color: var(--color-bg-primary);
 }
 
 h1,
 h2,
 h3 {
   font-family: var(--font-secondary);
-  color: var(--crimson-banner);
+  color: var(--color-accent-secondary);
+}
+
+#navbar{
+  background-color: var(--color-bg-primary);
 }
 
 /* grid visualisation CSS for testing */

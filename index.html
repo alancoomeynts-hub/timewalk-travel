@@ -18,8 +18,46 @@
 
 <body class="d-flex flex-column min-vh-100">
     <!--makes body into flexbox to push footer to bottom of container using mt-auto-->
+
     <!--navigation-->
-    <div>Navigation</div>
+    <nav id="navbar" class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="ms-auto">
+                    <ul class="navbar-nav me-auto gap-2 mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Holidays
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        
+                        <button class="contact-cta btn btn-outline-success">Search</button>
+                        
+                        <button class="phone-cta btn btn-outline-success">Search</button><
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
     <!--Header-->
     <!--Header with hero image. Flexbox classes to overlay h1 and form on the image-->
     <header id="hero-header" class="d-flex flex-column justify-content-center align-items-center">
