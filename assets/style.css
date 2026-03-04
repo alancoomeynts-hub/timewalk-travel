@@ -5,11 +5,11 @@
 :root {
   --color-bg-secondary: #f5f5f5; /* Parchment - Main page background */
   --color-bg-tertiary: #ffffff; /* White - Cards, sections, hero forms */
-  --color-bg-primary: #4a4a4a; /* Charcoal - Main headings, body text */
+  --color-bg-primary: #36454F; /* Charcoal - Main headings, body text */
   --color-text-secondary: #2f4f4f; /* Slate - Subtext, links, captions */
-  --color-accent-primary: #b89778; /* Primary buttons (navbar/footer) */
-  --color-accent-primary-hover: #d4af37; /* Primary button hover */
-  --color-accent-secondary: #b22222; /* Hero headings, prices */
+  --color-accent-primary: #DC143C; /* Primary buttons (navbar/footer) */
+  --color-accent-primary-hover: #8B0000; /* Primary button hover */
+  --color-accent-secondary: #36454F ; /* Hero headings, prices */
   --color-action-primary: #1e3a8a; /* Secondary buttons */
   --color-action-primary-hover: #4169e1; /* Secondary button hover */
 
@@ -34,7 +34,12 @@ h3 {
   background-color: var(--color-bg-primary);
   font-family: var(--font-secondary);
 }
-
+#logo{
+  background-color: var(--color-bg-primary);
+  color: var(--color-bg-tertiary);
+  height: 1.6rem;
+  width: 200px;
+}
 #navbar .nav-link {
   color: var(--color-bg-secondary);
   font-weight: 800;
@@ -80,6 +85,7 @@ h3 {
 .phone-cta:hover,
 .contact-cta:hover {
   background-color: var(--color-accent-primary-hover);
+  color: var(--color-bg-secondary);
 }
 
 /* grid visualisation CSS for testing
@@ -93,3 +99,14 @@ h3 {
     border: 2px solid white;
     background-color: lightgray;
 } */
+
+/*Media Queries*/
+
+@media screen and (min-width: 991px) {
+
+  #logo{
+    height: 2.2rem;
+    width: auto;
+  }
+  
+}
