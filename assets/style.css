@@ -3,14 +3,14 @@
 /* CSS Variables */
 
 :root {
-  --color-bg-secondary: #f5f5f5;      /* Parchment - Main page background */
-  --color-bg-tertiary: #ffffff;    /* White - Cards, sections, hero forms */
-  --color-bg-primary: #4a4a4a;    /* Charcoal - Main headings, body text */
-  --color-text-secondary: #2f4f4f;  /* Slate - Subtext, links, captions */
-  --color-accent-primary: #d4af37;     /* Primary buttons (navbar/footer) */
-  --color-accent-primary-hover: #b8942e; /* Primary button hover */
-  --color-accent-secondary: #b22222;   /* Hero headings, prices */
-  --color-action-primary: #1e3a8a;     /* Secondary buttons */
+  --color-bg-secondary: #f5f5f5; /* Parchment - Main page background */
+  --color-bg-tertiary: #ffffff; /* White - Cards, sections, hero forms */
+  --color-bg-primary: #4a4a4a; /* Charcoal - Main headings, body text */
+  --color-text-secondary: #2f4f4f; /* Slate - Subtext, links, captions */
+  --color-accent-primary: #b89778; /* Primary buttons (navbar/footer) */
+  --color-accent-primary-hover: #d4af37; /* Primary button hover */
+  --color-accent-secondary: #b22222; /* Hero headings, prices */
+  --color-action-primary: #1e3a8a; /* Secondary buttons */
   --color-action-primary-hover: #4169e1; /* Secondary button hover */
 
   --font-primary: "Manrope", sans-serif;
@@ -30,11 +30,59 @@ h3 {
   color: var(--color-accent-secondary);
 }
 
-#navbar{
+#navbar {
   background-color: var(--color-bg-primary);
+  font-family: var(--font-secondary);
 }
 
-/* grid visualisation CSS for testing */
+#navbar .nav-link {
+  color: var(--color-bg-secondary);
+  font-weight: 800;
+}
+
+#navbar .nav-link:hover {
+  color: var(--color-accent-primary);
+}
+
+#navbar .dropdown-menu {
+  
+  background-color: #3a3a3a; /* darker charcoal for navbar dropdown*/
+  border: none;
+  border-radius: 0.8rem;
+  padding: 0.5rem 0;
+}
+
+#navbar .dropdown-item {
+  color: var(--color-bg-secondary);
+
+  font-weight: 800;
+}
+#navbar .dropdown-item:hover {
+  background-color: var(--color-bg-primary);
+  color: var(--color-accent-primary);
+}
+
+.phone-cta {
+  width: 50px;
+  height: 50px;
+  border-radius: 0.8rem;
+  margin: 0 5px;
+}
+
+.phone-cta,
+.contact-cta {
+  background-color: var(--color-accent-primary);
+  font-weight: 800;
+  color: var(--color-bg-secondary);
+  letter-spacing: 0.05rem;
+}
+
+.phone-cta:hover,
+.contact-cta:hover {
+  background-color: var(--color-accent-primary-hover);
+}
+
+/* grid visualisation CSS for testing
 
 .container,
 .row {
@@ -44,4 +92,4 @@ h3 {
 .col-12 {
     border: 2px solid white;
     background-color: lightgray;
-}
+} */

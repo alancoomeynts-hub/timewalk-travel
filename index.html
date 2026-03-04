@@ -20,8 +20,8 @@
     <!--makes body into flexbox to push footer to bottom of container using mt-auto-->
 
     <!--navigation-->
-    <nav id="navbar" class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
+    <nav id="navbar" class="navbar navbar-expand-lg">
+        <div class="container">
             <a class="navbar-brand" href="index.html">Navbar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -38,22 +38,28 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                Holidays
+                                2026 Holidays
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="#">Rome, Naples and Amalfi Coast</a></li>
+                                <li><a class="dropdown-item" href="#">Tuscany</a></li>
+                                <li><a class="dropdown-item" href="#">Czech Republic</a></li>
+                                <li><a class="dropdown-item" href="#">United Kingdon</a></li>
+                                <li><a class="dropdown-item" href="#">Ireland</a></li>
                             </ul>
                         </li>
-                        
-                        <button class="contact-cta btn btn-outline-success">Search</button>
-                        
-                        <button class="phone-cta btn btn-outline-success">Search</button><
+                        <!-- Push CTA button to end of Navbar-Collapse container-->
+                        <div class="nav-item d-flex justify-content-end gap-2 ms-auto">
+                            <button class="contact-cta btn">Get Quote</button>
+                            <button class="phone-cta btn"><i class="fa-solid fa-phone-flip"></i></button>
+                        </li>
+
                     </ul>
 
                 </div>
+
             </div>
+
         </div>
     </nav>
 
@@ -101,6 +107,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/398116af51.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
