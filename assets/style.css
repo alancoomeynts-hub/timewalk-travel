@@ -132,9 +132,36 @@ h3 {
   box-shadow: 0 0.25rem 0.75rem rgba(139, 0, 0, 0.4);
 
 }
-/* grid visualisation CSS for testing
 
-.container,
+/*Footer Styles*/
+#footer{
+  background: linear-gradient(135deg, var(--color-bg-secondary) 0%, #f0e8d9 100%);
+  color: var(--color-bg-primary-contrast);
+  font-family: var(--font-primary);
+  padding-bottom: 2rem;
+  border-top: 2px solid var(--color-accent-primary);
+}
+
+#footer i{
+  color: var(--color-bg-primary-contrast);
+}
+.social-links{
+  
+  font-size: 2.5rem;
+  color:var(--color-bg-secondary);
+
+}
+
+.anchor {
+  text-decoration: none;
+  font-family: var(--font-primary);
+  color: var(--color-bg-primary-contrast);
+
+}
+
+/* grid visualisation CSS for testing */
+
+/* .container,
 .row {
     border: 2px solid black;
 }

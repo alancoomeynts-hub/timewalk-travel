@@ -55,8 +55,9 @@
                         <li class="d-flex justify-content-end gap-2">
                             <button class="contact-cta btn" data-bs-toggle="modal" data-bs-target="#contact-modal">Get
                                 Quote</button>
-                             <!--Phone CTA button uses on-click window location in place of anchor element for call redirect. -->   
-                            <button class="phone-cta btn" onclick="window.location.href='tel:353871234567'"><i class="fa-solid fa-phone-flip"></i></button>
+                            <!--Phone CTA button uses on-click window location in place of anchor element for call redirect. -->
+                            <button class="phone-cta btn" onclick="window.location.href='tel:353871234567'"><i
+                                    class="fa-solid fa-phone-flip"></i></button>
                         </li>
 
 
@@ -70,7 +71,7 @@
     </nav>
 
     <!--Contact Form Modal-->
-    <div class="modal fade" id="contact-modal"  tabindex="-1" aria-labelledby="contact-modal-label" aria-hidden="true">
+    <div class="modal fade" id="contact-modal" tabindex="-1" aria-labelledby="contact-modal-label" aria-hidden="true">
         <div class="modal-dialog ">
             <div class="modal-content">
                 <div class="modal-header">
@@ -148,10 +149,49 @@
 
     <!--Footer-->
     <footer id="footer" class="mt-auto">
-        <div class="row justify-content-center px-5">
-            <div class="col-12 col-md-4">Contact Us</div>
-            <div class="col-12 col-md-4">Newsletter</div>
-            <div class="col-12 col-md-4">Socials</div>
+        <div class="container">
+            <div class="row justify-content-center px-5">
+                <div class="col-12 col-md-4">
+                    
+                    <address class="d-flex align-items-start">
+                        <span class="flex-shrink-0"><i class="fa-solid fa-building-columns"></i></span>
+                        <span>
+                            <strong> Timewalk Travel House</strong><br>
+                            14 Jervis Court, Jervis Street<br> Dublin 1, D01 X2F8.
+                        </span>
+                    </address>
+
+                    <div class="d-flex align-items-start mb-3">
+                        <span class="flex-shrink-0"><i class="fa-solid fa-phone"></i></span>
+                        <span> <a href="tel:3531234567" class="anchor">+353 87 1234567</a><br> </span>
+                    </div>
+
+                    <div class="d-flex align-items-start">
+                        <span class="flex-shrink-0"><i class="fa-regular fa-paper-plane"></i></span>
+                        <span> <a href="mailto:info@TimewalkTravel.ie" class="anchor">info@TimewalkTravel.ie</a><br>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 ">
+                    <h3 class="display-6 footer-headings mb-3">Newsletter</h3>
+                </div>
+
+                <div class="col-12 col-md-4 text-center social-links pt-3 pt-md-4 pt-lg-5">
+
+                    <div class="d-flex justify-content-center gap-3"></div>
+                    <a href="https://www.instagram.com" target="_blank"
+                        aria-label="Visit our Instagram page (opens in a new tab)" rel="noopener"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com" target="_blank"
+                        aria-label="Visit our Facebook page (opens in a new tab)" rel="noopener"><i
+                            class="fa-brands fa-square-facebook"></i></a>
+                    <a href="https://www.x.com" target="_blank" aria-label="Visit our X feed (opens in a new tab)"
+                        rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        </div>
         </div>
 
     </footer>
