@@ -47,3 +47,5 @@
 1. Home Page
 ![Home Page with Styling](assets/wireframes/Home-Page_Wireframe.png)
 
+Code
+- window.location from W3S: https://www.w3schools.com/js/js_window_location.asp
