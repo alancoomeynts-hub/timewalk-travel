@@ -92,6 +92,10 @@ h3 {
 }
 /* Navbar Modal Form Styles*/
 
+.modal-dialog{
+  max-width: 500px;
+}
+
 .modal-content{
   border-radius: 0.8rem ;
   border: none;
@@ -143,10 +147,30 @@ h3 {
 /*Media Queries*/
 
 @media screen and (min-width: 991px) {
-
+  /*make logo larger on desktops */
   #logo{
     height: 2.2rem;
     width: auto;
   }
+ 
+
   
+}
+
+@media screen and (max-width: 768px){
+/* resize modal box on smaller screens*/
+  .modal-dialog{
+    max-width: 90vw;
+  }
+
+}
+
+@media screen and (max-width: 576px){
+ 
+  .modal-dialog{
+    max-width: 80vw;
+    margin: 2rem auto; /* recenter modal on small screens*/
+}
+  
+
 }
