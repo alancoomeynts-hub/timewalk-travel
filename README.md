@@ -49,3 +49,7 @@
 
 Code
 - window.location from W3S: https://www.w3schools.com/js/js_window_location.asp
+
+Media Sources:
+- G
+- https://www.reddit.com/r/ancientrome/comments/13as01n/great_view_of_the_forum_from_the_tabularium/
