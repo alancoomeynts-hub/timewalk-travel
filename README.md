@@ -49,7 +49,8 @@
 
 Code
 - window.location from W3S: https://www.w3schools.com/js/js_window_location.asp
+- learned to use text shadow from https://www.programiz.com/css/text-shadow.
 
 Media Sources:
-- G
+-
 - https://www.reddit.com/r/ancientrome/comments/13as01n/great_view_of_the_forum_from_the_tabularium/
