@@ -162,6 +162,8 @@ h3 {
   font-size: 1.1rem;
 }
 
+
+
 .btn-search{
   background-color: var(--action-primary);
   width: 57px;
@@ -174,6 +176,9 @@ h3 {
 
 }
 
+#search-filter-form-mobile{
+  background-color: var(--bg-secondary-contrast);
+}
 /* Footer */
 #footer {
   background: linear-gradient(135deg, var(--bg-secondary) 0%, #f0e8d9 100%);
@@ -192,7 +197,7 @@ h3 {
   color: var(--action-primary);
 }
 
-.anchor {
+a {
   text-decoration: none;
   font-family: var(--font-primary);
   color: var(--bg-primary);

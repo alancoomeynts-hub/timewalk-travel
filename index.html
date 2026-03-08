@@ -123,8 +123,8 @@
     <!--Header with hero image. Flexbox classes to overlay h1 and form on the image-->
     <header id="hero-header" class="d-flex">
         <h1 id="hero-heading" class="display-5">Historical City Tours 2026</h1>
-        
-        <form action="" method="GET" id="search-filter-form" class="d-none d-lg-flex gap-3 justify-content-center" >
+
+        <form action="" method="GET" id="search-filter-form" class="d-none d-lg-flex gap-3 justify-content-center">
             <div class="row g-5">
                 <div class="col-12 col-lg-3">
                     <select class="form-select" aria-label="Form Holiday City">
@@ -148,17 +148,57 @@
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
-                    </select></div>
+                    </select>
+                </div>
                 <div class="col-12 col-lg-3">
-                    <button type="submit" form="search-filter-form" class="btn-search"><i class="fa-solid fa-magnifying-glass-location"></i></button>
+                    <button type="submit" form="search-filter-form" class="btn-search"><i
+                            class="fa-solid fa-magnifying-glass-location"></i></button>
                 </div>
 
             </div>
         </form>
         
     </header>
+
     <!--Main-->
     <main>
+        <form id="search-filter-form-mobile" class="d-lg-none mt-5 mx-3 mb-3">
+            <div class="row g-3">
+                <div class="col-12 mb-3"> 
+                    <select class="form-select form-select-lg" aria-label="Form Holiday City">
+                        <option selected>Destination</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="col-12 mb-3"> 
+                    <select class="form-select form-select-lg" aria-label="Form Holiday Theme">
+                        <option selected>Theme</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    
+                </div>
+                
+                <div class="col-9 mb-3">
+                     <select class="form-select form-select-lg" aria-label="Form Departure Airport">
+                        <option selected>Depart from</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="col-3"> 
+                    <button class="btn-search h-100"><i
+                            class="fa-solid fa-magnifying-glass-location"></i></button>
+                </div>
+                
+            </div>
+        </form>
+
+
         <!--About Us-->
         <section id="about-us" class="container justify-content-center">
             <div class="row headings">
@@ -196,12 +236,12 @@
 
                     <div class="d-flex align-items-start mb-3">
                         <span class="flex-shrink-0"><i class="fa-solid fa-phone"></i></span>
-                        <span> <a href="tel:3531234567" class="anchor">+353 87 1234567</a><br> </span>
+                        <span> <a href="tel:3531234567">+353 87 1234567</a><br> </span>
                     </div>
 
                     <div class="d-flex align-items-start">
                         <span class="flex-shrink-0"><i class="fa-regular fa-paper-plane"></i></span>
-                        <span> <a href="mailto:info@TimewalkTravel.ie" class="anchor">info@TimewalkTravel.ie</a><br>
+                        <span> <a href="mailto:info@TimewalkTravel.ie">info@TimewalkTravel.ie</a><br>
                         </span>
                     </div>
 
@@ -222,12 +262,12 @@
                 <div class="col-12 col-md-4">
                     <strong class="d-block mb-3 small text-uppercase">Quick Links</strong>
                     <ul class="quick-links d-flex flex-column align-items-start">
-                        <li class="anchor"><a href="index.html">Home</a></li>
-                        <li class="anchor"><a href="itineraryitaly1.html">Rome, Naples and Amalfi Coast</a></li>
-                        <li class="anchor"><a href="#">Tuscany</a></li>
-                        <li class="anchor"><a href="#">Czech Republic</a></li>
-                        <li class="anchor"><a href="#">United Kingdom</a></li>
-                        <li class="anchor"><a href="#">Ireland</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="itineraryitaly1.html">Rome, Naples and Amalfi Coast</a></li>
+                        <li><a href="#">Tuscany</a></li>
+                        <li><a href="#">Czech Republic</a></li>
+                        <li><a href="#">United Kingdom</a></li>
+                        <li><a href="#">Ireland</a></li>
                     </ul>
                 </div>
 
