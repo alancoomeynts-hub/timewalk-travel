@@ -136,7 +136,7 @@ h3 {
 /* Hero Image Section*/
 #hero-header {
   background: url("../assets/images/hero-image.webp") center/cover no-repeat;
-  min-height: 50vh;
+  min-height: 40vh;
   position: relative;
 }
 
@@ -144,6 +144,8 @@ h3 {
   max-width: 250px;
   color: var(--accent-primary);
   z-index: 2;
+  inset: 0;
+  margin: auto;
   text-align: center;
   text-shadow:
     2px 2px 4px rgba(0, 0, 0, 0.8),
@@ -230,23 +232,22 @@ a {
   font-family: var(--font-secondary);
   color: var(--action-primary);
 }
+/* grid visualisation */
+/* .container,
+.row {
+    border: 2px solid black;
+}
+
+.col-12 {
+    border: 2px solid white;
+    background-color: lightgray;
+} */
+
 /* Media Queries */
-@media screen and (min-width: 991px) {
-  #logo {
-    height: 2.2rem;
-    width: auto;
-  }
-  #hero-heading {
-    position: absolute;
-    top: 10%;
-    left: 8%;
-    max-width: 600px;
-  }
-  #search-filter-form {
-    position: absolute;
-    bottom: 38%;
-    left: 10%;
-    width: auto;
+@media screen and (max-width: 576px) {
+  .modal-dialog {
+    max-width: 80vw;
+    margin: 2rem auto;
   }
 }
 
@@ -256,9 +257,59 @@ a {
   }
 }
 
-@media screen and (max-width: 576px) {
-  .modal-dialog {
-    max-width: 80vw;
-    margin: 2rem auto;
+/* Then progressively LARGER */
+@media screen and (min-width: 992px) {
+  #logo {
+    height: 2.2rem;
+    width: auto;
+  }
+  #hero-heading {
+    position: absolute;
+    top: 12%;
+    left: -29%;
+    max-width: 600px;
+  }
+  #search-filter-form {
+    position: absolute;
+    bottom: 38%;
+    left: 10%;
+    width: auto;
+  }
+
+  #hero-header {
+  
+  min-height: 50vh;
+  
+}
+
+}
+
+@media screen and (min-width: 1200px) {
+  #hero-heading {
+    position: absolute;
+    top: 14%;
+    left: -33%;
+    max-width: 600px;
+  }
+    #search-filter-form {
+    position: absolute;
+    bottom: 42%;
+    left: 10%;
+    width: auto;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  #hero-heading {
+    position: absolute;
+    top: 23%;
+    left: -39%;
+    max-width: 600px;
+  }
+    #search-filter-form {
+    position: absolute;
+    bottom: 33%;
+    left: 16%;
+    width: auto;
   }
 }

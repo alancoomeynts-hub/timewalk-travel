@@ -121,6 +121,7 @@
 
     <!--Header-->
     <!--Header with hero image. Flexbox classes to overlay h1 and form on the image-->
+    <!-- TODO add media query to reduce hero image and center logo-->
     <header id="hero-header" class="d-flex">
         <h1 id="hero-heading" class="display-5">Historical City Tours 2026</h1>
 
@@ -162,7 +163,8 @@
 
     <!--Main-->
     <main>
-        <form id="search-filter-form-mobile" class="d-lg-none mt-5 mx-3 mb-3">
+        <div class="container d-lg-none mt-2">
+        <form id="search-filter-form-mobile" class="m-3 px-3 py-2" >
             <div class="row g-3">
                 <div class="col-12 mb-3"> 
                     <select class="form-select form-select-lg" aria-label="Form Holiday City">
@@ -190,17 +192,17 @@
                         <option value="3">Three</option>
                     </select>
                 </div>
-                <div class="col-3"> 
-                    <button class="btn-search h-100"><i
+                <div class="col-3 "> 
+                    <button class="btn-search"><i
                             class="fa-solid fa-magnifying-glass-location"></i></button>
                 </div>
                 
             </div>
         </form>
-
+        </div>
 
         <!--About Us-->
-        <section id="about-us" class="container justify-content-center">
+        <section id="about-us" class="container justify-content-center mt-2">
             <div class="row headings">
                 <h2 class="col-12 text-center display-6">About Us</h2>
                 <div class="col-12">Some Text</div>
