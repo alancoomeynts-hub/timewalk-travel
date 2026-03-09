@@ -33,7 +33,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="ms-auto">
-                    <ul class="navbar-nav me-auto gap-2 mb-2 mb-lg-0">
+                    <ul class="navbar-nav me-auto gap-2 mb-2 mb-lg-0 py-2">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                         </li>
@@ -121,7 +121,7 @@
 
     <!--Header-->
     <!--Header with hero image. Flexbox classes to overlay h1 and form on the image-->
-    <!-- TODO add media query to reduce hero image and center logo-->
+
     <header id="hero-header" class="d-flex">
         <h1 id="hero-heading" class="display-5">Historical City Tours 2026</h1>
 
@@ -158,54 +158,71 @@
 
             </div>
         </form>
-        
+
     </header>
 
     <!--Main-->
     <main>
         <div class="container d-lg-none mt-2">
-        <form id="search-filter-form-mobile" class="m-3 px-3 py-2" >
-            <div class="row g-3">
-                <div class="col-12 mb-3"> 
-                    <select class="form-select form-select-lg" aria-label="Form Holiday City">
-                        <option selected>Destination</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
+            <form id="search-filter-form-mobile" class="m-3 px-3 py-2">
+                <div class="row g-3">
+                    <div class="col-12 mb-3">
+                        <select class="form-select form-select-lg" aria-label="Form Holiday City">
+                            <option selected>Destination</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <select class="form-select form-select-lg" aria-label="Form Holiday Theme">
+                            <option selected>Theme</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+
+                    </div>
+
+                    <div class="col-9 mb-3">
+                        <select class="form-select form-select-lg" aria-label="Form Departure Airport">
+                            <option selected>Depart from</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="col-3 ">
+                        <button class="btn-search"><i class="fa-solid fa-magnifying-glass-location"></i></button>
+                    </div>
+
                 </div>
-                <div class="col-12 mb-3"> 
-                    <select class="form-select form-select-lg" aria-label="Form Holiday Theme">
-                        <option selected>Theme</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                    
-                </div>
-                
-                <div class="col-9 mb-3">
-                     <select class="form-select form-select-lg" aria-label="Form Departure Airport">
-                        <option selected>Depart from</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                </div>
-                <div class="col-3 "> 
-                    <button class="btn-search"><i
-                            class="fa-solid fa-magnifying-glass-location"></i></button>
-                </div>
-                
-            </div>
-        </form>
+            </form>
         </div>
 
         <!--About Us-->
-        <section id="about-us" class="container justify-content-center mt-2">
-            <div class="row headings">
-                <h2 class="col-12 text-center display-6">About Us</h2>
-                <div class="col-12">Some Text</div>
+        <section id="about-us" class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center mb-5">
+                    <h2 class="display-5 mb-4">Step Into History</h2>
+                    <p class="lead">Timewalk Travel crafts immersive historical adventures that transport you beyond
+                        guidebooks. Founded by history enthusiasts in Dublin, we specialise in small-group tours that
+                        blend expert storytelling with authentic experiences.</p>
+                </div>
+                <div class="row g-3">
+                    <div class="col-md-4 text-center">
+                        <h5>Expert Local Guides</h5>
+                        <p>Historians & archaeologists, maximum 16 guests</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <h5>Historic Accommodations</h5>
+                        <p>Palaces, castles, Renaissance villas</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <h5>All-Inclusive Luxury</h5>
+                        <p>Meals, entries, transport included</p>
+                    </div>
+                </div>
             </div>
         </section>
         <!--location cards-->
