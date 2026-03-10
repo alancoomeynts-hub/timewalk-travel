@@ -126,7 +126,23 @@
     </header>
     <!--Main-->
     <main>
+        <template>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100" data-href="">
+                    <img src="" alt="" class="card-img-top">
+                    <div class="card-body text-center">
+                        <h6 class="card-title mb-3"></h6>
+                        <p class="card-text small"></p>
+                    </div>
+                </div>
+            </div>
+        </template>
 
+        <section id="search-results" class="container">
+            <div class="row gx-4 gy-2" id="results-grid">
+                <!-- JS clones go here -->
+            </div>
+        </section>
     </main>
 
 
@@ -154,7 +170,7 @@
                         <span> <a href="mailto:info@TimewalkTravel.ie" class="anchor">info@TimewalkTravel.ie</a><br>
                         </span>
                     </div>
-                    
+
                     <strong class="d-block mt-2 mb-1 text-uppercase small">Connect with us:</strong>
                     <div class="d-flex align-items-center social-links">
                         <a href="https://www.instagram.com" target="_blank"
@@ -166,7 +182,7 @@
                         <a href="https://www.x.com" target="_blank" aria-label="Visit our X feed (opens in a new tab)"
                             rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
 
-                    
+
                     </div>
                 </div>
                 <div class="col-12 col-md-4">
@@ -188,7 +204,8 @@
                             <label for="newsletter-email" class="visually-hidden" novalidate></label>
                             <input type="email" id="newsletter-email" name="email" class="form-control flex-grow-1 mb-3"
                                 placeholder="Enter your Email" required>
-                            <button type="submit" class=" btn btn-newsletter flex-shrink-0 justify-content-center gap-1">Sign Up</button>
+                            <button type="submit"
+                                class=" btn btn-newsletter flex-shrink-0 justify-content-center gap-1">Sign Up</button>
                         </form>
                     </div>
                 </div>
