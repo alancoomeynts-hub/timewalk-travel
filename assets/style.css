@@ -206,6 +206,52 @@ p.card-text.small {
   position: relative;
   height: 30vh;
 }
+.hero-content{
+    text-shadow:
+    2px 2px 4px rgba(0, 0, 0, 0.8),
+    0 0 8px rgba(255, 255, 255, 0.3);
+}
+fieldset {
+  border: 1px solid var(--bg-primary-contrast);
+  border-radius: 0.375rem;
+  padding: 1rem;
+}
+
+legend {
+  float: none;
+  width: auto;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.booking-form-wrap{
+  border: 1px solid var(--bg-primary-contrast);
+  background-color: var(--bg-secondary-contrast);
+  box-shadow: 0 0.25rem 0.75rem rgba(30, 27, 75, 0.4);
+   border-radius: 0.375rem;
+  padding: 1rem;
+}
+.booking-cta {
+  background-color: var(--action-primary);
+  font-weight: 800;
+  color: var(--bg-secondary-contrast);
+  letter-spacing: 0.05rem;
+  transition: all 0.2s ease;
+  border-radius: 0.8rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  max-height: 100px;
+}
+
+.booking-cta:hover {
+  background-color: var(--action-primary-hover);
+  color: var(--bg-secondary-contrast);
+  transform: translateY(-2px);
+  box-shadow: 0 0.25rem 0.75rem rgba(30, 27, 75, 0.4);
+}
+
+#itinerary-section{
+  background-color: var(--bg-secondary);
+}
 
 /* Footer */
 #footer {
@@ -252,8 +298,8 @@ a {
   font-family: var(--font-secondary);
   color: var(--action-primary);
 }
-/* grid visualisation */
-/* .container,
+/* grid visualisation
+.container,
 .row {
     border: 2px solid black;
 }
