@@ -108,8 +108,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button class="button btn" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" form="contact-form" class="btn">Submit</button>
+                    <button class="btn btn-modal-close" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" form="contact-form" class="btn btn-modal-submit">Submit</button>
                 </div>
 
             </div>
@@ -130,7 +130,7 @@
             <div class="row g-5">
                 <div class="col-12 col-lg-3">
                     <select class="form-select form-select-lg" name="destination" aria-label="Form Holiday City">
-                        <option selected>Destination</option>
+                        <option selected value="">Destination</option>
                         <option value="rome">Rome</option>
                         <option value="naples">Naples</option>
                         <option value="pompeii">Pompeii</option>
@@ -151,18 +151,18 @@
                 </div>
                 <div class="col-12 col-lg-3">
                     <select class="form-select" name="theme" aria-label="Form Holiday Theme">
-                        <option selected>Theme</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option selected value="">Theme</option>
+                        <option value="theme-medieval">Medieval</option>
+                        <option value="theme-renaissance">Renaissance</option>
+                        <option value="theme-rome">Ancient Rome</option>
                     </select>
                 </div>
                 <div class="col-12 col-lg-3">
-                    <select class="form-select" name="departure" aria-label="Form Departure Airport">
-                        <option selected>Depart from</option>
-                        <option value="1">Shannon</option>
-                        <option value="2">Dublin</option>
-                        <option value="3">Cork</option>
+                    <select class="form-select" name="departure-airport" aria-label="Form Departure Airport">
+                        <option selected value="">Depart from</option>
+                        <option value="shannon-airport">Shannon</option>
+                        <option value="dublin-airport">Dublin</option>
+                        <option value="cork-airport">Cork</option>
                     </select>
                 </div>
                 <div class="col-12 col-lg-3">
@@ -180,47 +180,47 @@
             <form id="search-filter-form-mobile" class="m-3 px-3 py-2">
                 <div class="row g-3">
                     <div class="col-12 mb-3">
-                        <select class="form-select form-select-lg" aria-label="Form Holiday City">
-                            <option selected>Destination</option>
-                            <option value="1">Rome</option>
-                            <option value="2">Naples</option>
-                            <option value="3">Pompeii</option>
-                            <option value="3">Siena</option>
-                            <option value="3">Florence</option>
-                            <option value="3">Pisa</option>
-                            <option value="3">San Gimignano</option>
-                            <option value="3">Prague</option>
-                            <option value="3">Cesky Krumlov</option>
-                            <option value="3">Edinburgh</option>
-                            <option value="3">York</option>
-                            <option value="3">Cardiff</option>
-                            <option value="3">Cork City</option>
-                            <option value="3">Kilkenny</option>
-                            <option value="3">Dublin</option>
+                        <select class="form-select form-select-lg" name="destination" aria-label="Form Holiday City">
+                            <option selected value="">Destination</option>
+                        <option value="rome">Rome</option>
+                        <option value="naples">Naples</option>
+                        <option value="pompeii">Pompeii</option>
+                        <option value="siena">Siena</option>
+                        <option value="florence">Florence</option>
+                        <option value="pisa">Pisa</option>
+                        <option value="san_gimignano">San Gimignano</option>
+                        <option value="prague">Prague</option>
+                        <option value="cesky_krumlov">Cesky Krumlov</option>
+                        <option value="edinburgh">Edinburgh</option>
+                        <option value="york">York</option>
+                        <option value="cardiff">Cardiff</option>
+                        <option value="cork_city">Cork City</option>
+                        <option value="kilkenny">Kilkenny</option>
+                        <option value="dublin">Dublin</option>
 
 
                         </select>
                     </div>
                     <div class="col-12 mb-3">
-                        <select class="form-select form-select-lg" aria-label="Form Holiday Theme">
-                            <option selected>Theme</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                        <select class="form-select form-select-lg" name="theme" aria-label="Form Holiday Theme">
+                          <option selected value="">Theme</option>
+                        <option value="theme-medieval">Medieval</option>
+                        <option value="theme-renaissance">Renaissance</option>
+                        <option value="theme-rome">Ancient Rome</option>
                         </select>
 
                     </div>
 
                     <div class="col-9 mb-3">
-                        <select class="form-select form-select-lg" aria-label="Form Departure Airport">
-                            <option selected>Depart from</option>
-                            <option value="1">Shannon</option>
-                            <option value="2">Dublin</option>
-                            <option value="3">Cork</option>
+                        <select class="form-select form-select-lg" name="departure-airport"aria-label="Form Departure Airport">
+                            <option value="" selected>Depart from</option>
+                           <option value="shannon-airport">Shannon</option>
+                        <option value="dublin-airport">Dublin</option>
+                        <option value="cork-airport">Cork</option>
                         </select>
                     </div>
                     <div class="col-3 ">
-                        <button class="btn-search"><i class="fa-solid fa-magnifying-glass-location"></i></button>
+                        <button type ="submit" class="btn-search" form="search-filter-form-mobile"><i class="fa-solid fa-magnifying-glass-location"></i></button>
                     </div>
 
                 </div>
@@ -291,7 +291,7 @@
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card h-100" data-href="">
-                        <img src="assets/images/IrelandCard.webp" alt="" class="card-img-top">
+                        <img src="assets/images/IrelandCard.webp" alt="Composite image of cliffs of moher, blarney castle, newgrange" class="card-img-top">
                         <div class="card-body text-center">
                             <h6 class="card-title mb-3">Ireland</h6>
                             <p class="card-text small">From €1,495 pp</p>
@@ -379,9 +379,9 @@
                 <div class="col-12 col-md-4 ">
                     <strong class="d-block mb-3 small text-uppercase">Newsletter</strong>
                     <div class="d-flex flex-column gap-2 newsletter-signup">
-                        <p>Stay updated with ur latest history-packed getaways and deals.</p>
+                        <p>Stay updated with our latest history-packed getaways and deals.</p>
                         <form action="" method="post" novalidate>
-                            <label for="newsletter-email" class="visually-hidden" ></label>
+                            <label for="newsletter-email" class="visually-hidden" >Email Address</label>
                             <input type="email" id="newsletter-email" name="email" class="form-control flex-grow-1 mb-3"
                                 placeholder="Enter your Email" required>
                             <button type="submit"
