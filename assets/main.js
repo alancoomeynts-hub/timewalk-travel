@@ -12,12 +12,15 @@ function initMap() {
   if (!container) {
     throw new Error("No map containers found");
   }
-  console.log("Map container found, `lat`, `lng`, and `zoom` data attributes:", {
-    lat: container.dataset.lat,
-    lng: container.dataset.lng,
-    zoom: container.dataset.zoom,
-    markerid: container.dataset.markerid,
-  });
+  console.log(
+    "Map container found, `lat`, `lng`, and `zoom` data attributes:",
+    {
+      lat: container.dataset.lat,
+      lng: container.dataset.lng,
+      zoom: container.dataset.zoom,
+      markerid: container.dataset.markerid,
+    },
+  );
 
   try {
     const mapInstance = new google.maps.Map(container, {
@@ -30,21 +33,17 @@ function initMap() {
 
     const markerid = container.dataset.markerid;
     const markersCoordinates = {
-      "rome": [
+      rome: [
         { lat: 41.9028, lng: 12.4964 }, // Rome
         { lat: 40.8518, lng: 14.2681 }, // Naples
         { lat: 40.6263, lng: 14.3757 }, // Sorrento
       ],
-      
     };
-    if (markerid === "rome") {
 
-      createMarker(mapInstance, markersCoordinates.rome); 
+    createMarker(mapInstance, markersCoordinates[markerid]);
 
-
-    }
   } catch (error) {
-    console.error('Map error:${error.message}');
+    console.error(`Map error:${error.message}`);
     container.innerHTML = "<p class='text-danger'>Map Unavailable.</p>";
   }
 
@@ -64,14 +63,10 @@ function newspaperSubscriptionAlert() {}
 function filterResults() {}
 
 function createMarker(map, locations) {
-
-locations.forEach((location) => {
-  new google.maps.Marker({
-    position: location,
-    map: map,
+  locations.forEach((location) => {
+    new google.maps.Marker({
+      position: location,
+      map: map,
+    });
   });
-
-});
-};
-
-
+}
