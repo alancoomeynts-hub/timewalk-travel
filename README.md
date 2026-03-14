@@ -51,6 +51,7 @@ prussian-dark:     #1e1b4b; /* Button hovers */
 Code
 - window.location from W3S: https://www.w3schools.com/js/js_window_location.asp
 - learned to use text shadow from https://www.programiz.com/css/text-shadow.
+- learned how to style navbar-toggler and svg icon from https://codingyaar.com/shorts/bootstrap-navbar-toggler-color-change/
 
 Media Sources:
 - Text content generated with assistance from Perplexity.

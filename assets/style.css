@@ -46,7 +46,12 @@ h6 {
   height: 1.6rem;
   width: 200px;
 }
-
+.navbar-toggler {
+  border: 2px solid var(--accent-primary);
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23dc143c' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
 #navbar .nav-link {
   color: var(--bg-secondary-contrast);
   font-weight: 800;
@@ -196,6 +201,8 @@ h6 {
 }
 #search-filter-form-mobile {
   background-color: var(--bg-secondary-contrast);
+  border-radius: 1rem;
+  padding: 2.5rem 2rem;
 }
 
 /* Card grid styles */
@@ -360,6 +367,11 @@ a {
   .modal-dialog {
     max-width: 80vw;
     margin: 2rem auto;
+  }
+
+  .hero-content{
+    font-size: 1.3rem;
+    
   }
 }
 
