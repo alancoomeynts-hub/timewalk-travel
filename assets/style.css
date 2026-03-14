@@ -2,21 +2,21 @@
 
 /* CSS Variables */
 :root {
-  --bg-secondary: #f5f5f5;
+  --bg-secondary: #f5f0e8;
   --bg-secondary-contrast: #ffffff;
-  --bg-primary: #36454f;
-  --bg-primary-contrast: #3a3a3a;
-  --text-secondary: #2f4f4f;
+  --bg-primary: #1a1a1a;
+  --bg-primary-contrast: #2c2c2c;
   --accent-primary: #dc143c;
   --accent-primary-hover: #8b0000;
-  --accent-secondary: #36454f;
-  --action-primary: #1e3a8a;
-  --action-primary-hover: #1e1b4b;
+  --action-primary: #c9940a;
+  --action-primary-hover: #8b6508;
+  --shadow-primary: 0 0.25rem 0.75rem rgba(26, 26, 26, 0.4);
+
 
   --font-primary: "Manrope", sans-serif;
   --font-secondary: "Merriweather", serif;
 
-  --shadow-primary: 0 0.25rem 0.75rem rgba(30, 27, 75, 0.4);
+  
 }
 
 /* Base Styles */
@@ -38,7 +38,7 @@ h6 {
 
 /* Navbar */
 #navbar {
-  background-color: var(--bg-primary-contrast);
+  background-color: var(--bg-primary);
 }
 
 #logo {
