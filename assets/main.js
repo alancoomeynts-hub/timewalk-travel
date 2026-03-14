@@ -29,27 +29,19 @@ function initMap() {
     });
 
     const markerid = container.dataset.markerid;
+    const markersCoordinates = {
+      "rome": [
+        { lat: 41.9028, lng: 12.4964 }, // Rome
+        { lat: 40.8518, lng: 14.2681 }, // Naples
+        { lat: 40.6263, lng: 14.3757 }, // Sorrento
+      ],
+      
+    };
+    if (markerid === "rome") {
 
-    if (markerid === "rome-campania") {
+      createMarker(mapInstance, markersCoordinates.rome); 
 
-      // createMarker(mapInstance,41.9028, 12.4964);
 
-      // marker for Rome
-      new google.maps.Marker({
-        position: { lat: 41.9028, lng: 12.4964 },
-        map: mapInstance,
-      });
-      // marker for Naples
-      new google.maps.Marker({
-        position: { lat: 40.8518, lng: 14.2681 },
-        map: mapInstance,
-      });
-
-      // Sorrento
-      new google.maps.Marker({
-        position: { lat: 40.6263, lng: 14.3757 },
-        map: mapInstance,
-      });
     }
   } catch (error) {
     console.error('Map error:${error.message}');
@@ -71,4 +63,15 @@ function newspaperSubscriptionAlert() {}
 
 function filterResults() {}
 
-function createMarker(map, lat, lng) {};
+function createMarker(map, locations) {
+
+locations.forEach((location) => {
+  new google.maps.Marker({
+    position: location,
+    map: map,
+  });
+
+});
+};
+
+
