@@ -54,7 +54,7 @@ Code
 - learned to use text shadow from https://www.programiz.com/css/text-shadow.
 - learned how to style navbar-toggler and svg icon from https://codingyaar.com/shorts/bootstrap-navbar-toggler-color-change/
 - Source for Google Maps API: https://publicapis.io/google-maps-api-api
-- source styling infoWindows in Google Maps API elements: https://developers.google.com/maps/documentation/javascript/infowindows#maps_infowindow_simple-javascript.
+- Source for  styling infoWindows in Google Maps API elements: https://developers.google.com/maps/documentation/javascript/infowindows#maps_infowindow_simple-javascript.
 - 
 Media Sources:
 - Text content generated with assistance from Perplexity.
@@ -63,4 +63,4 @@ Media Sources:
 
 ## Bugs and Issues
 
-- when first deploying project with API call. I got an email from Google saying my API key is exposed
+- when first deploying project with API call. I got an email from Google saying my API key is exposed. To solve this I restrict API to GitHub deployed project URL and restricted key to Google Maps Javascript API. https://developers.google.com/maps/api-security-best-practices.

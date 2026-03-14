@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
   newspaperSubscriptionAlert();
   filterResults();
 });
+
+
+
 function initMap() {
   const container = document.querySelector("#map-container");
   if (!container) {
@@ -50,7 +53,7 @@ function initMap() {
     container.innerHTML = "<p class='text-danger'>Map Unavailable.</p>";
   }
 
-  window.initMap = initMap;
+  
 }
 
 function transparentNavbar() {}
