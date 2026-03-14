@@ -33,11 +33,14 @@ function initMap() {
 
     const markerid = container.dataset.markerid;
     const markersCoordinates = {
-      rome: [
-        { lat: 41.9028, lng: 12.4964 }, // Rome
-        { lat: 40.8518, lng: 14.2681 }, // Naples
-        { lat: 40.6263, lng: 14.3757 }, // Sorrento
+      rome:{
+        locations: [
+        { lat: 41.9028, lng: 12.4964, info:"Day 1-3: Rome" }, // Rome
+        { lat: 40.8518, lng: 14.2681, info:"Day 4-5: Naples" }, // Naples
+        { lat: 40.6263, lng: 14.3757, info:"Day 6: Sorrento" }, // Sorrento
       ],
+      
+    }
     };
 
     createMarker(mapInstance, markersCoordinates[markerid]);
@@ -62,11 +65,23 @@ function newspaperSubscriptionAlert() {}
 
 function filterResults() {}
 
-function createMarker(map, locations) {
-  locations.forEach((location) => {
-    new google.maps.Marker({
-      position: location,
+function createMarker(map, markerData) {
+  markerData.locations.forEach((location) => {
+  const marker=new google.maps.Marker({
+      position: { lat: location.lat, lng: location.lng },
       map: map,
     });
+
+      const infoWindow = new google.maps.InfoWindow({
+        content: location.info
+      });
+
+      marker.addListener("click", () => {
+        infoWindow.open(map, marker);
+      });
   });
 }
+
+// TODO: add styles for map container and info windows
+// TODO: add spinner or placeholder for map container
+//TODO: add body elements ids for dom content loaded event listener
