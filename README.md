@@ -53,7 +53,12 @@ Code
 - window.location from W3S: https://www.w3schools.com/js/js_window_location.asp
 - learned to use text shadow from https://www.programiz.com/css/text-shadow.
 - learned how to style navbar-toggler and svg icon from https://codingyaar.com/shorts/bootstrap-navbar-toggler-color-change/
-- Source for Google Maps API: https://publicapis.io/google-maps-api-api
+- Source for Google Maps API: 
+        - Initially from publicapis: https://publicapis.io/google-maps-api-api
+        - Adaptions for advanced markers from official Google Maps Javascript documentation.
+            - Scripting Loading Tag:  https://developers.google.com/maps/documentation/javascript/load-maps-js-api
+            - Migrating Markers to Advanced Markers: https://developers.google.com/maps/documentation/javascript/advanced-markers/migration.
+
 - Source for  styling infoWindows in Google Maps API elements: https://developers.google.com/maps/documentation/javascript/infowindows#maps_infowindow_simple-javascript.
 - 
 Media Sources:
@@ -64,3 +69,5 @@ Media Sources:
 ## Bugs and Issues
 
 - when first deploying project with API call. I got an email from Google saying my API key is exposed. To solve this I restrict API to GitHub deployed project URL and restricted key to Google Maps Javascript API. https://developers.google.com/maps/api-security-best-practices.
+- Frequent Google Maps API 404s fixed by reordering scripts in HTML and placing async in JS function instead in HTML. As per https://developers.google.com/maps/documentation/javascript/add-google-map#maps_map_simple-javascript and https://developers.google.com/maps/documentation/javascript/load-maps-js-api
+- Initialy implemented Google Maps API using tutorial on Publicapis but noticed depreciation message in console. In order to remove this and future proof project, I migrated to advanced marker with guidance from official Javascript API documentation.

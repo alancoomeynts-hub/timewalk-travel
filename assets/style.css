@@ -293,6 +293,9 @@ legend {
 /* Accordion */
 .accordion-item {
   border: 1px solid var(--bg-primary-contrast);
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
   background-color: var(--bg-secondary-contrast);
 }
 .accordion-button {
@@ -351,16 +354,7 @@ a {
   font-family: var(--font-secondary);
   color: var(--action-primary);
 }
-/* grid visualisation
-.container,
-.row {
-    border: 2px solid black;
-}
 
-.col-12,col-lg-8,col-lg-4 {
-    border: 2px solid white;
-    background-color: lightgray;
-} */
 
 /* Media Queries */
 @media screen and (max-width: 576px) {
