@@ -290,6 +290,23 @@ legend {
   border: 1px solid var(--bg-primary-contrast);
 }
 
+.info-window-header{
+  color: var(--action-primary);
+  font-size: 16px;
+  font-weight: 700;
+  
+}
+
+.info-window-style{
+  max-width: 240px;
+  padding: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--bg-primary);
+  font-family: var(--font-secondary);
+  
+}
+
 /* Accordion */
 .accordion-item {
   border: 1px solid var(--bg-primary-contrast);

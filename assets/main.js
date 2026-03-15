@@ -42,9 +42,9 @@ async function initMap() {
     const markersCoordinates = {
       rome: {
         locations: [
-          { lat: 41.9028, lng: 12.4964, info: "Day 1-3: Rome" }, // Rome
-          { lat: 40.8518, lng: 14.2681, info: "Day 4-5: Naples" }, // Naples
-          { lat: 40.6263, lng: 14.3757, info: "Day 6: Sorrento" }, // Sorrento
+          { lat: 41.9028, lng: 12.4964, city: "Rome", header:"Day 1-3",ariaLabel:"Rome InfoWindow" }, // Rome
+          { lat: 40.8518, lng: 14.2681, city: "Naples",header:"Day 4-5", ariaLabel: "Naples InfoWindow" }, // Naples
+          { lat: 40.6263, lng: 14.3757, city: "Sorrento", header:"Day 6", ariaLabel:"Sorrento InfoWindow"} // Sorrento
         ],
       },
     };
@@ -77,11 +77,18 @@ function createMarker(map, markerData) {
     const marker = new google.maps.marker.AdvancedMarkerElement({
       position: { lat: location.lat, lng: location.lng },
       map: map,
-      title: location.info,
+      title: location.city,
     });
 
+    const header=document.createElement('h6');
+    header.className='info-window-header';
+    header.textContent=location.header;
+
     const infoWindow = new google.maps.InfoWindow({
-      content: location.info,
+      headerContent: header,
+      maxWidth:240,
+      ariaLabel: location.ariaLabel ,
+      content:`<div class="info-window-style">${location.city}</div>`
     });
 
     marker.addListener("click", () => {
@@ -91,6 +98,4 @@ function createMarker(map, markerData) {
 }
 
 // TODO: add styles for map container using stylers and infoWindows using content and template literal
-// TODO: add spinner or placeholder for map container
 //TODO: add body elements ids for dom content loaded event listener
-//TODO: add docstrings
