@@ -9,7 +9,7 @@
     <meta name="keywords"
         content="Historical European Tours, Ancient Rome, Renaissance Tuscany, Medieval Castles Wales">
 
-    <title>Timewalk Travel | Tuscany</title>
+    <title>Timewalk Travel | Rome, Naples and Amalfi Coast</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/style.css">
@@ -33,9 +33,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="ms-auto">
-                    <ul class="navbar-nav me-auto gap-2 mb-2 mb-lg-0">
+                    <ul class="navbar-nav me-auto gap-2 mb-2 mb-lg-0 py-2">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -44,14 +44,15 @@
                                 2026 Holidays
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item active" href="#">Rome, Naples and Amalfi Coast</a></li>
+                                <li><a class="dropdown-item active" href="itineraryitaly1.html">Rome, Naples and Amalfi
+                                        Coast</a></li>
                                 <li><a class="dropdown-item" href="#">Tuscany</a></li>
                                 <li><a class="dropdown-item" href="#">Czech Republic</a></li>
                                 <li><a class="dropdown-item" href="#">United Kingdom</a></li>
                                 <li><a class="dropdown-item" href="#">Ireland</a></li>
                             </ul>
                         </li>
-                        <!-- Add bootstrap classes to push CTA buttons to end of navbar-collapse container on small screens-->
+                        <!-- Add bootstrap flex classes to push CTA buttons to end of navbar-collapse container on small screens-->
                         <li class="d-flex justify-content-end gap-2">
                             <button class="contact-cta btn" data-bs-toggle="modal" data-bs-target="#contact-modal">Get
                                 Quote</button>
@@ -107,40 +108,50 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button class="button btn" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" form="contact-form" class="btn btn-primary">Submit</button>
+                    <button class="btn btn-modal-close" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" form="contact-form" class="btn btn-modal-submit">Submit</button>
                 </div>
 
             </div>
         </div>
     </div>
 
-
-
-
-
-
     <!--Main-->
 
-    <main>
+    <main class="mb-5">
         <!--Header-->
-        <header class="hero-banner d-flex justify-content-center align-items-center">
+        <header class="hero-banner d-flex"> 
+            <img src="assets\images\tuscany_itinerary_hero.webp" alt="Panoramic view of Siena historic center" class="w-100 h-100">
+            
         </header>
-
-        <!-- Summary Section -->
+        <!--Summary Section-->
         <section class="container mt-4" id="summary-section">
-            <!--Itinerary Summary Section-->
-            <!--Bootstrap grid layout with trip highlights and booking form-->
-            <div class="row ">
-                <h1 class="display-4 hero-content"></h1>
+            <div class="row">
+                <h1 class="display-4 hero-content">Tuscany</h1>
                 <div class="col-lg-8">
-
                     <ul>
+                        <li>Stand before <strong>Michelangelo's David</strong> and the masterworks of the <strong>Uffizi
+                                Gallery</strong> with an expert art historian guide</li>
+                        <li>Walk the <strong>medieval streets of Siena</strong> and the shell-shaped Piazza del Campo —
+                            one of Europe's great public spaces</li>
+                        <li>Climb the <strong>Leaning Tower of Pisa</strong> and explore the stunning Cathedral and
+                            Baptistery of the Campo dei Miracoli</li>
+                        <li>Discover the <strong>hilltop gem of San Gimignano</strong> — a perfectly preserved medieval
+                            town famous for its ancient towers</li>
+                        <li>Tour the <strong>Chianti wine region</strong> — rolling vineyards, olive groves and a
+                            private wine tasting at a family estate</li>
+                        <li>Cross the <strong>Ponte Vecchio</strong> and explore Florence's Oltrarno district — artisan
+                            workshops, hidden piazzas and local trattorias</li>
+                        <li>Enjoy a <strong>free afternoon in Florence</strong> — shop, explore or simply sit in a café
+                            on the Piazza della Repubblica</li>
+                        <li>8 breakfasts and 5 evening meals included at your 4-star hotel</li>
+                        <li>Return flights from Dublin, Cork or Shannon included</li>
+                        <li>Maximum 16 guests — small group, expert guides throughout</li>
                     </ul>
                 </div>
                 <div class="col-lg-4 d-none d-lg-flex flex-column justify-content-center align-items-center py-2">
                     <div class="booking-form-wrap p-3">
-                        <h2></h2>
+                        <h2>Book from €1,799</h2>
                         <form action="">
                             <fieldset>
                                 <legend class="px-2"> No. of Travellers: </legend>
@@ -156,95 +167,163 @@
                                     <option value="7">7</option>
                                     <option value="8">8</option>
                                     <option value="9">9</option>
-
                                 </select>
                             </fieldset>
-                            <button class="booking-cta btn w-100 mt-3 ">Book Now</button>
+                            <button class="booking-cta btn w-100 mt-3">Book Now</button>
                         </form>
                     </div>
                 </div>
-
             </div>
             <div class="row">
                 <div class="col-12">
-                    <h2></h2>
-                    <p></p>
+                    <h2>Your guided holiday to Tuscany</h2>
+                    <p>
+                        Lose yourself in the birthplace of the Renaissance on this immersive guided tour through
+                        Tuscany's most extraordinary cities and landscapes. From the world-class art and architecture
+                        of Florence to the medieval pageantry of Siena, the iconic towers of Pisa and the timeless
+                        hilltop streets of San Gimignano, this journey weaves together masterpiece art, ancient
+                        history and the unhurried beauty of the Tuscan countryside — all in a single unforgettable
+                        nine-day experience.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <!-- Itinerary + Map Section -->
-        <section id="itinerary-section">
-            <div class="container">
-                <div class="row">
+        <!--Itinerary Section-->
+        <section id="itinerary-section" class="container border p-3 mb-5">
+            <div class="row">
+                <div class="col-12 col-lg-7">
+                    <div class="accordion" id="itineraryAccordion">
 
-                    <!-- Accordion Column -->
-                    <div class="col-12 col-lg-7">
-                        <div class="accordion" id="itineraryAccordion">
-
-                            <!-- Stage 1 -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#stage1">
-                                        <!-- Stage 1 Title -->
-                                    </button>
-                                </h2>
-                                <div id="stage1" class="accordion-collapse collapse show"
-                                    data-bs-parent="#itineraryAccordion">
-                                    <div class="accordion-body">
-                                        <!-- Stage 1 content -->
-                                    </div>
+                        <!-- Stage 1: Florence -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#stageFlorence">
+                                    Days 1–3 · Florence 
+                                </button>
+                            </h2>
+                            <div id="stageFlorence" class="accordion-collapse collapse show"
+                                data-bs-parent="#itineraryAccordion">
+                                <div class="accordion-body">
+                                    <p>Your journey begins in Florence, where the Renaissance was born and where its
+                                        greatest masterpieces still stand. Over three days your expert art historian
+                                        guide will lead you through the Uffizi Gallery — home to Botticelli's Birth
+                                        of Venus and dozens of the world's most celebrated paintings — before taking
+                                        you face to face with Michelangelo's David in the Galleria dell'Accademia.
+                                        Wander across the ancient Ponte Vecchio, explore the vast Piazza della
+                                        Signoria and climb to the top of Brunelleschi's magnificent Duomo for
+                                        sweeping rooftop views over the city. Evenings are yours to discover the
+                                        artisan workshops and candlelit restaurants of the Oltrarno district.</p>
+                                    <ul>
+                                        <li>Guided tour of the <strong>Uffizi Gallery</strong> — Botticelli, Leonardo
+                                            and Raphael</li>
+                                        <li>Stand before <strong>Michelangelo's David</strong> in the Galleria
+                                            dell'Accademia</li>
+                                        <li>Climb <strong>Brunelleschi's Duomo</strong> — panoramic views over
+                                            Florence's rooftops</li>
+                                        <li>Explore the <strong>Ponte Vecchio</strong> and Piazza della Signoria</li>
+                                        <li>Free evening in <strong>Oltrarno</strong> — artisan quarter, local
+                                            trattorias and hidden piazzas</li>
+                                        <li>Optional: <strong>Boboli Gardens</strong> and Pitti Palace</li>
+                                    </ul>
                                 </div>
                             </div>
-
-                            <!-- Stage 2 -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#stage2">
-                                        <!-- Stage 2 Title -->
-                                    </button>
-                                </h2>
-                                <div id="stage2" class="accordion-collapse collapse"
-                                    data-bs-parent="#itineraryAccordion">
-                                    <div class="accordion-body">
-                                        <!-- Stage 2 content -->
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Stage 3 -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#stage3">
-                                        <!-- Stage 3 Title -->
-                                    </button>
-                                </h2>
-                                <div id="stage3" class="accordion-collapse collapse"
-                                    data-bs-parent="#itineraryAccordion">
-                                    <div class="accordion-body">
-                                        <!-- Stage 3 content -->
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
-                    </div>
 
-                    <!-- Google Maps Column -->
-                    <div class="col-12 col-lg-5 d-flex">
-                        <div id="map-container" class="w-100">
-                            <!-- Google Maps API here -->
+                        <!-- Stage 2: Siena & San Gimignano -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#stageSiena">
+                                    Days 4–6 · Siena, San Gimignano & Chianti
+                                </button>
+                            </h2>
+                            <div id="stageSiena" class="accordion-collapse collapse"
+                                data-bs-parent="#itineraryAccordion">
+                                <div class="accordion-body">
+                                    <p>Transfer into the heart of Tuscany to the great medieval city of Siena —
+                                        Florence's ancient rival and one of Italy's best-preserved Gothic cities.
+                                        Your guide will walk you through the extraordinary shell-shaped Piazza del
+                                        Campo, into the soaring black-and-white striped Duomo and up through the
+                                        winding medieval lanes of the city's ancient contrade neighbourhoods. A day
+                                        excursion takes you to San Gimignano — a perfectly intact hilltop town
+                                        whose fourteen surviving medieval towers rise dramatically above the
+                                        Tuscan plain. Wind back through the Chianti wine country for a private
+                                        tasting at a family-run vineyard amid olive groves and cypress trees.</p>
+                                    <ul>
+                                        <li>Guided tour of <strong>Siena's Piazza del Campo</strong> — one of Europe's
+                                            greatest medieval squares</li>
+                                        <li>Explore <strong>Siena Cathedral</strong> — stunning Gothic architecture and
+                                            Pisano pulpit</li>
+                                        <li>Walk the <strong>medieval streets of San Gimignano</strong> — the Manhattan
+                                            of the Middle Ages</li>
+                                        <li>Private <strong>Chianti wine tasting</strong> at a family estate amid
+                                            rolling Tuscan vineyards</li>
+                                        <li>Panoramic drive through the <strong>Val d'Orcia</strong> — cypress-lined
+                                            roads and hilltop villages</li>
+                                        <li>Optional: <strong>Montalcino</strong> — hilltop fortress town and home of
+                                            Brunello wine</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                    </div>
 
+                        <!-- Stage 3: Pisa -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#stagePisa">
+                                    Days 7–9 · Pisa & the Tuscan Coast
+                                </button>
+                            </h2>
+                            <div id="stagePisa" class="accordion-collapse collapse"
+                                data-bs-parent="#itineraryAccordion">
+                                <div class="accordion-body">
+                                    <p>Your final stage takes you west to Pisa — a city far richer in history than
+                                        its famous leaning tower alone suggests. The Campo dei Miracoli is one of
+                                        the most breathtaking architectural ensembles in the world: the Tower, the
+                                        vast marble Cathedral, the circular Baptistery and the hauntingly beautiful
+                                        Camposanto all stand together on a sweep of emerald lawn. 
+                                        Your guide willbring the full story of this once-mighty maritime republic 
+                                        to life before you climb the tower's famous tilting spiral staircase for views
+                                        across the Arno plain. A final free afternoon gives you time to explore Pisa's
+                                        quieter riverside quarter, its bustling market streets and the elegant
+                                        Piazza dei Cavalieri before your farewell dinner.</p>
+                                    <ul>
+                                        <li>Climb the <strong>Leaning Tower of Pisa</strong> — iconic views from the
+                                            tilting summit</li>
+                                        <li>Guided tour of the <strong>Campo dei Miracoli</strong> — Cathedral,
+                                            Baptistery and Camposanto</li>
+                                        <li>Explore <strong>Piazza dei Cavalieri</strong> — Pisa's historic knight's
+                                            square</li>
+                                        <li>Walk the <strong>Lungarni</strong> — Pisa's elegant riverside promenades
+                                        </li>
+                                        <li>Free afternoon in Pisa — markets, cafés and the quieter medieval quarter
+                                        </li>
+                                        <li>Farewell dinner before return transfer to Pisa International Airport</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
+           
+            <!-- Google Maps Column -->
+            <div class="col-12 col-lg-5 d-flex p-2">
+                <div id="map-container" class="w-100 d-flex justify-content-center align-items-center"
+                data-lat="43.4" data-lng="11.05" data-zoom="8" data-markerid="tuscany" >
+                    
+                </div>
+            </div>
+
+            </div>
             </div>
         </section>
 
     </main>
+
 
 
 
@@ -264,12 +343,12 @@
 
                     <div class="d-flex align-items-start mb-3">
                         <span class="flex-shrink-0"><i class="fa-solid fa-phone"></i></span>
-                        <span> <a href="tel:3531234567" class="anchor">+353 87 1234567</a><br> </span>
+                        <span> <a href="tel:3531234567">+353 87 1234567</a><br> </span>
                     </div>
 
                     <div class="d-flex align-items-start">
                         <span class="flex-shrink-0"><i class="fa-regular fa-paper-plane"></i></span>
-                        <span> <a href="mailto:info@TimewalkTravel.ie" class="anchor">info@TimewalkTravel.ie</a><br>
+                        <span> <a href="mailto:info@TimewalkTravel.ie">info@TimewalkTravel.ie</a><br>
                         </span>
                     </div>
 
@@ -290,20 +369,21 @@
                 <div class="col-12 col-md-4">
                     <strong class="d-block mb-3 small text-uppercase">Quick Links</strong>
                     <ul class="quick-links d-flex flex-column align-items-start">
-                        <li>Rome, Naples and Amalfi Coast</li>
-                        <li>Tuscany</li>
-                        <li>Czech Republic</li>
-                        <li>United Kingdom</li>
-                        <li>Ireland</li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="itineraryitaly1.html">Rome, Naples and Amalfi Coast</a></li>
+                        <li><a href="#">Tuscany</a></li>
+                        <li><a href="#">Czech Republic</a></li>
+                        <li><a href="#">United Kingdom</a></li>
+                        <li><a href="#">Ireland</a></li>
                     </ul>
                 </div>
 
                 <div class="col-12 col-md-4 ">
                     <strong class="d-block mb-3 small text-uppercase">Newsletter</strong>
                     <div class="d-flex flex-column gap-2 newsletter-signup">
-                        <p>Stay updated with ur latest history-packed getaways and deals.</p>
-                        <form action="" method="post">
-                            <label for="newsletter-email" class="visually-hidden" novalidate></label>
+                        <p>Stay updated with our latest history-packed getaways and deals.</p>
+                        <form action="" method="post" novalidate>
+                            <label for="newsletter-email" class="visually-hidden">Email Address</label>
                             <input type="email" id="newsletter-email" name="email" class="form-control flex-grow-1 mb-3"
                                 placeholder="Enter your Email" required>
                             <button type="submit"
@@ -314,7 +394,7 @@
 
             </div>
         </div>
-        </div>
+
 
     </footer>
 
@@ -323,6 +403,10 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/398116af51.js" crossorigin="anonymous"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCixAFHxPLfz-kohjd7Te6Eujn9DZ4VdUw&libraries=marker&loading=async&callback=initMap"></script>
+    <script src="assets/main.js"></script>
+
 </body>
 
 </html>

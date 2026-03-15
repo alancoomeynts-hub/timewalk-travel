@@ -42,14 +42,24 @@ async function initMap() {
     const markersCoordinates = {
       rome: {
         locations: [
-          { lat: 41.9028, lng: 12.4964, city: "Rome", header:"Day 1-3",ariaLabel:"Rome InfoWindow" }, // Rome
-          { lat: 40.8518, lng: 14.2681, city: "Naples",header:"Day 4-5", ariaLabel: "Naples InfoWindow" }, // Naples
-          { lat: 40.6263, lng: 14.3757, city: "Sorrento", header:"Day 6", ariaLabel:"Sorrento InfoWindow"} // Sorrento
+          { lat: 41.9028, lng: 12.4964, city: "Rome", header:"Day 1-3",ariaLabel:"Rome Info Window" }, // Rome
+          { lat: 40.8518, lng: 14.2681, city: "Naples",header:"Day 4-5", ariaLabel: "Naples Info Window" }, // Naples
+          { lat: 40.6263, lng: 14.3757, city: "Sorrento", header:"Day 6", ariaLabel:"Sorrento Info Window"} // Sorrento
         ],
       },
+      tuscany: {
+    locations: [
+      { lat: 43.7696, lng: 11.2558, city: "Florence",header:"Days 1–3", ariaLabel:"Florence Info Window" },     // Florence 
+      { lat: 43.3182, lng: 11.3306, city: "Siena", header:"Days 4–6", ariaLabel:"Siena Info Window" },        // Siena 
+      { lat: 43.4703, lng: 11.0438, city: "San Gimignano", header:"Day Trip", ariaLabel:"San Gimignano Info Window" },// San Gimignano 
+      { lat: 43.7167, lng: 10.4000, city: "Pisa", header:"Days 7–9", ariaLabel:"Pisa Info Window" }          // Pisa 
+    ]
+  }
     };
 
     createMarker(mapInstance, markersCoordinates[markerid]); // pass map instance and locations object matching index markerId.
+
+    // error handling as decribed Google API docs
   } catch (error) {
        if(error && error instanceof google.maps.MapsRequestError){
         //Bad Request 4xx error
@@ -89,16 +99,28 @@ function filterResults() {}
  */
 function createMarker(map, markerData) {
   markerData.locations.forEach((location) => {
+      //style map markers gold and black
+      const pin = new google.maps.marker.PinElement({
+      background: '#c9940a',      
+      borderColor: '#ffffff',     
+      glyphColor: '#3a3a3a',
+      scale: 1.1
+    });
+
+    //create markers from MarkerData
     const marker = new google.maps.marker.AdvancedMarkerElement({
       position: { lat: location.lat, lng: location.lng },
       map: map,
       title: location.city,
+      content:pin.element
     });
 
+    // create header html element and assign class
     const header=document.createElement('h6');
     header.className='info-window-header';
     header.textContent=location.header;
 
+    //create infoWindows
     const infoWindow = new google.maps.InfoWindow({
       headerContent: header,
       maxWidth:240,
@@ -106,6 +128,7 @@ function createMarker(map, markerData) {
       content:`<div class="info-window-style">${location.city}</div>`
     });
 
+    // add click listeners to markers for infoWindows
     marker.addListener("click", () => {
       infoWindow.open(map, marker);
     });
