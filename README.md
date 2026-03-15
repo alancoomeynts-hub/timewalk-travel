@@ -49,20 +49,20 @@ prussian-dark:     #1e1b4b; /* Button hovers */
 ![Home Page with prototype styling](assets/wireframes/Home-Page_Wireframe.png)
 ![itinery page wireframe]
 
-Code
+## Code
 - window.location from W3S: https://www.w3schools.com/js/js_window_location.asp
 - learned to use text shadow from https://www.programiz.com/css/text-shadow.
 - learned how to style navbar-toggler and svg icon from https://codingyaar.com/shorts/bootstrap-navbar-toggler-color-change/
 - Sources for Google Maps API: 
-    Initial version from publicapis: https://publicapis.io/google-maps-api-api
-    Final implementation Google Maps Javascript documentation.
+    - **Initial version from publicapis: https://publicapis.io/google-maps-api-api
+    - **Final implementation Google Maps Javascript documentation.
             - Scripting Loading Tag:  https://developers.google.com/maps/documentation/javascript/load-maps-js-api
             - Migrating Markers to Advanced Markers: https://developers.google.com/maps/documentation/javascript/advanced-markers/migration.
             - InfoWindows: https://developers.google.com/maps/documentation/javascript/reference/info-window
             -Error handling: https://developers.google.com/maps/documentation/javascript/error-handling
-            - Cloud Customisation:https://developers.google.com/maps/documentation/javascript/cloud-customization
 
-- Source for  styling infoWindows in Google Maps API elements: https://developers.google.com/maps/documentation/javascript/infowindows#maps_infowindow_simple-javascript.
+
+
 - 
 Media Sources:
 - Text content generated with assistance from Perplexity.

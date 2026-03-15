@@ -51,9 +51,24 @@ async function initMap() {
 
     createMarker(mapInstance, markersCoordinates[markerid]); // pass map instance and locations object matching index markerId.
   } catch (error) {
-    console.error(`Map error:${error.message}`);
-    container.innerHTML = "<p class='text-danger'>Map Unavailable.</p>"; // on error insert p element into map container with Bootstrap text-danger class
-  }
+       if(error && error instanceof google.maps.MapsRequestError){
+        //Bad Request 4xx error
+        console.error(`Map error: Invalid Request`, error);
+        container.innerHTML = "<p class='text-danger'>Map Configuration Error.</p>"; // on error insert p element into map container with Bootstrap text-danger class
+       }else if (error && error instanceof google.maps.MapsServerError){
+          //Google server error 5xx
+          console.error('Map error: Google server error', error);
+          container.innerHTML = "<p class='text-danger'>Map temporarily unavailable.</p>";
+      }else if (error instanceof google.maps.MapsNetworkError) {
+          // User connectivity issue
+          console.error('Map error: Network error - check connection', error);
+          container.innerHTML = "<p class='text-danger'>Map unavailable - check your connection.</p>";
+      }else{
+          console.error(`Map error:${error.message}`);
+          container.innerHTML = "<p class='text-danger'>Unknown Error Occured</p>"; // on error insert p element into map container with Bootstrap text-danger class
+      }
+ 
+    }
 }
 
 function transparentNavbar() {}
@@ -96,6 +111,10 @@ function createMarker(map, markerData) {
     });
   });
 }
+
+
+
+
 
 // TODO: add styles for map container using stylers and infoWindows using content and template literal
 //TODO: add body elements ids for dom content loaded event listener
