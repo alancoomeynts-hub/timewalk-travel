@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /**
- * initMap creates Google Maps API instance utilising data attributes from #map-container element 
+ * initMap creates Google Maps API instance utilising data attributes from #map-container element
  * and on success, passes map and markerData to createMarker() to create advanced markers and infoWindows.
  */
 
@@ -40,45 +40,86 @@ async function initMap() {
 
     const markerid = container.dataset.markerid;
     const markersCoordinates = {
-      rome: {
-        locations: [
-          { lat: 41.9028, lng: 12.4964, city: "Rome", header:"Day 1-3",ariaLabel:"Rome Info Window" }, // Rome
-          { lat: 40.8518, lng: 14.2681, city: "Naples",header:"Day 4-5", ariaLabel: "Naples Info Window" }, // Naples
-          { lat: 40.6263, lng: 14.3757, city: "Sorrento", header:"Day 6", ariaLabel:"Sorrento Info Window"} // Sorrento
+      rome:  [
+          {
+            lat: 41.9028,
+            lng: 12.4964,
+            city: "Rome",
+            header: "Day 1-3",
+            ariaLabel: "Rome Info Window",
+          }, // Rome
+          {
+            lat: 40.8518,
+            lng: 14.2681,
+            city: "Naples",
+            header: "Day 4-5",
+            ariaLabel: "Naples Info Window",
+          }, // Naples
+          {
+            lat: 40.6263,
+            lng: 14.3757,
+            city: "Sorrento",
+            header: "Day 6",
+            ariaLabel: "Sorrento Info Window",
+          }, // Sorrento
         ],
-      },
-      tuscany: {
-    locations: [
-      { lat: 43.7696, lng: 11.2558, city: "Florence",header:"Days 1–3", ariaLabel:"Florence Info Window" },     // Florence 
-      { lat: 43.3182, lng: 11.3306, city: "Siena", header:"Days 4–6", ariaLabel:"Siena Info Window" },        // Siena 
-      { lat: 43.4703, lng: 11.0438, city: "San Gimignano", header:"Day Trip", ariaLabel:"San Gimignano Info Window" },// San Gimignano 
-      { lat: 43.7167, lng: 10.4000, city: "Pisa", header:"Days 7–9", ariaLabel:"Pisa Info Window" }          // Pisa 
-    ]
-  }
+      tuscany: [
+          {
+            lat: 43.7696,
+            lng: 11.2558,
+            city: "Florence",
+            header: "Days 1-3",
+            ariaLabel: "Florence Info Window",
+          }, // Florence
+          {
+            lat: 43.3182,
+            lng: 11.3306,
+            city: "Siena",
+            header: "Days 4-6",
+            ariaLabel: "Siena Info Window",
+          }, // Siena
+          {
+            lat: 43.4703,
+            lng: 11.0438,
+            city: "San Gimignano",
+            header: "Day Trip",
+            ariaLabel: "San Gimignano Info Window",
+          }, // San Gimignano
+          {
+            lat: 43.7167,
+            lng: 10.4,
+            city: "Pisa",
+            header: "Days 7-9",
+            ariaLabel: "Pisa Info Window",
+          }, // Pisa
+        ],
+    
     };
 
     createMarker(mapInstance, markersCoordinates[markerid]); // pass map instance and locations object matching index markerId.
 
     // error handling as decribed Google API docs
   } catch (error) {
-       if(error && error instanceof google.maps.MapsRequestError){
-        //Bad Request 4xx error
-        console.error(`Map error: Invalid Request`, error);
-        container.innerHTML = "<p class='text-danger'>Map Configuration Error.</p>"; // on error insert p element into map container with Bootstrap text-danger class
-       }else if (error && error instanceof google.maps.MapsServerError){
-          //Google server error 5xx
-          console.error('Map error: Google server error', error);
-          container.innerHTML = "<p class='text-danger'>Map temporarily unavailable.</p>";
-      }else if (error instanceof google.maps.MapsNetworkError) {
-          // User connectivity issue
-          console.error('Map error: Network error - check connection', error);
-          container.innerHTML = "<p class='text-danger'>Map unavailable - check your connection.</p>";
-      }else{
-          console.error(`Map error:${error.message}`);
-          container.innerHTML = "<p class='text-danger'>Unknown Error Occured</p>"; // on error insert p element into map container with Bootstrap text-danger class
-      }
- 
+    if (error && error instanceof google.maps.MapsRequestError) {
+      //Bad Request 4xx error
+      console.error(`Map error: Invalid Request`, error);
+      container.innerHTML =
+        "<p class='text-danger'>Map Configuration Error.</p>"; // on error insert p element into map container with Bootstrap text-danger class
+    } else if (error && error instanceof google.maps.MapsServerError) {
+      //Google server error 5xx
+      console.error("Map error: Google server error", error);
+      container.innerHTML =
+        "<p class='text-danger'>Map temporarily unavailable.</p>";
+    } else if (error instanceof google.maps.MapsNetworkError) {
+      // User connectivity issue
+      console.error("Map error: Network error - check connection", error);
+      container.innerHTML =
+        "<p class='text-danger'>Map unavailable - check your connection.</p>";
+    } else {
+      console.error(`Map error:${error.message}`);
+      container.innerHTML = "<p class='text-danger'>Unknown Error Occured</p>"; // on error insert p element into map container with Bootstrap text-danger class
     }
+  }
 }
 
 function transparentNavbar() {}
@@ -98,13 +139,13 @@ function filterResults() {}
  * @param {*} markerData - Object holding itinery marker details.
  */
 function createMarker(map, markerData) {
-  markerData.locations.forEach((location) => {
-      //style map markers gold and black
-      const pin = new google.maps.marker.PinElement({
-      background: '#c9940a',      
-      borderColor: '#ffffff',     
-      glyphColor: '#3a3a3a',
-      scale: 1.1
+  markerData.forEach((location) => {
+    //style map markers gold and black
+    const pin = new google.maps.marker.PinElement({
+      background: "#c9940a",
+      borderColor: "#ffffff",
+      glyphColor: "#3a3a3a",
+      scale: 1.1,
     });
 
     //create markers from MarkerData
@@ -112,20 +153,20 @@ function createMarker(map, markerData) {
       position: { lat: location.lat, lng: location.lng },
       map: map,
       title: location.city,
-      content:pin.element
+      content: pin.element,
     });
 
     // create header html element and assign class
-    const header=document.createElement('h6');
-    header.className='info-window-header';
-    header.textContent=location.header;
+    const header = document.createElement("h6");
+    header.className = "info-window-header";
+    header.textContent = location.header;
 
     //create infoWindows
     const infoWindow = new google.maps.InfoWindow({
       headerContent: header,
-      maxWidth:240,
-      ariaLabel: location.ariaLabel ,
-      content:`<div class="info-window-style">${location.city}</div>`
+      maxWidth: 240,
+      ariaLabel: location.ariaLabel,
+      content: `<div class="info-window-style">${location.city}</div>`,
     });
 
     // add click listeners to markers for infoWindows
@@ -134,10 +175,6 @@ function createMarker(map, markerData) {
     });
   });
 }
-
-
-
-
 
 // TODO: add styles for map container using stylers and infoWindows using content and template literal
 //TODO: add body elements ids for dom content loaded event listener
