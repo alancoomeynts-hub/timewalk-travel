@@ -118,9 +118,10 @@ h6 {
 .modal-header,
 .modal-footer {
   font-family: var(--font-secondary);
-  background-color: var(--bg-primary-contrast);
+  background-color: var(--action-primary);
   color: var(--bg-secondary-contrast);
   font-weight: 600;
+  border-bottom: none;
 }
 
 .btn-modal-submit{
@@ -138,15 +139,17 @@ h6 {
 }
 
 .btn-modal-close {
-  background-color: #6c757d;
-   border: 1px solid #6c757d;
-  color: var(--bg-secondary-contrast);
+  background-color: var(--bg-secondary-contrast);
+  border-width: 3px;
+  color: var(--bg-primary);
   border-radius: 0.8rem;
   transition: all 0.2s ease;
 }
 
 .btn-modal-close:hover{
-  background-color: #6c757d;
+  background-color: var(--bg-secondary-contrast);
+  color: var(--bg-primary);
+  border-color: var(--bg-primary);
   transform: translateY(-2px);
 }
 
@@ -231,7 +234,9 @@ p.card-text.small {
 /* itinerary pages main content*/
 .hero-banner {
   position: relative;
-  min-height: 90vh;
+  height: 80vh;
+  width: 100vw;
+
 }
 
 .hero-banner img{
@@ -241,6 +246,9 @@ p.card-text.small {
   top:0;
   left: 0;
   z-index: 1;
+  width: 100%;
+  height: 100%;
+  
 }
 
 .hero-content{

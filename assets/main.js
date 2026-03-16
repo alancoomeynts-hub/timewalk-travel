@@ -1,14 +1,17 @@
+/* dom content loaded function with page detection*/
 document.addEventListener("DOMContentLoaded", () => {
 
+  validateForms();
+ 
+  
   const page=document.body.id;
-  console.log(page);
+  
   if(page==="page-home"){
     LocationCardsRedirect();
   }
 
   transparentNavbar();
   thumbCTAToggle();
-  formValidation();
   contactFormSuccess();
   newspaperSubscriptionAlert();
   filterResults();
@@ -135,11 +138,49 @@ function LocationCardsRedirect(){
 
     }
 
+function validateForms(){
+  const forms= document.querySelectorAll(".needs-validation");
+
+  Array.from(forms).forEach( form =>{
+    form.addEventListener('submit',event => {
+      event.preventDefault();
+      
+      if(form.checkValidity()){
+       const formData= new FormData(form);
+       
+        fetch("https://httpbin.org/post",{
+          method:"POST",
+          body: formData,
+        }).then(response=>response.json())
+        .then(data=>console.log("Response:",data))
+        .catch(e=>console.error("Error:",e));
+        
+       showFormSubmissionModal();
+       
+      }else{
+        
+        form.classList.add('was-validated');
+
+      }
+
+    });
+  });
+}
+
+function showFormSubmissionModal(){
+  const contactModal=bootstrap.Modal.getInstance(document.getElementById("contact-modal"));
+  if(contactModal){
+  contactModal.hide();
+  }
+  
+  const successModal= new bootstrap.Modal(document.getElementById("success-modal"));
+  successModal.show();
+
+}
+
 function transparentNavbar() {}
 
 function thumbCTAToggle() {}
-
-function formValidation() {}
 
 function contactFormSuccess() {}
 

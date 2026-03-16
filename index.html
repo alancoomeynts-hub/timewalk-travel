@@ -78,12 +78,12 @@
         <div class="modal-dialog ">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="contact-modal-label">Provide Contact Details</h5>
+                    <h5 class="modal-title modal-label">Please Provide Contact Details</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
                 <div class="modal-body">
-                    <form action="" method="GET" id="contact-form">
+                    <form id="contact-form" class="needs-validation" novalidate>
                         <div class="row">
                             <div class="col-12 col-lg-6 mb-3">
                                 <label for="name" class="form-label">Name</label>
@@ -92,10 +92,13 @@
                             <div class="col-12 col-lg-6 mb-3">
                                 <label for="email" class="form-label">Email</label>
                                 <input class="form-control" id="email" name="email" type="email" required>
+                                <div class="invalid-feedback">Please use a valid email address</div>
                             </div>
                             <div class="col-12 col-lg-6 mb-3">
-                                <label for="phone" class="form-label">Phone number</label>
-                                <input class="form-control" id="phone" name="phone" type="tel" required>
+                                <label for="phone" class="form-label">Phone number (e.g. +353 87 123 4567)</label>
+                                <input class="form-control" id="phone" name="phone" type="tel"
+                                    pattern="\+?[\d\s\-\(\)]{10,20}" required>
+                                <div class="invalid-feedback">Please enter your number in international format.</div>
                             </div>
 
                             <div class="col-12 mb-3">
@@ -118,69 +121,92 @@
         </div>
     </div>
 
- <!--Main-->
+    <!--Form Success Modal-->
+    <!-- Bootstrap modal activated by on  contact-modal form or newsletter signup submission-->
+    <div class="modal fade" id="success-modal" tabindex="-1" aria-labelledby="success-modal-label" aria-hidden="true">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title modal-header">Thank You</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <p>We've received your enquiry. One of our travel agents will contact you within 24 hours!</p>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-modal-close" data-bs-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--Main-->
     <!--Main content area containing header, search forms, about section, and location cards-->
     <main>
 
 
-    <!--Header-->
-    <!--Header with hero image. Flexbox classes to overlay h1 and form on the image-->
+        <!--Header-->
+        <!--Header with hero image. Flexbox classes to overlay h1 and form on the image-->
 
-    <header id="hero-header" class="d-flex">
-        <h1 id="hero-heading" class="display-5">Historical City Tours 2026</h1>
+        <header id="hero-header" class="d-flex">
+            <h1 id="hero-heading" class="display-5">Historical City Tours 2026</h1>
 
-        <!--Desktop Search Form-->
-        <!--Bootstrap form with select dropdowns for filtering destinations-->
-        <form action="" method="GET" id="search-filter-form" class="d-none d-lg-flex gap-3 justify-content-center">
-            <div class="row g-5">
-                <div class="col-12 col-lg-3">
-                    <select class="form-select form-select-lg" name="destination" aria-label="Form Holiday City">
-                        <option selected value="">Destination</option>
-                        <option value="rome">Rome</option>
-                        <option value="naples">Naples</option>
-                        <option value="pompeii">Pompeii</option>
-                        <option value="siena">Siena</option>
-                        <option value="florence">Florence</option>
-                        <option value="pisa">Pisa</option>
-                        <option value="san_gimignano">San Gimignano</option>
-                        <option value="prague">Prague</option>
-                        <option value="cesky_krumlov">Cesky Krumlov</option>
-                        <option value="edinburgh">Edinburgh</option>
-                        <option value="york">York</option>
-                        <option value="cardiff">Cardiff</option>
-                        <option value="cork_city">Cork City</option>
-                        <option value="kilkenny">Kilkenny</option>
-                        <option value="dublin">Dublin</option>
+            <!--Desktop Search Form-->
+            <!--Bootstrap form with select dropdowns for filtering destinations-->
+            <form action="" method="GET" id="search-filter-form" class="d-none d-lg-flex gap-3 justify-content-center">
+                <div class="row g-5">
+                    <div class="col-12 col-lg-3">
+                        <select class="form-select form-select-lg" name="destination" aria-label="Form Holiday City">
+                            <option selected value="">Destination</option>
+                            <option value="rome">Rome</option>
+                            <option value="naples">Naples</option>
+                            <option value="pompeii">Pompeii</option>
+                            <option value="siena">Siena</option>
+                            <option value="florence">Florence</option>
+                            <option value="pisa">Pisa</option>
+                            <option value="san_gimignano">San Gimignano</option>
+                            <option value="prague">Prague</option>
+                            <option value="cesky_krumlov">Cesky Krumlov</option>
+                            <option value="edinburgh">Edinburgh</option>
+                            <option value="york">York</option>
+                            <option value="cardiff">Cardiff</option>
+                            <option value="cork_city">Cork City</option>
+                            <option value="kilkenny">Kilkenny</option>
+                            <option value="dublin">Dublin</option>
 
-                    </select>
+                        </select>
+                    </div>
+                    <div class="col-12 col-lg-3">
+                        <select class="form-select" name="theme" aria-label="Form Holiday Theme">
+                            <option selected value="">Theme</option>
+                            <option value="theme-medieval">Medieval</option>
+                            <option value="theme-renaissance">Renaissance</option>
+                            <option value="theme-rome">Ancient Rome</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-lg-3">
+                        <select class="form-select" name="departure-airport" aria-label="Form Departure Airport">
+                            <option selected value="">Depart from</option>
+                            <option value="shannon-airport">Shannon</option>
+                            <option value="dublin-airport">Dublin</option>
+                            <option value="cork-airport">Cork</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-lg-3">
+                        <button type="submit" form="search-filter-form" class="btn-search"><i
+                                class="fa-solid fa-magnifying-glass-location"></i></button>
+                    </div>
+
                 </div>
-                <div class="col-12 col-lg-3">
-                    <select class="form-select" name="theme" aria-label="Form Holiday Theme">
-                        <option selected value="">Theme</option>
-                        <option value="theme-medieval">Medieval</option>
-                        <option value="theme-renaissance">Renaissance</option>
-                        <option value="theme-rome">Ancient Rome</option>
-                    </select>
-                </div>
-                <div class="col-12 col-lg-3">
-                    <select class="form-select" name="departure-airport" aria-label="Form Departure Airport">
-                        <option selected value="">Depart from</option>
-                        <option value="shannon-airport">Shannon</option>
-                        <option value="dublin-airport">Dublin</option>
-                        <option value="cork-airport">Cork</option>
-                    </select>
-                </div>
-                <div class="col-12 col-lg-3">
-                    <button type="submit" form="search-filter-form" class="btn-search"><i
-                            class="fa-solid fa-magnifying-glass-location"></i></button>
-                </div>
+            </form>
 
-            </div>
-        </form>
+        </header>
 
-    </header>
 
-   
         <!--Mobile Search Form-->
         <!--Bootstrap responsive form visible only on small screens using d-lg-none-->
         <div class="container d-lg-none py-5">
@@ -189,45 +215,47 @@
                     <div class="col-12 mb-3">
                         <select class="form-select form-select-lg" name="destination" aria-label="Form Holiday City">
                             <option selected value="">Destination</option>
-                        <option value="rome">Rome</option>
-                        <option value="naples">Naples</option>
-                        <option value="pompeii">Pompeii</option>
-                        <option value="siena">Siena</option>
-                        <option value="florence">Florence</option>
-                        <option value="pisa">Pisa</option>
-                        <option value="san_gimignano">San Gimignano</option>
-                        <option value="prague">Prague</option>
-                        <option value="cesky_krumlov">Cesky Krumlov</option>
-                        <option value="edinburgh">Edinburgh</option>
-                        <option value="york">York</option>
-                        <option value="cardiff">Cardiff</option>
-                        <option value="cork_city">Cork City</option>
-                        <option value="kilkenny">Kilkenny</option>
-                        <option value="dublin">Dublin</option>
+                            <option value="rome">Rome</option>
+                            <option value="naples">Naples</option>
+                            <option value="pompeii">Pompeii</option>
+                            <option value="siena">Siena</option>
+                            <option value="florence">Florence</option>
+                            <option value="pisa">Pisa</option>
+                            <option value="san_gimignano">San Gimignano</option>
+                            <option value="prague">Prague</option>
+                            <option value="cesky_krumlov">Cesky Krumlov</option>
+                            <option value="edinburgh">Edinburgh</option>
+                            <option value="york">York</option>
+                            <option value="cardiff">Cardiff</option>
+                            <option value="cork_city">Cork City</option>
+                            <option value="kilkenny">Kilkenny</option>
+                            <option value="dublin">Dublin</option>
 
 
                         </select>
                     </div>
                     <div class="col-12 mb-3">
                         <select class="form-select form-select-lg" name="theme" aria-label="Form Holiday Theme">
-                          <option selected value="">Theme</option>
-                        <option value="theme-medieval">Medieval</option>
-                        <option value="theme-renaissance">Renaissance</option>
-                        <option value="theme-rome">Ancient Rome</option>
+                            <option selected value="">Theme</option>
+                            <option value="theme-medieval">Medieval</option>
+                            <option value="theme-renaissance">Renaissance</option>
+                            <option value="theme-rome">Ancient Rome</option>
                         </select>
 
                     </div>
 
                     <div class="col-9 mb-3">
-                        <select class="form-select form-select-lg" name="departure-airport"aria-label="Form Departure Airport">
+                        <select class="form-select form-select-lg" name="departure-airport"
+                            aria-label="Form Departure Airport">
                             <option value="" selected>Depart from</option>
-                           <option value="shannon-airport">Shannon</option>
-                        <option value="dublin-airport">Dublin</option>
-                        <option value="cork-airport">Cork</option>
+                            <option value="shannon-airport">Shannon</option>
+                            <option value="dublin-airport">Dublin</option>
+                            <option value="cork-airport">Cork</option>
                         </select>
                     </div>
                     <div class="col-3 ">
-                        <button type ="submit" class="btn-search" form="search-filter-form-mobile"><i class="fa-solid fa-magnifying-glass-location"></i></button>
+                        <button type="submit" class="btn-search" form="search-filter-form-mobile"><i
+                                class="fa-solid fa-magnifying-glass-location"></i></button>
                     </div>
 
                 </div>
@@ -300,7 +328,8 @@
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card h-100" data-href="">
-                        <img src="assets/images/IrelandCard.webp" alt="Composite image of cliffs of moher, blarney castle, newgrange" class="card-img-top">
+                        <img src="assets/images/IrelandCard.webp"
+                            alt="Composite image of cliffs of moher, blarney castle, newgrange" class="card-img-top">
                         <div class="card-body text-center">
                             <h6 class="card-title mb-3">Ireland</h6>
                             <p class="card-text small">From €1,495 pp</p>
@@ -390,10 +419,11 @@
                     <strong class="d-block mb-3 small text-uppercase">Newsletter</strong>
                     <div class="d-flex flex-column gap-2 newsletter-signup">
                         <p>Stay updated with our latest history-packed getaways and deals.</p>
-                        <form action="" method="post" novalidate>
-                            <label for="newsletter-email" class="visually-hidden" >Email Address</label>
+                        <form class="needs-validation" novalidate>
+                            <label for="newsletter-email" class="visually-hidden">Email Address</label>
                             <input type="email" id="newsletter-email" name="email" class="form-control flex-grow-1 mb-3"
                                 placeholder="Enter your Email" required>
+                            <div class="invalid-feedback">Please use a valid email address</div>
                             <button type="submit"
                                 class=" btn btn-newsletter flex-shrink-0 justify-content-center gap-1">Sign Up</button>
                         </form>
@@ -402,7 +432,7 @@
 
             </div>
         </div>
-        
+
 
     </footer>
 
