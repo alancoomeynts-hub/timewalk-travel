@@ -1,4 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+  const page=document.body.id;
+  console.log(page);
+  if(page==="page-home"){
+    LocationCardsRedirect();
+  }
+
   transparentNavbar();
   thumbCTAToggle();
   formValidation();
@@ -17,16 +24,6 @@ async function initMap() {
   if (!container) {
     throw new Error("No map containers found");
   }
-
-  console.log(
-    "Map container found, `lat`, `lng`, and `zoom` data attributes:",
-    {
-      lat: container.dataset.lat,
-      lng: container.dataset.lng,
-      zoom: container.dataset.zoom,
-      markerid: container.dataset.markerid,
-    },
-  );
 
   try {
     const mapInstance = new google.maps.Map(container, {
@@ -121,6 +118,22 @@ async function initMap() {
     }
   }
 }
+/**
+ * Add click listeners to all location-grid .cards on index.html and redirect to data-href 
+ */
+function LocationCardsRedirect(){
+      const cards=document.querySelectorAll(".card");
+     
+      cards.forEach((card)=>{
+        card.addEventListener("click", (e)=>{
+          if(card && e.currentTarget.dataset.href){
+          window.location.href=e.currentTarget.dataset.href;
+          }
+        })
+
+      })
+
+    }
 
 function transparentNavbar() {}
 
@@ -133,6 +146,7 @@ function contactFormSuccess() {}
 function newspaperSubscriptionAlert() {}
 
 function filterResults() {}
+
 /**
  * createMarker creates Google API advanced markers and infoWindows on marker click.
  * @param {*} map - THe Google Maps instance created by initMap().
