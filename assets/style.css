@@ -124,6 +124,10 @@ h6 {
   border-bottom: none;
 }
 
+.modal-title{
+  color:var(--bg-primary);
+}
+
 .btn-modal-submit{
   color: var(--bg-secondary-contrast);
   background-color: var(--accent-primary);
@@ -213,7 +217,16 @@ h6 {
   border: 1px solid rgba(0, 0, 0, 0.8);
   border-radius: 1rem;
   box-shadow: var(--shadow-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
+
+#location-grid .card:hover{
+ 
+  transform: translate3d(-4px,-6px,10px);
+}
+
+
 .card .card-img-top {
   border-radius: 1rem;
   width: 100%;

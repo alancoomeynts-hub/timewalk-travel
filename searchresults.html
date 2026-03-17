@@ -33,7 +33,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="ms-auto">
-                    <ul class="navbar-nav me-auto gap-2 mb-2 mb-lg-0">
+                    <ul class="navbar-nav me-auto gap-2 mb-2 mb-lg-0 py-2">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
@@ -44,11 +44,12 @@
                                 2026 Holidays
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Rome, Naples and Amalfi Coast</a></li>
-                                <li><a class="dropdown-item" href="#">Tuscany</a></li>
-                                <li><a class="dropdown-item" href="#">Czech Republic</a></li>
-                                <li><a class="dropdown-item" href="#">United Kingdom</a></li>
-                                <li><a class="dropdown-item" href="#">Ireland</a></li>
+                                <li><a class="dropdown-item" href="itineraryitaly1.html">Rome, Naples and Amalfi Coast</a></li>
+                                <li><a class="dropdown-item" href="itineraryitaly2.html">Tuscany</a></li>
+                                <li><a class="dropdown-item" href="itineraryczechia.html">Czech Republic</a></li>
+                                <li><a class="dropdown-item" href="itineraryaustria.html">Austria & Venice</a></li>
+                                <li><a class="dropdown-item" href="itineraryandulusia.html">Andalusia</a></li>
+                                <li><a class="dropdown-item" href="itineraryireland.html">Ireland & Scotland</a></li>
                             </ul>
                         </li>
                         <!-- Add bootstrap classes to push CTA buttons to end of navbar-collapse container on small screens-->
@@ -75,12 +76,12 @@
         <div class="modal-dialog ">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="contact-modal-label">Provide Contact Details</h5>
+                    <h5 class="modal-title modal-label">Please Provide Contact Details</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
                 <div class="modal-body">
-                    <form action="" method="GET" id="contact-form">
+                    <form id="contact-form" class="needs-validation" novalidate>
                         <div class="row">
                             <div class="col-12 col-lg-6 mb-3">
                                 <label for="name" class="form-label">Name</label>
@@ -89,6 +90,7 @@
                             <div class="col-12 col-lg-6 mb-3">
                                 <label for="email" class="form-label">Email</label>
                                 <input class="form-control" id="email" name="email" type="email" required>
+                                <div class="invalid-feedback">Please use a valid email address</div>
                             </div>
                             <div class="col-12 col-lg-6 mb-3">
                                 <label for="phone" class="form-label">Phone number</label>
@@ -107,8 +109,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button class="button btn" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" form="contact-form" class="btn btn-primary">Submit</button>
+                    <button class="btn btn-modal-close" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" form="contact-form" class="btn btn-modal-submit">Submit</button>
                 </div>
 
             </div>
@@ -188,22 +190,25 @@
                 <div class="col-12 col-md-4">
                     <strong class="d-block mb-3 small text-uppercase">Quick Links</strong>
                     <ul class="quick-links d-flex flex-column align-items-start">
-                        <li>Rome, Naples and Amalfi Coast</li>
-                        <li>Tuscany</li>
-                        <li>Czech Republic</li>
-                        <li>United Kingdom</li>
-                        <li>Ireland</li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="itineraryitaly1.html">Rome, Naples and Amalfi Coast</a></li>
+                        <li><a href="itineraryitaly2.html">Tuscany</a></li>
+                        <li><a href="itineraryczechia.html">Czech Republic</a></li>
+                        <li><a href="itineraryaustria.html">Austria & Venice</a></li>
+                        <li><a href="itineraryandulusia.html">Andalusia</a></li>
+                        <li><a href="itineraryireland.html">Ireland & Scotland</a></li>
                     </ul>
                 </div>
 
                 <div class="col-12 col-md-4 ">
                     <strong class="d-block mb-3 small text-uppercase">Newsletter</strong>
                     <div class="d-flex flex-column gap-2 newsletter-signup">
-                        <p>Stay updated with ur latest history-packed getaways and deals.</p>
-                        <form action="" method="post">
-                            <label for="newsletter-email" class="visually-hidden" novalidate></label>
+                        <p>Stay updated with our latest history-packed getaways and deals.</p>
+                        <form class="needs-validation" novalidate>
+                            <label for="newsletter-email" class="visually-hidden">Email Address</label>
                             <input type="email" id="newsletter-email" name="email" class="form-control flex-grow-1 mb-3"
                                 placeholder="Enter your Email" required>
+                            <div class="invalid-feedback">Please use a valid email address</div>
                             <button type="submit"
                                 class=" btn btn-newsletter flex-shrink-0 justify-content-center gap-1">Sign Up</button>
                         </form>

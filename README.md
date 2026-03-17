@@ -53,14 +53,18 @@ prussian-dark:     #1e1b4b; /* Button hovers */
 - window.location from W3S: https://www.w3schools.com/js/js_window_location.asp
 - learned to use text shadow from https://www.programiz.com/css/text-shadow.
 - learned how to style navbar-toggler and svg icon from https://codingyaar.com/shorts/bootstrap-navbar-toggler-color-change/
-- Sources for Google Maps API: 
+### Sources for Google Maps API: 
     - **Initial version from publicapis: https://publicapis.io/google-maps-api-api
     - **Final implementation Google Maps Javascript documentation.
             - Scripting Loading Tag:  https://developers.google.com/maps/documentation/javascript/load-maps-js-api
             - Migrating Markers to Advanced Markers: https://developers.google.com/maps/documentation/javascript/advanced-markers/migration.
             - InfoWindows: https://developers.google.com/maps/documentation/javascript/reference/info-window
             -Error handling: https://developers.google.com/maps/documentation/javascript/error-handling
-
+### Attributions for SearchResults related functions:
+- URL Parameters:
+- HTML Templates and Cloning
+- matchMedia() tutorial:
+### Attributions for Form Validation Functions:
 
 
 - 
@@ -76,7 +80,12 @@ Media Sources:
 - Frequent Google Maps API 404s fixed by reordering scripts in HTML and placing async in JS function instead in HTML. As per https://developers.google.com/maps/documentation/javascript/add-google-map#maps_map_simple-javascript and https://developers.google.com/maps/documentation/javascript/load-maps-js-api
 - Initialy implemented Google Maps API using tutorial on Publicapis but noticed depreciation message in console. In order to remove this and future proof project, I migrated to advanced marker with guidance from official Javascript API documentation.
 -  When styling infoWindows headerContent I initially tried using a similar method as content using string but this would not work for headerContent. Solved by using createElement() to create a HTML element prompted by Google API documentation: https://developers.google.com/maps/documentation/javascript/reference/info-window
-
+- Unable to access Google Cloud Map Styles or Map Management. I thus use the demo map_id for default map styling
 ## Technologies & Resources
 - https://httpbin.org/post dummy api endpoint
 - Perplexity for text content, regex generation
+- Copilot for QAing html and templating of itinerary pages from itineraryitaly1.html
+
+## Future developments
+- Full gallery for site on tour
+- Blog

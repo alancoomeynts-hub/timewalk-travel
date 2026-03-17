@@ -45,12 +45,12 @@
                                 2026 Holidays
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="itineraryitaly1.html">Rome, Naples and Amalfi
-                                        Coast</a></li>
+                                <li><a class="dropdown-item" href="itineraryitaly1.html">Rome, Naples and Amalfi Coast</a></li>
                                 <li><a class="dropdown-item" href="itineraryitaly2.html">Tuscany</a></li>
-                                <li><a class="dropdown-item" href="#">Czech Republic</a></li>
-                                <li><a class="dropdown-item" href="#">United Kingdom</a></li>
-                                <li><a class="dropdown-item" href="#">Ireland</a></li>
+                                <li><a class="dropdown-item" href="itineraryczechia.html">Czech Republic</a></li>
+                                <li><a class="dropdown-item" href="itineraryaustria.html">Austria & Venice</a></li>
+                                <li><a class="dropdown-item" href="itineraryandulusia.html">Andalusia</a></li>
+                                <li><a class="dropdown-item" href="itineraryireland.html">Ireland & Scotland</a></li>
                             </ul>
                         </li>
                         <!-- Add bootstrap flex classes to push CTA buttons to end of navbar-collapse container on small screens-->
@@ -157,7 +157,7 @@
 
             <!--Desktop Search Form-->
             <!--Bootstrap form with select dropdowns for filtering destinations-->
-            <form action="" method="GET" id="search-filter-form" class="d-none d-lg-flex gap-3 justify-content-center">
+            <form  id="search-filter-form" class="d-none d-lg-flex gap-3 justify-content-center">
                 <div class="row g-5">
                     <div class="col-12 col-lg-3">
                         <select class="form-select form-select-lg" name="destination" aria-label="Form Holiday City">
@@ -186,6 +186,8 @@
                             <option value="theme-medieval">Medieval</option>
                             <option value="theme-renaissance">Renaissance</option>
                             <option value="theme-rome">Ancient Rome</option>
+                            <option value="theme-celtic"> Celtic</option>
+                            <option value="theme-baroque">Baroque</option>
                         </select>
                     </div>
                     <div class="col-12 col-lg-3">
@@ -197,7 +199,7 @@
                         </select>
                     </div>
                     <div class="col-12 col-lg-3">
-                        <button type="submit" form="search-filter-form" class="btn-search"><i
+                        <button class="btn-search" data-href="searchresults.html"><i
                                 class="fa-solid fa-magnifying-glass-location"></i></button>
                     </div>
 
@@ -240,6 +242,8 @@
                             <option value="theme-medieval">Medieval</option>
                             <option value="theme-renaissance">Renaissance</option>
                             <option value="theme-rome">Ancient Rome</option>
+                            <option value="theme-celtic"> Celtic</option>
+                            <option value="theme-baroque">Baroque</option>
                         </select>
 
                     </div>
@@ -254,7 +258,7 @@
                         </select>
                     </div>
                     <div class="col-3 ">
-                        <button type="submit" class="btn-search" form="search-filter-form-mobile"><i
+                        <button class="btn-search" data-href="searchresults.html"><i
                                 class="fa-solid fa-magnifying-glass-location"></i></button>
                     </div>
 
@@ -308,53 +312,53 @@
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card h-100" data-href="/itineraryitaly2.html">
                         <img src="assets/images/tuscanycard.webp"
-                            alt="Tuscan countryside with Duomo di Firenze in backgrounf" class="card-img-top">
+                            alt="Tuscan countryside with Duomo di Firenze in background" class="card-img-top">
                         <div class="card-body text-center">
-                            <h6 class="card-title mb-3">Tuscany Highlight</h6>
+                            <h6 class="card-title mb-3">Tuscany</h6>
                             <p class="card-text small">From €1,795 pp</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card h-100" data-href="">
-                        <img src="assets/images/UKcardimage.webp"
-                            alt="Composite of Image of Caernafon Castle,Edinburgh Castle, York Cathedral "
+                    <div class="card h-100" data-href="/itineraryaustria.html">
+                        <img src="assets/images/AustriaVeniceCard.webp"
+                            alt="Composite image of Schönbrunn Palace in Vienna, St Mark's Basilica in Venice and Hohensalzburg Fortress in Salzburg"
                             class="card-img-top">
                         <div class="card-body text-center">
-                            <h6 class="card-title mb-3">UK Castle Highlights</h6>
+                            <h6 class="card-title mb-3">Austria & Venice</h6>
                             <p class="card-text small">From €2,000 pp</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card h-100" data-href="">
-                        <img src="assets/images/IrelandCard.webp"
-                            alt="Composite image of cliffs of moher, blarney castle, newgrange" class="card-img-top">
+                    <div class="card h-100" data-href="/itineraryireland.html">
+                        <img src="assets/images/IrelandScotlandCard.webp"
+                            alt="Composite image of Ireland and Scotland historical sites" class="card-img-top">
                         <div class="card-body text-center">
-                            <h6 class="card-title mb-3">Ireland</h6>
+                            <h6 class="card-title mb-3">Ireland & Scotland</h6>
                             <p class="card-text small">From €1,495 pp</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card h-100" data-href="">
+                    <div class="card h-100" data-href="/itineraryczechia.html">
                         <img src="assets/images/CzechRepublicCard.webp"
                             alt="composite image of Prague Castle, Charles Bridge and Cesky Krumlov in Czechia"
                             class="card-img-top">
                         <div class="card-body text-center">
-                            <h6 class="card-title mb-3"> Prague & Český Krumlov</h6>
+                            <h6 class="card-title mb-3"> Czech Republic</h6>
                             <p class="card-text small">From €1,695 pp </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card h-100" data-href="">
+                    <div class="card h-100" data-href="/itineraryandulusia.html">
                         <img src="assets/images/AndalusiaCard.webp"
                             alt="composite image of Alhambra fortress red walls Sierra Nevada snow peaks, Seville Alcázar gardens orange trees foreground, Ronda Puente Nuevo bridge gorge in Andulusia Spain "
                             class="card-img-top">
                         <div class="card-body text-center">
-                            <h6 class="card-title mb-3"> Andalusia Highlights</h6>
-                            <p class="card-text small"> Coming Soon</p>
+                            <h6 class="card-title mb-3"> Andalusia</h6>
+                            <p class="card-text small"> From €1,895 pp</p>
                         </div>
                     </div>
                 </div>
@@ -409,9 +413,10 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="itineraryitaly1.html">Rome, Naples and Amalfi Coast</a></li>
                         <li><a href="itineraryitaly2.html">Tuscany</a></li>
-                        <li><a href="#">Czech Republic</a></li>
-                        <li><a href="#">United Kingdom</a></li>
-                        <li><a href="#">Ireland</a></li>
+                        <li><a href="itineraryczechia.html">Czech Republic</a></li>
+                        <li><a href="itineraryaustria.html">Austria & Venice</a></li>
+                        <li><a href="itineraryandulusia.html">Andalusia</a></li>
+                        <li><a href="itineraryireland.html">Ireland & Scotland</a></li>
                     </ul>
                 </div>
 
