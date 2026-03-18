@@ -3,12 +3,15 @@ document.addEventListener("DOMContentLoaded", () => {
   validateForms();
 
   const page = document.body.id;
+  console.log(page);
 
   if (page === "page-home") {
     LocationCardsRedirect();
+    searchFormRedirect();
+  } else if (page === "page-search-results") {
     filterResults();
+    LocationCardsRedirect();
   }
-
   thumbCTAToggle();
 });
 
@@ -235,6 +238,50 @@ async function initMap() {
     }
   }
 }
+
+/**
+ * createMarker creates Google API advanced markers and infoWindows on marker click.
+ * @param {*} map - THe Google Maps instance created by initMap().
+ * @param {*} markerData - Object holding itinery marker details.
+ */
+function createMarker(map, markerData) {
+  markerData.forEach((location) => {
+    //style map markers gold and black
+    const pin = new google.maps.marker.PinElement({
+      background: "#c9940a",
+      borderColor: "#ffffff",
+      glyphColor: "#3a3a3a",
+      scale: 1.1,
+    });
+
+    //create markers from MarkerData
+    const marker = new google.maps.marker.AdvancedMarkerElement({
+      position: { lat: location.lat, lng: location.lng },
+      map: map,
+      title: location.city,
+      content: pin.element,
+    });
+
+    // create header html element and assign class
+    const header = document.createElement("h6");
+    header.className = "info-window-header";
+    header.textContent = location.header;
+
+    //create infoWindows
+    const infoWindow = new google.maps.InfoWindow({
+      headerContent: header,
+      maxWidth: 240,
+      ariaLabel: location.ariaLabel,
+      content: `<div class="info-window-style">${location.city}</div>`,
+    });
+
+    // add click listeners to markers for infoWindows
+    marker.addListener("click", () => {
+      infoWindow.open(map, marker);
+    });
+  });
+}
+
 /**
  * Add click listeners to all location-grid .cards on index.html and redirect to data-href
  */
@@ -292,11 +339,13 @@ function showFormSubmissionModal() {
 
 function thumbCTAToggle() {}
 
-function filterResults() {
+function searchFormRedirect() {
   const searchButtons = document.querySelectorAll(".btn-search");
+
   searchButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
       e.preventDefault();
+
       let data;
       if (window.matchMedia("(max-width: 992px)").matches) {
         data = new FormData(
@@ -306,63 +355,79 @@ function filterResults() {
         data = new FormData(document.getElementById("search-filter-form"));
       }
 
-      const destination = data.get('destination');
-      const theme = data.get('theme');
-      const airport = data.get('departure-airport');
+      let filterParameters = {
+        destination: data.get("destination"),
+        theme: data.get("theme"),
+        airport: data.get("departure-airport"),
+      };
 
-      const url = new URL(button.dataset.href, window.location.origin);
-      console.log(url);
+      sessionStorage.setItem(
+        "filterParameters",
+        JSON.stringify(filterParameters),
+      );
 
-      if(destination) {url.searchParams.append("destination", destination)};
-      if(theme) {url.searchParams.append("theme", theme)};
-      if(airport) {url.searchParams.append("airport", airport)};
-
-      console.log(url.toString());
-
-      window.location.href = url.toString();
+      window.location.href = button.dataset.href;
     });
   });
 }
 
-/**
- * createMarker creates Google API advanced markers and infoWindows on marker click.
- * @param {*} map - THe Google Maps instance created by initMap().
- * @param {*} markerData - Object holding itinery marker details.
- */
-function createMarker(map, markerData) {
-  markerData.forEach((location) => {
-    //style map markers gold and black
-    const pin = new google.maps.marker.PinElement({
-      background: "#c9940a",
-      borderColor: "#ffffff",
-      glyphColor: "#3a3a3a",
-      scale: 1.1,
-    });
+function filterResults() {
+  let searchTerms = sessionStorage.getItem("filterParameters");
+  console.log(searchTerms);
 
-    //create markers from MarkerData
-    const marker = new google.maps.marker.AdvancedMarkerElement({
-      position: { lat: location.lat, lng: location.lng },
-      map: map,
-      title: location.city,
-      content: pin.element,
-    });
+  let filterParameters={
+    destination: "",
+    theme: "",
+    airport: "",
+  };
 
-    // create header html element and assign class
-    const header = document.createElement("h6");
-    header.className = "info-window-header";
-    header.textContent = location.header;
+  if (searchTerms) {
+    filterParameters = JSON.parse(searchTerms);
+  }
 
-    //create infoWindows
-    const infoWindow = new google.maps.InfoWindow({
-      headerContent: header,
-      maxWidth: 240,
-      ariaLabel: location.ariaLabel,
-      content: `<div class="info-window-style">${location.city}</div>`,
-    });
+  const itineraries = [
+    {
+      id: 1,
+      destination: ["rome", "naples", "pompeii", "sorrento"],
+      theme: "ancient-rome",
+      airport: ["cork", "dublin"],
+      imageSrc: "assets/images/ItalyCardImage1.webp",
+      imageAlt: "Photo of Colosseum superimposed on Positano Beach",
+      title: "Rome, Naples & Amalfi",
+      details: "8 days - From €1,899",
+      href: "/itineraryitaly1.html",
+    },
+  ];
 
-    // add click listeners to markers for infoWindows
-    marker.addListener("click", () => {
-      infoWindow.open(map, marker);
-    });
+  const applyFilter = itineraries.filter(
+    (itinerary) =>
+      itinerary.destination.includes(filterParameters.destination) ||
+      itinerary.theme === filterParameters.theme ||
+      itinerary.airport.includes(filterParameters.airport),
+  );
+
+  console.log(applyFilter);
+
+  cloneItineraryCards(applyFilter);
+}
+
+function cloneItineraryCards(filterData) {
+  // if(filterData.length===0){
+
+  // }
+
+  const container = document.querySelector(".search-results-container");
+
+  filterData.forEach((itinerary) => {
+    const template = document.getElementById("itinerary-template");
+    const clone = template.content.cloneNode(true);
+    clone.querySelector(".card-title").innerHTML = itinerary.title;
+    clone.querySelector(".card-text").innerText = itinerary.details;
+    clone.querySelector(".card-img-top").src = itinerary.imageSrc;
+    clone.querySelector(".card-img-top").alt = itinerary.imageAlt;
+    clone.querySelector(".card").dataset.href = itinerary.href;
+
+    container.appendChild(clone);
   });
 }
+//TODO complete itineraries object and clone cards function

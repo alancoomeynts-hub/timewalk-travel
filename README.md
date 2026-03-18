@@ -60,10 +60,11 @@ prussian-dark:     #1e1b4b; /* Button hovers */
             - Migrating Markers to Advanced Markers: https://developers.google.com/maps/documentation/javascript/advanced-markers/migration.
             - InfoWindows: https://developers.google.com/maps/documentation/javascript/reference/info-window
             -Error handling: https://developers.google.com/maps/documentation/javascript/error-handling
-### Attributions for SearchResults related functions:
-- URL Parameters:
-- HTML Templates and Cloning
-- matchMedia() tutorial:
+### Attributions and references for SearchResults related functions:
+- sessionStorage: video tutorial - https://www.youtube.com/watch?v=RxUc6ZWwgfw&t=3s
+- HTML Templates and Cloning: video tutorial - https://www.youtube.com/watch?v=lvAIkoKKIiA and https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/template
+- matchMedia() method: https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia
+- filter array method: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
 ### Attributions for Form Validation Functions:
 
 
