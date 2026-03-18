@@ -213,7 +213,7 @@ h6 {
 }
 
 /* Card grid styles */
-#location-grid .card {
+ .card {
   border: 1px solid rgba(0, 0, 0, 0.8);
   border-radius: 1rem;
   box-shadow: var(--shadow-primary);
@@ -221,8 +221,7 @@ h6 {
   transition: all 0.2s ease;
 }
 
-#location-grid .card:hover{
- 
+.card:hover {
   transform: translate3d(-4px,-6px,10px);
 }
 

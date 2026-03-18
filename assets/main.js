@@ -1,3 +1,86 @@
+/* global data used by filter and booking form functions*/
+const itineraries = [
+  {
+    id: 1,
+    destination: ["italy"],
+    cities: ["rome", "naples", "pompeii", "sorrento"],
+    theme: ["ancient-rome"],
+    departure: ["cork", "dublin"],
+    imageSrc: "assets/images/ItalyCardImage1.webp",
+    imageAlt: "Photo of Colosseum superimposed on Positano Beach",
+    title: "Rome, Naples & Amalfi",
+    details: "8 days - From €1,899 pp",
+    href: "/itineraryitaly1.html",
+    price: 1899,
+  },
+  {
+    id: 2,
+    destination: ["italy"],
+    cities: ["florence", "siena", "san-gimignano", "pisa"],
+    theme: ["renaissance"],
+    departure: ["cork", "dublin", "shannon"],
+    imageSrc: "assets/images/tuscanycard.webp",
+    imageAlt: "Tuscan countryside with Duomo di Firenze in background",
+    title: "Tuscany",
+    details: "7 days - From €1,599 pp",
+    href: "/itineraryitaly2.html",
+    price: 1599,
+  },
+  {
+    id: 3,
+    destination: ["austria", "italy"],
+    cities: ["salzburg", "vienna", "venice"],
+    theme: ["baroque"],
+    departure: ["dublin", "shannon"],
+    imageSrc: "assets/images/AustriaVeniceCard.webp",
+    imageAlt: "Composite Photo of Austrian and Venetian landmarks",
+    title: "Austria & Venice",
+    details: "10 days - From €2,000 pp",
+    href: "/itineraryaustria.html",
+    price: 2000,
+  },
+  {
+    id: 4,
+    destination: ["czech-republic"],
+    cities: ["prague", "karlstejn", "cesky-krumlov"],
+    theme: ["medieval"],
+    departure: ["dublin", "shannon"],
+    imageSrc: "assets/images/CzechRepublicCard.webp",
+    imageAlt:
+      "Composite image of Prague Castle, Charles Bridge and Cesky Krumlov in Czechia",
+    title: "Czech Republic",
+    details: "8 days - From €1,699 pp",
+    href: "/itineraryczechia.html",
+    price: 1699,
+  },
+  {
+    id: 5,
+    destination: ["spain"],
+    cities: ["seville", "ronda", "grenada", "gibraltar"],
+    theme: ["renaissance"],
+    departure: ["dublin", "shannon"],
+    imageSrc: "assets/images/AndalusiaCard.webp",
+    imageAlt: "Photo of Seville's Plaza de España",
+    title: "Andalusia",
+    details: "10 days - From €1,899 pp",
+    href: "/itineraryandulusia.html",
+    price: 1899,
+  },
+  {
+    id: 6,
+    destination: ["ireland", "scotland"],
+    cities: ["cork", "dublin", "belfast", "edinburgh", "stirling"],
+    theme: ["celtic"],
+    departure: ["dublin", "cork"],
+    imageSrc: "assets/images/IrelandScotlandCard.webp",
+    imageAlt: "Composite image of Ireland and Scotland historical sites",
+    title: "Ireland & Scotland",
+    details: "10 days - From €1,495 pp",
+    href: "/itineraryireland.html",
+    price: 1495,
+  },
+];
+
 /* dom content loaded function with page detection*/
 document.addEventListener("DOMContentLoaded", () => {
   validateForms();
@@ -241,8 +324,8 @@ async function initMap() {
 
 /**
  * createMarker creates Google API advanced markers and infoWindows on marker click.
- * @param {*} map - THe Google Maps instance created by initMap().
- * @param {*} markerData - Object holding itinery marker details.
+ * @param {google.maps.Map} map - The Google Maps instance created by initMap().
+ * @param {array<Object>} markerData - Object holding itinery marker details.
  */
 function createMarker(map, markerData) {
   markerData.forEach((location) => {
@@ -296,7 +379,7 @@ function LocationCardsRedirect() {
     });
   });
 }
-
+/**Validate forms using bootstrap utility classes and functions */
 function validateForms() {
   const forms = document.querySelectorAll(".needs-validation");
 
@@ -323,6 +406,9 @@ function validateForms() {
   });
 }
 
+/**
+ * Show submitted modal screen using Bootstraps modal JS utility functions.
+ */
 function showFormSubmissionModal() {
   const contactModal = bootstrap.Modal.getInstance(
     document.getElementById("contact-modal"),
@@ -338,7 +424,11 @@ function showFormSubmissionModal() {
 }
 
 function thumbCTAToggle() {}
-
+/**
+ * Add click listeners to search buttons on index.html, prevent default form submission, 
+ * extract form data and redirect to search results page with data stored in sessionStorage 
+ * for retrieval and filtering on search results page.
+ */
 function searchFormRedirect() {
   const searchButtons = document.querySelectorAll(".btn-search");
 
@@ -358,7 +448,7 @@ function searchFormRedirect() {
       let filterParameters = {
         destination: data.get("destination"),
         theme: data.get("theme"),
-        airport: data.get("departure-airport"),
+        departure: data.get("departure"),
       };
 
       sessionStorage.setItem(
@@ -371,53 +461,54 @@ function searchFormRedirect() {
   });
 }
 
+/**
+ * Retrieves filter parameters from sessionStorage, filters itineraries data based on parameters and passes filtered data to cloneItineraryCards().
+ */
 function filterResults() {
   let searchTerms = sessionStorage.getItem("filterParameters");
   console.log(searchTerms);
 
-  let filterParameters={
+  let filterParameters = {
     destination: "",
     theme: "",
-    airport: "",
+    departure: "",
   };
 
   if (searchTerms) {
     filterParameters = JSON.parse(searchTerms);
   }
 
-  const itineraries = [
-    {
-      id: 1,
-      destination: ["rome", "naples", "pompeii", "sorrento"],
-      theme: "ancient-rome",
-      airport: ["cork", "dublin"],
-      imageSrc: "assets/images/ItalyCardImage1.webp",
-      imageAlt: "Photo of Colosseum superimposed on Positano Beach",
-      title: "Rome, Naples & Amalfi",
-      details: "8 days - From €1,899",
-      href: "/itineraryitaly1.html",
-    },
-  ];
+  /* Filter itineraries by search term with logical short circuit for wildcard search if a term is empty*/
+  const applyFilter = itineraries.filter(itinerary => {
+    //skip filter if parameter is empty or check if itinerary includes value.
+    const matchsDestination = !filterParameters.destination || itinerary.destination.includes(filterParameters.destination);
+    const matchTheme = !filterParameters.theme || itinerary.theme.includes(filterParameters.theme);
+    const matchDeparture = !filterParameters.departure || itinerary.departure.includes(filterParameters.departure);
 
-  const applyFilter = itineraries.filter(
-    (itinerary) =>
-      itinerary.destination.includes(filterParameters.destination) ||
-      itinerary.theme === filterParameters.theme ||
-      itinerary.airport.includes(filterParameters.airport),
-  );
+    //return all matching values
+    return matchsDestination && matchTheme && matchDeparture;
+  });
 
   console.log(applyFilter);
-
+  /* Pass filtered data to cloneItineraryCards function to clone cards matching search criteria*/
   cloneItineraryCards(applyFilter);
 }
-
+/**
+ * Clones itinerary cards based on the filtered data.
+ * @param {Array} filterData - The filtered itinerary data.
+ */
 function cloneItineraryCards(filterData) {
-  // if(filterData.length===0){
 
-  // }
+  if(filterData.length===0){
+    const container = document.querySelector(".search-results-container");
+    container.innerHTML = "<p class='text-danger'>No results found.</p>";
+    return;
+
+  }
 
   const container = document.querySelector(".search-results-container");
-
+  
+  //select template and clone for each result, populate with data and append to container
   filterData.forEach((itinerary) => {
     const template = document.getElementById("itinerary-template");
     const clone = template.content.cloneNode(true);
@@ -430,4 +521,4 @@ function cloneItineraryCards(filterData) {
     container.appendChild(clone);
   });
 }
-//TODO complete itineraries object and clone cards function
+
