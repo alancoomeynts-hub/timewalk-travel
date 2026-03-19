@@ -95,6 +95,11 @@ document.addEventListener("DOMContentLoaded", () => {
     filterResults();
     LocationCardsRedirect();
   }
+
+  if(document.body.classList.contains('page-itinerary')){
+    createBookingFormModal();
+  }
+
   thumbCTAToggle();
 });
 
@@ -522,3 +527,34 @@ function cloneItineraryCards(filterData) {
   });
 }
 
+function createBookingFormModal(){
+
+  const bookingFormClick=document.querySelector(".booking-cta");
+  const modalContainer=document.querySelector(".booking-modal-container");
+  if(bookingFormClick && modalContainer){
+    bookingFormClick.addEventListener('click', (e)=>{
+  
+    e.preventDefault();
+  
+
+
+  modalContainer.innerHTML=`<div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="contact-modal-label">Contact Us</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>Hello I am working?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+  `;
+      const bookingModal= new bootstrap.Modal(modalContainer);
+      bookingModal.show();
+});
+  }
+}

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="assets/style.css">
 </head>
 
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100 page-itinerary">
     <!--makes body into flexbox to push footer to bottom of container using mt-auto-->
 
     <!--navigation-->
@@ -186,6 +186,13 @@
                     </div>
                 </div>
             </div>
+
+            <div class="modal fade booking-modal-container" tabindex="-1" aria-labelledby="booking-modal-label"
+                aria-hidden="true">
+
+            </div>
+
+
             <div class="row">
                 <div class="col-12">
                     <h2>Your guided holiday to Ireland & Scotland</h2>
@@ -200,92 +207,110 @@
 
         <!--Itinerary Section-->
         <section id="itinerary-section" class="container border p-3 mb-5">
-    <div class="row">
-        <div class="col-12 col-lg-7">
-            <div class="accordion" id="itineraryAccordion">
+            <div class="row">
+                <div class="col-12 col-lg-7">
+                    <div class="accordion" id="itineraryAccordion">
 
-                <!-- Stage 1 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#stage1">
-                            Days 1-5 · Ireland — Cork, Cashel, Belfast & Dublin
-                        </button>
-                    </h2>
-                    <div id="stage1" class="accordion-collapse collapse show"
-                        data-bs-parent="#itineraryAccordion">
-                        <div class="accordion-body">
-                            <p>Begin in Cork's medieval heritage and journey north through Ireland's ancient heartland — Gothic fortresses, prehistoric coastlines and Dublin's literary soul. Private coaches connect each landmark across the emerald landscape.</p>
-                            <ul>
-                                <li><strong>Blarney Castle</strong> — kiss the Blarney Stone (1446 tower house)</li>
-                                <li><strong>Rock of Cashel</strong> — Celtic cathedral, Cormac's Chapel, round tower</li>
-                                <li><strong>Titanic Belfast</strong> — immersive museum where RMS Titanic was built</li>
-                                <li><strong>Giant's Causeway</strong> — Finn McCool's 40,000 hexagonal basalt columns</li>
-                                <li><strong>Trinity College Dublin</strong> — Book of Kells, Long Room library</li>
-                                <li>Evening pub session with <strong>live traditional Irish music</strong></li>
-                            </ul>
+                        <!-- Stage 1 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#stage1">
+                                    Days 1-5 · Ireland — Cork, Cashel, Belfast & Dublin
+                                </button>
+                            </h2>
+                            <div id="stage1" class="accordion-collapse collapse show"
+                                data-bs-parent="#itineraryAccordion">
+                                <div class="accordion-body">
+                                    <p>Begin in Cork's medieval heritage and journey north through Ireland's ancient
+                                        heartland — Gothic fortresses, prehistoric coastlines and Dublin's literary
+                                        soul. Private coaches connect each landmark across the emerald landscape.</p>
+                                    <ul>
+                                        <li><strong>Blarney Castle</strong> — kiss the Blarney Stone (1446 tower house)
+                                        </li>
+                                        <li><strong>Rock of Cashel</strong> — Celtic cathedral, Cormac's Chapel, round
+                                            tower</li>
+                                        <li><strong>Titanic Belfast</strong> — immersive museum where RMS Titanic was
+                                            built</li>
+                                        <li><strong>Giant's Causeway</strong> — Finn McCool's 40,000 hexagonal basalt
+                                            columns</li>
+                                        <li><strong>Trinity College Dublin</strong> — Book of Kells, Long Room library
+                                        </li>
+                                        <li>Evening pub session with <strong>live traditional Irish music</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
+
+                        <!-- Stage 2 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#stage2">
+                                    Day 6 · Belfast → Edinburgh Sea Crossing
+                                </button>
+                            </h2>
+                            <div id="stage2" class="accordion-collapse collapse" data-bs-parent="#itineraryAccordion">
+                                <div class="accordion-body">
+                                    <p>A relaxed morning in Belfast before boarding the Stena Line Superferry across the
+                                        Irish Sea — a scenic 2h25m crossing between two Celtic kingdoms.</p>
+                                    <ul>
+                                        <li>Morning free in <strong>Belfast</strong> — City Hall, Peace Walls murals
+                                        </li>
+                                        <li><strong>St. George's Market</strong> — Victorian covered market, local
+                                            produce</li>
+                                        <li>2h25m <strong>Stena Line Superferry</strong> Belfast → Cairnryan (departs
+                                            15:30)</li>
+                                        <li>Private coach <strong>Cairnryan → Edinburgh</strong> (2h scenic drive)</li>
+                                        <li>Hotel check-in Edinburgh with welcome dinner</li>
+                                        <li>Evening stroll along <strong>Edinburgh Royal Mile</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Stage 3 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#stage3">
+                                    Days 7-10 · Scotland — Edinburgh & Stirling Castles
+                                </button>
+                            </h2>
+                            <div id="stage3" class="accordion-collapse collapse" data-bs-parent="#itineraryAccordion">
+                                <div class="accordion-body">
+                                    <p>Edinburgh's volcanic castle rock launches your Scottish adventure — crown jewels,
+                                        Renaissance palaces, and battlefields where kingdoms were forged. Day trip to
+                                        Stirling reveals Scotland's most strategically important fortress.</p>
+                                    <ul>
+                                        <li><strong>Edinburgh Castle</strong> — crown jewels, Stone of Destiny, Mons Meg
+                                            cannon</li>
+                                        <li><strong>Royal Mile & Holyrood Palace</strong> — St. Giles Cathedral, Camera
+                                            Obscura</li>
+                                        <li><strong>Stirling Castle</strong> — James V Renaissance palace, Great Hall
+                                            tapestries</li>
+                                        <li><strong>Bannockburn Battlefield</strong> — Robert the Bruce 1314 victory
+                                            site</li>
+                                        <li>Live <strong>ceilidh music</strong> farewell dinner in Edinburgh Old Town
+                                        </li>
+                                        <li>Edinburgh Airport departure Day 11</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
-                <!-- Stage 2 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#stage2">
-                            Day 6 · Belfast → Edinburgh Sea Crossing
-                        </button>
-                    </h2>
-                    <div id="stage2" class="accordion-collapse collapse" data-bs-parent="#itineraryAccordion">
-                        <div class="accordion-body">
-                            <p>A relaxed morning in Belfast before boarding the Stena Line Superferry across the Irish Sea — a scenic 2h25m crossing between two Celtic kingdoms.</p>
-                            <ul>
-                                <li>Morning free in <strong>Belfast</strong> — City Hall, Peace Walls murals</li>
-                                <li><strong>St. George's Market</strong> — Victorian covered market, local produce</li>
-                                <li>2h25m <strong>Stena Line Superferry</strong> Belfast → Cairnryan (departs 15:30)</li>
-                                <li>Private coach <strong>Cairnryan → Edinburgh</strong> (2h scenic drive)</li>
-                                <li>Hotel check-in Edinburgh with welcome dinner</li>
-                                <li>Evening stroll along <strong>Edinburgh Royal Mile</strong></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Stage 3 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#stage3">
-                            Days 7-10 · Scotland — Edinburgh & Stirling Castles
-                        </button>
-                    </h2>
-                    <div id="stage3" class="accordion-collapse collapse" data-bs-parent="#itineraryAccordion">
-                        <div class="accordion-body">
-                            <p>Edinburgh's volcanic castle rock launches your Scottish adventure — crown jewels, Renaissance palaces, and battlefields where kingdoms were forged. Day trip to Stirling reveals Scotland's most strategically important fortress.</p>
-                            <ul>
-                                <li><strong>Edinburgh Castle</strong> — crown jewels, Stone of Destiny, Mons Meg cannon</li>
-                                <li><strong>Royal Mile & Holyrood Palace</strong> — St. Giles Cathedral, Camera Obscura</li>
-                                <li><strong>Stirling Castle</strong> — James V Renaissance palace, Great Hall tapestries</li>
-                                <li><strong>Bannockburn Battlefield</strong> — Robert the Bruce 1314 victory site</li>
-                                <li>Live <strong>ceilidh music</strong> farewell dinner in Edinburgh Old Town</li>
-                                <li>Edinburgh Airport departure Day 11</li>
-                            </ul>
-                        </div>
+                <!-- Google Maps Column -->
+                <div class="col-12 col-lg-5 d-flex p-2">
+                    <div id="map-container" class="w-100 d-flex justify-content-center align-items-center"
+                        data-lat="54.0" data-lng="-5.0" data-zoom="6.0" data-markerid="ireland">
                     </div>
                 </div>
 
             </div>
-        </div>
-
-        <!-- Google Maps Column -->
-        <div class="col-12 col-lg-5 d-flex p-2">
-            <div id="map-container" class="w-100 d-flex justify-content-center align-items-center"
-                data-lat="54.0" data-lng="-5.0" data-zoom="6.0" data-markerid="ireland">
-            </div>
-        </div>
-
-    </div>
-</section>
+        </section>
 
     </main>
 

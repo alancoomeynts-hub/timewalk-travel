@@ -87,6 +87,10 @@ Media Sources:
 - Perplexity for text content, regex generation
 - Copilot for QAing html and templating of itinerary pages from itineraryitaly1.html
 
+## Depreciation warnings not addressed
+- <gmp-pin>: The `element` property is deprecated. Please use the PinElement directly.
+_.Gn	@	main.js:196
+-
 ## Future developments
 - Full gallery for site on tour
 - Blog
