@@ -1,4 +1,4 @@
-/* global data used by filter and booking form functions*/
+/* global data used by filter function*/
 const itineraries = [
   {
     id: 1,
@@ -11,7 +11,7 @@ const itineraries = [
     title: "Rome, Naples & Amalfi",
     details: "8 days - From €1,899 pp",
     href: "/itineraryitaly1.html",
-    price: 1899,
+    
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ const itineraries = [
     title: "Tuscany",
     details: "7 days - From €1,599 pp",
     href: "/itineraryitaly2.html",
-    price: 1599,
+    
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ const itineraries = [
     title: "Austria & Venice",
     details: "10 days - From €2,000 pp",
     href: "/itineraryaustria.html",
-    price: 2000,
+    
   },
   {
     id: 4,
@@ -51,7 +51,7 @@ const itineraries = [
     title: "Czech Republic",
     details: "8 days - From €1,699 pp",
     href: "/itineraryczechia.html",
-    price: 1699,
+   
   },
   {
     id: 5,
@@ -64,7 +64,7 @@ const itineraries = [
     title: "Andalusia",
     details: "10 days - From €1,899 pp",
     href: "/itineraryandulusia.html",
-    price: 1899,
+    
   },
   {
     id: 6,
@@ -77,7 +77,7 @@ const itineraries = [
     title: "Ireland & Scotland",
     details: "10 days - From €1,495 pp",
     href: "/itineraryireland.html",
-    price: 1495,
+    
   },
 ];
 
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
     LocationCardsRedirect();
   }
 
-  if(document.body.classList.contains('page-itinerary')){
+  if (document.body.classList.contains("page-itinerary")) {
     createBookingFormModal();
   }
 
@@ -430,8 +430,8 @@ function showFormSubmissionModal() {
 
 function thumbCTAToggle() {}
 /**
- * Add click listeners to search buttons on index.html, prevent default form submission, 
- * extract form data and redirect to search results page with data stored in sessionStorage 
+ * Add click listeners to search buttons on index.html, prevent default form submission,
+ * extract form data and redirect to search results page with data stored in sessionStorage
  * for retrieval and filtering on search results page.
  */
 function searchFormRedirect() {
@@ -484,11 +484,17 @@ function filterResults() {
   }
 
   /* Filter itineraries by search term with logical short circuit for wildcard search if a term is empty*/
-  const applyFilter = itineraries.filter(itinerary => {
+  const applyFilter = itineraries.filter((itinerary) => {
     //skip filter if parameter is empty or check if itinerary includes value.
-    const matchsDestination = !filterParameters.destination || itinerary.destination.includes(filterParameters.destination);
-    const matchTheme = !filterParameters.theme || itinerary.theme.includes(filterParameters.theme);
-    const matchDeparture = !filterParameters.departure || itinerary.departure.includes(filterParameters.departure);
+    const matchsDestination =
+      !filterParameters.destination ||
+      itinerary.destination.includes(filterParameters.destination);
+    const matchTheme =
+      !filterParameters.theme ||
+      itinerary.theme.includes(filterParameters.theme);
+    const matchDeparture =
+      !filterParameters.departure ||
+      itinerary.departure.includes(filterParameters.departure);
 
     //return all matching values
     return matchsDestination && matchTheme && matchDeparture;
@@ -503,16 +509,14 @@ function filterResults() {
  * @param {Array} filterData - The filtered itinerary data.
  */
 function cloneItineraryCards(filterData) {
-
-  if(filterData.length===0){
+  if (filterData.length === 0) {
     const container = document.querySelector(".search-results-container");
     container.innerHTML = "<p class='text-danger'>No results found.</p>";
     return;
-
   }
 
   const container = document.querySelector(".search-results-container");
-  
+
   //select template and clone for each result, populate with data and append to container
   filterData.forEach((itinerary) => {
     const template = document.getElementById("itinerary-template");
@@ -526,35 +530,72 @@ function cloneItineraryCards(filterData) {
     container.appendChild(clone);
   });
 }
-
-function createBookingFormModal(){
-
-  const bookingFormClick=document.querySelector(".booking-cta");
-  const modalContainer=document.querySelector(".booking-modal-container");
-  if(bookingFormClick && modalContainer){
-    bookingFormClick.addEventListener('click', (e)=>{
+/**
+ * Add click listener to booking CTA button on itinerary pages,create and show booking form modal using Bootstrap's modal JS utility functions.
+ */
+function createBookingFormModal() {
+  const bookingFormClick = document.querySelector(".booking-cta");
   
-    e.preventDefault();
-  
+  const modalContainer = document.querySelector(".booking-modal-container");
+  const bookingData = modalContainer.dataset;
 
+  console.log(bookingData);
 
-  modalContainer.innerHTML=`<div class="modal-dialog">
+  if (bookingFormClick && modalContainer) {
+    bookingFormClick.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      modalContainer.innerHTML = `<div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="contact-modal-label">Contact Us</h5>
+        <h5 class="modal-title" id="contact-modal-label">Book Now</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
-        <p>Hello I am working?</p>
+        
+        <form id="booking-form" novalidate>
+          <fieldset>
+              <legend > No. of Travellers: </legend>
+              <select class="form-select form-select-lg p-1" name="travellers"
+                  aria-label="form number of travellers">
+                <option selected>0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                </select>
+            </fieldset>
+             <fieldset>
+              <legend > Optional Upgrades: </legend>
+              <input type = "checkbox" id="upgradeFirstClass" name="upgradeFirstClass" value="upgradeFirstClass" data-price="500">
+              <label for="upgradeFirstClass">Upgrade to First Class Flights: € ${bookingData.upgradeFirstClass}</label><br>
+              <input type = "checkbox" id="upgradeHotel" name="upgradeHotel" value="upgradeHotel" data-price="300">
+              <label for="upgradeHotel">Upgrade to 5 Star Hotels: € ${bookingData.upgradeHotel}</label><br>
+              <input type = "checkbox" id="addExcursions" name="addExcursions" value="addExcursions" data-price="100">
+              <label for="addExcursions">Add Guided Excursions: € ${bookingData.addExcursions}</label><br>
+            </fieldset>    
+            </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button class="booking-cta btn" form="booking-form">Book Now</button>
       </div>
     </div>
   </div>
-  `;
-      const bookingModal= new bootstrap.Modal(modalContainer);
+  `
+  ;
+      const bookingModal = new bootstrap.Modal(modalContainer);
       bookingModal.show();
-});
+
+      bookingModal.addEventListener("shown.bs.modal", () => {
+        calculateTotalPrice(bookingData);
+
+      });
+    });
   }
 }

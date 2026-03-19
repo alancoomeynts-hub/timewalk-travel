@@ -65,8 +65,12 @@ prussian-dark:     #1e1b4b; /* Button hovers */
 - HTML Templates and Cloning: video tutorial - https://www.youtube.com/watch?v=lvAIkoKKIiA and https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/template
 - matchMedia() method: https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia
 - filter array method: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter  and (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR#short-circuit_evaluation)
-### Attributions for Form Validation Functions:
-
+### Attributions for Form Validation and CreateBookingFormModal Functions:
+ - Fetch for form submission: https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Sending_forms_through_JavaScript
+ - Pattern attribute: https://www.w3schools.com/tags/att_input_pattern.asp
+ -Bootstrap Form Validation: https://getbootstrap.com/docs/5.3/forms/validation/
+ - Bootstrap Modal Methods: https://getbootstrap.com/docs/5.3/components/modal/#methods
+ - Bootstraps Modal Events: https://getbootstrap.com/docs/5.3/components/modal/#events
 
 - 
 Media Sources:
