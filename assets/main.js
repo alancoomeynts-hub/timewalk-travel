@@ -11,7 +11,6 @@ const itineraries = [
     title: "Rome, Naples & Amalfi",
     details: "8 days - From €1,899 pp",
     href: "/itineraryitaly1.html",
-    
   },
   {
     id: 2,
@@ -24,7 +23,6 @@ const itineraries = [
     title: "Tuscany",
     details: "7 days - From €1,599 pp",
     href: "/itineraryitaly2.html",
-    
   },
   {
     id: 3,
@@ -37,7 +35,6 @@ const itineraries = [
     title: "Austria & Venice",
     details: "10 days - From €2,000 pp",
     href: "/itineraryaustria.html",
-    
   },
   {
     id: 4,
@@ -51,7 +48,6 @@ const itineraries = [
     title: "Czech Republic",
     details: "8 days - From €1,699 pp",
     href: "/itineraryczechia.html",
-   
   },
   {
     id: 5,
@@ -64,7 +60,6 @@ const itineraries = [
     title: "Andalusia",
     details: "10 days - From €1,899 pp",
     href: "/itineraryandulusia.html",
-    
   },
   {
     id: 6,
@@ -77,7 +72,6 @@ const itineraries = [
     title: "Ireland & Scotland",
     details: "10 days - From €1,495 pp",
     href: "/itineraryireland.html",
-    
   },
 ];
 
@@ -535,11 +529,9 @@ function cloneItineraryCards(filterData) {
  */
 function createBookingFormModal() {
   const bookingFormClick = document.querySelector(".booking-cta");
-  
+
   const modalContainer = document.querySelector(".booking-modal-container");
   const bookingData = modalContainer.dataset;
-
-  console.log(bookingData);
 
   if (bookingFormClick && modalContainer) {
     bookingFormClick.addEventListener("click", (e) => {
@@ -556,7 +548,7 @@ function createBookingFormModal() {
         <form id="booking-form" novalidate>
           <fieldset>
               <legend > No. of Travellers: </legend>
-              <select class="form-select form-select-lg p-1" name="travellers"
+              <select class="id="travellors" form-select form-select-lg p-1" name="travellers"
                   aria-label="form number of travellers">
                 <option selected>0</option>
                 <option value="1">1</option>
@@ -582,20 +574,35 @@ function createBookingFormModal() {
             </form>
       </div>
       <div class="modal-footer">
+        <p id="total">Total: €</p>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button class="booking-cta btn" form="booking-form">Book Now</button>
       </div>
     </div>
   </div>
-  `
-  ;
+  `;
       const bookingModal = new bootstrap.Modal(modalContainer);
       bookingModal.show();
 
       bookingModal.addEventListener("shown.bs.modal", () => {
         calculateTotalPrice(bookingData);
-
       });
+    });
+  }
+}
+
+function calculateTotalPrice(bookingData) {
+  const totalText = document.getElementById("total");
+  const travellers = document.getElementById("travellers");
+  totalPrice = parseInt(bookingData.price) * parseInt(travellers.value);
+
+  totalText.innerText = totalPrice;
+
+  const form = document.getElementById("booking-form");
+  if (form) {
+    form.addEventListener("change", (e) => {
+      const FormData = new FormData(form);
+      const total = 0;
     });
   }
 }

@@ -1,419 +1,673 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
     <title>Timewalk Travel | Czech Republic</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/style.css">
-</head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
 
-<body class="d-flex flex-column min-vh-100 page-itinerary">
+  <body class="d-flex flex-column min-vh-100 page-itinerary">
     <!--makes body into flexbox to push footer to bottom of container using mt-auto-->
 
     <!--navigation-->
     <!--Bootstrap navbar with dropdown menu-->
     <nav id="navbar" class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="assets/images/timewalk-travel-high-resolution-logo-transparent-red.webp"
-                    alt="Timewalk Travel Logo" id="logo">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <div class="ms-auto">
-                    <ul class="navbar-nav me-auto gap-2 mb-2 mb-lg-0 py-2">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false" aria-controls="navbarDropdownMenu">
-                                2026 Holidays
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="itineraryitaly1.html">Rome, Naples and Amalfi
-                                        Coast</a></li>
-                                <li><a class="dropdown-item" href="itineraryitaly2.html">Tuscany</a></li>
-                                <li><a class="dropdown-item active" href="itineraryczechia.html">Czech Republic</a></li>
-                                <li><a class="dropdown-item" href="itineraryaustria.html">Austria & Venice</a></li>
-                                <li><a class="dropdown-item" href="itineraryandulusia.html">Andalusia</a></li>
-                                <li><a class="dropdown-item" href="itineraryireland.html">Ireland & Scotland</a></li>
-                            </ul>
-                        </li>
-                        <li class="d-flex justify-content-end gap-2">
-                            <button class="contact-cta btn" data-bs-toggle="modal" data-bs-target="#contact-modal">Get
-                                Quote</button>
-                            <button class="phone-cta btn" onclick="window.location.href='tel:353871234567'"><i
-                                    class="fa-solid fa-phone-flip"></i></button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="assets/images/timewalk-travel-high-resolution-logo-transparent-red.webp"
+            alt="Timewalk Travel Logo"
+            id="logo"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="ms-auto">
+            <ul class="navbar-nav me-auto gap-2 mb-2 mb-lg-0 py-2">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  aria-controls="navbarDropdownMenu"
+                >
+                  2026 Holidays
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="itineraryitaly1.html"
+                      >Rome, Naples and Amalfi Coast</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="itineraryitaly2.html"
+                      >Tuscany</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item active" href="itineraryczechia.html"
+                      >Czech Republic</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="itineraryaustria.html"
+                      >Austria & Venice</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="itineraryandulusia.html"
+                      >Andalusia</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="itineraryireland.html"
+                      >Ireland & Scotland</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="d-flex justify-content-end gap-2">
+                <button
+                  class="contact-cta btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#contact-modal"
+                >
+                  Get Quote
+                </button>
+                <button
+                  class="phone-cta btn"
+                  onclick="window.location.href = 'tel:353871234567'"
+                >
+                  <i class="fa-solid fa-phone-flip"></i>
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
     </nav>
 
     <!--Contact Form Modal-->
     <!-- Bootstrap modal activated by contact-modal button-->
-    <div class="modal fade" id="contact-modal" tabindex="-1" aria-labelledby="contact-modal-label" aria-hidden="true">
-        <div class="modal-dialog ">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title modal-label">Please Provide Contact Details</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div
+      class="modal fade"
+      id="contact-modal"
+      tabindex="-1"
+      aria-labelledby="contact-modal-label"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title modal-label">
+              Please Provide Contact Details
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <form id="contact-form" class="needs-validation" novalidate>
+              <div class="row">
+                <div class="col-12 col-lg-6 mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <input
+                    class="form-control"
+                    id="name"
+                    name="name"
+                    type="text"
+                    required
+                  />
+                </div>
+                <div class="col-12 col-lg-6 mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Please use a valid email address
+                  </div>
+                </div>
+                <div class="col-12 col-lg-6 mb-3">
+                  <label for="phone" class="form-label"
+                    >Phone number (e.g. +353 87 123 4567)</label
+                  >
+                  <input
+                    class="form-control"
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    pattern="\+?[\d\s\-\(\)]{10,20}"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Please enter your number in international format.
+                  </div>
                 </div>
 
-                <div class="modal-body">
-                    <form id="contact-form" class="needs-validation" novalidate>
-                        <div class="row">
-                            <div class="col-12 col-lg-6 mb-3">
-                                <label for="name" class="form-label">Name</label>
-                                <input class="form-control" id="name" name="name" type="text" required>
-                            </div>
-                            <div class="col-12 col-lg-6 mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input class="form-control" id="email" name="email" type="email" required>
-                                <div class="invalid-feedback">Please use a valid email address</div>
-                            </div>
-                            <div class="col-12 col-lg-6 mb-3">
-                                <label for="phone" class="form-label">Phone number (e.g. +353 87 123 4567)</label>
-                                <input class="form-control" id="phone" name="phone" type="tel"
-                                    pattern="\+?[\d\s\-\(\)]{10,20}" required>
-                                <div class="invalid-feedback">Please enter your number in international format.</div>
-                            </div>
-
-                            <div class="col-12 mb-3">
-                                <label for="message" class="form-label">Message</label>
-                                <textarea class="form-control" rows="6" id="message" name="message" required></textarea>
-                            </div>
-
-
-                        </div>
-                    </form>
-
+                <div class="col-12 mb-3">
+                  <label for="message" class="form-label">Message</label>
+                  <textarea
+                    class="form-control"
+                    rows="6"
+                    id="message"
+                    name="message"
+                    required
+                  ></textarea>
                 </div>
+              </div>
+            </form>
+          </div>
 
-                <div class="modal-footer">
-                    <button class="btn btn-modal-close" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" form="contact-form" class="btn btn-modal-submit">Submit</button>
-                </div>
-
-            </div>
+          <div class="modal-footer">
+            <button class="btn btn-modal-close" data-bs-dismiss="modal">
+              Close
+            </button>
+            <button
+              type="submit"
+              form="contact-form"
+              class="btn btn-modal-submit"
+            >
+              Submit
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
     <!--Form Success Modal-->
     <!-- Bootstrap modal activated by on  contact-modal form or newsletter signup submission-->
-    <div class="modal fade" id="success-modal" tabindex="-1" aria-labelledby="success-modal-label" aria-hidden="true">
-        <div class="modal-dialog ">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title modal-header">Thank You</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
+    <div
+      class="modal fade"
+      id="success-modal"
+      tabindex="-1"
+      aria-labelledby="success-modal-label"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title modal-header">Thank You</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
 
-                <div class="modal-body">
-                    <p>We've received your enquiry. One of our travel agents will contact you within 24 hours!</p>
+          <div class="modal-body">
+            <p>
+              We've received your enquiry. One of our travel agents will contact
+              you within 24 hours!
+            </p>
+          </div>
 
-                </div>
-
-                <div class="modal-footer">
-                    <button class="btn btn-modal-close" data-bs-dismiss="modal">Close</button>
-                </div>
-
-            </div>
+          <div class="modal-footer">
+            <button class="btn btn-modal-close" data-bs-dismiss="modal">
+              Close
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
     <!--Main-->
     <main class="mb-5">
-        <!--Header-->
-        <header class="hero-banner d-flex">
-            <img src="assets/images/czechia-itinerary-hero.webp" alt="Panoramic view of Prague Castle"
-                class="w-100 h-100">
-        </header>
+      <!--Header-->
+      <header class="hero-banner d-flex">
+        <img
+          src="assets/images/czechia-itinerary-hero.webp"
+          alt="Panoramic view of Prague Castle"
+          class="w-100 h-100"
+        />
+      </header>
 
-        <!--Summary Section-->
-        <section class="container mt-4" id="summary-section">
-            <div class="row">
-                <h1 class="display-4 hero-content">Czech Republic</h1>
-                <div class="col-lg-8">
-                    <ul>
-                        <li>Explore <strong>Prague Castle</strong> — the world's largest ancient castle complex</li>
-                        <li>Private tour of <strong>St. Vitus Cathedral</strong> — Gothic masterpiece with stained glass
-                            by Mucha</li>
-                        <li>Day trip to <strong>Karlštejn Castle</strong> — Charles IV's Gothic fortress in the Bohemian
-                            hills</li>
-                        <li>Full-day excursion to <strong>Český Krumlov</strong> — Europe's most beautiful Renaissance
-                            town</li>
-                        <li>Cross <strong>Charles Bridge</strong> at dawn — before the crowds, with private guide</li>
-                        <li>Private classical concert in <strong>Prague's Rudolfinum</strong> — Dvořák's historic hall
-                        </li>
-                        <li>Visit the <strong>Jewish Quarter</strong> — synagogues and the Old Cemetery</li>
-                        <li>7 nights at your 5-star Prague hotel with breakfast included</li>
-                        <li>Maximum 12 guests — intimate group with art historian guides</li>
-                    </ul>
-                </div>
-                <div class="col-lg-4 d-none d-lg-flex flex-column justify-content-center align-items-center py-2">
-                    <div class="booking-form-wrap p-3">
-                        <h2>Book from €1,699</h2>
-                        <form action="">
-                            <fieldset>
-                                <legend class="px-2">No. of Travellers:</legend>
-                                <select class="form-select form-select-lg p-1" name="travellers"
-                                    aria-label="form number of travellers">
-                                    <option selected>0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                </select>
-                            </fieldset>
-                            <button class="booking-cta btn w-100 mt-3">Book Now</button>
-                        </form>
-                    </div>
-                </div>
+      <!--Summary Section-->
+      <section class="container mt-4" id="summary-section">
+        <div class="row">
+          <h1 class="display-4 hero-content">Czech Republic</h1>
+          <div class="col-lg-8">
+            <ul>
+              <li>
+                Explore <strong>Prague Castle</strong> — the world's largest
+                ancient castle complex
+              </li>
+              <li>
+                Private tour of <strong>St. Vitus Cathedral</strong> — Gothic
+                masterpiece with stained glass by Mucha
+              </li>
+              <li>
+                Day trip to <strong>Karlštejn Castle</strong> — Charles IV's
+                Gothic fortress in the Bohemian hills
+              </li>
+              <li>
+                Full-day excursion to <strong>Český Krumlov</strong> — Europe's
+                most beautiful Renaissance town
+              </li>
+              <li>
+                Cross <strong>Charles Bridge</strong> at dawn — before the
+                crowds, with private guide
+              </li>
+              <li>
+                Private classical concert in
+                <strong>Prague's Rudolfinum</strong> — Dvořák's historic hall
+              </li>
+              <li>
+                Visit the <strong>Jewish Quarter</strong> — synagogues and the
+                Old Cemetery
+              </li>
+              <li>
+                7 nights at your 5-star Prague hotel with breakfast included
+              </li>
+              <li>
+                Maximum 12 guests — intimate group with art historian guides
+              </li>
+            </ul>
+          </div>
+          <div
+            class="col-lg-4 d-none d-lg-flex flex-column justify-content-center align-items-center py-2"
+          >
+            <div class="booking-form-wrap p-3">
+              <h2>Book from €1,699</h2>
+              <button class="booking-cta btn w-100 mt-3">Book Now</button>
             </div>
+          </div>
+        </div>
 
-            <div class="modal fade booking-modal-container" tabindex="-1" aria-labelledby="booking-modal-label"
-                aria-hidden="true" data-price="1,699" data-upgrade-first-class="50" data-upgrade-hotel="250"
-                data-add-excursions="100">
+        <div
+          class="modal fade booking-modal-container"
+          tabindex="-1"
+          aria-labelledby="booking-modal-label"
+          aria-hidden="true"
+          data-price="1,699"
+          data-upgrade-first-class="50"
+          data-upgrade-hotel="250"
+          data-add-excursions="100"
+        ></div>
 
-            </div>
+        <div class="row">
+          <div class="col-12">
+            <h2>Prague, Karlštejn & Český Krumlov</h2>
+            <p>
+              Discover the architectural crown jewels of Bohemia — from Prague's
+              golden spires and the world's largest castle complex, to Gothic
+              fortresses guarding imperial treasures, and the fairy-tale town of
+              Český Krumlov tumbling down a river bend. This is Central Europe
+              at its most romantic, where emperors built to touch heaven and
+              Renaissance nobles created perfect worlds in miniature.
+            </p>
+          </div>
+        </div>
+      </section>
 
-
-            <div class="row">
-                <div class="col-12">
-                    <h2>Prague, Karlštejn & Český Krumlov</h2>
-                    <p>Discover the architectural crown jewels of Bohemia — from Prague's golden spires and the world's
-                        largest castle complex, to Gothic fortresses guarding imperial treasures, and the fairy-tale
-                        town of Český Krumlov tumbling down a river bend. This is Central Europe at its most romantic,
-                        where emperors built to touch heaven and Renaissance nobles created perfect worlds in miniature.
+      <!--Itinerary Section-->
+      <section id="itinerary-section" class="container border p-3 mb-5">
+        <div class="row">
+          <!-- Accordion Column -->
+          <div class="col-12 col-lg-7">
+            <div class="accordion" id="itineraryAccordion">
+              <!-- Day 1-4: Prague -->
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#stagePrague"
+                  >
+                    Days 1-4 · Prague
+                  </button>
+                </h2>
+                <div
+                  id="stagePrague"
+                  class="accordion-collapse collapse show"
+                  data-bs-parent="#itineraryAccordion"
+                >
+                  <div class="accordion-body">
+                    <p>
+                      Your Bohemian adventure begins in Prague — the city of a
+                      hundred spires. Your art historian guide reveals Prague
+                      Castle's vast courtyards where emperors ruled, the
+                      kaleidoscopic stained glass of St. Vitus Cathedral, and
+                      the ancient stones of Charles Bridge where alchemists once
+                      worked. A private classical concert in Dvořák's Rudolfinum
+                      brings the city's musical soul to life.
                     </p>
+                    <ul>
+                      <li>
+                        Private tour of <strong>Prague Castle</strong> — world's
+                        largest ancient castle complex
+                      </li>
+                      <li>
+                        Guided visit to <strong>St. Vitus Cathedral</strong> —
+                        Gothic masterpiece with Mucha windows
+                      </li>
+                      <li>
+                        Cross <strong>Charles Bridge</strong> at dawn — statues,
+                        towers, no crowds
+                      </li>
+                      <li>
+                        <strong>Private classical concert</strong> — Rudolfinum
+                        Hall (Dvořák Philharmonic)
+                      </li>
+                      <li>
+                        Explore <strong>Old Town Square</strong> — Astronomical
+                        Clock, Týn Church
+                      </li>
+                    </ul>
+                  </div>
                 </div>
+              </div>
+
+              <!-- Day 5: Karlštejn -->
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#stageKarlstejn"
+                  >
+                    Day 5 · Karlštejn Castle Day Trip
+                  </button>
+                </h2>
+                <div
+                  id="stageKarlstejn"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#itineraryAccordion"
+                >
+                  <div class="accordion-body">
+                    <p>
+                      A 40-minute private transfer southwest takes you to
+                      Karlštejn Castle — Charles IV's Gothic masterpiece perched
+                      above the Bohemian hills. Built to house the crown jewels
+                      and holy relics, this is the quintessential fairy-tale
+                      fortress with drawbridge, battlements, and frescoed
+                      chapels glittering with gold leaf.
+                    </p>
+                    <ul>
+                      <li>
+                        Private guided tour of
+                        <strong>Karlštejn Castle</strong> — Imperial apartments
+                        and Holy Chapel
+                      </li>
+                      <li>
+                        Explore the <strong>Great Tower</strong> — panoramic
+                        views over Berounka Valley
+                      </li>
+                      <li>
+                        Time to wander <strong>Karlštejn village</strong> —
+                        medieval taverns and artisan shops
+                      </li>
+                      <li>Return to Prague by late afternoon</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Day 6: Český Krumlov -->
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#stageKrumlov"
+                  >
+                    Day 6 · Český Krumlov
+                  </button>
+                </h2>
+                <div
+                  id="stageKrumlov"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#itineraryAccordion"
+                >
+                  <div class="accordion-body">
+                    <p>
+                      Your private coach journeys 3 hours south to Český Krumlov
+                      — Europe's most perfectly preserved Renaissance town
+                      tumbling down a river bend. This UNESCO jewel features a
+                      mountaintop castle with Baroque theatre, pastel townhouses
+                      hugging the Vltava, and cobblestone streets where time
+                      stopped 400 years ago.
+                    </p>
+                    <ul>
+                      <li>
+                        Private tour of <strong>Český Krumlov Castle</strong> —
+                        Europe's best Baroque theatre
+                      </li>
+                      <li>
+                        Explore the <strong>town square</strong> — Renaissance
+                        facades, frescoed churches
+                      </li>
+                      <li>
+                        Lunch overlooking the <strong>Vltava River bend</strong>
+                      </li>
+                      <li>
+                        Optional <strong>raft trip</strong> through the town
+                        (seasonal)
+                      </li>
+                      <li>Return to Prague by evening</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!--Day 7 and 8: Prague -->
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#stagePrague2"
+                  >
+                    Days 7-8 · Prague
+                  </button>
+                </h2>
+                <div
+                  id="stagePrague2"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#itineraryAccordion"
+                >
+                  <div class="accordion-body">
+                    <p>
+                      Your final days return to Prague for its haunting Jewish
+                      heritage and literary cafés. Farewell dinner celebrates
+                      Bohemia's architectural wonders.
+                    </p>
+                    <ul>
+                      <li>
+                        Private tour of <strong>Jewish Quarter</strong> — Old
+                        Cemetery, Pinkas Synagogue
+                      </li>
+                      <li>
+                        Free time in <strong>Malá Strana</strong> — Baroque
+                        palaces, hidden gardens
+                      </li>
+                      <li>Farewell dinner at your 5-star hotel</li>
+                      <li>Transfer to Prague Airport</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
-        </section>
+          </div>
 
-
-        <!--Itinerary Section-->
-        <section id="itinerary-section" class="container border p-3 mb-5">
-            <div class="row">
-                <!-- Accordion Column -->
-                <div class="col-12 col-lg-7">
-                    <div class="accordion" id="itineraryAccordion">
-
-                        <!-- Day 1-4: Prague -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#stagePrague">
-                                    Days 1-4 · Prague
-                                </button>
-                            </h2>
-                            <div id="stagePrague" class="accordion-collapse collapse show"
-                                data-bs-parent="#itineraryAccordion">
-                                <div class="accordion-body">
-                                    <p>Your Bohemian adventure begins in Prague — the city of a hundred spires. Your art
-                                        historian guide reveals Prague Castle's vast courtyards where emperors ruled,
-                                        the kaleidoscopic stained glass of St. Vitus Cathedral, and the ancient stones
-                                        of Charles Bridge where alchemists once worked. A private classical concert in
-                                        Dvořák's Rudolfinum brings the city's musical soul to life.</p>
-                                    <ul>
-                                        <li>Private tour of <strong>Prague Castle</strong> — world's largest ancient
-                                            castle complex</li>
-                                        <li>Guided visit to <strong>St. Vitus Cathedral</strong> — Gothic masterpiece
-                                            with Mucha windows</li>
-                                        <li>Cross <strong>Charles Bridge</strong> at dawn — statues, towers, no crowds
-                                        </li>
-                                        <li><strong>Private classical concert</strong> — Rudolfinum Hall (Dvořák
-                                            Philharmonic)</li>
-                                        <li>Explore <strong>Old Town Square</strong> — Astronomical Clock, Týn Church
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Day 5: Karlštejn -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#stageKarlstejn">
-                                    Day 5 · Karlštejn Castle Day Trip
-                                </button>
-                            </h2>
-                            <div id="stageKarlstejn" class="accordion-collapse collapse"
-                                data-bs-parent="#itineraryAccordion">
-                                <div class="accordion-body">
-                                    <p>A 40-minute private transfer southwest takes you to Karlštejn Castle — Charles
-                                        IV's Gothic masterpiece perched above the Bohemian hills. Built to house the
-                                        crown jewels and holy relics, this is the quintessential fairy-tale fortress
-                                        with drawbridge, battlements, and frescoed chapels glittering with gold leaf.
-                                    </p>
-                                    <ul>
-                                        <li>Private guided tour of <strong>Karlštejn Castle</strong> — Imperial
-                                            apartments and Holy Chapel</li>
-                                        <li>Explore the <strong>Great Tower</strong> — panoramic views over Berounka
-                                            Valley</li>
-                                        <li>Time to wander <strong>Karlštejn village</strong> — medieval taverns and
-                                            artisan shops</li>
-                                        <li>Return to Prague by late afternoon</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Day 6: Český Krumlov -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#stageKrumlov">
-                                    Day 6 · Český Krumlov
-                                </button>
-                            </h2>
-                            <div id="stageKrumlov" class="accordion-collapse collapse"
-                                data-bs-parent="#itineraryAccordion">
-                                <div class="accordion-body">
-                                    <p>Your private coach journeys 3 hours south to Český Krumlov — Europe's most
-                                        perfectly preserved Renaissance town tumbling down a river bend. This UNESCO
-                                        jewel features a mountaintop castle with Baroque theatre, pastel townhouses
-                                        hugging the Vltava, and cobblestone streets where time stopped 400 years ago.
-                                    </p>
-                                    <ul>
-                                        <li>Private tour of <strong>Český Krumlov Castle</strong> — Europe's best
-                                            Baroque theatre</li>
-                                        <li>Explore the <strong>town square</strong> — Renaissance facades, frescoed
-                                            churches</li>
-                                        <li>Lunch overlooking the <strong>Vltava River bend</strong></li>
-                                        <li>Optional <strong>raft trip</strong> through the town (seasonal)</li>
-                                        <li>Return to Prague by evening</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--Day 7 and 8: Prague -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#stagePrague2">
-                                    Days 7-8 · Prague
-                                </button>
-                            </h2>
-                            <div id="stagePrague2" class="accordion-collapse collapse"
-                                data-bs-parent="#itineraryAccordion">
-                                <div class="accordion-body">
-                                    <p>Your final days return to Prague for its haunting Jewish heritage and literary
-                                        cafés. Farewell dinner celebrates Bohemia's architectural wonders.</p>
-                                    <ul>
-                                        <li>Private tour of <strong>Jewish Quarter</strong> — Old Cemetery, Pinkas
-                                            Synagogue</li>
-                                        <li>Free time in <strong>Malá Strana</strong> — Baroque palaces, hidden gardens
-                                        </li>
-                                        <li>Farewell dinner at your 5-star hotel</li>
-                                        <li>Transfer to Prague Airport</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Map Column  -->
-                <div class="col-12 col-lg-5 d-flex p-2">
-                    <div id="map-container" class="w-100 d-flex justify-content-center align-items-center"
-                        data-lat="49.95" data-lng="14.5" data-zoom="7.5" data-markerid="czechia">
-                    </div>
-                </div>
-            </div>
-        </section>
+          <!-- Map Column  -->
+          <div class="col-12 col-lg-5 d-flex p-2">
+            <div
+              id="map-container"
+              class="w-100 d-flex justify-content-center align-items-center"
+              data-lat="49.95"
+              data-lng="14.5"
+              data-zoom="7.5"
+              data-markerid="czechia"
+            ></div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!--Footer-->
     <!--Bootstrap grid layout for contact info, links, and newsletter signup-->
     <footer id="footer" class="pt-2 mt-auto">
-        <div class="container mt-2">
-            <div class="row justify-content-center px-4">
-                <div class="col-12 col-md-4">
-                    <strong class="d-block mb-3 text-uppercase small">Contact us:</strong>
-                    <address class="d-flex align-items-start">
-                        <span class="flex-shrink-0"><i class="fa-solid fa-building-columns"></i></span>
-                        <span>
-                            Timewalk Travel House<br>
-                            14 Jervis Court, Jervis Street<br> Dublin 1, D01 X2F8.
-                        </span>
-                    </address>
-                    <div class="d-flex align-items-start mb-3">
-                        <span class="flex-shrink-0"><i class="fa-solid fa-phone"></i></span>
-                        <span> <a href="tel:3531234567">+353 87 1234567</a><br> </span>
-                    </div>
-                    <div class="d-flex align-items-start">
-                        <span class="flex-shrink-0"><i class="fa-regular fa-paper-plane"></i></span>
-                        <span> <a href="mailto:info@TimewalkTravel.ie">info@TimewalkTravel.ie</a><br>
-                        </span>
-                    </div>
-                    <strong class="d-block mt-2 mb-1 text-uppercase small">Connect with us:</strong>
-                    <div class="d-flex align-items-center social-links">
-                        <a href="https://www.instagram.com" target="_blank"
-                            aria-label="Visit our Instagram page (opens in a new tab)" rel="noopener"><i
-                                class="fa-brands fa-instagram"></i></a>
-                        <a href="https://www.facebook.com" target="_blank"
-                            aria-label="Visit our Facebook page (opens in a new tab)" rel="noopener"><i
-                                class="fa-brands fa-square-facebook"></i></a>
-                        <a href="https://www.x.com" target="_blank" aria-label="Visit our X feed (opens in a new tab)"
-                            rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4">
-                    <strong class="d-block mb-3 small text-uppercase">Quick Links</strong>
-                    <ul class="quick-links d-flex flex-column align-items-start">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="itineraryitaly1.html">Rome, Naples and Amalfi Coast</a></li>
-                        <li><a href="itineraryitaly2.html">Tuscany</a></li>
-                        <li><a href="itineraryczechia.html">Czech Republic</a></li>
-                        <li><a href="itineraryaustria.html">Austria & Venice</a></li>
-                        <li><a href="itineraryandulusia.html">Andalusia</a></li>
-                        <li><a href="itineraryireland.html">Ireland & Scotland</a></li>
-                    </ul>
-                </div>
-                <div class="col-12 col-md-4 ">
-                    <strong class="d-block mb-3 small text-uppercase">Newsletter</strong>
-                    <div class="d-flex flex-column gap-2 newsletter-signup">
-                        <p>Stay updated with our latest history-packed getaways and deals.</p>
-                        <form class="needs-validation" novalidate>
-                            <label for="newsletter-email" class="visually-hidden">Email Address</label>
-                            <input type="email" id="newsletter-email" name="email" class="form-control flex-grow-1 mb-3"
-                                placeholder="Enter your Email" required>
-                            <div class="invalid-feedback">Please use a valid email address</div>
-                            <button type="submit"
-                                class=" btn btn-newsletter flex-shrink-0 justify-content-center gap-1">Sign Up</button>
-                        </form>
-                    </div>
-                </div>
+      <div class="container mt-2">
+        <div class="row justify-content-center px-4">
+          <div class="col-12 col-md-4">
+            <strong class="d-block mb-3 text-uppercase small"
+              >Contact us:</strong
+            >
+            <address class="d-flex align-items-start">
+              <span class="flex-shrink-0"
+                ><i class="fa-solid fa-building-columns"></i
+              ></span>
+              <span>
+                Timewalk Travel House<br />
+                14 Jervis Court, Jervis Street<br />
+                Dublin 1, D01 X2F8.
+              </span>
+            </address>
+            <div class="d-flex align-items-start mb-3">
+              <span class="flex-shrink-0"
+                ><i class="fa-solid fa-phone"></i
+              ></span>
+              <span> <a href="tel:3531234567">+353 87 1234567</a><br /> </span>
             </div>
+            <div class="d-flex align-items-start">
+              <span class="flex-shrink-0"
+                ><i class="fa-regular fa-paper-plane"></i
+              ></span>
+              <span>
+                <a href="mailto:info@TimewalkTravel.ie"
+                  >info@TimewalkTravel.ie</a
+                ><br />
+              </span>
+            </div>
+            <strong class="d-block mt-2 mb-1 text-uppercase small"
+              >Connect with us:</strong
+            >
+            <div class="d-flex align-items-center social-links">
+              <a
+                href="https://www.instagram.com"
+                target="_blank"
+                aria-label="Visit our Instagram page (opens in a new tab)"
+                rel="noopener"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a
+                href="https://www.facebook.com"
+                target="_blank"
+                aria-label="Visit our Facebook page (opens in a new tab)"
+                rel="noopener"
+                ><i class="fa-brands fa-square-facebook"></i
+              ></a>
+              <a
+                href="https://www.x.com"
+                target="_blank"
+                aria-label="Visit our X feed (opens in a new tab)"
+                rel="noopener"
+                ><i class="fa-brands fa-x-twitter"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <strong class="d-block mb-3 small text-uppercase"
+              >Quick Links</strong
+            >
+            <ul class="quick-links d-flex flex-column align-items-start">
+              <li><a href="index.html">Home</a></li>
+              <li>
+                <a href="itineraryitaly1.html">Rome, Naples and Amalfi Coast</a>
+              </li>
+              <li><a href="itineraryitaly2.html">Tuscany</a></li>
+              <li><a href="itineraryczechia.html">Czech Republic</a></li>
+              <li><a href="itineraryaustria.html">Austria & Venice</a></li>
+              <li><a href="itineraryandulusia.html">Andalusia</a></li>
+              <li><a href="itineraryireland.html">Ireland & Scotland</a></li>
+            </ul>
+          </div>
+          <div class="col-12 col-md-4">
+            <strong class="d-block mb-3 small text-uppercase"
+              >Newsletter</strong
+            >
+            <div class="d-flex flex-column gap-2 newsletter-signup">
+              <p>
+                Stay updated with our latest history-packed getaways and deals.
+              </p>
+              <form class="needs-validation" novalidate>
+                <label for="newsletter-email" class="visually-hidden"
+                  >Email Address</label
+                >
+                <input
+                  type="email"
+                  id="newsletter-email"
+                  name="email"
+                  class="form-control flex-grow-1 mb-3"
+                  placeholder="Enter your Email"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Please use a valid email address
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-newsletter flex-shrink-0 justify-content-center gap-1"
+                >
+                  Sign Up
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
+      </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/398116af51.js" crossorigin="anonymous"></script>
     <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCixAFHxPLfz-kohjd7Te6Eujn9DZ4VdUw&libraries=marker&loading=async&callback=initMap"></script>
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/398116af51.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCixAFHxPLfz-kohjd7Te6Eujn9DZ4VdUw&libraries=marker&loading=async&callback=initMap"></script>
     <script src="assets/main.js"></script>
-</body>
-
+  </body>
 </html>
