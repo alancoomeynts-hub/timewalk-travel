@@ -548,7 +548,7 @@ function createBookingFormModal() {
         <form id="booking-form" novalidate>
           <fieldset>
               <legend > No. of Travellers: </legend>
-              <select class="id="travellors" form-select form-select-lg p-1" name="travellers"
+              <select class="id="travellers" form-select form-select-lg p-1" name="travellers"
                   aria-label="form number of travellers">
                 <option selected>0</option>
                 <option value="1">1</option>
@@ -584,7 +584,7 @@ function createBookingFormModal() {
       const bookingModal = new bootstrap.Modal(modalContainer);
       bookingModal.show();
 
-      bookingModal.addEventListener("shown.bs.modal", () => {
+      modalContainer.addEventListener("shown.bs.modal", (e) => {
         calculateTotalPrice(bookingData);
       });
     });
@@ -592,17 +592,27 @@ function createBookingFormModal() {
 }
 
 function calculateTotalPrice(bookingData) {
-  const totalText = document.getElementById("total");
-  const travellers = document.getElementById("travellers");
-  totalPrice = parseInt(bookingData.price) * parseInt(travellers.value);
-
-  totalText.innerText = totalPrice;
 
   const form = document.getElementById("booking-form");
+  const totalText = document.getElementById("total");
+  totalText.innerText = `Total: €0`;
+
   if (form) {
     form.addEventListener("change", (e) => {
-      const FormData = new FormData(form);
-      const total = 0;
+      const formData = new FormData(form);
+     
+    const travellers = parseInt(formData.get("travellers")) || 0;
+    const upgradeFirstClass =parseInt( formData.get("upgradeFirstClass"))||0;
+    const upgradeHotel = parseInt(formData.get("upgradeHotel"))||0;
+    const addExcursions = parseInt(formData.get("addExcursions"))||0;
+
+    let total = parseInt(bookingData.price);
+    total += parseInt(bookingData.upgradeFirstClass);
+    total += parseInt(bookingData.upgradeHotel);
+    total += parseInt(bookingData.addExcursions);
+    total *= travellers;
+
+    totalText.innerText = `Total: €${total}`;
     });
   }
 }
