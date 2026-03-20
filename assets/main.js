@@ -10,7 +10,7 @@ const itineraries = [
     imageAlt: "Photo of Colosseum superimposed on Positano Beach",
     title: "Rome, Naples & Amalfi",
     details: "8 days - From €1,899 pp",
-    href: "/itineraryitaly1.html",
+    href: "itineraryitaly1.html",
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const itineraries = [
     imageAlt: "Tuscan countryside with Duomo di Firenze in background",
     title: "Tuscany",
     details: "7 days - From €1,599 pp",
-    href: "/itineraryitaly2.html",
+    href: "itineraryitaly2.html",
   },
   {
     id: 3,
@@ -34,11 +34,11 @@ const itineraries = [
     imageAlt: "Composite Photo of Austrian and Venetian landmarks",
     title: "Austria & Venice",
     details: "10 days - From €2,000 pp",
-    href: "/itineraryaustria.html",
+    href: "itineraryaustria.html",
   },
   {
     id: 4,
-    destination: ["czech-republic"],
+    destination: ["czechia"],
     cities: ["prague", "karlstejn", "cesky-krumlov"],
     theme: ["medieval"],
     departure: ["dublin", "shannon"],
@@ -47,7 +47,7 @@ const itineraries = [
       "Composite image of Prague Castle, Charles Bridge and Cesky Krumlov in Czechia",
     title: "Czech Republic",
     details: "8 days - From €1,699 pp",
-    href: "/itineraryczechia.html",
+    href: "itineraryczechia.html",
   },
   {
     id: 5,
@@ -59,7 +59,7 @@ const itineraries = [
     imageAlt: "Photo of Seville's Plaza de España",
     title: "Andalusia",
     details: "10 days - From €1,899 pp",
-    href: "/itineraryandulusia.html",
+    href: "itineraryandulusia.html",
   },
   {
     id: 6,
@@ -71,7 +71,7 @@ const itineraries = [
     imageAlt: "Composite image of Ireland and Scotland historical sites",
     title: "Ireland & Scotland",
     details: "10 days - From €1,495 pp",
-    href: "/itineraryireland.html",
+    href: "itineraryireland.html",
   },
 ];
 
@@ -564,6 +564,7 @@ function createBookingFormModal() {
       <div class="modal-body">
         
         <form id="booking-form" novalidate>
+          
           <fieldset>
               <legend > No. of Travellers: </legend>
               <select class="id="travellers" form-select form-select-lg p-1" name="travellers"
