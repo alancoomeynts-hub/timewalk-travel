@@ -80,7 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
   validateForms();
 
   const page = document.body.id;
-  console.log(page);
 
   if (page === "page-home") {
     LocationCardsRedirect();
@@ -93,8 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (document.body.classList.contains("page-itinerary")) {
     createBookingFormModal();
   }
-
-  thumbCTAToggle();
 });
 
 /**
@@ -409,20 +406,29 @@ function validateForms() {
  * Show submitted modal screen using Bootstraps modal JS utility functions.
  */
 function showFormSubmissionModal() {
+
+  // get instance of contact modal, check it exists if not log error, then hide modal.
   const contactModal = bootstrap.Modal.getInstance(
     document.getElementById("contact-modal"),
   );
-  if (contactModal) {
-    contactModal.hide();
+  if (!contactModal) {
+    console.error("Contact modal instance not found");
+    return;
   }
+  contactModal.hide();
 
+  // show success-modal, check if it exists if not throw error.
+  const successContainer=document.getElementById("success-modal");
+  if(!successContainer){
+    throw new Error("Success modal element not found")
+  }
+ 
   const successModal = new bootstrap.Modal(
     document.getElementById("success-modal"),
   );
   successModal.show();
 }
 
-function thumbCTAToggle() {}
 /**
  * Add click listeners to search buttons on index.html, prevent default form submission,
  * extract form data and redirect to search results page with data stored in sessionStorage
@@ -449,7 +455,7 @@ function searchFormRedirect() {
         theme: data.get("theme"),
         departure: data.get("departure"),
       };
-
+      
       sessionStorage.setItem(
         "filterParameters",
         JSON.stringify(filterParameters),
@@ -464,6 +470,7 @@ function searchFormRedirect() {
  * Retrieves filter parameters from sessionStorage, filters itineraries data based on parameters and passes filtered data to cloneItineraryCards().
  */
 function filterResults() {
+  /* recover search parameters from sessionStorage and parse to object*/
   let searchTerms = sessionStorage.getItem("filterParameters");
   console.log(searchTerms);
 
@@ -490,30 +497,37 @@ function filterResults() {
       !filterParameters.departure ||
       itinerary.departure.includes(filterParameters.departure);
 
-    //return all matching values
+   
     return matchsDestination && matchTheme && matchDeparture;
   });
 
-  console.log(applyFilter);
   /* Pass filtered data to cloneItineraryCards function to clone cards matching search criteria*/
   cloneItineraryCards(applyFilter);
 }
+
 /**
  * Clones itinerary cards based on the filtered data.
  * @param {Array} filterData - The filtered itinerary data.
  */
 function cloneItineraryCards(filterData) {
+  const container = document.querySelector(".search-results-container");
+  if (!container) {
+    throw new Error("Search Results Container not found.");
+  }
+
   if (filterData.length === 0) {
-    const container = document.querySelector(".search-results-container");
     container.innerHTML = "<p class='text-danger'>No results found.</p>";
     return;
   }
 
-  const container = document.querySelector(".search-results-container");
+   const template = document.getElementById("itinerary-template");
+   if (!template) {
+     throw new Error("Itinerary template not found.");
+   }
 
   //select template and clone for each result, populate with data and append to container
   filterData.forEach((itinerary) => {
-    const template = document.getElementById("itinerary-template");
+   
     const clone = template.content.cloneNode(true);
     clone.querySelector(".card-title").innerHTML = itinerary.title;
     clone.querySelector(".card-text").innerText = itinerary.details;
@@ -531,13 +545,17 @@ function createBookingFormModal() {
   const bookingFormClick = document.querySelector(".booking-cta");
 
   const modalContainer = document.querySelector(".booking-modal-container");
+  
+  if (!bookingFormClick || !modalContainer) {
+    throw new Error("Booking Modal Elements not found");
+  }
+
   const bookingData = modalContainer.dataset;
 
-  if (bookingFormClick && modalContainer) {
-    bookingFormClick.addEventListener("click", (e) => {
-      e.preventDefault();
+  bookingFormClick.addEventListener("click", (e) => {
+    e.preventDefault();
 
-      modalContainer.innerHTML = `<div class="modal-dialog">
+    modalContainer.innerHTML = `<div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="contact-modal-label">Book Now</h5>
@@ -581,72 +599,82 @@ function createBookingFormModal() {
     </div>
   </div>
   `;
-      const bookingModal = new bootstrap.Modal(modalContainer);
-      bookingModal.show();
+    const bookingModal = new bootstrap.Modal(modalContainer);
+    bookingModal.show();
 
-      modalContainer.addEventListener("shown.bs.modal", (e) => {
-        calculateTotalPrice(bookingData);
-        
-        const confirmBooking = document.querySelector(".confirm-booking-btn");
-        confirmBooking.addEventListener("click", (e) => {
-          e.preventDefault();
-          handleBookingConfirmation();
-        });
+    modalContainer.addEventListener("shown.bs.modal", (e) => {
+      calculateTotalPrice(bookingData);
+
+      const confirmBooking = document.querySelector(".confirm-booking-btn");
+      confirmBooking.addEventListener("click", (e) => {
+        e.preventDefault();
+        handleBookingConfirmation();
       });
     });
-  }
+  });
 }
-
+/**
+ * Calculates total price based on booking form data. Update on change event of form.
+ * @param {Object} bookingData 
+ * @returns 
+ */
 function calculateTotalPrice(bookingData) {
-
   const form = document.getElementById("booking-form");
   const totalText = document.getElementById("total");
 
-    if (!form || !totalText || !bookingData) {
-    console.error('Form, totalText, or bookingData missing');
+  if (!form || !totalText || !bookingData) {
+    console.error("Form, totalText, or bookingData missing");
     return;
   }
-  
+
   totalText.innerText = `Total: €0`;
 
   form.addEventListener("change", (e) => {
     const formData = new FormData(form);
-    
-    console.log(FormData);
-    
-    const travellers = parseInt(formData.get("travellers")) || 0;
-   
-    let total = parseInt(bookingData.price) *travellers;
 
-    if(formData.has("upgradeFirstClass")){
-    total += parseInt(bookingData.upgradeFirstClass);
+    console.log(FormData);
+
+    const travellers = parseInt(formData.get("travellers")) || 0;
+
+    let total = parseInt(bookingData.price) * travellers;
+
+    if (formData.has("upgradeFirstClass")) {
+      total += parseInt(bookingData.upgradeFirstClass);
     }
-    if (formData.has("upgradeHotel")){
-    total += parseInt(bookingData.upgradeHotel);
+    if (formData.has("upgradeHotel")) {
+      total += parseInt(bookingData.upgradeHotel);
     }
-    if(formData.has("addExcursions")){
-    total += parseInt(bookingData.addExcursions);
+    if (formData.has("addExcursions")) {
+      total += parseInt(bookingData.addExcursions);
     }
-    
 
     totalText.innerText = `Total: €${total}`;
   });
 }
-
+/**
+ *  Handles booking confirmation by hiding the booking form modal and showing a booking confirmation modal.
+ * @returns 
+ */
 function handleBookingConfirmation() {
   const bookingFormModalInstance = bootstrap.Modal.getInstance(
     document.querySelector(".booking-modal-container"),
   );
-  
+
   if (!bookingFormModalInstance) {
-    console.error('Booking modal instance not found');
+    console.error("Booking modal instance not found");
     return;
   }
-  
+
   // Hide the booking form modal
   bookingFormModalInstance.hide();
-  
+
   const bookingModalContainer = document.getElementById("bookingsuccess-modal");
+
+  if (!bookingModalContainer) {
+    throw new Error("Booking success modal container not found");
+    return;
+  }
+
   bookingModalContainer.innerHTML = `<div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
