@@ -586,7 +586,12 @@ function createBookingFormModal() {
 
       modalContainer.addEventListener("shown.bs.modal", (e) => {
         calculateTotalPrice(bookingData);
-        const confirmBooking=document.addEventListener
+        
+        const confirmBooking = document.querySelector(".confirm-booking-btn");
+        confirmBooking.addEventListener("click", (e) => {
+          e.preventDefault();
+          handleBookingConfirmation();
+        });
       });
     });
   }
@@ -596,15 +601,15 @@ function calculateTotalPrice(bookingData) {
 
   const form = document.getElementById("booking-form");
   const totalText = document.getElementById("total");
-  totalText.innerText = `Total: €0`;
 
-    if (!form || !bookingData) {
-    console.error('Form or bookingData missing');
+    if (!form || !totalText || !bookingData) {
+    console.error('Form, totalText, or bookingData missing');
     return;
   }
+  
+  totalText.innerText = `Total: €0`;
 
-  if (form && bookingData) {
-    form.addEventListener("change", (e) => {
+  form.addEventListener("change", (e) => {
     const formData = new FormData(form);
     
     console.log(FormData);
@@ -625,6 +630,40 @@ function calculateTotalPrice(bookingData) {
     
 
     totalText.innerText = `Total: €${total}`;
-    });
+  });
+}
+
+function handleBookingConfirmation() {
+  const bookingFormModalInstance = bootstrap.Modal.getInstance(
+    document.querySelector(".booking-modal-container"),
+  );
+  
+  if (!bookingFormModalInstance) {
+    console.error('Booking modal instance not found');
+    return;
   }
+  
+  // Hide the booking form modal
+  bookingFormModalInstance.hide();
+  
+  const bookingModalContainer = document.getElementById("bookingsuccess-modal");
+  bookingModalContainer.innerHTML = `<div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title modal-header">Booking Confirmed</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <p>Thank you for your booking! We've received your booking request and you'll receive a confirmation email shortly with all the details. One of our travel agents will contact you within 24 hours to finalize the arrangements.</p>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-modal-close" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>`;
+
+  const bookingConfirmationModal = new bootstrap.Modal(bookingModalContainer);
+  bookingConfirmationModal.show();
 }
