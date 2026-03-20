@@ -575,8 +575,8 @@ function createBookingFormModal() {
       </div>
       <div class="modal-footer">
         <p id="total">Total: €</p>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button class="booking-cta btn" form="booking-form">Book Now</button>
+        <button type="button" class="btn btn-modal-close" data-bs-dismiss="modal">Close</button>
+        <button class="confirm-booking-btn btn btn-modal-submit" form="booking-form">Confirm Booking</button>
       </div>
     </div>
   </div>
@@ -586,6 +586,7 @@ function createBookingFormModal() {
 
       modalContainer.addEventListener("shown.bs.modal", (e) => {
         calculateTotalPrice(bookingData);
+        const confirmBooking=document.addEventListener
       });
     });
   }
@@ -597,20 +598,31 @@ function calculateTotalPrice(bookingData) {
   const totalText = document.getElementById("total");
   totalText.innerText = `Total: €0`;
 
-  if (form) {
-    form.addEventListener("change", (e) => {
-      const formData = new FormData(form);
-     
-    const travellers = parseInt(formData.get("travellers")) || 0;
-    const upgradeFirstClass =parseInt( formData.get("upgradeFirstClass"))||0;
-    const upgradeHotel = parseInt(formData.get("upgradeHotel"))||0;
-    const addExcursions = parseInt(formData.get("addExcursions"))||0;
+    if (!form || !bookingData) {
+    console.error('Form or bookingData missing');
+    return;
+  }
 
-    let total = parseInt(bookingData.price);
+  if (form && bookingData) {
+    form.addEventListener("change", (e) => {
+    const formData = new FormData(form);
+    
+    console.log(FormData);
+    
+    const travellers = parseInt(formData.get("travellers")) || 0;
+   
+    let total = parseInt(bookingData.price) *travellers;
+
+    if(formData.has("upgradeFirstClass")){
     total += parseInt(bookingData.upgradeFirstClass);
+    }
+    if (formData.has("upgradeHotel")){
     total += parseInt(bookingData.upgradeHotel);
+    }
+    if(formData.has("addExcursions")){
     total += parseInt(bookingData.addExcursions);
-    total *= travellers;
+    }
+    
 
     totalText.innerText = `Total: €${total}`;
     });

@@ -86,7 +86,8 @@ Media Sources:
 - Initialy implemented Google Maps API using tutorial on Publicapis but noticed depreciation message in console. In order to remove this and future proof project, I migrated to advanced marker with guidance from official Javascript API documentation.
 -  When styling infoWindows headerContent I initially tried using a similar method as content using string but this would not work for headerContent. Solved by using createElement() to create a HTML element prompted by Google API documentation: https://developers.google.com/maps/documentation/javascript/reference/info-window
 - Unable to access Google Cloud Map Styles or Map Management. I thus use the demo map_id for default map styling
-- In calculator function, can't get checkbox to add their value to total.
+- In calculator function, checkboxes were not adding their value to total. Discovered checkboxes are only present in FormData when set to true so used has() method to test FormData object and extract value if true. https://developer.mozilla.org/en-US/docs/Web/API/FormData/has
+
 ## Technologies & Resources
 - https://httpbin.org/post dummy api endpoint
 - Perplexity for text content, regex generation
