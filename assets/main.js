@@ -1,80 +1,28 @@
-/* global data used by filter function*/
-const itineraries = [
-  {
-    id: 1,
-    destination: ["italy"],
-    cities: ["rome", "naples", "pompeii", "sorrento"],
-    theme: ["ancient-rome"],
-    departure: ["cork", "dublin"],
-    imageSrc: "assets/images/ItalyCardImage1.webp",
-    imageAlt: "Photo of Colosseum superimposed on Positano Beach",
-    title: "Rome, Naples & Amalfi",
-    details: "8 days - From €1,899 pp",
-    href: "itineraryitaly1.html",
-  },
-  {
-    id: 2,
-    destination: ["italy"],
-    cities: ["florence", "siena", "san-gimignano", "pisa"],
-    theme: ["renaissance"],
-    departure: ["cork", "dublin", "shannon"],
-    imageSrc: "assets/images/tuscanycard.webp",
-    imageAlt: "Tuscan countryside with Duomo di Firenze in background",
-    title: "Tuscany",
-    details: "7 days - From €1,599 pp",
-    href: "itineraryitaly2.html",
-  },
-  {
-    id: 3,
-    destination: ["austria", "italy"],
-    cities: ["salzburg", "vienna", "venice"],
-    theme: ["baroque"],
-    departure: ["dublin", "shannon"],
-    imageSrc: "assets/images/AustriaVeniceCard.webp",
-    imageAlt: "Composite Photo of Austrian and Venetian landmarks",
-    title: "Austria & Venice",
-    details: "10 days - From €2,000 pp",
-    href: "itineraryaustria.html",
-  },
-  {
-    id: 4,
-    destination: ["czechia"],
-    cities: ["prague", "karlstejn", "cesky-krumlov"],
-    theme: ["medieval"],
-    departure: ["dublin", "shannon"],
-    imageSrc: "assets/images/CzechRepublicCard.webp",
-    imageAlt:
-      "Composite image of Prague Castle, Charles Bridge and Cesky Krumlov in Czechia",
-    title: "Czech Republic",
-    details: "8 days - From €1,699 pp",
-    href: "itineraryczechia.html",
-  },
-  {
-    id: 5,
-    destination: ["spain"],
-    cities: ["seville", "ronda", "grenada", "gibraltar"],
-    theme: ["renaissance"],
-    departure: ["dublin", "shannon"],
-    imageSrc: "assets/images/AndalusiaCard.webp",
-    imageAlt: "Photo of Seville's Plaza de España",
-    title: "Andalusia",
-    details: "10 days - From €1,899 pp",
-    href: "itineraryandulusia.html",
-  },
-  {
-    id: 6,
-    destination: ["ireland", "scotland"],
-    cities: ["cork", "dublin", "belfast", "edinburgh", "stirling"],
-    theme: ["celtic"],
-    departure: ["dublin", "cork"],
-    imageSrc: "assets/images/IrelandScotlandCard.webp",
-    imageAlt: "Composite image of Ireland and Scotland historical sites",
-    title: "Ireland & Scotland",
-    details: "10 days - From €1,495 pp",
-    href: "itineraryireland.html",
-  },
-];
-const markersCoordinates = {
+/* dom content loaded function with page detection*/
+document.addEventListener("DOMContentLoaded", () => {
+  const page = document.body.id;
+
+  if (page === "page-home") {
+    LocationCardsRedirect();
+    searchFormRedirect();
+  } else if (page === "page-search-results") {
+    filterResults();
+    LocationCardsRedirect();
+  }
+
+  if (document.body.classList.contains("page-itinerary")) {
+    createBookingFormModal();
+  }
+  validateContactForms();
+});
+
+/**
+ * initMap creates Google Maps API instance utilising data attributes from #map-container element
+ * and on success, passes map and markerData to createMarker() to create advanced markers and infoWindows.
+ */
+
+async function initMap() {
+  const markersCoordinates = {
       rome: [
         {
           lat: 41.9028,
@@ -249,30 +197,6 @@ const markersCoordinates = {
         }, // Stirling
       ],
     };
-/* dom content loaded function with page detection*/
-document.addEventListener("DOMContentLoaded", () => {
-  const page = document.body.id;
-
-  if (page === "page-home") {
-    LocationCardsRedirect();
-    searchFormRedirect();
-  } else if (page === "page-search-results") {
-    filterResults();
-    LocationCardsRedirect();
-  }
-
-  if (document.body.classList.contains("page-itinerary")) {
-    createBookingFormModal();
-  }
-  validateContactForms();
-});
-
-/**
- * initMap creates Google Maps API instance utilising data attributes from #map-container element
- * and on success, passes map and markerData to createMarker() to create advanced markers and infoWindows.
- */
-
-async function initMap() {
   const container = document.querySelector("#map-container");
   if (!container) {
     throw new Error("No map containers found");
@@ -483,6 +407,81 @@ function searchFormRedirect() {
  * Retrieves filter parameters from sessionStorage, filters itineraries data based on parameters and passes filtered data to cloneItineraryCards().
  */
 function filterResults() {
+  const itineraries = [
+  {
+    id: 1,
+    destination: ["italy"],
+    cities: ["rome", "naples", "pompeii", "sorrento"],
+    theme: ["ancient-rome"],
+    departure: ["cork", "dublin"],
+    imageSrc: "assets/images/ItalyCardImage1.webp",
+    imageAlt: "Photo of Colosseum superimposed on Positano Beach",
+    title: "Rome, Naples & Amalfi",
+    details: "8 days - From €1,899 pp",
+    href: "itineraryitaly1.html",
+  },
+  {
+    id: 2,
+    destination: ["italy"],
+    cities: ["florence", "siena", "san-gimignano", "pisa"],
+    theme: ["renaissance"],
+    departure: ["cork", "dublin", "shannon"],
+    imageSrc: "assets/images/tuscanycard.webp",
+    imageAlt: "Tuscan countryside with Duomo di Firenze in background",
+    title: "Tuscany",
+    details: "7 days - From €1,599 pp",
+    href: "itineraryitaly2.html",
+  },
+  {
+    id: 3,
+    destination: ["austria", "italy"],
+    cities: ["salzburg", "vienna", "venice"],
+    theme: ["baroque"],
+    departure: ["dublin", "shannon"],
+    imageSrc: "assets/images/AustriaVeniceCard.webp",
+    imageAlt: "Composite Photo of Austrian and Venetian landmarks",
+    title: "Austria & Venice",
+    details: "10 days - From €2,000 pp",
+    href: "itineraryaustria.html",
+  },
+  {
+    id: 4,
+    destination: ["czechia"],
+    cities: ["prague", "karlstejn", "cesky-krumlov"],
+    theme: ["medieval"],
+    departure: ["dublin", "shannon"],
+    imageSrc: "assets/images/CzechRepublicCard.webp",
+    imageAlt:
+      "Composite image of Prague Castle, Charles Bridge and Cesky Krumlov in Czechia",
+    title: "Czech Republic",
+    details: "8 days - From €1,699 pp",
+    href: "itineraryczechia.html",
+  },
+  {
+    id: 5,
+    destination: ["spain"],
+    cities: ["seville", "ronda", "grenada", "gibraltar"],
+    theme: ["renaissance"],
+    departure: ["dublin", "shannon"],
+    imageSrc: "assets/images/AndalusiaCard.webp",
+    imageAlt: "Photo of Seville's Plaza de España",
+    title: "Andalusia",
+    details: "10 days - From €1,899 pp",
+    href: "itineraryandulusia.html",
+  },
+  {
+    id: 6,
+    destination: ["ireland", "scotland"],
+    cities: ["cork", "dublin", "belfast", "edinburgh", "stirling"],
+    theme: ["celtic"],
+    departure: ["dublin", "cork"],
+    imageSrc: "assets/images/IrelandScotlandCard.webp",
+    imageAlt: "Composite image of Ireland and Scotland historical sites",
+    title: "Ireland & Scotland",
+    details: "10 days - From €1,495 pp",
+    href: "itineraryireland.html",
+  },
+];
   /* recover search parameters from sessionStorage and parse to object*/
   let searchTerms = sessionStorage.getItem("filterParameters");
   console.log(searchTerms);
