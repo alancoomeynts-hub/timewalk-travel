@@ -375,7 +375,7 @@ function LocationCardsRedirect() {
 }
 /**Validate forms using bootstrap utility classes and functions */
 function validateContactForms() {
-  const forms = document.querySelectorAll(".needs-validation");
+  const forms = document.querySelectorAll(".needs-validation:not(#booking-form)"); // exclude booking form which has separate validation and submit handling.
 
   Array.from(forms).forEach((form) => {
     form.addEventListener("submit", (event) => {
@@ -393,6 +393,7 @@ function validateContactForms() {
           .catch((e) => console.error("Error:", e));
 
         showFormSubmissionModal();
+        form.reset();
       } else {
         form.classList.add("was-validated");
       }
@@ -410,11 +411,9 @@ function showFormSubmissionModal() {
   const contactModal = bootstrap.Modal.getInstance(
     document.getElementById("contact-modal"),
   );
-  if (!contactModal) {
-    console.error("Contact modal instance not found");
-    return;
-  }
-  contactModal.hide();
+ 
+  /*close contact modal only if it exists.i.e newsletter sign up is used*/
+  if(contactModal){ contactModal.hide();}
 
   // Get success modal container
   const successContainer = document.getElementById("success-modal");
@@ -434,7 +433,7 @@ function showFormSubmissionModal() {
         <p>We've received your enquiry. One of our travel agents will contact you within 24 hours!</p>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-modal-close" data-bs-dismiss="modal">Close</button>
+        <button class="btn btn-white" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>`;
@@ -449,7 +448,7 @@ function showFormSubmissionModal() {
  * for retrieval and filtering on search results page.
  */
 function searchFormRedirect() {
-  const searchButtons = document.querySelectorAll(".btn-search");
+  const searchButtons = document.querySelectorAll('[data-action="search"]');
 
   searchButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
@@ -556,9 +555,10 @@ function cloneItineraryCards(filterData) {
  * Add click listener to booking CTA button on itinerary pages,create and show booking form modal using Bootstrap's modal JS utility functions.
  */
 function createBookingFormModal() {
-  const bookingFormClick = document.querySelector(".booking-cta");
+  const bookingFormClick = document.querySelector('[data-action="book-tour"]');
 
   const modalContainer = document.querySelector(".booking-modal-container");
+  const confirmBooking = document.getElementById("booking-form");
   
   if (!bookingFormClick || !modalContainer) {
     throw new Error("Booking Modal Elements not found");
@@ -566,20 +566,22 @@ function createBookingFormModal() {
 
   const bookingData = modalContainer.dataset;
 
-    modalContainer.addEventListener("show.bs.modal", (e) => {
-      const confirmBooking = document.getElementById("booking-form");
-      confirmBooking.reset();
-      calculateTotalPrice(bookingData);
+  // Reset form and calculate price when modal opens
+  modalContainer.addEventListener("show.bs.modal", (e) => {
+    confirmBooking.reset();
+    confirmBooking.classList.remove("was-validated");
+    calculateTotalPrice(bookingData);
+  });
 
-      confirmBooking.addEventListener("submit", (e) => {
-        e.preventDefault();
-        if(confirmBooking.checkValidity()) {
-          handleBookingConfirmation();
-        } else {
-          confirmBooking.classList.add("was-validated");
-        }
-      }, { once: true });
-    });
+  //On submit validate booking form and show confirmation modal.
+  confirmBooking.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if(confirmBooking.checkValidity()) {
+      handleBookingConfirmation();
+    } else {
+      confirmBooking.classList.add("was-validated");
+    }
+  });
 }
 /**
  * Calculates total price based on booking form data. Update on change event of form.
@@ -640,7 +642,7 @@ function handleBookingConfirmation() {
 
   if (!bookingModalContainer) {
     throw new Error("Booking success modal container not found");
-    return;
+    
   }
 
   bookingModalContainer.innerHTML = `<div class="modal-dialog">
@@ -655,7 +657,7 @@ function handleBookingConfirmation() {
       </div>
 
       <div class="modal-footer">
-        <button class="btn btn-modal-close" data-bs-dismiss="modal">Close</button>
+        <button class="btn btn-white" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>`;

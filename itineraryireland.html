@@ -17,7 +17,7 @@
 
     <!--navigation-->
     <!--Bootstrap navbar with dropdown menu-->
-    <nav id="navbar" class="navbar navbar-expand-lg">
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-main">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <img src="assets/images/timewalk-travel-high-resolution-logo-transparent-red.webp"
@@ -39,7 +39,7 @@
                             aria-expanded="false">
                             2026 Holidays
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu dropdown-main">
                             <li><a class="dropdown-item" href="itineraryitaly1.html">Rome, Naples and Amalfi
                                     Coast</a></li>
                             <li><a class="dropdown-item" href="itineraryitaly2.html">Tuscany</a></li>
@@ -52,10 +52,10 @@
                     </li>
                     <li class="nav-item ms-auto">
                         <div class="d-flex gap-2">
-                            <button class="contact-cta btn" data-bs-toggle="modal" data-bs-target="#contact-modal">Get
+                            <button class="btn-red btn" data-bs-toggle="modal" data-bs-target="#contact-modal">Get
                                 Quote</button>
                             <!--Phone CTA button uses on-click window location in place of anchor element for call redirect. -->
-                            <button class="phone-cta btn" onclick="window.location.href='tel:353871234567'"><i
+                            <button class="btn-icon btn-red btn" onclick="window.location.href='tel:353871234567'"><i
                                     class="fa-solid fa-phone-flip"></i></button>
                         </div>
                     </li>
@@ -99,8 +99,8 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button class="btn btn-modal-close" data-bs-dismiss="modal">Close</button>
-            <button type="submit" form="contact-form" class="btn btn-modal-submit">Submit</button>
+            <button class="btn btn-white" data-bs-dismiss="modal">Close</button>
+            <button type="submit" form="contact-form" class="btn btn-red">Submit</button>
           </div>
         </div>
       </div>
@@ -139,7 +139,7 @@
                 <div class="col-lg-4 d-none d-lg-flex flex-column justify-content-center align-items-center py-2">
                     <div class="booking-form-wrap p-3">
                         <h2>Book from €1,495</h2>
-                        <button class="booking-cta btn w-100 mt-3" data-bs-toggle="modal" data-bs-target="#booking-modal">Book Now</button>
+                        <button class="btn btn-gold w-100 mt-3" data-action="book-tour" data-bs-toggle="modal" data-bs-target="#booking-modal">Book Now</button>
                     </div>
                 </div>
             </div>
@@ -169,7 +169,7 @@
 
                                     <label for="phone" class="form-label">Phone number (e.g. +353 87 123 4567)</label>
                                     <input class="form-control" id="phone" name="phone" type="tel"
-                                        pattern="\\+?[\\d\\s\\-\\(\\)]{10,20}" required>
+                                        pattern="\+?[\d\s\-\(\)]{10,20}" required>
                                     <div class="invalid-feedback">Please enter your number in international format.
                                     </div>
                                 </fieldset>
@@ -220,8 +220,8 @@
                         </div>
                         <div class="modal-footer">
                             <p id="total">Total: €</p>
-                            <button type="button" class="btn btn-modal-close" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="confirm-booking-btn btn btn-modal-submit"
+                            <button type="button" class="btn btn-white" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="confirm-booking-btn btn btn-red"
                                 form="booking-form">Confirm Booking</button>
                         </div>
                     </div>
@@ -411,7 +411,7 @@
                                 placeholder="Enter your Email" required>
                             <div class="invalid-feedback">Please use a valid email address</div>
                             <button type="submit"
-                                class=" btn btn-newsletter flex-shrink-0 justify-content-center gap-1">Sign Up</button>
+                                class="btn btn-gold flex-shrink-0 justify-content-center gap-1">Sign Up</button>
                         </form>
                     </div>
                 </div>

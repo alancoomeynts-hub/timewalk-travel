@@ -90,7 +90,9 @@ Media Sources:
 
 - In an effort to reduce HTML I tried Javasacript functions to generate modals for contact and booking forms. On testing the forms were inconsistent in opening and closing. To solve I reverted to static HTML for modals and used javascript to show and handle events in the modal. I also added a reset() method to clear form data on each open of the modal to prevent data from previous booking attempts being present on new attempts, and added a once:true option to the event listeners to prevent multiple submit and shown.bs.modal listeners being added on each open of the modal. references: https://getbootstrap.com/docs/5.3/components/modal/#methods and https://getbootstrap.com/docs/5.3/components/modal/#events
 
-- In the contact form, I initially tried to use a single event listener on the form submit button to handle both form validation and form submission. This caused issues with the form not submitting when validation failed. I solved this by separating the concerns into two event listeners: one for form validation on submit and another for form submission on successful validation. I also added a once:true option to the submit event listener to prevent multiple listeners being added on each open of the modal. https://getbootstrap.com/docs/5.3/forms/validation/ and https://getbootstrap.com/docs/5.3/components/modal/#events
+- In the contact form, I initially tried to use a single event listener on the form submit button to handle both form validation and form submission. This caused issues with the form not submitting when validation failed. I solved this by separating the concerns into two event listeners: one for form validation on submit and another for form submission on successful validation. I initally tried adding once:true option also to the event listeners but removed this as this prevented multiple submissions.
+
+- Due to above changes, this caused submitting booking form to trigger confirmation modal for the contact and newsletter forms. This was due to the bootstrap needs-validation being shared. Solution was to exclude booking form from selector in form validation function.
 
 - In the booking form, I initially had an issue with checkboxes not  being present in the formdata. I solved this by using static HTML for the optional upgrades and using data attributes to store the price of each upgrade. I then used the has() method to check if each upgrade was selected and extract the price from the data attribute if true. https://developer.mozilla.org/en-US/docs/Web/API/FormData/has and https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*
 
@@ -102,7 +104,7 @@ Media Sources:
 
 - Perplexity for text content, regex generation
 
-- Copilot for QAing html for trailing tags, and templating and ensuring consistent editing of itinerary pages from itineraryitaly1.html
+- Copilot for QAing html for trailing tags,analyse style patterns and templating and ensuring consistent editing of itinerary pages from itineraryitaly1.html
 
 ## Depreciation warnings not addressed
 - <gmp-pin>: The `element` property is deprecated. Please use the PinElement directly.
