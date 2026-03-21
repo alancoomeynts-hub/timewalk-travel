@@ -251,9 +251,6 @@ const markersCoordinates = {
     };
 /* dom content loaded function with page detection*/
 document.addEventListener("DOMContentLoaded", () => {
- 
-  createContactFormModal();
-
   const page = document.body.id;
 
   if (page === "page-home") {
@@ -556,59 +553,6 @@ function cloneItineraryCards(filterData) {
   });
 }
 /**
- * Creates and injects contact form modal HTML into the contact-modal container.
- * Follows the same pattern as createBookingFormModal for consistency.
- */
-function createContactFormModal() {
-  const modalContainer = document.getElementById("contact-modal");
-  
-  if (!modalContainer) {
-    console.error("Contact modal container not found");
-    return;
-  }
-
-  // Inject contact modal HTML into the container
-  modalContainer.innerHTML = `<div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title modal-label" id="contact-modal-label">Please Provide Contact Details</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form id="contact-form" class="needs-validation" novalidate>
-          <div class="row">
-            <div class="col-12 col-lg-6 mb-3">
-              <label for="name" class="form-label">Name</label>
-              <input class="form-control" id="name" name="name" type="text" required>
-              <div class="invalid-feedback">Please enter your name.</div>
-            </div>
-            <div class="col-12 col-lg-6 mb-3">
-              <label for="email" class="form-label">Email</label>
-              <input class="form-control" id="email" name="email" type="email" required>
-              <div class="invalid-feedback">Please use a valid email address</div>
-            </div>
-            <div class="col-12 col-lg-6 mb-3">
-              <label for="phone" class="form-label">Phone number (e.g. +353 87 123 4567)</label>
-              <input class="form-control" id="phone" name="phone" type="tel"
-                pattern="\\+?[\\d\\s\\-\\(\\)]{10,20}" required>
-              <div class="invalid-feedback">Please enter your number in international format.</div>
-            </div>
-            <div class="col-12 mb-3">
-              <label for="message" class="form-label">Message</label>
-              <textarea class="form-control" rows="6" id="message" name="message" required></textarea>
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-modal-close" data-bs-dismiss="modal">Close</button>
-        <button type="submit" form="contact-form" class="btn btn-modal-submit">Submit</button>
-      </div>
-    </div>
-  </div>`;
-}
-
-/**
  * Add click listener to booking CTA button on itinerary pages,create and show booking form modal using Bootstrap's modal JS utility functions.
  */
 function createBookingFormModal() {
@@ -622,87 +566,11 @@ function createBookingFormModal() {
 
   const bookingData = modalContainer.dataset;
 
-  bookingFormClick.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    modalContainer.innerHTML = `<div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="contact-modal-label">Book Now</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        
-        <form id="booking-form" class="needs-validation" novalidate>
-
-          <fieldset>
-          <legend>Contact Information: </legend>
-          <label for="name" class="form-label">Name</label>
-          <input class="form-control" id="name" name="name" type="text" required>
-          <div class="invalid-feedback">Please enter your name.</div>
-          
-          <label for="email" class="form-label">Email</label>
-          <input class="form-control" id="email" name="email" type="email" required>
-          <div class="invalid-feedback">Please use a valid email address</div>
-          
-          <label for="phone" class="form-label">Phone number (e.g. +353 87 123 4567)</label>
-          <input class="form-control" id="phone" name="phone" type="tel"
-          pattern="\\+?[\\d\\s\\-\\(\\)]{10,20}" required>
-          <div class="invalid-feedback">Please enter your number in international format.</div>
-          </fieldset>
-
-          <fieldset>
-            <legend > Select Departure Airport: </legend>
-            <select class="form-select form-select-lg p-1" name="departure" aria-label="form departure airport">
-              <option selected>Select an airport</option>
-              <option value="cork">Cork</option>
-              <option value="dublin">Dublin</option>
-              <option value="shannon">Shannon</option>
-            </select>
-          </fieldset>
-
-          <fieldset>
-              <legend > No. of Travellers: </legend>
-              <select id="travellers" class="form-select form-select-lg p-1" name="travellers"
-                  aria-label="form number of travellers">
-                <option selected>0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                </select>
-            </fieldset>
-             <fieldset>
-              <legend > Optional Upgrades: </legend>
-              <input type = "checkbox" id="upgradeFirstClass" name="upgradeFirstClass" value="upgradeFirstClass" data-price="500">
-              <label for="upgradeFirstClass">Upgrade to First Class Flights: € ${bookingData.upgradeFirstClass}</label><br>
-              <input type = "checkbox" id="upgradeHotel" name="upgradeHotel" value="upgradeHotel" data-price="300">
-              <label for="upgradeHotel">Upgrade to 5 Star Hotels: € ${bookingData.upgradeHotel}</label><br>
-              <input type = "checkbox" id="addExcursions" name="addExcursions" value="addExcursions" data-price="100">
-              <label for="addExcursions">Add Guided Excursions: € ${bookingData.addExcursions}</label><br>
-            </fieldset>    
-            </form>
-      </div>
-      <div class="modal-footer">
-        <p id="total">Total: €</p>
-        <button type="button" class="btn btn-modal-close" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="confirm-booking-btn btn btn-modal-submit" form="booking-form">Confirm Booking</button>
-      </div>
-    </div>
-  </div>
-  `;
-    const bookingModal = new bootstrap.Modal(modalContainer);
-    bookingModal.show();
-
     modalContainer.addEventListener("shown.bs.modal", (e) => {
+      const confirmBooking = document.getElementById("booking-form");
+      confirmBooking.reset();
       calculateTotalPrice(bookingData);
 
-      const confirmBooking = document.getElementById("booking-form");
       confirmBooking.addEventListener("submit", (e) => {
         e.preventDefault();
         if(confirmBooking.checkValidity()) {
@@ -710,9 +578,8 @@ function createBookingFormModal() {
         } else {
           confirmBooking.classList.add("was-validated");
         }
-      });
+      }, { once: true });
     });
-  });
 }
 /**
  * Calculates total price based on booking form data. Update on change event of form.
@@ -733,7 +600,7 @@ function calculateTotalPrice(bookingData) {
   form.addEventListener("change", (e) => {
     const formData = new FormData(form);
 
-    console.log(FormData);
+    console.log(formData);
 
     const travellers = parseInt(formData.get("travellers")) || 0;
 
