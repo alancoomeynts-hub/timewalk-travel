@@ -252,6 +252,7 @@ const markersCoordinates = {
 /* dom content loaded function with page detection*/
 document.addEventListener("DOMContentLoaded", () => {
   validateForms();
+  createContactFormModal();
 
   const page = document.body.id;
 
@@ -402,7 +403,8 @@ function validateForms() {
 }
 
 /**
- * Show submitted modal screen using Bootstraps modal JS utility functions.
+ * Show submitted modal screen using Bootstrap's modal JS utility functions.
+ * Injects success modal HTML into the existing success-modal container.
  */
 function showFormSubmissionModal() {
 
@@ -416,15 +418,30 @@ function showFormSubmissionModal() {
   }
   contactModal.hide();
 
-  // show success-modal, check if it exists if not throw error.
-  const successContainer=document.getElementById("success-modal");
-  if(!successContainer){
-    throw new Error("Success modal element not found")
+  // Get success modal container
+  const successContainer = document.getElementById("success-modal");
+  if (!successContainer) {
+    console.error("Success modal container not found");
+    return;
   }
+
+  // Inject success modal HTML
+  successContainer.innerHTML = `<div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title modal-header">Thank You</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>We've received your enquiry. One of our travel agents will contact you within 24 hours!</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-modal-close" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>`;
  
-  const successModal = new bootstrap.Modal(
-    document.getElementById("success-modal"),
-  );
+  const successModal = new bootstrap.Modal(successContainer);
   successModal.show();
 }
 
@@ -538,6 +555,59 @@ function cloneItineraryCards(filterData) {
   });
 }
 /**
+ * Creates and injects contact form modal HTML into the contact-modal container.
+ * Follows the same pattern as createBookingFormModal for consistency.
+ */
+function createContactFormModal() {
+  const modalContainer = document.getElementById("contact-modal");
+  
+  if (!modalContainer) {
+    console.error("Contact modal container not found");
+    return;
+  }
+
+  // Inject contact modal HTML into the container
+  modalContainer.innerHTML = `<div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title modal-label" id="contact-modal-label">Please Provide Contact Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="contact-form" class="needs-validation" novalidate>
+          <div class="row">
+            <div class="col-12 col-lg-6 mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input class="form-control" id="name" name="name" type="text" required>
+              <div class="invalid-feedback">Please enter your name.</div>
+            </div>
+            <div class="col-12 col-lg-6 mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input class="form-control" id="email" name="email" type="email" required>
+              <div class="invalid-feedback">Please use a valid email address</div>
+            </div>
+            <div class="col-12 col-lg-6 mb-3">
+              <label for="phone" class="form-label">Phone number (e.g. +353 87 123 4567)</label>
+              <input class="form-control" id="phone" name="phone" type="tel"
+                pattern="\+?[\d\s\-\(\)]{10,20}" required>
+              <div class="invalid-feedback">Please enter your number in international format.</div>
+            </div>
+            <div class="col-12 mb-3">
+              <label for="message" class="form-label">Message</label>
+              <textarea class="form-control" rows="6" id="message" name="message" required></textarea>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-modal-close" data-bs-dismiss="modal">Close</button>
+        <button type="submit" form="contact-form" class="btn btn-modal-submit">Submit</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+/**
  * Add click listener to booking CTA button on itinerary pages,create and show booking form modal using Bootstrap's modal JS utility functions.
  */
 function createBookingFormModal() {
@@ -563,10 +633,36 @@ function createBookingFormModal() {
       <div class="modal-body">
         
         <form id="booking-form" novalidate>
+
+          <fieldset>
+          <legend>Contact Information: </legend>
+          <label for="name" class="form-label">Name</label>
+          <input class="form-control" id="name" name="name" type="text" required>
+          <div class="invalid-feedback">Please enter your name.</div>
           
+          <label for="email" class="form-label">Email</label>
+          <input class="form-control" id="email" name="email" type="email" required>
+          <div class="invalid-feedback">Please use a valid email address</div>
+          
+          <label for="phone" class="form-label">Phone number (e.g. +353 87 123 4567)</label>
+          <input class="form-control" id="phone" name="phone" type="tel"
+          pattern="\+?[\d\s\-\(\)]{10,20}" required>
+          <div class="invalid-feedback">Please enter your number in international format.</div>
+          </fieldset>
+
+          <fieldset>
+            <legend > Select Departure Airport: </legend>
+            <select class="form-select form-select-lg p-1" name="departure" aria-label="form departure airport">
+              <option selected>Select an airport</option>
+              <option value="cork">Cork</option>
+              <option value="dublin">Dublin</option>
+              <option value="shannon">Shannon</option>
+            </select>
+          </fieldset>
+
           <fieldset>
               <legend > No. of Travellers: </legend>
-              <select class="id="travellers" form-select form-select-lg p-1" name="travellers"
+              <select id="travellers" class="form-select form-select-lg p-1" name="travellers"
                   aria-label="form number of travellers">
                 <option selected>0</option>
                 <option value="1">1</option>
