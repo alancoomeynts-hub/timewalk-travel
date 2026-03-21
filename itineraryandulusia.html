@@ -49,14 +49,16 @@
                             <li><a class="dropdown-item" href="itineraryireland.html">Ireland & Scotland</a></li>
                         </ul>
                     </li>
-                    <li class="d-flex justify-content-end gap-2">
-                        <button class="contact-cta btn" data-bs-toggle="modal" data-bs-target="#contact-modal">Get
-                            Quote</button>
-                        <button class="phone-cta btn" onclick="window.location.href='tel:353871234567'"><i
-                                class="fa-solid fa-phone-flip"></i></button>
+                    <li class="nav-item ms-auto">
+                        <div class="d-flex gap-2">
+                            <button class="contact-cta btn" data-bs-toggle="modal" data-bs-target="#contact-modal">Get
+                                Quote</button>
+                            <!--Phone CTA button uses on-click window location in place of anchor element for call redirect. -->
+                            <button class="phone-cta btn" onclick="window.location.href='tel:353871234567'"><i
+                                    class="fa-solid fa-phone-flip"></i></button>
+                        </div>
                     </li>
                 </ul>
-
             </div>
         </div>
     </nav>

@@ -74,49 +74,7 @@ const itineraries = [
     href: "itineraryireland.html",
   },
 ];
-
-/* dom content loaded function with page detection*/
-document.addEventListener("DOMContentLoaded", () => {
-  validateForms();
-
-  const page = document.body.id;
-
-  if (page === "page-home") {
-    LocationCardsRedirect();
-    searchFormRedirect();
-  } else if (page === "page-search-results") {
-    filterResults();
-    LocationCardsRedirect();
-  }
-
-  if (document.body.classList.contains("page-itinerary")) {
-    createBookingFormModal();
-  }
-});
-
-/**
- * initMap creates Google Maps API instance utilising data attributes from #map-container element
- * and on success, passes map and markerData to createMarker() to create advanced markers and infoWindows.
- */
-
-async function initMap() {
-  const container = document.querySelector("#map-container");
-  if (!container) {
-    throw new Error("No map containers found");
-  }
-
-  try {
-    const mapInstance = new google.maps.Map(container, {
-      center: {
-        lat: parseFloat(container.dataset.lat),
-        lng: parseFloat(container.dataset.lng),
-      },
-      zoom: parseInt(container.dataset.zoom),
-      mapId: "DEMO_MAP_ID",
-    });
-
-    const markerid = container.dataset.markerid;
-    const markersCoordinates = {
+const markersCoordinates = {
       rome: [
         {
           lat: 41.9028,
@@ -291,6 +249,47 @@ async function initMap() {
         }, // Stirling
       ],
     };
+/* dom content loaded function with page detection*/
+document.addEventListener("DOMContentLoaded", () => {
+  validateForms();
+
+  const page = document.body.id;
+
+  if (page === "page-home") {
+    LocationCardsRedirect();
+    searchFormRedirect();
+  } else if (page === "page-search-results") {
+    filterResults();
+    LocationCardsRedirect();
+  }
+
+  if (document.body.classList.contains("page-itinerary")) {
+    createBookingFormModal();
+  }
+});
+
+/**
+ * initMap creates Google Maps API instance utilising data attributes from #map-container element
+ * and on success, passes map and markerData to createMarker() to create advanced markers and infoWindows.
+ */
+
+async function initMap() {
+  const container = document.querySelector("#map-container");
+  if (!container) {
+    throw new Error("No map containers found");
+  }
+
+  try {
+    const mapInstance = new google.maps.Map(container, {
+      center: {
+        lat: parseFloat(container.dataset.lat),
+        lng: parseFloat(container.dataset.lng),
+      },
+      zoom: parseInt(container.dataset.zoom),
+      mapId: "DEMO_MAP_ID",
+    });
+
+    const markerid = container.dataset.markerid;
 
     createMarker(mapInstance, markersCoordinates[markerid]); // pass map instance and locations object matching index markerId.
 
