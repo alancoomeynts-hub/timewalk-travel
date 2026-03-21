@@ -60,6 +60,7 @@ prussian-dark:     #1e1b4b; /* Button hovers */
             - Migrating Markers to Advanced Markers: https://developers.google.com/maps/documentation/javascript/advanced-markers/migration.
             - InfoWindows: https://developers.google.com/maps/documentation/javascript/reference/info-window
             -Error handling: https://developers.google.com/maps/documentation/javascript/error-handling
+
 ### Attributions and references for SearchResults related functions:
 - sessionStorage: video tutorial - https://www.youtube.com/watch?v=RxUc6ZWwgfw&t=3s
 - HTML Templates and Cloning: video tutorial - https://www.youtube.com/watch?v=lvAIkoKKIiA and https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/template
@@ -97,6 +98,11 @@ Media Sources:
 - In the booking form, I initially had an issue with checkboxes not  being present in the formdata. I solved this by using static HTML for the optional upgrades and using data attributes to store the price of each upgrade. I then used the has() method to check if each upgrade was selected and extract the price from the data attribute if true. https://developer.mozilla.org/en-US/docs/Web/API/FormData/has and https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*
 
 - To remove accessibility warning for the booking form, I changed the shown.bs.modal event listener to show.bs.modal so the modal updates the aria-hidden attribute to false before the modal is shown. https://getbootstrap.com/docs/5.3/components/modal/#events
+
+- Dealt with several depreciation warnings from Google Maps API by following the migration guides in the official documentation. This included migrating to advanced markers, advanced marker gmp-click listener, pin elements and updating the way infoWindows are created and styled. References: https://developers.google.com/maps/documentation/javascript/advanced-markers/ and https://developers.google.com/maps/documentation/javascript/reference/info-window
+
+
+- unresolved error with Google Maps API: message:"Invalid value for property position: not an instance of LatLng" name:"LightweightInvalidValueError"
 
 
 ## Tools and Resources

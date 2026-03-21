@@ -277,42 +277,41 @@ async function initMap() {
   if (!container) {
     throw new Error("No map containers found");
   }
+  
+  const latlng= new google.maps.LatLng(
+    parseFloat(container.dataset.lat) || 0,
+    parseFloat(container.dataset.lng) || 0,
+  );
 
   try {
     const mapInstance = new google.maps.Map(container, {
-      center: {
-        lat: parseFloat(container.dataset.lat),
-        lng: parseFloat(container.dataset.lng),
-      },
-      zoom: parseInt(container.dataset.zoom),
+      center: latlng,
+      zoom: parseInt(container.dataset.zoom) || 5,
       mapId: "DEMO_MAP_ID",
     });
 
     const markerid = container.dataset.markerid;
-
+    
+    console.log('markerid:', markerid);  
+    console.log('markersCoordinates[markerid]:', markersCoordinates[markerid]);
     createMarker(mapInstance, markersCoordinates[markerid]); // pass map instance and locations object matching index markerId.
 
     // error handling as decribed Google API docs
   } catch (error) {
+  if (typeof google !== 'undefined') {
     if (error && error instanceof google.maps.MapsRequestError) {
-      //Bad Request 4xx error
       console.error(`Map error: Invalid Request`, error);
-      container.innerHTML =
-        "<p class='text-danger'>Map Configuration Error.</p>"; // on error insert p element into map container with Bootstrap text-danger class
     } else if (error && error instanceof google.maps.MapsServerError) {
-      //Google server error 5xx
       console.error("Map error: Google server error", error);
-      container.innerHTML =
-        "<p class='text-danger'>Map temporarily unavailable.</p>";
     } else if (error instanceof google.maps.MapsNetworkError) {
-      // User connectivity issue
       console.error("Map error: Network error - check connection", error);
-      container.innerHTML =
-        "<p class='text-danger'>Map unavailable - check your connection.</p>";
     } else {
-      console.error(`Map error:${error.message}`);
-      container.innerHTML = "<p class='text-danger'>Unknown Error Occured</p>"; // on error insert p element into map container with Bootstrap text-danger class
+      console.error(`Map error: ${error.message}`);
     }
+  } else {
+    // Google Maps API not loaded
+    console.error("Google Maps API not loaded:", error);
+  }
   }
 }
 
@@ -333,28 +332,29 @@ function createMarker(map, markerData) {
 
     //create markers from MarkerData
     const marker = new google.maps.marker.AdvancedMarkerElement({
-      position: { lat: location.lat, lng: location.lng },
+      position: new google.maps.LatLng(location.lat, location.lng),
       map: map,
       title: location.city,
-      content: pin.element,
+      content: pin,
+      gmpClickable: true, 
     });
 
-    // create header html element and assign class
-    const header = document.createElement("h6");
-    header.className = "info-window-header";
-    header.textContent = location.header;
 
     //create infoWindows
     const infoWindow = new google.maps.InfoWindow({
-      headerContent: header,
+      
       maxWidth: 240,
       ariaLabel: location.ariaLabel,
-      content: `<div class="info-window-style">${location.city}</div>`,
+      content:`<div style="max-width: 240px;">
+          <h6 class="info-window-header">${location.header}</h6>
+          <div class="info-window-style">${location.city}</div>
+        </div>
+      `,
     });
 
     // add click listeners to markers for infoWindows
-    marker.addListener("click", () => {
-      infoWindow.open(map, marker);
+    marker.addEventListener("gmp-click", () => {
+      infoWindow.open({ map: map, anchor: marker });
     });
   });
 }
