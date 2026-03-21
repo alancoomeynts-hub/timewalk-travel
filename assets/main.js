@@ -566,7 +566,7 @@ function createBookingFormModal() {
 
   const bookingData = modalContainer.dataset;
 
-    modalContainer.addEventListener("shown.bs.modal", (e) => {
+    modalContainer.addEventListener("show.bs.modal", (e) => {
       const confirmBooking = document.getElementById("booking-form");
       confirmBooking.reset();
       calculateTotalPrice(bookingData);

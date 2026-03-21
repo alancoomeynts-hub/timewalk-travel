@@ -87,11 +87,22 @@ Media Sources:
 -  When styling infoWindows headerContent I initially tried using a similar method as content using string but this would not work for headerContent. Solved by using createElement() to create a HTML element prompted by Google API documentation: https://developers.google.com/maps/documentation/javascript/reference/info-window
 - Unable to access Google Cloud Map Styles or Map Management. I thus use the demo map_id for default map styling
 - In calculator function, checkboxes were not adding their value to total. Discovered checkboxes are only present in FormData when set to true so used has() method to test FormData object and extract value if true. https://developer.mozilla.org/en-US/docs/Web/API/FormData/has
+
 - In an effort to reduce HTML I tried Javasacript functions to generate modals for contact and booking forms. On testing the forms were inconsistent in opening and closing. To solve I reverted to static HTML for modals and used javascript to show and handle events in the modal. I also added a reset() method to clear form data on each open of the modal to prevent data from previous booking attempts being present on new attempts, and added a once:true option to the event listeners to prevent multiple submit and shown.bs.modal listeners being added on each open of the modal. references: https://getbootstrap.com/docs/5.3/components/modal/#methods and https://getbootstrap.com/docs/5.3/components/modal/#events
-## Technologies & Resources
+
+- In the contact form, I initially tried to use a single event listener on the form submit button to handle both form validation and form submission. This caused issues with the form not submitting when validation failed. I solved this by separating the concerns into two event listeners: one for form validation on submit and another for form submission on successful validation. I also added a once:true option to the submit event listener to prevent multiple listeners being added on each open of the modal. https://getbootstrap.com/docs/5.3/forms/validation/ and https://getbootstrap.com/docs/5.3/components/modal/#events
+
+- In the booking form, I initially had an issue with checkboxes not  being present in the formdata. I solved this by using static HTML for the optional upgrades and using data attributes to store the price of each upgrade. I then used the has() method to check if each upgrade was selected and extract the price from the data attribute if true. https://developer.mozilla.org/en-US/docs/Web/API/FormData/has and https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*
+
+- To remove accessibility warning for the booking form, I changed the shown.bs.modal event listener to show.bs.modal so the modal updates the aria-hidden attribute to false before the modal is shown. https://getbootstrap.com/docs/5.3/components/modal/#events
+
+
+## Tools and Resources
 - https://httpbin.org/post dummy api endpoint
+
 - Perplexity for text content, regex generation
-- Copilot for QAing html and templating of itinerary pages from itineraryitaly1.html
+
+- Copilot for QAing html for trailing tags, and templating and ensuring consistent editing of itinerary pages from itineraryitaly1.html
 
 ## Depreciation warnings not addressed
 - <gmp-pin>: The `element` property is deprecated. Please use the PinElement directly.
