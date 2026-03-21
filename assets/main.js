@@ -251,7 +251,7 @@ const markersCoordinates = {
     };
 /* dom content loaded function with page detection*/
 document.addEventListener("DOMContentLoaded", () => {
-  validateForms();
+ 
   createContactFormModal();
 
   const page = document.body.id;
@@ -267,6 +267,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (document.body.classList.contains("page-itinerary")) {
     createBookingFormModal();
   }
+  validateContactForms();
 });
 
 /**
@@ -376,7 +377,7 @@ function LocationCardsRedirect() {
   });
 }
 /**Validate forms using bootstrap utility classes and functions */
-function validateForms() {
+function validateContactForms() {
   const forms = document.querySelectorAll(".needs-validation");
 
   Array.from(forms).forEach((form) => {
@@ -589,7 +590,7 @@ function createContactFormModal() {
             <div class="col-12 col-lg-6 mb-3">
               <label for="phone" class="form-label">Phone number (e.g. +353 87 123 4567)</label>
               <input class="form-control" id="phone" name="phone" type="tel"
-                pattern="\+?[\d\s\-\(\)]{10,20}" required>
+                pattern="\\+?[\\d\\s\\-\\(\\)]{10,20}" required>
               <div class="invalid-feedback">Please enter your number in international format.</div>
             </div>
             <div class="col-12 mb-3">
@@ -632,7 +633,7 @@ function createBookingFormModal() {
       </div>
       <div class="modal-body">
         
-        <form id="booking-form" novalidate>
+        <form id="booking-form" class="needs-validation" novalidate>
 
           <fieldset>
           <legend>Contact Information: </legend>
@@ -646,7 +647,7 @@ function createBookingFormModal() {
           
           <label for="phone" class="form-label">Phone number (e.g. +353 87 123 4567)</label>
           <input class="form-control" id="phone" name="phone" type="tel"
-          pattern="\+?[\d\s\-\(\)]{10,20}" required>
+          pattern="\\+?[\\d\\s\\-\\(\\)]{10,20}" required>
           <div class="invalid-feedback">Please enter your number in international format.</div>
           </fieldset>
 
@@ -690,7 +691,7 @@ function createBookingFormModal() {
       <div class="modal-footer">
         <p id="total">Total: €</p>
         <button type="button" class="btn btn-modal-close" data-bs-dismiss="modal">Close</button>
-        <button class="confirm-booking-btn btn btn-modal-submit" form="booking-form">Confirm Booking</button>
+        <button type="submit" class="confirm-booking-btn btn btn-modal-submit" form="booking-form">Confirm Booking</button>
       </div>
     </div>
   </div>
@@ -701,10 +702,14 @@ function createBookingFormModal() {
     modalContainer.addEventListener("shown.bs.modal", (e) => {
       calculateTotalPrice(bookingData);
 
-      const confirmBooking = document.querySelector(".confirm-booking-btn");
-      confirmBooking.addEventListener("click", (e) => {
+      const confirmBooking = document.getElementById("booking-form");
+      confirmBooking.addEventListener("submit", (e) => {
         e.preventDefault();
-        handleBookingConfirmation();
+        if(confirmBooking.checkValidity()) {
+          handleBookingConfirmation();
+        } else {
+          confirmBooking.classList.add("was-validated");
+        }
       });
     });
   });
