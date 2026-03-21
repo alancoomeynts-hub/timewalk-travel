@@ -66,44 +66,44 @@
 
     <!-- Contact Form Modal - Content injected by JavaScript -->
     <div class="modal fade" id="contact-modal" tabindex="-1" aria-labelledby="contact-modal-label" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title modal-label" id="contact-modal-label">Please Provide Contact Details</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form id="contact-form" class="needs-validation" novalidate>
-              <div class="row">
-                <div class="col-12 col-lg-6 mb-3">
-                  <label for="name" class="form-label">Name</label>
-                  <input class="form-control" id="name" name="name" type="text" required>
-                  <div class="invalid-feedback">Please enter your name.</div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title modal-label" id="contact-modal-label">Please Provide Contact Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="col-12 col-lg-6 mb-3">
-                  <label for="email" class="form-label">Email</label>
-                  <input class="form-control" id="email" name="email" type="email" required>
-                  <div class="invalid-feedback">Please use a valid email address</div>
+                <div class="modal-body">
+                    <form id="contact-form" class="needs-validation" novalidate>
+                        <div class="row">
+                            <div class="col-12 col-lg-6 mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input class="form-control" id="name" name="name" type="text" required>
+                                <div class="invalid-feedback">Please enter your name.</div>
+                            </div>
+                            <div class="col-12 col-lg-6 mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input class="form-control" id="email" name="email" type="email" required>
+                                <div class="invalid-feedback">Please use a valid email address</div>
+                            </div>
+                            <div class="col-12 col-lg-6 mb-3">
+                                <label for="phone" class="form-label">Phone number (e.g. +353 87 123 4567)</label>
+                                <input class="form-control" id="phone" name="phone" type="tel"
+                                    pattern="\+?[\d\s\-\(\)]{10,20}" required>
+                                <div class="invalid-feedback">Please enter your number in international format.</div>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" rows="6" id="message" name="message" required></textarea>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <div class="col-12 col-lg-6 mb-3">
-                  <label for="phone" class="form-label">Phone number (e.g. +353 87 123 4567)</label>
-                  <input class="form-control" id="phone" name="phone" type="tel"
-                    pattern="\+?[\d\s\-\(\)]{10,20}" required>
-                  <div class="invalid-feedback">Please enter your number in international format.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-white" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" form="contact-form" class="btn btn-red">Submit</button>
                 </div>
-                <div class="col-12 mb-3">
-                  <label for="message" class="form-label">Message</label>
-                  <textarea class="form-control" rows="6" id="message" name="message" required></textarea>
-                </div>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button class="btn btn-white" data-bs-dismiss="modal">Close</button>
-            <button type="submit" form="contact-form" class="btn btn-red">Submit</button>
-          </div>
+            </div>
         </div>
-      </div>
     </div>
 
     <!-- Success Modal - Content injected by JavaScript -->
@@ -139,14 +139,15 @@
                 <div class="col-lg-4 d-none d-lg-flex flex-column justify-content-center align-items-center py-2">
                     <div class="booking-form-wrap p-3">
                         <h2>Book from €1,495</h2>
-                        <button class="btn btn-gold w-100 mt-3" data-action="book-tour" data-bs-toggle="modal" data-bs-target="#booking-modal">Book Now</button>
+                        <button class="btn btn-gold w-100 mt-3" data-action="book-tour" data-bs-toggle="modal"
+                            data-bs-target="#booking-modal">Book Now</button>
                     </div>
                 </div>
             </div>
 
-            <div id="booking-modal" class="modal fade booking-modal-container" tabindex="-1" aria-labelledby="booking-modal-label"
-                aria-hidden="true" data-price="1495" data-upgrade-first-class="75" data-upgrade-hotel="300"
-                data-add-excursions="150">
+            <div id="booking-modal" class="modal fade booking-modal-container" tabindex="-1"
+                aria-labelledby="booking-modal-label" aria-hidden="true" data-price="1495" data-upgrade-first-class="75"
+                data-upgrade-hotel="300" data-add-excursions="150">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -204,25 +205,21 @@
                                 <fieldset>
                                     <legend> Optional Upgrades: </legend>
                                     <input type="checkbox" id="upgradeFirstClass" name="upgradeFirstClass"
-                                        value="upgradeFirstClass" data-price="500">
-                                    <label for="upgradeFirstClass">Upgrade to First Class Flights: €
-                                        ${bookingData.upgradeFirstClass}</label><br>
-                                    <input type="checkbox" id="upgradeHotel" name="upgradeHotel" value="upgradeHotel"
-                                        data-price="300">
-                                    <label for="upgradeHotel">Upgrade to 5 Star Hotels: €
-                                        ${bookingData.upgradeHotel}</label><br>
-                                    <input type="checkbox" id="addExcursions" name="addExcursions" value="addExcursions"
-                                        data-price="100">
-                                    <label for="addExcursions">Add Guided Excursions: €
-                                        ${bookingData.addExcursions}</label><br>
+                                        value="upgradeFirstClass">
+                                    <label for="upgradeFirstClass">Upgrade to First Class Flights: € 500</label><br>
+                                    <input type="checkbox" id="upgradeHotel" name="upgradeHotel" value="upgradeHotel">
+                                    <label for="upgradeHotel">Upgrade to 5 Star Hotels: € 300</label><br>
+                                    <input type="checkbox" id="addExcursions" name="addExcursions"
+                                        value="addExcursions">
+                                    <label for="addExcursions">Add Guided Excursions: € 100</label><br>
                                 </fieldset>
                             </form>
                         </div>
                         <div class="modal-footer">
                             <p id="total">Total: €</p>
                             <button type="button" class="btn btn-white" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="confirm-booking-btn btn btn-red"
-                                form="booking-form">Confirm Booking</button>
+                            <button type="submit" class="confirm-booking-btn btn btn-red" form="booking-form">Confirm
+                                Booking</button>
                         </div>
                     </div>
                 </div>
@@ -351,7 +348,7 @@
 
             </div>
         </section>
-                <button class="btn btn-gold btn-thumb-cta d-lg-none" data-action="book-tour" data-bs-toggle="modal"
+        <button class="btn btn-gold btn-thumb-cta d-lg-none" data-action="book-tour" data-bs-toggle="modal"
             data-bs-target="#booking-modal">
             Book Now
         </button>
@@ -413,8 +410,8 @@
                             <input type="email" id="newsletter-email" name="email" class="form-control flex-grow-1 mb-3"
                                 placeholder="Enter your Email" required>
                             <div class="invalid-feedback">Please use a valid email address</div>
-                            <button type="submit"
-                                class="btn btn-gold flex-shrink-0 justify-content-center gap-1">Sign Up</button>
+                            <button type="submit" class="btn btn-gold flex-shrink-0 justify-content-center gap-1">Sign
+                                Up</button>
                         </form>
                     </div>
                 </div>
