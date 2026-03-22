@@ -43,11 +43,10 @@ crimson-dark:      #8b0000; /* Hover states */
 navy-iron:         #36454f; /* Secondary accents */
 prussian-blue:     #1e3a8a; /* Main buttons */
 prussian-dark:     #1e1b4b; /* Button hovers */
-## Wireframes
+## Wireframe
 
-1. Home Page
-![Home Page with prototype styling](assets/wireframes/Home-Page_Wireframe.png)
-![itinery page wireframe]
+![Wireframe of index.html and itinerary page template](assets/wireframes/wireframe.webp)
+
 
 ## Code
 - window.location from W3S: https://www.w3schools.com/js/js_window_location.asp
@@ -102,15 +101,17 @@ Media Sources:
 - Dealt with several depreciation warnings from Google Maps API by following the migration guides in the official documentation. This included migrating to advanced markers, advanced marker gmp-click listener, pin elements and updating the way infoWindows are created and styled. References: https://developers.google.com/maps/documentation/javascript/advanced-markers/ and https://developers.google.com/maps/documentation/javascript/reference/info-window
 
 
-- unresolved error with Google Maps API: message:"Invalid value for property position: not an instance of LatLng" name:"LightweightInvalidValueError"
-
-
 ## Tools and Resources
+- HTML, CSS, JavaScript for frontend development
 - https://httpbin.org/post dummy api endpoint
-
 - Perplexity for text content, regex generation
-
 - Copilot for QAing html for trailing tags,analyse style patterns and templating and ensuring consistent editing of itinerary pages from itineraryitaly1.html
+- Canva for wireframing and image editing
+- Artlist.io for image generation
+- Google Maps API for interactive maps on itinerary pages
+- Bootstrap 5.3 for responsive design and components
+- Visual Studio Code for code editing and debugging
+- GitHub for version control and deployment
 
 ## Depreciation warnings not addressed
 - <gmp-pin>: The `element` property is deprecated. Please use the PinElement directly.

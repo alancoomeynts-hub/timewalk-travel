@@ -23,220 +23,203 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function initMap() {
   const markersCoordinates = {
-      rome: [
-        {
-          lat: 41.9028,
-          lng: 12.4964,
-          city: "Rome",
-          header: "Day 1-3",
-          ariaLabel: "Rome Info Window",
-        }, // Rome
-        {
-          lat: 40.8518,
-          lng: 14.2681,
-          city: "Naples",
-          header: "Day 4-5",
-          ariaLabel: "Naples Info Window",
-        }, // Naples
-        {
-          lat: 40.6263,
-          lng: 14.3757,
-          city: "Sorrento",
-          header: "Day 6",
-          ariaLabel: "Sorrento Info Window",
-        }, // Sorrento
-      ],
-      tuscany: [
-        {
-          lat: 43.7696,
-          lng: 11.2558,
-          city: "Florence",
-          header: "Days 1-3",
-          ariaLabel: "Florence Info Window",
-        }, // Florence
-        {
-          lat: 43.3182,
-          lng: 11.3306,
-          city: "Siena",
-          header: "Days 4-6",
-          ariaLabel: "Siena Info Window",
-        }, // Siena
-        {
-          lat: 43.4703,
-          lng: 11.0438,
-          city: "San Gimignano",
-          header: "Day Trip",
-          ariaLabel: "San Gimignano Info Window",
-        }, // San Gimignano
-        {
-          lat: 43.7167,
-          lng: 10.4,
-          city: "Pisa",
-          header: "Days 7-9",
-          ariaLabel: "Pisa Info Window",
-        }, // Pisa
-      ],
-      austria: [
-        {
-          lat: 47.8112,
-          lng: 13.0332,
-          city: "Salzburg",
-          header: "Days 1-3",
-          ariaLabel: "Salzburg Info Window",
-        }, // Salzburg
-        {
-          lat: 48.21,
-          lng: 16.3634,
-          city: "Vienna",
-          header: "Days 4-7",
-          ariaLabel: "Vienna Info Window",
-        }, // Vienna
-        {
-          lat: 45.4388,
-          lng: 12.3271,
-          city: "Venice",
-          header: "Days 8-10",
-          ariaLabel: "Venice Info Window",
-        }, // Venice
-      ],
-      czechia: [
-        {
-          lat: 50.0737,
-          lng: 14.4185,
-          city: "Prague",
-          header: "Days 1-4",
-          ariaLabel: "Prague Info Window",
-        },
-        {
-          lat: 49.9394,
-          lng: 14.1881,
-          city: "Karlštejn",
-          header: "Day 5",
-          ariaLabel: "Karlštejn Info Window",
-        },
-        {
-          lat: 48.8109,
-          lng: 14.3152,
-          city: "Cesky Krumlov",
-          header: "Day 6",
-          ariaLabel: "Cesky Krumlov Info Window",
-        },
-      ],
-      andalusia: [
-        {
-          lat: 37.3925,
-          lng: -5.9941,
-          city: "Seville",
-          header: "Days 1-3",
-          ariaLabel: "Seville Info Window",
-        },
-        {
-          lat: 36.7462,
-          lng: -5.1612,
-          city: "Ronda",
-          header: "Day 4-5",
-          ariaLabel: "Ronda Info Window",
-        },
-        {
-          lat: 37.1781,
-          lng: -3.6008,
-          city: "Grenada",
-          header: "Day 7-9",
-          ariaLabel: "Grenada Info Window",
-        },
-        {
-          lat: 36.132,
-          lng: -5.3529,
-          city: "Gibraltar",
-          header: "Days 6",
-          ariaLabel: "Gibraltar Info Window",
-        },
-      ],
-      ireland: [
-        {
-          lat: 51.9375,
-          lng: -8.5708,
-          city: "Blarney Castle",
-          header: "Days 1-2",
-          ariaLabel: "Blarney Castle Info Window",
-        }, // Cork
-        {
-          lat: 52.5207,
-          lng: -7.892,
-          city: "Rock of Cashel",
-          header: "Day 3",
-          ariaLabel: "Rock of Cashel Info Window",
-        }, // Cashel
-        {
-          lat: 53.3501,
-          lng: -6.2661,
-          city: "Dublin",
-          header: "Days 4-5",
-          ariaLabel: "Dublin Info Window",
-        }, // Dublin
-        {
-          lat: 54.5973,
-          lng: -5.9301,
-          city: "Belfast",
-          header: "Day 6",
-          ariaLabel: "Belfast Info Window",
-        }, // Belfast
-        {
-          lat: 55.9754,
-          lng: -3.1935,
-          city: "Edinburgh",
-          header: "Days 7-9",
-          ariaLabel: "Edinburgh Info Window",
-        }, // Edinburgh
-        {
-          lat: 56.1221,
-          lng: -3.9462,
-          city: "Stirling",
-          header: "Day 10",
-          ariaLabel: "Stirling Info Window",
-        }, // Stirling
-      ],
-    };
+    rome: [
+      {
+        lat: 41.9028,
+        lng: 12.4964,
+        city: "Rome",
+        header: "Day 1-3",
+        ariaLabel: "Rome Info Window",
+      }, // Rome
+      {
+        lat: 40.8518,
+        lng: 14.2681,
+        city: "Naples",
+        header: "Day 4-5",
+        ariaLabel: "Naples Info Window",
+      }, // Naples
+      {
+        lat: 40.6263,
+        lng: 14.3757,
+        city: "Sorrento",
+        header: "Day 6",
+        ariaLabel: "Sorrento Info Window",
+      }, // Sorrento
+    ],
+    tuscany: [
+      {
+        lat: 43.7696,
+        lng: 11.2558,
+        city: "Florence",
+        header: "Days 1-3",
+        ariaLabel: "Florence Info Window",
+      }, // Florence
+      {
+        lat: 43.3182,
+        lng: 11.3306,
+        city: "Siena",
+        header: "Days 4-6",
+        ariaLabel: "Siena Info Window",
+      }, // Siena
+      {
+        lat: 43.4703,
+        lng: 11.0438,
+        city: "San Gimignano",
+        header: "Day Trip",
+        ariaLabel: "San Gimignano Info Window",
+      }, // San Gimignano
+      {
+        lat: 43.7167,
+        lng: 10.4,
+        city: "Pisa",
+        header: "Days 7-9",
+        ariaLabel: "Pisa Info Window",
+      }, // Pisa
+    ],
+    austria: [
+      {
+        lat: 47.8112,
+        lng: 13.0332,
+        city: "Salzburg",
+        header: "Days 1-3",
+        ariaLabel: "Salzburg Info Window",
+      }, // Salzburg
+      {
+        lat: 48.21,
+        lng: 16.3634,
+        city: "Vienna",
+        header: "Days 4-7",
+        ariaLabel: "Vienna Info Window",
+      }, // Vienna
+      {
+        lat: 45.4388,
+        lng: 12.3271,
+        city: "Venice",
+        header: "Days 8-10",
+        ariaLabel: "Venice Info Window",
+      }, // Venice
+    ],
+    czechia: [
+      {
+        lat: 50.0737,
+        lng: 14.4185,
+        city: "Prague",
+        header: "Days 1-4",
+        ariaLabel: "Prague Info Window",
+      },
+      {
+        lat: 49.9394,
+        lng: 14.1881,
+        city: "Karlštejn",
+        header: "Day 5",
+        ariaLabel: "Karlštejn Info Window",
+      },
+      {
+        lat: 48.8109,
+        lng: 14.3152,
+        city: "Cesky Krumlov",
+        header: "Day 6",
+        ariaLabel: "Cesky Krumlov Info Window",
+      },
+    ],
+    andalusia: [
+      {
+        lat: 37.3925,
+        lng: -5.9941,
+        city: "Seville",
+        header: "Days 1-3",
+        ariaLabel: "Seville Info Window",
+      },
+      {
+        lat: 36.7462,
+        lng: -5.1612,
+        city: "Ronda",
+        header: "Day 4-5",
+        ariaLabel: "Ronda Info Window",
+      },
+      {
+        lat: 37.1781,
+        lng: -3.6008,
+        city: "Grenada",
+        header: "Day 7-9",
+        ariaLabel: "Grenada Info Window",
+      },
+      {
+        lat: 36.132,
+        lng: -5.3529,
+        city: "Gibraltar",
+        header: "Days 6",
+        ariaLabel: "Gibraltar Info Window",
+      },
+    ],
+    ireland: [
+      {
+        lat: 51.9375,
+        lng: -8.5708,
+        city: "Blarney Castle",
+        header: "Days 1-2",
+        ariaLabel: "Blarney Castle Info Window",
+      }, // Cork
+      {
+        lat: 52.5207,
+        lng: -7.892,
+        city: "Rock of Cashel",
+        header: "Day 3",
+        ariaLabel: "Rock of Cashel Info Window",
+      }, // Cashel
+      {
+        lat: 53.3501,
+        lng: -6.2661,
+        city: "Dublin",
+        header: "Days 4-5",
+        ariaLabel: "Dublin Info Window",
+      }, // Dublin
+      {
+        lat: 54.5973,
+        lng: -5.9301,
+        city: "Belfast",
+        header: "Day 6",
+        ariaLabel: "Belfast Info Window",
+      }, // Belfast
+      {
+        lat: 55.9754,
+        lng: -3.1935,
+        city: "Edinburgh",
+        header: "Days 7-9",
+        ariaLabel: "Edinburgh Info Window",
+      }, // Edinburgh
+      {
+        lat: 56.1221,
+        lng: -3.9462,
+        city: "Stirling",
+        header: "Day 10",
+        ariaLabel: "Stirling Info Window",
+      }, // Stirling
+    ],
+  };
   const container = document.querySelector("#map-container");
   if (!container) {
     throw new Error("No map containers found");
   }
-  
-  const latlng= new google.maps.LatLng(
+
+  const latlng = new google.maps.LatLng(
     parseFloat(container.dataset.lat) || 0,
     parseFloat(container.dataset.lng) || 0,
   );
 
-  try {
-    const mapInstance = new google.maps.Map(container, {
-      center: latlng,
-      zoom: parseInt(container.dataset.zoom) || 5,
-      mapId: "DEMO_MAP_ID",
-    });
+  const mapInstance = new google.maps.Map(container, {
+    center: latlng,
+    zoom: parseInt(container.dataset.zoom) || 5,
+    mapId: "DEMO_MAP_ID",
+  });
 
-    const markerid = container.dataset.markerid;
-    
-    console.log('markerid:', markerid);  
-    console.log('markersCoordinates[markerid]:', markersCoordinates[markerid]);
+  const markerid = container.dataset.markerid;
+  if (mapInstance instanceof google.maps.Map && markersCoordinates[markerid]) {
     createMarker(mapInstance, markersCoordinates[markerid]); // pass map instance and locations object matching index markerId.
-
-    // error handling as decribed Google API docs
-  } catch (error) {
-  if (typeof google !== 'undefined') {
-    if (error && error instanceof google.maps.MapsRequestError) {
-      console.error(`Map error: Invalid Request`, error);
-    } else if (error && error instanceof google.maps.MapsServerError) {
-      console.error("Map error: Google server error", error);
-    } else if (error instanceof google.maps.MapsNetworkError) {
-      console.error("Map error: Network error - check connection", error);
-    } else {
-      console.error(`Map error: ${error.message}`);
-    }
   } else {
-    // Google Maps API not loaded
-    console.error("Google Maps API not loaded:", error);
+    console.error("Invalid markerId or map instance:", markerid, mapInstance);
   }
-  }
+  
 }
 
 /**
@@ -260,16 +243,14 @@ function createMarker(map, markerData) {
       map: map,
       title: location.city,
       content: pin,
-      gmpClickable: true, 
+      gmpClickable: true,
     });
-
 
     //create infoWindows
     const infoWindow = new google.maps.InfoWindow({
-      
       maxWidth: 240,
       ariaLabel: location.ariaLabel,
-      content:`<div style="max-width: 240px;">
+      content: `<div style="max-width: 240px;">
           <h6 class="info-window-header">${location.header}</h6>
           <div class="info-window-style">${location.city}</div>
         </div>
@@ -299,7 +280,9 @@ function LocationCardsRedirect() {
 }
 /**Validate forms using bootstrap utility classes and functions */
 function validateContactForms() {
-  const forms = document.querySelectorAll(".needs-validation:not(#booking-form)"); // exclude booking form which has separate validation and submit handling.
+  const forms = document.querySelectorAll(
+    ".needs-validation:not(#booking-form)",
+  ); // exclude booking form which has separate validation and submit handling.
 
   Array.from(forms).forEach((form) => {
     form.addEventListener("submit", (event) => {
@@ -330,14 +313,15 @@ function validateContactForms() {
  * Injects success modal HTML into the existing success-modal container.
  */
 function showFormSubmissionModal() {
-
   // get instance of contact modal, check it exists if not log error, then hide modal.
   const contactModal = bootstrap.Modal.getInstance(
     document.getElementById("contact-modal"),
   );
- 
+
   /*close contact modal only if it exists.i.e newsletter sign up is used*/
-  if(contactModal){ contactModal.hide();}
+  if (contactModal) {
+    contactModal.hide();
+  }
 
   // Get success modal container
   const successContainer = document.getElementById("success-modal");
@@ -361,7 +345,7 @@ function showFormSubmissionModal() {
       </div>
     </div>
   </div>`;
- 
+
   const successModal = new bootstrap.Modal(successContainer);
   successModal.show();
 }
@@ -392,7 +376,7 @@ function searchFormRedirect() {
         theme: data.get("theme"),
         departure: data.get("departure"),
       };
-      
+
       sessionStorage.setItem(
         "filterParameters",
         JSON.stringify(filterParameters),
@@ -408,80 +392,80 @@ function searchFormRedirect() {
  */
 function filterResults() {
   const itineraries = [
-  {
-    id: 1,
-    destination: ["italy"],
-    cities: ["rome", "naples", "pompeii", "sorrento"],
-    theme: ["ancient-rome"],
-    departure: ["cork", "dublin"],
-    imageSrc: "assets/images/ItalyCardImage1.webp",
-    imageAlt: "Photo of Colosseum superimposed on Positano Beach",
-    title: "Rome, Naples & Amalfi",
-    details: "8 days - From €1,899 pp",
-    href: "itineraryitaly1.html",
-  },
-  {
-    id: 2,
-    destination: ["italy"],
-    cities: ["florence", "siena", "san-gimignano", "pisa"],
-    theme: ["renaissance"],
-    departure: ["cork", "dublin", "shannon"],
-    imageSrc: "assets/images/tuscanycard.webp",
-    imageAlt: "Tuscan countryside with Duomo di Firenze in background",
-    title: "Tuscany",
-    details: "7 days - From €1,599 pp",
-    href: "itineraryitaly2.html",
-  },
-  {
-    id: 3,
-    destination: ["austria", "italy"],
-    cities: ["salzburg", "vienna", "venice"],
-    theme: ["baroque"],
-    departure: ["dublin", "shannon"],
-    imageSrc: "assets/images/AustriaVeniceCard.webp",
-    imageAlt: "Composite Photo of Austrian and Venetian landmarks",
-    title: "Austria & Venice",
-    details: "10 days - From €2,000 pp",
-    href: "itineraryaustria.html",
-  },
-  {
-    id: 4,
-    destination: ["czechia"],
-    cities: ["prague", "karlstejn", "cesky-krumlov"],
-    theme: ["medieval"],
-    departure: ["dublin", "shannon"],
-    imageSrc: "assets/images/CzechRepublicCard.webp",
-    imageAlt:
-      "Composite image of Prague Castle, Charles Bridge and Cesky Krumlov in Czechia",
-    title: "Czech Republic",
-    details: "8 days - From €1,699 pp",
-    href: "itineraryczechia.html",
-  },
-  {
-    id: 5,
-    destination: ["spain"],
-    cities: ["seville", "ronda", "grenada", "gibraltar"],
-    theme: ["renaissance"],
-    departure: ["dublin", "shannon"],
-    imageSrc: "assets/images/AndalusiaCard.webp",
-    imageAlt: "Photo of Seville's Plaza de España",
-    title: "Andalusia",
-    details: "10 days - From €1,899 pp",
-    href: "itineraryandulusia.html",
-  },
-  {
-    id: 6,
-    destination: ["ireland", "scotland"],
-    cities: ["cork", "dublin", "belfast", "edinburgh", "stirling"],
-    theme: ["celtic"],
-    departure: ["dublin", "cork"],
-    imageSrc: "assets/images/IrelandScotlandCard.webp",
-    imageAlt: "Composite image of Ireland and Scotland historical sites",
-    title: "Ireland & Scotland",
-    details: "10 days - From €1,495 pp",
-    href: "itineraryireland.html",
-  },
-];
+    {
+      id: 1,
+      destination: ["italy"],
+      cities: ["rome", "naples", "pompeii", "sorrento"],
+      theme: ["ancient-rome"],
+      departure: ["cork", "dublin"],
+      imageSrc: "assets/images/ItalyCardImage1.webp",
+      imageAlt: "Photo of Colosseum superimposed on Positano Beach",
+      title: "Rome, Naples & Amalfi",
+      details: "8 days - From €1,899 pp",
+      href: "itineraryitaly1.html",
+    },
+    {
+      id: 2,
+      destination: ["italy"],
+      cities: ["florence", "siena", "san-gimignano", "pisa"],
+      theme: ["renaissance"],
+      departure: ["cork", "dublin", "shannon"],
+      imageSrc: "assets/images/tuscanycard.webp",
+      imageAlt: "Tuscan countryside with Duomo di Firenze in background",
+      title: "Tuscany",
+      details: "7 days - From €1,599 pp",
+      href: "itineraryitaly2.html",
+    },
+    {
+      id: 3,
+      destination: ["austria", "italy"],
+      cities: ["salzburg", "vienna", "venice"],
+      theme: ["baroque"],
+      departure: ["dublin", "shannon"],
+      imageSrc: "assets/images/AustriaVeniceCard.webp",
+      imageAlt: "Composite Photo of Austrian and Venetian landmarks",
+      title: "Austria & Venice",
+      details: "10 days - From €2,000 pp",
+      href: "itineraryaustria.html",
+    },
+    {
+      id: 4,
+      destination: ["czechia"],
+      cities: ["prague", "karlstejn", "cesky-krumlov"],
+      theme: ["medieval"],
+      departure: ["dublin", "shannon"],
+      imageSrc: "assets/images/CzechRepublicCard.webp",
+      imageAlt:
+        "Composite image of Prague Castle, Charles Bridge and Cesky Krumlov in Czechia",
+      title: "Czech Republic",
+      details: "8 days - From €1,699 pp",
+      href: "itineraryczechia.html",
+    },
+    {
+      id: 5,
+      destination: ["spain"],
+      cities: ["seville", "ronda", "grenada", "gibraltar"],
+      theme: ["renaissance"],
+      departure: ["dublin", "shannon"],
+      imageSrc: "assets/images/AndalusiaCard.webp",
+      imageAlt: "Photo of Seville's Plaza de España",
+      title: "Andalusia",
+      details: "10 days - From €1,899 pp",
+      href: "itineraryandulusia.html",
+    },
+    {
+      id: 6,
+      destination: ["ireland", "scotland"],
+      cities: ["cork", "dublin", "belfast", "edinburgh", "stirling"],
+      theme: ["celtic"],
+      departure: ["dublin", "cork"],
+      imageSrc: "assets/images/IrelandScotlandCard.webp",
+      imageAlt: "Composite image of Ireland and Scotland historical sites",
+      title: "Ireland & Scotland",
+      details: "10 days - From €1,495 pp",
+      href: "itineraryireland.html",
+    },
+  ];
   /* recover search parameters from sessionStorage and parse to object*/
   let searchTerms = sessionStorage.getItem("filterParameters");
   console.log(searchTerms);
@@ -509,7 +493,6 @@ function filterResults() {
       !filterParameters.departure ||
       itinerary.departure.includes(filterParameters.departure);
 
-   
     return matchsDestination && matchTheme && matchDeparture;
   });
 
@@ -532,14 +515,13 @@ function cloneItineraryCards(filterData) {
     return;
   }
 
-   const template = document.getElementById("itinerary-template");
-   if (!template) {
-     throw new Error("Itinerary template not found.");
-   }
+  const template = document.getElementById("itinerary-template");
+  if (!template) {
+    throw new Error("Itinerary template not found.");
+  }
 
   //select template and clone for each result, populate with data and append to container
   filterData.forEach((itinerary) => {
-   
     const clone = template.content.cloneNode(true);
     clone.querySelector(".card-title").innerHTML = itinerary.title;
     clone.querySelector(".card-text").innerText = itinerary.details;
@@ -558,7 +540,7 @@ function createBookingFormModal() {
 
   const modalContainer = document.querySelector(".booking-modal-container");
   const confirmBooking = document.getElementById("booking-form");
-  
+
   if (!bookingFormClick || !modalContainer) {
     throw new Error("Booking Modal Elements not found");
   }
@@ -575,7 +557,7 @@ function createBookingFormModal() {
   //On submit validate booking form and show confirmation modal.
   confirmBooking.addEventListener("submit", (e) => {
     e.preventDefault();
-    if(confirmBooking.checkValidity()) {
+    if (confirmBooking.checkValidity()) {
       handleBookingConfirmation();
     } else {
       confirmBooking.classList.add("was-validated");
@@ -584,8 +566,8 @@ function createBookingFormModal() {
 }
 /**
  * Calculates total price based on booking form data. Update on change event of form.
- * @param {Object} bookingData 
- * @returns 
+ * @param {Object} bookingData
+ * @returns
  */
 function calculateTotalPrice(bookingData) {
   const form = document.getElementById("booking-form");
@@ -622,7 +604,7 @@ function calculateTotalPrice(bookingData) {
 }
 /**
  *  Handles booking confirmation by hiding the booking form modal and showing a booking confirmation modal.
- * @returns 
+ * @returns
  */
 function handleBookingConfirmation() {
   const bookingFormModalInstance = bootstrap.Modal.getInstance(
@@ -641,7 +623,6 @@ function handleBookingConfirmation() {
 
   if (!bookingModalContainer) {
     throw new Error("Booking success modal container not found");
-    
   }
 
   bookingModalContainer.innerHTML = `<div class="modal-dialog">
