@@ -121,7 +121,7 @@
         <!--Summary Section-->
         <section class="container mt-4" id="summary-section">
             <div class="row">
-                <h1 class="display-4 hero-content">Ireland & Scotland — Cork to Edinburgh Castles</h1>
+                <h1 class="display-4 hero-content">Ireland & Scotland</h1>
                 <div class="col-lg-8">
                     <ul class="template-bullets">
                         <li>Kiss the <strong>Blarney Stone</strong> at 15th-century Blarney Castle</li>
@@ -144,14 +144,14 @@
                     </div>
                 </div>
             </div>
-
+            <!-- Booking Modal -->
             <div id="booking-modal" class="modal fade booking-modal-container" tabindex="-1"
                 aria-labelledby="booking-modal-label" aria-hidden="true" data-price="1495" data-upgrade-first-class="75"
                 data-upgrade-hotel="300" data-add-excursions="150">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="contact-modal-label">Book Now</h5>
+                            <h5 class="modal-title" id="booking-modal-label">Book Now</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                         </div>
                         <div class="modal-body">
@@ -179,10 +179,9 @@
                                     <legend> Select Departure Airport: </legend>
                                     <select class="form-select form-select-lg p-1" name="departure"
                                         aria-label="form departure airport">
-                                        <option selected>Select an airport</option>
+                                        <option selected>Depart from</option>
                                         <option value="cork">Cork</option>
-                                        <option value="dublin">Dublin</option>
-                                        <option value="shannon">Shannon</option>
+                                        
                                     </select>
                                 </fieldset>
 
@@ -232,7 +231,7 @@
 
             <div class="row">
                 <div class="col-12">
-                    <h2>Your guided holiday to Ireland & Scotland</h2>
+                    <h2>Cork, Dublin & Belfast, Edinburgh</h2>
                     <p>Journey from Cork's medieval Blarney Castle through Ireland's ancient heartland to Belfast's
                         Titanic shipyards, then cross the Irish Sea to Scotland's noble fortresses. Kiss the Blarney
                         Stone for the gift of eloquence, marvel at Giant's Causeway basalt columns, explore Edinburgh
@@ -267,7 +266,7 @@
                                         </li>
                                         <li><strong>Rock of Cashel</strong> — Celtic cathedral, Cormac's Chapel, round
                                             tower</li>
-                                        <li><strong>Titanic Belfast</strong> — immersive museum where RMS Titanic was
+                                        <li><strong>Belfast</strong> — immersive museum where RMS Titanic was
                                             built</li>
                                         <li><strong>Giant's Causeway</strong> — Finn McCool's 40,000 hexagonal basalt
                                             columns</li>
@@ -342,7 +341,7 @@
                 <!-- Google Maps Column -->
                 <div class="col-12 col-lg-5 d-flex p-2">
                     <div id="map-container" class="w-100 d-flex justify-content-center align-items-center"
-                        data-lat="54.0" data-lng="-5.0" data-zoom="6.0" data-markerid="ireland">
+                        data-lat="54.0" data-lng="-5.0" data-zoom="6" data-markerid="ireland">
                     </div>
                 </div>
 
@@ -350,7 +349,7 @@
         </section>
         <button class="btn btn-gold btn-thumb-cta d-lg-none" data-action="book-tour" data-bs-toggle="modal"
             data-bs-target="#booking-modal">
-            Book Now
+            Book Now - <span>From €1,495</span>
         </button>
     </main>
 

@@ -71,44 +71,44 @@
 
     <!-- Contact Form Modal - Content injected by JavaScript -->
     <div class="modal fade" id="contact-modal" tabindex="-1" aria-labelledby="contact-modal-label" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title modal-label" id="contact-modal-label">Please Provide Contact Details</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form id="contact-form" class="needs-validation" novalidate>
-              <div class="row">
-                <div class="col-12 col-lg-6 mb-3">
-                  <label for="name" class="form-label">Name</label>
-                  <input class="form-control" id="name" name="name" type="text" required>
-                  <div class="invalid-feedback">Please enter your name.</div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title modal-label" id="contact-modal-label">Please Provide Contact Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="col-12 col-lg-6 mb-3">
-                  <label for="email" class="form-label">Email</label>
-                  <input class="form-control" id="email" name="email" type="email" required>
-                  <div class="invalid-feedback">Please use a valid email address</div>
+                <div class="modal-body">
+                    <form id="contact-form" class="needs-validation" novalidate>
+                        <div class="row">
+                            <div class="col-12 col-lg-6 mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input class="form-control" id="name" name="name" type="text" required>
+                                <div class="invalid-feedback">Please enter your name.</div>
+                            </div>
+                            <div class="col-12 col-lg-6 mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input class="form-control" id="email" name="email" type="email" required>
+                                <div class="invalid-feedback">Please use a valid email address</div>
+                            </div>
+                            <div class="col-12 col-lg-6 mb-3">
+                                <label for="phone" class="form-label">Phone number (e.g. +353 87 123 4567)</label>
+                                <input class="form-control" id="phone" name="phone" type="tel"
+                                    pattern="\+?[\d\s\-\(\)]{10,20}" required>
+                                <div class="invalid-feedback">Please enter your number in international format.</div>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" rows="6" id="message" name="message" required></textarea>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <div class="col-12 col-lg-6 mb-3">
-                  <label for="phone" class="form-label">Phone number (e.g. +353 87 123 4567)</label>
-                  <input class="form-control" id="phone" name="phone" type="tel"
-                    pattern="\+?[\d\s\-\(\)]{10,20}" required>
-                  <div class="invalid-feedback">Please enter your number in international format.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-white" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" form="contact-form" class="btn btn-red">Submit</button>
                 </div>
-                <div class="col-12 mb-3">
-                  <label for="message" class="form-label">Message</label>
-                  <textarea class="form-control" rows="6" id="message" name="message" required></textarea>
-                </div>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button class="btn btn-white" data-bs-dismiss="modal">Close</button>
-            <button type="submit" form="contact-form" class="btn btn-red">Submit</button>
-          </div>
+            </div>
         </div>
-      </div>
     </div>
 
     <!-- Success Modal - Content injected by JavaScript -->
@@ -127,7 +127,7 @@
         <!--Summary Section-->
         <section class="container mt-4" id="summary-section">
             <div class="row">
-                <h1 class="display-4 hero-content">Tuscany</h1>
+                <h1 class="display-4 hero-content">Tuscany Italy</h1>
                 <div class="col-lg-8">
                     <ul>
                         <li>Stand before <strong>Michelangelo's David</strong> and the masterworks of the <strong>Uffizi
@@ -152,18 +152,20 @@
                 <div class="col-lg-4 d-none d-lg-flex flex-column justify-content-center align-items-center py-2">
                     <div class="booking-form-wrap p-3">
                         <h2>Book from €1,599</h2>
-                        <button class="btn btn-gold w-100 mt-3" data-action="book-tour" data-bs-toggle="modal" data-bs-target="#booking-modal">Book Now</button>
+                        <button class="btn btn-gold w-100 mt-3" data-action="book-tour" data-bs-toggle="modal"
+                            data-bs-target="#booking-modal">Book Now</button>
                     </div>
                 </div>
             </div>
 
-            <div id="booking-modal" class="modal fade booking-modal-container" tabindex="-1" aria-labelledby="booking-modal-label"
-                data-price="1599" data-upgrade-first-class="75" data-upgrade-hotel="350" data-add-excursions="150"
-                aria-hidden="true">
+            <!-- Booking Modal -->
+            <div id="booking-modal" class="modal fade booking-modal-container" tabindex="-1"
+                aria-labelledby="booking-modal-label" data-price="1599" data-upgrade-first-class="75"
+                data-upgrade-hotel="350" data-add-excursions="150" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="contact-modal-label">Book Now</h5>
+                            <h5 class="modal-title" id="booking-modal-label">Book Now</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                         </div>
                         <div class="modal-body">
@@ -194,7 +196,6 @@
                                         <option selected>Select an airport</option>
                                         <option value="cork">Cork</option>
                                         <option value="dublin">Dublin</option>
-                                        <option value="shannon">Shannon</option>
                                     </select>
                                 </fieldset>
 
@@ -219,10 +220,11 @@
                                     <input type="checkbox" id="upgradeFirstClass" name="upgradeFirstClass"
                                         value="upgradeFirstClass">
                                     <label for="upgradeFirstClass">Upgrade to First Class Flights: €500
-                                        </label><br>
+                                    </label><br>
                                     <input type="checkbox" id="upgradeHotel" name="upgradeHotel" value="upgradeHotel">
                                     <label for="upgradeHotel">Upgrade to 5 Star Hotels: €300</label><br>
-                                    <input type="checkbox" id="addExcursions" name="addExcursions" value="addExcursions">
+                                    <input type="checkbox" id="addExcursions" name="addExcursions"
+                                        value="addExcursions">
                                     <label for="addExcursions">Add Guided Excursions: €100</label><br>
                                 </fieldset>
                             </form>
@@ -230,8 +232,8 @@
                         <div class="modal-footer">
                             <p id="total">Total: €</p>
                             <button type="button" class="btn btn-white" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="confirm-booking-btn btn btn-red"
-                                form="booking-form">Confirm Booking</button>
+                            <button type="submit" class="confirm-booking-btn btn btn-red" form="booking-form">Confirm
+                                Booking</button>
                         </div>
                     </div>
                 </div>
@@ -245,7 +247,7 @@
 
             <div class="row">
                 <div class="col-12">
-                    <h2>Your guided holiday to Tuscany</h2>
+                    <h2>Florence, Siena, Pisa & San Gimignano</h2>
                     <p>
                         Lose yourself in the birthplace of the Renaissance on this immersive guided tour through
                         Tuscany's most extraordinary cities and landscapes. From the world-class art and architecture
@@ -390,9 +392,9 @@
             </div>
             </div>
         </section>
-                <button class="btn btn-gold btn-thumb-cta d-lg-none" data-action="book-tour" data-bs-toggle="modal"
+        <button class="btn btn-gold btn-thumb-cta d-lg-none" data-action="book-tour" data-bs-toggle="modal"
             data-bs-target="#booking-modal">
-            Book Now
+            Book Now - <span>From €1,599</span>
         </button>
     </main>
 
@@ -461,8 +463,8 @@
                             <input type="email" id="newsletter-email" name="email" class="form-control flex-grow-1 mb-3"
                                 placeholder="Enter your Email" required>
                             <div class="invalid-feedback">Please use a valid email address</div>
-                            <button type="submit"
-                                class="btn btn-gold flex-shrink-0 justify-content-center gap-1">Sign Up</button>
+                            <button type="submit" class="btn btn-gold flex-shrink-0 justify-content-center gap-1">Sign
+                                Up</button>
                         </form>
                     </div>
                 </div>

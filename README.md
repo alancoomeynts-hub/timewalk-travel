@@ -25,28 +25,242 @@
  5. As a first-time visitor, I want a clear homepage with tour teasers.
  6. I want to see tour prices and dates upfront, so I know if a tour fits my budget and schedule before reading details.
 
- ## Design Features
+## Design Choices
 
- ### Typography
-  - Merriweather Serif Font for Headings, Buttons
-  - Manrope Sans-Serif for Text.
+### Color Scheme
+The color palette was carefully selected to evoke elegance, trust, and historical authenticity:
 
- ### Palette
+- **Deep Charcoal (#1a1a1a)**: Primary background for navigation bar and main content areas.
+- **Warm Beige (#f5f0e8)**: Secondary background for main content sections.
+- **Crimson Red (#dc143c)**: Primary accent for headings, CTAs, and key interactive elements.
+- **Dark Crimson (#8b0000)**: Hover state for interactive elements.
+- **Gold (#c9940a)**: Action primary color for booking buttons and highlights.
+- **Dark Gold (#8b6508)**: Hover state for gold elements.
+- **Light Background (#ffffff)**: Secondary backgrounds for cards and content containers.
 
-stone-charcoal:    #36454f; /* Navbar, body text */
-white-smoke:       #f5f5f5; /* Main backgrounds */
-white:             #ffffff; /* Secondary backgrounds */
-charcoal-dark:     #3a3a3a; /* Darker backgrounds */
-dark-slate:        #2f4f4f; /* Secondary text */
-crimson-banner:    #dc143c; /* Main headings, accents */
-crimson-dark:      #8b0000; /* Hover states */
-navy-iron:         #36454f; /* Secondary accents */
-prussian-blue:     #1e3a8a; /* Main buttons */
-prussian-dark:     #1e1b4b; /* Button hovers */
+### Typography
+
+- **Merriweather (Serif)**: Used for all headings (h1-h6) and modal titles.
+- **Manrope (Sans-Serif)**: Used for body text, form labels, and navigation.
+
+### Layout & Navigation
+
+**Fixed Navigation Bar**:Responsive navigation bar providing access to:
+- Brand logo
+- Destination dropdown menu for quick navigation between tour packages
+- CTA buttons  always accessible
+- Responsive toggle on mobile devices
+
+**Hero Section with Integrated Search**: 
+- Desktop: Multi-select form for filtering tours by destination, theme and departure airport. Responsive design to adapt layout based on screen size.
+**Sticky Mobile CTA**: Booking button positioned in the centre of the screen on mobile devices for easy access.
+**Three-Click Rule**: All information and functionality are accessible within three clicks from the homepage. Users can easily navigate to any tour package, view details, and access the booking form in 3 clicks.
+
+### Component Selection
+
+**Location Cards (Homepage)**:
+- Responsive grid layout showcasing all available tour destinations
+- Hover effect with subtle lift animation to indicate interactivity
+- Click redirects to search results filtered by destination
+
+**Accordion (Itinerary Pages)**:  Day-by-day itinerary organized in collapsible sections
+
+**Google Maps Integration**:
+- Advanced markers with custom styling (gold pin with dark accents)
+- Info windows display location name and travel day information
+- Responsive container that adapts to 2-column layout on desktop, full-width on mobile
+- Multiple marker sets for different itineraries
+
+**Booking Modal and Form**:
+- Collects user information, travel details, and optional upgrades.
+- Real-time price calculation with running total displayed
+- Confirmation modal on submission.
+
+**Contact Modal and Form**:
+- Consistent styling across homepage and itinerary pages
+- Bootstrap form validation with visual feedback
+- On submission, displays confirmation modal with follow-up information for user.
+- Responsive design maintains usability across all devices
+
+**Footer**:
+- Contains contact information, social media links, and newsletter signup.
+
+### Responsive Design
+
+Mobile-first approach with Bootstrap breakpoints ensures optimal experiences across all devices:
+
+**Breakpoints:**
+- **< 576px** (Extra Small): Single column layouts, full-width components, touch-optimized spacing
+- **576px - 768px** (Small): Transitional layouts, card grid begins showing 2 columns
+- **768px - 992px** (Medium): Multi-column layouts emerging, sidebar content becomes visible
+- **992px - 1200px** (Large): Full 2-column layouts on itinerary pages (accordion + map side-by-side)
+- **> 1200px** (Extra Large): Expanded content areas, optimized spacing, full-width hero sections
+
+**Key Responsive Behaviors:**
+- Navigation transforms from fixed bar (desktop) to hamburger menu with offcanvas drawer (< 992px)
+- Search form hides on mobile, appears in dedicated container below hero
+- Itinerary accordion spans full width on mobile, shares 7-column grid with map on desktop
+- Booking button positioned as sticky footer on mobile, inline on desktop
+- Card grids: 1 column mobile → 2 columns tablet → 3 columns desktop
+
 ## Wireframe
 
 ![Wireframe of index.html and itinerary page template](assets/wireframes/wireframe.webp)
 
+---
+
+# Features
+
+This website is built as a responsive, static site using HTML5, CSS3 with Bootstrap 5.3.8 to provide an intuitive and mobile-friendly experience for potential customers browsing historical European tour packages. Features are enhanced with JavaScript ES6 for interactivity and Google Maps integration for location visualization. Key features include:
+
+## 1. Responsive Navigation Bar
+**Description:** Fixed-top navbar with brand logo, navigation dropdown menu linking to different tour destinations, and a prominent "Enquire Now" call-to-action button.
+
+**Details:**
+- Mobile-friendly navigation that collapses into a hamburger menu on small screens using Bootstrap's navbar-toggler
+- Dropdown menu featuring links to all available destinations.
+- Responsive logo that maintains proper sizing across all device sizes
+
+**Technical Details:** 
+- Built with Bootstrap navbar components.
+- Styled with custom CSS variables for consistent branding (dark background with crimson accents)
+- Uses Bootstrap utility classes for spacing, alignment, and responsive visibility
+
+![Navbar screenshot](assets/screenshots/navbar.webp)    
+
+## 2. Hero Section with Search & Filter Form
+**Description:** Hero banner with background image overlay featuring an intuitive dual-form search interface for discovering tour packages.
+
+**Details:**
+- Desktop search form with dropdown filters for destinations, themes, departure airports.
+- Mobile-optimized search form that appears in a dedicated section below the hero image
+- Responsive layout adapts from single-column mobile to multi-column desktop grid
+
+**Technical Details:**
+- Hero banner built with CSS flexbox and background-image properties
+- Search forms use Bootstrap form control components
+- On form submission, data is captured and stored in `sessionStorage`, then passed to search results page via JavaScript redirect (`searchFormRedirect()` function in main.js) to produce filtered results on the search results page.
+- Media queries hide/show desktop vs. mobile versions of search form appropriately
+
+![Hero section screenshot](assets/screenshots/hero-section.webp)
+
+## 3. Location Grid with Tour Cards
+**Description:** Responsive grid of tour destination cards showcasing imagery, titles.
+
+**Details:**
+- 6 destination cards displayed in responsive layout (1 column on mobile, 2 on tablets, 3 on desktop)
+- Each card features a high-quality tour image, destination title, and brief description
+- Cards are clickable to navigate to detailed tour pages or search results
+- Hover effects provide visual feedback and encourage interaction
+
+**Technical Details:**
+- Implemented using Bootstrap grid system and card components, styled with custom CSS for consistent branding.
+- Location cards redirect functionality implemented via `LocationCardsRedirect()` function to navigate on click
+
+
+![Location cards screenshot](assets/screenshots/location-grid.webp)
+
+## 4. Interactive Itinerary Pages with Accordion
+**Description:** Detailed tour pages featuring day-by-day breakdowns of activities, highlights, and logistics 
+
+**Details:**
+- Each tour has a dedicated page (itineraryitaly1.html, itineraryczechia.html, etc.)
+- Multi-stage itineraries with information organized in an accordion format for easy navigation.
+- Each accordion item contains activities, highlights, accommodation details, and optional add-ons
+- Responsive layout with sidebar booking form on desktop, button-based booking on mobile
+
+**Technical Details:**
+- Built with Bootstrap `.accordion` component. Styled with custom CSS.
+
+![Itinerary page screenshot](assets/screenshots/itinerary-accordion.webp)
+
+## 5. Google Maps Integration with Advanced Markers
+**Description:** Interactive maps on each itinerary page showing all tour locations with custom markers, info windows, and geolocation details.
+
+**Details:**
+- Each itinerary page displays a responsive map container positioned alongside the accordion.
+- Provide clickable markers reveal info windows.
+- Map center and zoom level configured via HTML data attributes (`data-lat`, `data-lng`, `data-zoom`)
+
+**Technical Details:**
+- Powered by Google Maps API with advanced marker library (@google/maps-js-api available separately)
+- `initMap()` function creates map instance with coordinates from `#map-container` data attributes
+- `createMarker()` function generates `AdvancedMarkerElement` objects with custom pin styling
+- Info windows created with `google.maps.InfoWindow` and displayed on marker click
+- Marker data organized by tour ID (`rome`, `tuscany`, `austria`, `czechia`, `andalusia`, `ireland`) in JavaScript object structure
+- Responsive map container uses Flexbox for alignment on all device sizes
+
+![Google Maps screenshot](assets/screenshots/map-container.webp)
+
+## 6. Dynamic Booking Modal with Price Calculator
+**Description:** Interactive booking form embedded in a modal that allows customers to select options, calculate real-time pricing, and proceed to checkout.
+
+**Details:**
+- Modal triggered via "Book Now" button on each itinerary page
+- Selectable upgrade options.
+- Real-time price calculation updates as users select options
+
+**Technical Details:**
+- Modal container uses Bootstrap `.modal` and `.modal-dialog` components
+- Base price and upgrade costs stored as data attributes on modal element (`data-price`, `data-upgrade-first-class`, etc.)
+- `createBookingFormModal()` function dynamically generates form controls and price display
+- `calculateTotalPrice()` function updates price in real-time using JavaScript event listeners on form inputs
+- Booking confirmation handled by `handleBookingConfirmation()` which displays success modal and clears form
+
+![Booking modal screenshot](assets/screenshots/booking-form.webp)
+
+## 7. Contact Form Modal (Multi-Purpose)
+**Description:** Accessible contact form modal available from multiple pages (navbar, homepage, itinerary pages) for lead generation and customer inquiries.
+
+**Details:**
+- Consistent modal appearing across all pages for consistent user experience
+- Collects name, email, subject, and message from potential customers
+- Form validation using Bootstrap's `.needs-validation` utility classes
+- Success modal confirmation displayed on form submission
+
+**Technical Details:**
+- Modal HTML template injected dynamically via `createBookingFormModal()` function in main.js
+- Form validation implemented with `validateContactForms()` function using Bootstrap validation classes
+- Success modal template injected via `showFormSubmissionModal()` function
+- Form state reset after successful submission
+- Accessible via navbar "Enquire" button and other strategic CTAs throughout the site
+
+![Contact form modal screenshot](assets/screenshots/contact-modal.webp)
+
+## 8. Search Results Page with Filtering
+**Description:** Dedicated results page that displays filtered tour options based on user search criteria (destination, theme, budget, airport).
+
+**Details:**
+- Dynamically filters itinerary cards based on form submission data from homepage
+- Displays matching tours in a grid layout matching the homepage card design
+- Preserves user's search parameters and displays them as applied filters
+- Responsive card grid adapts layout based on screen size
+- Direct links to detailed itinerary pages from each filtered result
+
+**Technical Details:**
+- Search parameters stored in `sessionStorage` when user submits search form
+- `filterResults()` function retrieves stored parameters and compares against itinerary data object
+- `cloneItineraryCards()` function creates card elements dynamically from filtered dataset
+
+![Search results screenshot](assets/screenshots/filter.webp)
+![Search results screenshot](assets/screenshots/filter-mobile.webp)
+
+## 9. Footer with Contact Information & Social Links
+**Description:** Footer providing contact details, quick navigation links, newsletter signup, and social media connections.
+
+**Details:**
+- Three-column layout which stacks vertically on mobile devices.
+- Full address, phone number, and email address for sales inquiries
+- Social media icons linking to Instagram, Facebook, and X (Twitter)
+- Quick navigation links itinary pages and homepage.
+- Newsletter signup form for email marketing.
+
+**Technical Details:**
+- Implemented using Bootstrap grid layout.
+- Social media icons from Font Awesome icon library
+- Newsletter form includes email input validation
+
+![Footer screenshot](assets/screenshots/footer.webp)    
 
 ## Code
 - window.location from W3S: https://www.w3schools.com/js/js_window_location.asp
@@ -72,7 +286,163 @@ prussian-dark:     #1e1b4b; /* Button hovers */
  - Bootstrap Modal Methods: https://getbootstrap.com/docs/5.3/components/modal/#methods
  - Bootstraps Modal Events: https://getbootstrap.com/docs/5.3/components/modal/#events
 
-- 
+## Testing
+
+Website was thoroughly tested using user personas and stories as a guide.
+
+**User Story:** As a first-time visitor, I want a clear homepage with tour teasers so I can quickly understand what tours are available.
+
+**Pathways Tested (all passed):**
+- Homepage loads with hero section displaying "Historical City Tours 2026"
+- 6 tour destination cards visible in responsive grid layout
+- Each card displays tour image, title, and brief description
+- Hover effects trigger lift animation on cards (desktop)
+
+**User Story:** As a potential customer, I want to be able to filter tours by location, theme and departure airport so I can find tours that match my preferences.
+
+**Pathways Tested (all passed):**
+- Desktop search form displays below hero with 4 dropdown filters (destination, theme, airport)
+- Mobile search form appears in dedicated container below hero on screens < 992px
+- Form submission captures all selections and stores in `sessionStorage`
+- Form submission redirects to search results page (`searchresults.html`)
+- Search results display filtered cards matching selected criteria
+- All filter combinations produce expected results (destination + theme, destination + airport, etc.)
+
+**User Story:** As a potential customer, I would like to see detailed itineraries with maps showing attractions and historical sites so I understand exactly what I'll visit each day.
+
+**Pathways Tested (all passed):**
+- Navigation from homepage to itinerary pages via destination cards
+- Navigation from search results to itinerary pages via filtered cards
+- Itinerary accordion loads with first stage expanded by default
+- Each accordion item displays day range, stage title, activities, and highlights in readable format
+- Google Maps loads correctly on all itinerary pages (6 separate maps tested: Rome, Tuscany, Austria, Czechia, Ireland, Andalusia)
+- Map markers display correctly at configured coordinates (`data-lat`, `data-lng`, `data-zoom`)
+- Clicking markers reveals info windows with location name and day information
+- Map responsive behavior: stack on mobile (< 992px), shares row with accordion on desktop (≥ 992px)
+
+
+**User Story:** As a potential customer, I want to see tour prices and dates upfront, so I know if a tour fits my budget and schedule before reading details.
+
+**Pathways Tested (all passed):**
+- Base price displays in booking form header before any selections
+- Prices range from $1,495 to $2,000 depending on tour (6 tours tested)
+- Booking modal data attributes correctly store base prices (`data-price`)
+- Booking modal data attributes correctly store upgrade prices (`data-upgrade-first-class`, `data-upgrade-hotel`, `data-add-excursions`)
+- Trip duration displays in itinerary summary section (Days 1-3, Days 4-6, etc.)
+- Dates and price information visible before scrolling on desktop (viewport ≥ 992px)
+
+---
+
+**User Story:** As a potential customer, I want to book a tour directly from the itinerary page so I don't have to search for a booking form.
+
+**Pathways Tested (all passed):**
+- "Book Now" button visible on all itinerary pages
+- Desktop: button positioned inline in booking form sidebar
+- Mobile (< 992px): button positioned as sticky footer at bottom of viewport
+- Button click triggers booking modal display with correct base price
+- Booking form collects traveler name, email, phone
+- Upgrade checkboxes (First Class, Hotel, Excursions) selectable
+- Real-time price calculation: total updates on checkbox change
+- Total price calculation formula correct: base price + (upgrades if checked)
+- Form validation: required fields (`name`, `email`, `phone`) highlight with error states if empty
+- Email field validates proper email format
+- Valid submission displays success modal with booking summary
+- Success modal appears after confirming booking details, if form is valid
+- Form data clears on modal close, ready for next booking attempt
+
+---
+
+**User Story:** As a potential customer, I want to quickly contact a sales agent when I have questions about which tour is right for me.
+
+**Pathways Tested (all passed):**
+- Contact form accessible from navbar "Enquire Now" button on all pages
+- Contact form accessible from homepage hero section CTA button
+- Contact form accessible from itinerary page CTA (mobile view)
+- Contact form modal opens consistently on all pages
+- Form collects name, email, subject, message
+- Form validation: required fields highlight with error states if empty
+- Email field validates proper email format with HTML5 pattern attribute
+- Message field requires minimum 10 characters
+- Valid submission displays success modal with confirmation message
+- Success modal displays follow-up contact information
+- Form data clears on modal close, ready for next inquiry
+
+---
+
+**User Story:** As a returning customer, I want responsive design so I can browse tours on any device (mobile, tablet, desktop).
+
+**Pathways Tested (all passed):**
+
+**Mobile (< 576px):**
+- Navbar collapses to hamburger menu icon
+- Navigation dropdown accessible via hamburger toggle
+- Hero section maintains aspect ratio with centered text
+- Search form stacks vertically with full-width inputs
+- Location cards stack to 1 column
+- Itinerary accordion spans full width (no map visible)
+- Map container hidden on mobile (accordion takes full width)
+- Booking button positioned as sticky footer at viewport bottom
+- Contact form fields stack vertically
+- All text readable at minimum font size, no overflow at 344px viewport width and above
+- Touch targets (buttons, links) minimum 50px × 50px for easy tapping
+
+**Tablet (576px - 992px):**
+- Navbar remains visible (no hamburger menu)
+- Search form displays with 2-column grid layout
+- Location cards display 2 per row
+- Itinerary accordion spans full width, map hidden below
+- All form inputs stack vertically
+- Booking button remains as sticky footer
+
+**Desktop (≥ 992px):**
+- Navbar displays full navigation with dropdown menu
+- Search form displays 4-column grid at full width
+- Location cards display 3 per row
+- Itinerary accordion (7 columns) and map (5 columns) display side-by-side
+- Booking button displays inline in sidebar form area
+- All form inputs display in multi-column grid where applicable
+- Page maintains optimal line length (~65 characters) for readability
+
+**Responsive Behavior Across All Sizes:**
+- Images scale responsively without distortion (object-fit: cover)
+- Hero banner maintains full-height ratio on all screen sizes
+- No horizontal scroll on any viewport size ≥ 344px
+- Flexbox layouts adapt gracefully to different screen widths
+- Bootstrap breakpoint transitions smooth without layout shifts
+- Sticky footer remains accessible and doesn't overlap content
+
+---
+
+**Form Validation Testing (all passed):**
+- Contact form: empty name field displays "Name is required"
+- Contact form: invalid email format displays "Please provide a valid email address"
+- Booking form: empty phone field displays "Phone is required"
+- Booking form: invalid phone format displays validation error
+- All validation displays inline at form field (not as alert modal)
+- Bootstrap validation classes apply correct visual styling (red border, error text color)
+- Form submission prevented until all required fields valid
+- Invalid form submission does not redirect or close modal
+
+---
+
+**Search & Filter Results Testing (all passed):**
+- Search with destination filter only displays tours for selected destination
+- Search with theme filter only displays tours matching theme
+- Search with multiple filters displays only tours matching ALL criteria
+- Empty search result displays message "No tours match your criteria"
+- Filtered results maintain responsive layout
+- Results cards include all original homepage card styling and functionality
+- Direct navigation from filtered card to correct itinerary page
+
+---
+
+## Future Improvement
+- Implement backend API  and CRM to handle form submissions and store leads/bookings in a database.
+- Blog section with articles about historical sites, travel tips, and tour highlights to drive SEO and engage users.
+- Payment processing integration (e.g., Stripe) for secure online bookings directly from the website.
+- Expandable Image carousel on itinerary pages to showcase more photos.
+
+
 Media Sources:
 - Text content generated with assistance from Perplexity.
 - Images generated by Artlist.io, except the below.
@@ -100,12 +470,27 @@ Media Sources:
 
 - Dealt with several depreciation warnings from Google Maps API by following the migration guides in the official documentation. This included migrating to advanced markers, advanced marker gmp-click listener, pin elements and updating the way infoWindows are created and styled. References: https://developers.google.com/maps/documentation/javascript/advanced-markers/ and https://developers.google.com/maps/documentation/javascript/reference/info-window
 
+- Unresolved invalid instance of latlngAltitude error in console. This does not affect functionality but in atempt to resolve i refactored code to use non deprecated methods for creating markers and infoWindows, and added error handling to the initMap function to catch any errors during map initialization and log them to the console. Reference: https://developers.google.com/maps/documentation/javascript/error-handling
+
+I use the following logging method to find the source:
+- in initmaps(): check map container is being selected and that data attributes are being read correctly.
+   " console.log("map container:", container);
+      console.log(
+    "lat:", container.dataset.lat,
+    "lng:", container.dataset.lng,
+    "markerid:", container.dataset.markerid
+  );"
+
+- Check marker creation that lat and lng, etc are beiing retrieved from markersCoordinates object and that marker is being created with correct properties.
+"markerData.forEach((location) => {
+    console.log("creating marker :", location.lat, "lng:", location.lng, "title:", location.city);
+    ...});"
 
 ## Tools and Resources
 - HTML, CSS, JavaScript for frontend development
 - https://httpbin.org/post dummy api endpoint
 - Perplexity for text content, regex generation
-- Copilot for QAing html for trailing tags,analyse style patterns and templating and ensuring consistent editing of itinerary pages from itineraryitaly1.html
+- Copilot for QAing html for trailing tags,analyse style CSS patterns and templating and ensuring consistent editing of itinerary pages from itineraryitaly1.html, drafting README.
 - Canva for wireframing and image editing
 - Artlist.io for image generation
 - Google Maps API for interactive maps on itinerary pages

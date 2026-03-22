@@ -210,7 +210,9 @@ async function initMap() {
   const mapInstance = new google.maps.Map(container, {
     center: latlng,
     zoom: parseInt(container.dataset.zoom) || 5,
-    mapId: "DEMO_MAP_ID",
+    mapId: "b9be43830a6f2268789bed1fcbd1b8",
+    mapTypeId: google.maps.MapTypeId.ROADMAP,  // mapId created in Google Cloud Console
+    mapTypeControl: false
   });
 
   const markerid = container.dataset.markerid;
@@ -397,7 +399,7 @@ function filterResults() {
       destination: ["italy"],
       cities: ["rome", "naples", "pompeii", "sorrento"],
       theme: ["ancient-rome"],
-      departure: ["cork", "dublin"],
+      departure: ["cork", "dublin", "shannon"],
       imageSrc: "assets/images/ItalyCardImage1.webp",
       imageAlt: "Photo of Colosseum superimposed on Positano Beach",
       title: "Rome, Naples & Amalfi",
@@ -409,7 +411,7 @@ function filterResults() {
       destination: ["italy"],
       cities: ["florence", "siena", "san-gimignano", "pisa"],
       theme: ["renaissance"],
-      departure: ["cork", "dublin", "shannon"],
+      departure: ["cork", "dublin"],
       imageSrc: "assets/images/tuscanycard.webp",
       imageAlt: "Tuscan countryside with Duomo di Firenze in background",
       title: "Tuscany",
@@ -433,7 +435,7 @@ function filterResults() {
       destination: ["czechia"],
       cities: ["prague", "karlstejn", "cesky-krumlov"],
       theme: ["medieval"],
-      departure: ["dublin", "shannon"],
+      departure: ["dublin", "shannon", "cork"],
       imageSrc: "assets/images/CzechRepublicCard.webp",
       imageAlt:
         "Composite image of Prague Castle, Charles Bridge and Cesky Krumlov in Czechia",
@@ -446,7 +448,7 @@ function filterResults() {
       destination: ["spain"],
       cities: ["seville", "ronda", "grenada", "gibraltar"],
       theme: ["renaissance"],
-      departure: ["dublin", "shannon"],
+      departure: ["dublin", "cork"],
       imageSrc: "assets/images/AndalusiaCard.webp",
       imageAlt: "Photo of Seville's Plaza de España",
       title: "Andalusia",
@@ -458,7 +460,7 @@ function filterResults() {
       destination: ["ireland", "scotland"],
       cities: ["cork", "dublin", "belfast", "edinburgh", "stirling"],
       theme: ["celtic"],
-      departure: ["dublin", "cork"],
+      departure: ["cork"],
       imageSrc: "assets/images/IrelandScotlandCard.webp",
       imageAlt: "Composite image of Ireland and Scotland historical sites",
       title: "Ireland & Scotland",

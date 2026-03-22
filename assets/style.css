@@ -186,6 +186,8 @@ h6 {
   background-color: var(--bg-secondary-contrast);
   border-radius: 1rem;
   padding: 2.5rem 2rem;
+  border: 1px solid var(--bg-primary-contrast);
+  box-shadow: var(--shadow-primary);
 }
 
 /* Card grid styles */
@@ -300,6 +302,13 @@ legend {
   padding: 12px 24px;
   font-size: 1.1rem;
   font-weight: 800;
+}
+
+.btn-thumb-cta span{
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--accent-primary);
 }
 /* Accordion */
 .accordion-item {
