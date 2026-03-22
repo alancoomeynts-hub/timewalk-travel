@@ -211,17 +211,24 @@ async function initMap() {
     center: latlng,
     zoom: parseInt(container.dataset.zoom) || 5,
     mapId: "b9be43830a6f2268789bed1fcbd1b8",
-    mapTypeId: google.maps.MapTypeId.ROADMAP,  // mapId created in Google Cloud Console
-    mapTypeControl: false
+    mapTypeId: google.maps.MapTypeId.ROADMAP, // mapId created in Google Cloud Console
+    mapTypeControl: false,
   });
 
+  //Insert error message into map container if map load failts
+  if (!(mapInstance instanceof google.maps.Map)) {
+    console.error("Invalid map", mapInstance);
+    container.innerHTML = "<p class='text-danger'>Map could not be loaded.</p>";
+    return;
+  }
+
   const markerid = container.dataset.markerid;
-  if (mapInstance instanceof google.maps.Map && markersCoordinates[markerid]) {
+  //Pass map and markerData to createMarker, log error if null
+  if (markersCoordinates[markerid]) {
     createMarker(mapInstance, markersCoordinates[markerid]); // pass map instance and locations object matching index markerId.
   } else {
-    console.error("Invalid markerId or map instance:", markerid, mapInstance);
+    console.error("Invalid marker data", markerid);
   }
-  
 }
 
 /**
@@ -231,6 +238,10 @@ async function initMap() {
  */
 function createMarker(map, markerData) {
   markerData.forEach((location) => {
+    if (!location.lat || !location.lng) {
+      console.error("Invalid location data", location);
+      return;
+    }
     //style map markers gold and black
     const pin = new google.maps.marker.PinElement({
       background: "#c9940a",
@@ -240,29 +251,33 @@ function createMarker(map, markerData) {
     });
 
     //create markers from MarkerData
-    const marker = new google.maps.marker.AdvancedMarkerElement({
-      position: new google.maps.LatLng(location.lat, location.lng),
-      map: map,
-      title: location.city,
-      content: pin,
-      gmpClickable: true,
-    });
+    try {
+      const marker = new google.maps.marker.AdvancedMarkerElement({
+        position: new google.maps.LatLng(location.lat, location.lng),
+        map: map,
+        title: location.city,
+        content: pin,
+        gmpClickable: true,
+      });
 
-    //create infoWindows
-    const infoWindow = new google.maps.InfoWindow({
-      maxWidth: 240,
-      ariaLabel: location.ariaLabel,
-      content: `<div style="max-width: 240px;">
+      //create infoWindows
+      const infoWindow = new google.maps.InfoWindow({
+        maxWidth: 240,
+        ariaLabel: location.ariaLabel,
+        content: `<div style="max-width: 240px;">
           <h6 class="info-window-header">${location.header}</h6>
           <div class="info-window-style">${location.city}</div>
         </div>
       `,
-    });
+      });
 
-    // add click listeners to markers for infoWindows
-    marker.addEventListener("gmp-click", () => {
-      infoWindow.open({ map: map, anchor: marker });
-    });
+      // add click listeners to markers for infoWindows
+      marker.addEventListener("gmp-click", () => {
+        infoWindow.open({ map: map, anchor: marker });
+      });
+    } catch (error) {
+      console.error(`Marker ${location.title} creation failed.`);
+    }
   });
 }
 
@@ -275,7 +290,11 @@ function LocationCardsRedirect() {
   cards.forEach((card) => {
     card.addEventListener("click", (e) => {
       if (card && e.currentTarget.dataset.href) {
+        try{
         window.location.href = e.currentTarget.dataset.href;
+        }catch(error){
+          console.error("Navigation failed.",error);
+        }
       }
     });
   });
