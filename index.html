@@ -48,21 +48,25 @@
                             <li><a class="dropdown-item" href="itineraryitaly1.html">Rome, Naples and Amalfi
                                     Coast</a></li>
                             <li><a class="dropdown-item navbar-dropdown" href="itineraryitaly2.html">Tuscany</a></li>
-                            <li><a class="dropdown-item navbar-dropdown" href="itineraryczechia.html">Czech Republic</a></li>
-                            <li><a class="dropdown-item navbar-dropdown" href="itineraryaustria.html">Austria & Venice</a></li>
-                            <li><a class="dropdown-item navbar-dropdown" href="itineraryandulusia.html">Andalusia</a></li>
-                            <li><a class="dropdown-item navbar-dropdown" href="itineraryireland.html">Ireland & Scotland</a></li>
+                            <li><a class="dropdown-item navbar-dropdown" href="itineraryczechia.html">Czech Republic</a>
+                            </li>
+                            <li><a class="dropdown-item navbar-dropdown" href="itineraryaustria.html">Austria &
+                                    Venice</a></li>
+                            <li><a class="dropdown-item navbar-dropdown" href="itineraryandulusia.html">Andalusia</a>
+                            </li>
+                            <li><a class="dropdown-item navbar-dropdown" href="itineraryireland.html">Ireland &
+                                    Scotland</a></li>
                         </ul>
                     </li>
                     <!-- Add bootstrap flex classes to push CTA buttons to end of navbar-collapse container on small screens-->
                     <li class="nav-item ms-auto">
                         <div class="d-flex gap-2">
-                        <button class="btn-red btn" data-bs-toggle="modal" data-bs-target="#contact-modal">Get
-                            Quote</button>
-                        <!--Phone CTA button uses on-click window location in place of anchor element for call redirect. -->
-                        <button class="btn-icon btn-red btn" onclick="window.location.href='tel:353871234567'"><i
-                                class="fa-solid fa-phone-flip"></i></button>
-                                </div>
+                            <button class="btn-red btn" data-bs-toggle="modal" data-bs-target="#contact-modal">Get
+                                Quote</button>
+                            <!--Phone CTA button uses on-click window location in place of anchor element for call redirect. -->
+                            <button class="btn-icon btn-red btn" onclick="window.location.href='tel:353871234567'"><i
+                                    class="fa-solid fa-phone-flip"></i></button>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -70,49 +74,49 @@
     </nav>
 
     <!-- Contact Form Modal - Content injected by JavaScript -->
-    <div class="modal fade" id="contact-modal" tabindex="-1" aria-labelledby="contact-modal-label" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title modal-label" id="contact-modal-label">Please Provide Contact Details</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form id="contact-form" class="needs-validation" novalidate>
-              <div class="row">
-                <div class="col-12 col-lg-6 mb-3">
-                  <label for="name" class="form-label">Name</label>
-                  <input class="form-control" id="name" name="name" type="text" required>
-                  <div class="invalid-feedback">Please enter your name.</div>
+    <div class="modal fade" id="contact-modal" role="dialog" tabindex="-1" aria-labelledby="contact-modal-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title modal-label" id="contact-modal-label">Please Provide Contact Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="col-12 col-lg-6 mb-3">
-                  <label for="email" class="form-label">Email</label>
-                  <input class="form-control" id="email" name="email" type="email" required>
-                  <div class="invalid-feedback">Please use a valid email address</div>
+                <div class="modal-body">
+                    <form id="contact-form" class="needs-validation" novalidate>
+                        <div class="row">
+                            <div class="col-12 col-lg-6 mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input class="form-control" id="name" name="name" type="text" required>
+                                <div class="invalid-feedback">Please enter your name.</div>
+                            </div>
+                            <div class="col-12 col-lg-6 mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input class="form-control" id="email" name="email" type="email" required>
+                                <div class="invalid-feedback">Please use a valid email address</div>
+                            </div>
+                            <div class="col-12 col-lg-6 mb-3">
+                                <label for="phone" class="form-label">Phone number (e.g. +353 87 123 4567)</label>
+                                <input class="form-control" id="phone" name="phone" type="tel"
+                                    pattern="\+?[\d\s\-\(\)]{10,20}" required>
+                                <div class="invalid-feedback">Please enter your number in international format.</div>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" rows="6" id="message" name="message" required></textarea>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <div class="col-12 col-lg-6 mb-3">
-                  <label for="phone" class="form-label">Phone number (e.g. +353 87 123 4567)</label>
-                  <input class="form-control" id="phone" name="phone" type="tel"
-                    pattern="\+?[\d\s\-\(\)]{10,20}" required>
-                  <div class="invalid-feedback">Please enter your number in international format.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-white" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" form="contact-form" class="btn btn-red">Submit</button>
                 </div>
-                <div class="col-12 mb-3">
-                  <label for="message" class="form-label">Message</label>
-                  <textarea class="form-control" rows="6" id="message" name="message" required></textarea>
-                </div>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button class="btn btn-white" data-bs-dismiss="modal">Close</button>
-            <button type="submit" form="contact-form" class="btn btn-red">Submit</button>
-          </div>
+            </div>
         </div>
-      </div>
     </div>
 
     <!-- Success Modal - Content injected by JavaScript -->
-    <div class="modal fade" id="success-modal" tabindex="-1" aria-labelledby="success-modal-label" aria-hidden="true">
+    <div class="modal fade" id="success-modal" role="dialog" tabindex="-1" aria-hidden="true">
     </div>
 
     <!--Main-->
@@ -224,21 +228,22 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center mb-5">
                     <h2 class="display-5 mb-4">Step Into History</h2>
-                    <p class="lead text-center text-lg-start">Timewalk Travel crafts immersive historical adventures that transport you beyond
+                    <p class="lead text-center text-lg-start">Timewalk Travel crafts immersive historical adventures
+                        that transport you beyond
                         guidebooks. Founded by history enthusiasts in Dublin, we specialise in small-group tours that
                         blend expert storytelling with authentic experiences.</p>
                 </div>
                 <div class="row g-3">
                     <div class="col-md-4 text-center">
-                        <h5>Expert Local Guides</h5>
+                        <h3>Expert Local Guides</h3>
                         <p>Historians & archaeologists, maximum 16 guests</p>
                     </div>
                     <div class="col-md-4 text-center">
-                        <h5>Historic Accommodations</h5>
+                        <h3>Historic Accommodations</h3>
                         <p>Palaces, castles, Renaissance villas</p>
                     </div>
                     <div class="col-md-4 text-center">
-                        <h5>All-Inclusive Luxury</h5>
+                        <h3>All-Inclusive Luxury</h3>
                         <p>Meals, entries, transport included</p>
                     </div>
                 </div>
@@ -256,7 +261,7 @@
                         <img src="assets/images/ItalyCardImage1.webp"
                             alt="Photo of Colosseum superimposed on Positano Beach" class="card-img-top">
                         <div class="card-body text-center">
-                            <h6 class="card-title mb-3">Rome, Naples & Amalfi</h6>
+                            <h3 class="card-title mb-3">Rome, Naples & Amalfi</h3>
                             <p class="card-text small">8 days - From €1,899</p>
                         </div>
                     </div>
@@ -266,7 +271,7 @@
                         <img src="assets/images/tuscanycard.webp"
                             alt="Tuscan countryside with Duomo di Firenze in background" class="card-img-top">
                         <div class="card-body text-center">
-                            <h6 class="card-title mb-3">Tuscany</h6>
+                            <h3 class="card-title mb-3">Tuscany</h3>
                             <p class="card-text small">7 days - From €1,599 pp</p>
                         </div>
                     </div>
@@ -276,7 +281,7 @@
                         <img src="assets/images/AustriaVeniceCard.webp"
                             alt="omposite Photo of Austrian and Venetian landmarks" class="card-img-top">
                         <div class="card-body text-center">
-                            <h6 class="card-title mb-3">Austria & Venice</h6>
+                            <h3 class="card-title mb-3">Austria & Venice</h3>
                             <p class="card-text small">10 days - From €2,000 pp</p>
                         </div>
                     </div>
@@ -286,7 +291,7 @@
                         <img src="assets/images/IrelandScotlandCard.webp"
                             alt="Composite image of Ireland and Scotland historical sites" class="card-img-top">
                         <div class="card-body text-center">
-                            <h6 class="card-title mb-3">Ireland & Scotland</h6>
+                            <h3 class="card-title mb-3">Ireland & Scotland</h3>
                             <p class="card-text small">10 Days - From €1,495 pp</p>
                         </div>
                     </div>
@@ -297,7 +302,7 @@
                             alt="Composite image of Prague Castle, Charles Bridge and Cesky Krumlov in Czechia"
                             class="card-img-top">
                         <div class="card-body text-center">
-                            <h6 class="card-title mb-3"> Czech Republic</h6>
+                            <h3 class="card-title mb-3"> Czech Republic</h3>
                             <p class="card-text small"> 8 Days - From €1,695 pp </p>
                         </div>
                     </div>
@@ -308,7 +313,7 @@
                             alt="composite image of Alhambra fortress red walls Sierra Nevada snow peaks, Seville Alcázar gardens orange trees foreground, Ronda Puente Nuevo bridge gorge in Andulusia Spain "
                             class="card-img-top">
                         <div class="card-body text-center">
-                            <h6 class="card-title mb-3"> Andalusia</h6>
+                            <h3 class="card-title mb-3"> Andalusia</h3>
                             <p class="card-text small"> From €1,895 pp</p>
                         </div>
                     </div>
@@ -324,7 +329,7 @@
         <div class="container mt-2">
             <div class="row justify-content-center px-4">
                 <div class="col-12 col-md-4">
-                    <strong class="d-block mb-3 text-uppercase small">Contact us:</strong>
+                    <h3 class="d-block mb-3 text-uppercase small">Contact us:</h3>
                     <address class="d-flex align-items-start">
                         <span class="flex-shrink-0"><i class="fa-solid fa-building-columns"></i></span>
                         <span>
@@ -344,7 +349,7 @@
                         </span>
                     </div>
 
-                    <strong class="d-block mt-2 mb-1 text-uppercase small">Connect with us:</strong>
+                    <h3 class="d-block mt-2 mb-1 text-uppercase small">Connect with us:</h3>
                     <div class="d-flex align-items-center social-links">
                         <a href="https://www.instagram.com" target="_blank"
                             aria-label="Visit our Instagram page (opens in a new tab)" rel="noopener"><i
@@ -359,7 +364,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-4">
-                    <strong class="d-block mb-3 small text-uppercase">Quick Links</strong>
+                    <h3 class="d-block mb-3 small text-uppercase">Quick Links</h3>
                     <ul class="quick-links d-flex flex-column align-items-start">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="itineraryitaly1.html">Rome, Naples and Amalfi Coast</a></li>
@@ -372,7 +377,7 @@
                 </div>
 
                 <div class="col-12 col-md-4 ">
-                    <strong class="d-block mb-3 small text-uppercase">Newsletter</strong>
+                    <h3 class="d-block mb-3 small text-uppercase">Newsletter</h3>
                     <div class="d-flex flex-column gap-2 newsletter-signup">
                         <p>Stay updated with our latest history-packed getaways and deals.</p>
                         <form class="needs-validation" novalidate>
@@ -380,8 +385,8 @@
                             <input type="email" id="newsletter-email" name="email" class="form-control flex-grow-1 mb-3"
                                 placeholder="Enter your Email" required>
                             <div class="invalid-feedback">Please use a valid email address</div>
-                            <button type="submit"
-                                class="btn btn-gold flex-shrink-0 justify-content-center gap-1">Sign Up</button>
+                            <button type="submit" class="btn btn-gold flex-shrink-0 justify-content-center gap-1">Sign
+                                Up</button>
                         </form>
                     </div>
                 </div>

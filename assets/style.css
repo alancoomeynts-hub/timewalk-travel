@@ -355,9 +355,10 @@ a {
 .quick-links {
   list-style: none;
 }
-#footer strong {
+#footer h3 {
   font-family: var(--font-secondary);
   color: var(--action-primary);
+  letter-spacing: 0.05rem;
 }
 
 /* Media Queries */
