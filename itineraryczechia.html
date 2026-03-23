@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="" />
-  <meta name="keywords" content="" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
   <title>Timewalk Travel | Czech Republic</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
-  <link rel="stylesheet" href="assets/style.css" />
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body class="d-flex flex-column min-vh-100 page-itinerary">
@@ -21,7 +21,7 @@
     <div class="container">
       <a class="navbar-brand" href="index.html">
         <img src="assets/images/timewalk-travel-high-resolution-logo-transparent-red.webp" alt="Timewalk Travel Logo"
-          id="logo" />
+          id="logo">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,35 +73,36 @@
   </nav>
 
   <!-- Contact Form Modal -->
-  <div class="modal fade" id="contact-modal" tabindex="-1" aria-labelledby="contact-modal-label" aria-hidden="true">
+  <div class="modal fade" id="contact-modal" role="dialog" tabindex="-1" aria-labelledby="contact-modal-label"
+    aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title modal-label" id="contact-modal-label">Please Provide Contact Details</h5>
+          <h3 class="modal-title modal-label" id="contact-modal-label">Please Provide Contact Details</h3>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form id="contact-form" class="needs-validation" novalidate>
             <div class="row">
               <div class="col-12 col-lg-6 mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input class="form-control" id="name" name="name" type="text" required>
+                <label for="contact-name" class="form-label">Name</label>
+                <input class="form-control" id="contact-name" name="name" type="text" required>
                 <div class="invalid-feedback">Please enter your name.</div>
               </div>
               <div class="col-12 col-lg-6 mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input class="form-control" id="email" name="email" type="email" required>
+                <label for="contact-email" class="form-label">Email</label>
+                <input class="form-control" id="contact-email" name="email" type="email" required>
                 <div class="invalid-feedback">Please use a valid email address</div>
               </div>
               <div class="col-12 col-lg-6 mb-3">
-                <label for="phone" class="form-label">Phone number (e.g. +353 87 123 4567)</label>
-                <input class="form-control" id="phone" name="phone" type="tel"
-                  pattern="\+?[\d\s\-\(\)]{10,20}" required>
+                <label for="contact-phone" class="form-label">Phone number (e.g. +353 87 123 4567)</label>
+                <input class="form-control" id="contact-phone" name="phone" type="tel" pattern="\+?[\d\s\-\(\)]{10,20}"
+                  required>
                 <div class="invalid-feedback">Please enter your number in international format.</div>
               </div>
               <div class="col-12 mb-3">
-                <label for="message" class="form-label">Message</label>
-                <textarea class="form-control" rows="6" id="message" name="message" required></textarea>
+                <label for="contact-message" class="form-label">Message</label>
+                <textarea class="form-control" rows="6" id="contact-message" name="message" required></textarea>
               </div>
             </div>
           </form>
@@ -115,14 +116,14 @@
   </div>
 
   <!-- Success Modal - Content injected by JavaScript -->
-  <div class="modal fade" id="success-modal" tabindex="-1" aria-labelledby="success-modal-label" aria-hidden="true">
+  <div class="modal fade" id="success-modal" role="dialog" tabindex="-1" aria-hidden="true">
   </div>
 
   <!--Main-->
   <main class="mb-5">
     <!--Header-->
     <header class="hero-banner d-flex">
-      <img src="assets/images/czechia-itinerary-hero.webp" alt="Panoramic view of Prague Castle" class="w-100 h-100" />
+      <img src="assets/images/czechia-itinerary-hero.webp" alt="Panoramic view of Prague Castle" class="w-100 h-100">
     </header>
 
     <!--Summary Section-->
@@ -170,18 +171,19 @@
         <div class="col-lg-4 d-none d-lg-flex flex-column justify-content-center align-items-center py-2">
           <div class="booking-form-wrap p-3">
             <h2>Book from €1,699</h2>
-            <button class="btn btn-gold w-100 mt-3" data-action="book-tour" data-bs-toggle="modal" data-bs-target="#booking-modal">Book Now</button>
+            <button class="btn btn-gold w-100 mt-3" data-action="book-tour" data-bs-toggle="modal"
+              data-bs-target="#booking-modal">Book Now</button>
           </div>
         </div>
       </div>
       <!-- Booking Modal -->
-      <div id="booking-modal" class="modal fade booking-modal-container" tabindex="-1" aria-labelledby="booking-modal-label"
-        aria-hidden="true" data-price="1699" data-upgrade-first-class="50" data-upgrade-hotel="250"
-        data-add-excursions="100">
+      <div id="booking-modal" class="modal fade booking-modal-container" role="dialog" tabindex="-1"
+        aria-labelledby="booking-modal-label" aria-hidden="true" data-price="1699" data-upgrade-first-class="50"
+        data-upgrade-hotel="250" data-add-excursions="100">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="booking-modal-label">Book Now</h5>
+              <h3 class="modal-title" id="booking-modal-label">Book Now</h3>
               <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
@@ -190,17 +192,17 @@
 
                 <fieldset>
                   <legend>Contact Information: </legend>
-                  <label for="name" class="form-label">Name</label>
-                  <input class="form-control" id="name" name="name" type="text" required>
+                  <label for="booking-name" class="form-label">Name</label>
+                  <input class="form-control" id="booking-name" name="name" type="text" required>
                   <div class="invalid-feedback">Please enter your name.</div>
 
-                  <label for="email" class="form-label">Email</label>
-                  <input class="form-control" id="email" name="email" type="email" required>
+                  <label for="booking-email" class="form-label">Email</label>
+                  <input class="form-control" id="booking-email" name="email" type="email" required>
                   <div class="invalid-feedback">Please use a valid email address</div>
 
-                  <label for="phone" class="form-label">Phone number (e.g. +353 87 123 4567)</label>
-                  <input class="form-control" id="phone" name="phone" type="tel" pattern="\+?[\d\s\-\(\)]{10,20}"
-                    required>
+                  <label for="booking-phone" class="form-label">Phone number (e.g. +353 87 123 4567)</label>
+                  <input class="form-control" id="booking-phone" name="phone" type="tel"
+                    pattern="\+?[\d\s\-\(\)]{10,20}" required>
                   <div class="invalid-feedback">Please enter your number in international format.</div>
                 </fieldset>
 
@@ -232,13 +234,12 @@
                 </fieldset>
                 <fieldset>
                   <legend> Optional Upgrades: </legend>
-                  <input type="checkbox" id="upgradeFirstClass" name="upgradeFirstClass" value="upgradeFirstClass"
-                    >
+                  <input type="checkbox" id="upgradeFirstClass" name="upgradeFirstClass" value="upgradeFirstClass">
                   <label for="upgradeFirstClass">Upgrade to First Class Flights: €
                     500</label><br>
-                  <input type="checkbox" id="upgradeHotel" name="upgradeHotel" value="upgradeHotel" >
+                  <input type="checkbox" id="upgradeHotel" name="upgradeHotel" value="upgradeHotel">
                   <label for="upgradeHotel">Upgrade to 5 Star Hotels: € 300</label><br>
-                  <input type="checkbox" id="addExcursions" name="addExcursions" value="addExcursions" >
+                  <input type="checkbox" id="addExcursions" name="addExcursions" value="addExcursions">
                   <label for="addExcursions">Add Guided Excursions: € 100</label><br>
                 </fieldset>
               </form>
@@ -253,8 +254,7 @@
         </div>
       </div>
 
-      <div class="modal fade" id="bookingsuccess-modal" tabindex="-1" aria-labelledby="success-modal-label"
-        aria-hidden="true">
+      <div class="modal fade" id="bookingsuccess-modal" role="dialog" tabindex="-1" aria-hidden="true">
 
       </div>
 
@@ -281,11 +281,11 @@
           <div class="accordion" id="itineraryAccordion">
             <!-- Day 1-4: Prague -->
             <div class="accordion-item">
-              <h2 class="accordion-header">
+              <h3 class="accordion-header">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#stagePrague">
                   Days 1-4 · Prague
                 </button>
-              </h2>
+              </h3>
               <div id="stagePrague" class="accordion-collapse collapse show" data-bs-parent="#itineraryAccordion">
                 <div class="accordion-body">
                   <p>
@@ -325,12 +325,12 @@
 
             <!-- Day 5: Karlštejn -->
             <div class="accordion-item">
-              <h2 class="accordion-header">
+              <h3 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                   data-bs-target="#stageKarlstejn">
                   Day 5 · Karlštejn Castle Day Trip
                 </button>
-              </h2>
+              </h3>
               <div id="stageKarlstejn" class="accordion-collapse collapse" data-bs-parent="#itineraryAccordion">
                 <div class="accordion-body">
                   <p>
@@ -363,12 +363,12 @@
 
             <!-- Day 6: Český Krumlov -->
             <div class="accordion-item">
-              <h2 class="accordion-header">
+              <h3 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                   data-bs-target="#stageKrumlov">
                   Day 6 · Český Krumlov
                 </button>
-              </h2>
+              </h3>
               <div id="stageKrumlov" class="accordion-collapse collapse" data-bs-parent="#itineraryAccordion">
                 <div class="accordion-body">
                   <p>
@@ -403,12 +403,12 @@
 
             <!--Day 7 and 8: Prague -->
             <div class="accordion-item">
-              <h2 class="accordion-header">
+              <h3 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                   data-bs-target="#stagePrague2">
                   Days 7-8 · Prague
                 </button>
-              </h2>
+              </h3>
               <div id="stagePrague2" class="accordion-collapse collapse" data-bs-parent="#itineraryAccordion">
                 <div class="accordion-body">
                   <p>
@@ -441,10 +441,10 @@
         </div>
       </div>
     </section>
-            <button class="btn btn-gold btn-thumb-cta d-lg-none" data-action="book-tour" data-bs-toggle="modal"
-            data-bs-target="#booking-modal">
-            Book Now - <span>From €1,699</span>
-        </button>
+    <button class="btn btn-gold btn-thumb-cta d-lg-none" data-action="book-tour" data-bs-toggle="modal"
+      data-bs-target="#booking-modal">
+      Book Now - <span>From €1,699</span>
+    </button>
   </main>
 
   <!--Footer-->
@@ -457,19 +457,19 @@
           <address class="d-flex align-items-start">
             <span class="flex-shrink-0"><i class="fa-solid fa-building-columns"></i></span>
             <span>
-              Timewalk Travel House<br />
-              14 Jervis Court, Jervis Street<br />
+              Timewalk Travel House<br>
+              14 Jervis Court, Jervis Street<br>
               Dublin 1, D01 X2F8.
             </span>
           </address>
           <div class="d-flex align-items-start mb-3">
             <span class="flex-shrink-0"><i class="fa-solid fa-phone"></i></span>
-            <span> <a href="tel:3531234567">+353 87 1234567</a><br /> </span>
+            <span> <a href="tel:3531234567">+353 87 1234567</a><br> </span>
           </div>
           <div class="d-flex align-items-start">
             <span class="flex-shrink-0"><i class="fa-regular fa-paper-plane"></i></span>
             <span>
-              <a href="mailto:info@TimewalkTravel.ie">info@TimewalkTravel.ie</a><br />
+              <a href="mailto:info@TimewalkTravel.ie">info@TimewalkTravel.ie</a><br>
             </span>
           </div>
           <strong class="d-block mt-2 mb-1 text-uppercase small">Connect with us:</strong>
@@ -506,7 +506,7 @@
             <form class="needs-validation" novalidate>
               <label for="newsletter-email" class="visually-hidden">Email Address</label>
               <input type="email" id="newsletter-email" name="email" class="form-control flex-grow-1 mb-3"
-                placeholder="Enter your Email" required />
+                placeholder="Enter your Email" required>
               <div class="invalid-feedback">
                 Please use a valid email address
               </div>

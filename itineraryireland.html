@@ -65,35 +65,38 @@
     </nav>
 
     <!-- Contact Form Modal - Content injected by JavaScript -->
-    <div class="modal fade" id="contact-modal" tabindex="-1" aria-labelledby="contact-modal-label" aria-hidden="true">
+    <div class="modal fade" id="contact-modal" role="dialog" tabindex="-1" aria-labelledby="contact-modal-label"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title modal-label" id="contact-modal-label">Please Provide Contact Details</h5>
+                    <h3 class="modal-title modal-label" id="contact-modal-label">Please Provide Contact Details</h3>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form id="contact-form" class="needs-validation" novalidate>
                         <div class="row">
                             <div class="col-12 col-lg-6 mb-3">
-                                <label for="name" class="form-label">Name</label>
-                                <input class="form-control" id="name" name="name" type="text" required>
+                                <label for="contact-name" class="form-label">Name</label>
+                                <input class="form-control" id="contact-name" name="name" type="text" required>
                                 <div class="invalid-feedback">Please enter your name.</div>
                             </div>
                             <div class="col-12 col-lg-6 mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input class="form-control" id="email" name="email" type="email" required>
+                                <label for="contact-email" class="form-label">Email</label>
+                                <input class="form-control" id="contact-email" name="email" type="email" required>
                                 <div class="invalid-feedback">Please use a valid email address</div>
                             </div>
                             <div class="col-12 col-lg-6 mb-3">
-                                <label for="phone" class="form-label">Phone number (e.g. +353 87 123 4567)</label>
-                                <input class="form-control" id="phone" name="phone" type="tel"
+                                <label for="contact-phone" class="form-label">Phone number (e.g. +353 87 123
+                                    4567)</label>
+                                <input class="form-control" id="contact-phone" name="phone" type="tel"
                                     pattern="\+?[\d\s\-\(\)]{10,20}" required>
                                 <div class="invalid-feedback">Please enter your number in international format.</div>
                             </div>
                             <div class="col-12 mb-3">
-                                <label for="message" class="form-label">Message</label>
-                                <textarea class="form-control" rows="6" id="message" name="message" required></textarea>
+                                <label for="contact-message" class="form-label">Message</label>
+                                <textarea class="form-control" rows="6" id="contact-message" name="message"
+                                    required></textarea>
                             </div>
                         </div>
                     </form>
@@ -107,7 +110,7 @@
     </div>
 
     <!-- Success Modal - Content injected by JavaScript -->
-    <div class="modal fade" id="success-modal" tabindex="-1" aria-labelledby="success-modal-label" aria-hidden="true">
+    <div class="modal fade" id="success-modal" role="dialog" tabindex="-1" aria-hidden="true">
     </div>
 
     <!--Main-->
@@ -145,13 +148,13 @@
                 </div>
             </div>
             <!-- Booking Modal -->
-            <div id="booking-modal" class="modal fade booking-modal-container" tabindex="-1"
+            <div id="booking-modal" class="modal fade booking-modal-container" role="dialog" tabindex="-1"
                 aria-labelledby="booking-modal-label" aria-hidden="true" data-price="1495" data-upgrade-first-class="75"
                 data-upgrade-hotel="300" data-add-excursions="150">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="booking-modal-label">Book Now</h5>
+                            <h3 class="modal-title" id="booking-modal-label">Book Now</h3>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                         </div>
                         <div class="modal-body">
@@ -160,16 +163,17 @@
 
                                 <fieldset>
                                     <legend>Contact Information: </legend>
-                                    <label for="name" class="form-label">Name</label>
-                                    <input class="form-control" id="name" name="name" type="text" required>
+                                    <label for="booking-name" class="form-label">Name</label>
+                                    <input class="form-control" id="booking-name" name="name" type="text" required>
                                     <div class="invalid-feedback">Please enter your name.</div>
 
-                                    <label for="email" class="form-label">Email</label>
-                                    <input class="form-control" id="email" name="email" type="email" required>
+                                    <label for="booking-email" class="form-label">Email</label>
+                                    <input class="form-control" id="booking-email" name="email" type="email" required>
                                     <div class="invalid-feedback">Please use a valid email address</div>
 
-                                    <label for="phone" class="form-label">Phone number (e.g. +353 87 123 4567)</label>
-                                    <input class="form-control" id="phone" name="phone" type="tel"
+                                    <label for="booking-phone" class="form-label">Phone number (e.g. +353 87 123
+                                        4567)</label>
+                                    <input class="form-control" id="booking-phone" name="phone" type="tel"
                                         pattern="\+?[\d\s\-\(\)]{10,20}" required>
                                     <div class="invalid-feedback">Please enter your number in international format.
                                     </div>
@@ -181,7 +185,7 @@
                                         aria-label="form departure airport">
                                         <option selected>Depart from</option>
                                         <option value="cork">Cork</option>
-                                        
+
                                     </select>
                                 </fieldset>
 
@@ -224,8 +228,7 @@
                 </div>
             </div>
 
-            <div class="modal fade" id="bookingsuccess-modal" tabindex="-1" aria-labelledby="success-modal-label"
-                aria-hidden="true">
+            <div class="modal fade" id="bookingsuccess-modal" tabindex="-1" role="dialog" aria-hidden="true">
 
             </div>
 
@@ -249,12 +252,12 @@
 
                         <!-- Stage 1 -->
                         <div class="accordion-item">
-                            <h2 class="accordion-header">
+                            <h3 class="accordion-header">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#stage1">
                                     Days 1-5 · Ireland — Cork, Cashel, Belfast & Dublin
                                 </button>
-                            </h2>
+                            </h3>
                             <div id="stage1" class="accordion-collapse collapse show"
                                 data-bs-parent="#itineraryAccordion">
                                 <div class="accordion-body">
@@ -280,12 +283,12 @@
 
                         <!-- Stage 2 -->
                         <div class="accordion-item">
-                            <h2 class="accordion-header">
+                            <h3 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#stage2">
                                     Day 6 · Belfast → Edinburgh Sea Crossing
                                 </button>
-                            </h2>
+                            </h3>
                             <div id="stage2" class="accordion-collapse collapse" data-bs-parent="#itineraryAccordion">
                                 <div class="accordion-body">
                                     <p>A relaxed morning in Belfast before boarding the Stena Line Superferry across the
@@ -307,12 +310,12 @@
 
                         <!-- Stage 3 -->
                         <div class="accordion-item">
-                            <h2 class="accordion-header">
+                            <h3 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#stage3">
                                     Days 7-10 · Scotland — Edinburgh & Stirling Castles
                                 </button>
-                            </h2>
+                            </h3>
                             <div id="stage3" class="accordion-collapse collapse" data-bs-parent="#itineraryAccordion">
                                 <div class="accordion-body">
                                     <p>Edinburgh's volcanic castle rock launches your Scottish adventure — crown jewels,
