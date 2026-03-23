@@ -345,40 +345,28 @@ function validateContactForms() {
  */
 function showFormSubmissionModal() {
   // get instance of contact modal, check it exists if not log error, then hide modal.
-  const contactModal = bootstrap.Modal.getInstance(
-    document.getElementById("contact-modal"),
-  );
+  const contactModalElement = document.getElementById("contact-modal");
+  const contactModal = bootstrap.Modal.getInstance(contactModalElement);
 
   /*close contact modal only if it exists.i.e newsletter sign up is used*/
   if (contactModal) {
+    // Wait for contact modal to fully hide before showing success modal
+    contactModalElement.addEventListener("hidden.bs.modal", function onHidden() {
+      contactModalElement.removeEventListener("hidden.bs.modal", onHidden);
+
+      const successContainer = document.getElementById("success-modal");
+      if (!successContainer) {
+        console.error("Success modal container not found");
+        return;
+      }
+
+      const successModal = new bootstrap.Modal(successContainer);
+      successModal.show();
+    });
+
     contactModal.hide();
-  }
-
-  // Get success modal container
-  const successContainer = document.getElementById("success-modal");
-  if (!successContainer) {
-    console.error("Success modal container not found");
-    return;
-  }
-
-  // Inject success modal HTML
-  successContainer.innerHTML = `<div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title modal-header">Thank You</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>We've received your enquiry. One of our travel agents will contact you within 24 hours!</p>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-white" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>`;
-
-  const successModal = new bootstrap.Modal(successContainer);
-  successModal.show();
+  
+}
 }
 
 /**
@@ -614,7 +602,6 @@ function calculateTotalPrice(bookingData) {
   form.addEventListener("change", (e) => {
     const formData = new FormData(form);
 
-    console.log(formData);
 
     const travellers = parseInt(formData.get("travellers")) || 0;
 
@@ -638,41 +625,27 @@ function calculateTotalPrice(bookingData) {
  * @returns
  */
 function handleBookingConfirmation() {
-  const bookingFormModalInstance = bootstrap.Modal.getInstance(
-    document.querySelector(".booking-modal-container"),
-  );
+  const bookingFormModal = document.querySelector(".booking-modal-container");
+  const bookingFormModalInstance = bootstrap.Modal.getInstance(bookingFormModal);
 
   if (!bookingFormModalInstance) {
     console.error("Booking modal instance not found");
     return;
   }
 
-  // Hide the booking form modal
+  // Wait for the booking form modal to hide before showing success modal
+  bookingFormModal.addEventListener("hidden.bs.modal", function onHidden() {
+    bookingFormModal.removeEventListener("hidden.bs.modal", onHidden);
+
+    const bookingModalContainer = document.getElementById("bookingsuccess-modal");
+
+    if (!bookingModalContainer) {
+      throw new Error("Booking success modal container not found");
+    }
+
+    const bookingConfirmationModal = new bootstrap.Modal(bookingModalContainer);
+    bookingConfirmationModal.show();
+  });
+
   bookingFormModalInstance.hide();
-
-  const bookingModalContainer = document.getElementById("bookingsuccess-modal");
-
-  if (!bookingModalContainer) {
-    throw new Error("Booking success modal container not found");
-  }
-
-  bookingModalContainer.innerHTML = `<div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title modal-header">Booking Confirmed</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-
-      <div class="modal-body">
-        <p>Thank you for your booking! We've received your booking request and you'll receive a confirmation email shortly with all the details. One of our travel agents will contact you within 24 hours to finalize the arrangements.</p>
-      </div>
-
-      <div class="modal-footer">
-        <button class="btn btn-white" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>`;
-
-  const bookingConfirmationModal = new bootstrap.Modal(bookingModalContainer);
-  bookingConfirmationModal.show();
 }
