@@ -4,6 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Preload LCP images -->
+    <link rel="preload" href="assets/images/Imperial-forums-rome.webp" as="image" fetchpriority="high">
+    
+    <link rel="preload" href="assets/images/timewalk-travel-high-resolution-logo-transparent-red.webp" as="image">
+
     <meta name="description"
         content="Your journey through time starts here. Discover Ancient Rome, Renaissance masterpieces of Tuscany and the medieval castles of Wales with Timewalk Travel.">
     <meta name="keywords"
@@ -60,7 +66,7 @@
                             <button class="btn btn-red" data-bs-toggle="modal" data-bs-target="#contact-modal">Get
                                 Quote</button>
                             <!--Phone CTA button uses on-click window location in place of anchor element for call redirect. -->
-                            <button class="btn btn-red btn-icon" onclick="window.location.href='tel:353871234567'"><i
+                            <button class="btn btn-red btn-icon" onclick="window.location.href='tel:353871234567'" aria-label="Call us"><i
                                     class="fa-solid fa-phone-flip"></i></button>
                         </div>
                     </li>
@@ -125,7 +131,7 @@
         <!--Hero banner with background image of Imperial Forums in Rome-->
         <header class="hero-banner d-flex">
             <img src="assets/images/Imperial-forums-rome.webp" alt="Panoramic view of Rome's Imperial Forums"
-                class="w-100 h-100">
+                class="w-100 h-100" fetchpriority="high" loading="eager">
 
         </header>
 
