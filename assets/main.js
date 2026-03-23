@@ -588,6 +588,7 @@ function createBookingFormModal() {
  * @param {Object} bookingData
  * @returns
  */
+let previousListener=null; // global variable to store change listener reference
 function calculateTotalPrice(bookingData) {
   const form = document.getElementById("booking-form");
   const totalText = document.getElementById("total");
@@ -598,8 +599,13 @@ function calculateTotalPrice(bookingData) {
   }
 
   totalText.innerText = `Total: €0`;
+  // Remove previous change listener if it exists.
+  if(previousListener){
+    form.removeEventListener("change", previousListener);
+  }
 
-  form.addEventListener("change", (e) => {
+  //calculate current form price.
+  const calculator = (e) => {
     const formData = new FormData(form);
 
 
@@ -618,8 +624,13 @@ function calculateTotalPrice(bookingData) {
     }
 
     totalText.innerText = `Total: €${total}`;
-  });
+  };
+  //store reference to current listener.
+  previousListener = calculator;
+  //add change listener to form to calculate price on change.
+ form.addEventListener("change",calculator);
 }
+
 /**
  *  Handles booking confirmation by hiding the booking form modal and showing a booking confirmation modal.
  * @returns

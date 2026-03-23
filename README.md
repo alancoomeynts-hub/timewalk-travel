@@ -285,7 +285,7 @@ This website is built as a responsive, static site using HTML5, CSS3 with Bootst
  -Bootstrap Form Validation: https://getbootstrap.com/docs/5.3/forms/validation/
  - Bootstrap Modal Methods: https://getbootstrap.com/docs/5.3/components/modal/#methods
  - Bootstraps Modal Events: https://getbootstrap.com/docs/5.3/components/modal/#events
-  - Remove Listener : https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
+  - Remove Listener : https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener and https://zetcode.com/dom/element-removeeventlistener/
 
 ## Testing
 
