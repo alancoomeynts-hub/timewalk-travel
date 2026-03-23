@@ -2,7 +2,7 @@
 
 /* CSS Variables */
 :root {
-  --bg-secondary: #f5f0e8;
+  --bg-secondary: #fafaf9;
   --bg-secondary-contrast: #ffffff;
   --bg-primary: #1a1a1a;
   --bg-primary-contrast: #2c2c2c;
@@ -208,7 +208,7 @@ h6 {
   width: 100%;
   height: auto;
 }
-h6.card-title {
+h3.card-title {
   font-weight: 600;
   font-size: 1.1rem;
   line-height: 1.3;
