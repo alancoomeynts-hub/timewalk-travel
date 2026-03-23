@@ -1,3 +1,6 @@
+/* jshint esversion: 8 */
+/* global google: true, bootstrap: true*/
+
 /* dom content loaded function with page detection*/
 document.addEventListener("DOMContentLoaded", () => {
   const page = document.body.id;

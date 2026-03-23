@@ -435,12 +435,44 @@ Website was thoroughly tested using user personas and stories as a guide.
 - Direct navigation from filtered card to correct itinerary page
 
 ---
+## Javascript Manual Testing Log
+
+### initMap() testing:
+
+| Test Case | Input | Expected | Actual | Status |Screenshot |
+|-----------|-------|----------|--------|--------|---------|
+| Map initialization | Load Rome map on itinerary page | Map renders with center position and 3 markers | Map loads correctly | PASS | ![test1](image-1.png)| 
+| Invalid MarkerId | Change data-marker-id to invalid value | Map loads with no markers, Error logged:"Invalid marker data invalid" | Error thrown: Invalid marker ID | PASS | ![test 2](image-3.png)|
+| No map container | alter #map-container-broken, reload page | throw error no map containers found | Error thrown: No map containers found | PASS | ![test 3](image-4.png) |
+| Invalid Map data attributes | Set data-lat="abc", reload | Map centers on fallback location lng:0, lng: 0, zoom 5 | Map centers on fallback coordinates lng:0, lat:0, zoom:5 | PASS | ![test 4](image-5.png) |
+| Map load failure | comment out mapInstance, set mapInstance to null, reload | Pages loads with map load failure message in map container |Error message appears | PASS | ![test 5](image-6.png)|
+
+* Tests produce expected results, error handling functions correctly, and map functionality is robust against invalid inputs and load failures on all itinerary pages.
+
+### createMarker() testing:
+
+
+
+
+
+
+
+
+
+
 
 ## Future Improvement
 - Implement backend API  and CRM to handle form submissions and store leads/bookings in a database.
 - Blog section with articles about historical sites, travel tips, and tour highlights to drive SEO and engage users.
 - Payment processing integration (e.g., Stripe) for secure online bookings directly from the website.
 - Expandable Image carousel on itinerary pages to showcase more photos.
+
+##Validation
+- HTML: all warning resolved and files validate with W3C Markup Validation Service with no errors.
+- CSS: all files validate with W3C CSS Validation Service with no errors.
+- JavaScript: Validated with JSHint with no errors using the following configuration:
+/* jshint esversion: 8 */
+/* global google: true, bootstrap: true*/
 
 
 Media Sources:
@@ -487,21 +519,31 @@ I use the following logging method to find the source:
     ...});"
 
 ## Tools and Resources
-- HTML, CSS, JavaScript for frontend development
-- https://httpbin.org/post dummy api endpoint
-- Perplexity for text content, regex generation
-- Copilot for QAing html for trailing tags,analyse style CSS patterns and templating and ensuring consistent editing of itinerary pages from itineraryitaly1.html, drafting README.
-- Canva for wireframing and image editing
-- Artlist.io for image generation
-- Google Maps API for interactive maps on itinerary pages
-- Bootstrap 5.3 for responsive design and components
+
+**Development Environment:**
 - Visual Studio Code for code editing and debugging
 - GitHub for version control and deployment
 
-## Depreciation warnings not addressed
-- <gmp-pin>: The `element` property is deprecated. Please use the PinElement directly.
-_.Gn	@	main.js:196
--
-## Future developments
-- Full gallery for site on tour
-- Blog
+**Languages & Frameworks:**
+- HTML5, CSS, JavaScript ES8 for frontend development
+- Bootstrap 5.3 for responsive design and components
+
+**Libraries & UI Components:**
+- Font Awesome for icons
+- Google Maps API for interactive maps and location visualization
+
+**Validation & Testing Tools:**
+- W3C Markup Validation Service for HTML validation
+- W3C CSS Validation Service for CSS validation
+- JSHint for JavaScript linting and error checking
+- Lighthouse for performance and accessibility testing
+
+**Content & Design Tools:**
+- Perplexity for text content generation and regex patterns
+- GitHub Copilot for QA analysis, CSS patterns, templating, and consistent editing across itinerary pages
+- Canva for wireframing and image editing
+- Artlist.io for generative image creation
+
+**APIs & Endpoints:**
+- https://httpbin.org/post dummy API endpoint for form testing
+
