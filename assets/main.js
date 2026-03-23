@@ -8,15 +8,17 @@ document.addEventListener("DOMContentLoaded", () => {
   if (page === "page-home") {
     LocationCardsRedirect();
     searchFormRedirect();
+    validateContactForms();
   } else if (page === "page-search-results") {
     filterResults();
     LocationCardsRedirect();
+    validateContactForms();
   }
 
   if (document.body.classList.contains("page-itinerary")) {
     createBookingFormModal();
+    validateContactForms();
   }
-  validateContactForms();
 });
 
 /**
@@ -308,7 +310,12 @@ function validateContactForms() {
     ".needs-validation:not(#booking-form)",
   ); // exclude booking form which has separate validation and submit handling.
 
-  Array.from(forms).forEach((form) => {
+  // check forms a
+  if (!forms || forms.length === 0) {
+    return;
+  }
+
+  forms.forEach((form) => {
     form.addEventListener("submit", (event) => {
       event.preventDefault();
 
