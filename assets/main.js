@@ -306,15 +306,17 @@ function LocationCardsRedirect() {
 }
 /**Validate forms using bootstrap utility classes and functions */
 function validateContactForms() {
+
+  // select forms excluding booking form which has separate validation and submit handling.
   const forms = document.querySelectorAll(
     ".needs-validation:not(#booking-form)",
-  ); // exclude booking form which has separate validation and submit handling.
+  ); 
 
-  // check forms a
+  // early return if no forms found.
   if (!forms || forms.length === 0) {
     return;
   }
-
+ /* on submit, validate each form and if valid post to dummy endpoint and show success modal */
   forms.forEach((form) => {
     form.addEventListener("submit", (event) => {
       event.preventDefault();
@@ -322,6 +324,7 @@ function validateContactForms() {
       if (form.checkValidity()) {
         const formData = new FormData(form);
 
+        /*simulate post to backend*/
         fetch("https://httpbin.org/post", {
           method: "POST",
           body: formData,
@@ -341,7 +344,6 @@ function validateContactForms() {
 
 /**
  * Show submitted modal screen using Bootstrap's modal JS utility functions.
- * Injects success modal HTML into the existing success-modal container.
  */
 function showFormSubmissionModal() {
   // get instance of contact modal, check it exists if not log error, then hide modal.
@@ -350,7 +352,7 @@ function showFormSubmissionModal() {
 
   /*close contact modal only if it exists.i.e newsletter sign up is used*/
   if (contactModal) {
-    // Wait for contact modal to fully hide before showing success modal
+    // Wait for contact modal to fully hide before showing success modal.
     contactModalElement.addEventListener("hidden.bs.modal", function onHidden() {
       contactModalElement.removeEventListener("hidden.bs.modal", onHidden);
 
@@ -381,6 +383,7 @@ function searchFormRedirect() {
     button.addEventListener("click", (e) => {
       e.preventDefault();
 
+      // select select form based on screen size and extract FormData.
       let data;
       if (window.matchMedia("(max-width: 992px)").matches) {
         data = new FormData(
@@ -396,6 +399,7 @@ function searchFormRedirect() {
         departure: data.get("departure"),
       };
 
+      /* Store filter parameters in sessionStorage for retrieval after page redirect */
       sessionStorage.setItem(
         "filterParameters",
         JSON.stringify(filterParameters),
@@ -576,7 +580,16 @@ function createBookingFormModal() {
   //On submit validate booking form and show confirmation modal.
   confirmBooking.addEventListener("submit", (e) => {
     e.preventDefault();
+
     if (confirmBooking.checkValidity()) {
+      const formData = new FormData(confirmBooking);
+      fetch("https://httpbin.org/post",{
+        method:"POST",
+        body: formData,
+      }).then((response)=>response.json())
+        .then((data)=>console.log("Booking submitted",data))
+        .catch((e)=>console.error("Error",e))
+
       handleBookingConfirmation();
     } else {
       confirmBooking.classList.add("was-validated");
@@ -599,13 +612,14 @@ function calculateTotalPrice(bookingData) {
   }
 
   totalText.innerText = `Total: €0`;
-  // Remove previous change listener if it exists.
+  // Remove previous change listener if it exists, to prevent multiple listeners being attached .
   if(previousListener){
     form.removeEventListener("change", previousListener);
   }
 
   //calculate current form price.
   const calculator = (e) => {
+    console.log("Change event triggered by", e.target.name);
     const formData = new FormData(form);
 
 

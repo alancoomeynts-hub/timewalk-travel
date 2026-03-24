@@ -452,11 +452,13 @@ Website was thoroughly tested using user personas and stories as a guide.
 
 ### createMarker() testing:
 
+| Test Case | Input | Expected | Actual | Status |Screenshot |
+|-----------|-------|----------|--------|--------|---------|
+|Valid Marker Data | Load Tuscany map on itinerary pages | Map loads with all markers at correct coordinates | Markers displayed correctly | PASS | ![createMarker test 1](image-7.png)|
+|InfoWindows and Pinelement | Click Florence marker, verify popup | InfoWindow displays "Day 1-3: Florence" | InfoWindow displays with correct styles | PASS | ![createMarker test 2](image-8.png)|
+||Invalid Marker Data | Alter lat/lng values in markersCoordinates for Florence marker , reload | Marker not displayed for altered marker,  error logged "Invalid location data,[location]", all other markers present | PASS | ![createMarker test 3](image-9.png) |
 
-
-
-
-
+### LocationCardsRedirect() testing:
 
 
 
@@ -503,21 +505,9 @@ Media Sources:
 
 - Dealt with several depreciation warnings from Google Maps API by following the migration guides in the official documentation. This included migrating to advanced markers, advanced marker gmp-click listener, pin elements and updating the way infoWindows are created and styled. References: https://developers.google.com/maps/documentation/javascript/advanced-markers/ and https://developers.google.com/maps/documentation/javascript/reference/info-window
 
-- Unresolved invalid instance of latlngAltitude error in console. This does not affect functionality but in atempt to resolve i refactored code to use non deprecated methods for creating markers and infoWindows, and added error handling to the initMap function to catch any errors during map initialization and log them to the console. Reference: https://developers.google.com/maps/documentation/javascript/error-handling
+-  I added a reset() method to clear form data after each submission to prevent double submissions.
 
-I use the following logging method to find the source:
-- in initmaps(): check map container is being selected and that data attributes are being read correctly.
-   " console.log("map container:", container);
-      console.log(
-    "lat:", container.dataset.lat,
-    "lng:", container.dataset.lng,
-    "markerid:", container.dataset.markerid
-  );"
-
-- Check marker creation that lat and lng, etc are beiing retrieved from markersCoordinates object and that marker is being created with correct properties.
-"markerData.forEach((location) => {
-    console.log("creating marker :", location.lat, "lng:", location.lng, "title:", location.city);
-    ...});"
+- For in page buttons to prevent the event listeners stacking multiple submit, change and shown.bs.modal listeners each time the modal is opened, potentially causing multiple event triggers. I refactored those listeners to use removeEventListener. These include hidden.bs.modal events in showFormSubmissionModal and handleBookingConfirmation(), and the change listeners in calculateTotalPrice(). References: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener and https://zetcode.com/dom/element-removeeventlistener/
 
 ## Tools and Resources
 
