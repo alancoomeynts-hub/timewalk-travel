@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (document.body.classList.contains("page-itinerary")) {
-    
     createBookingFormModal();
     validateContactForms();
   }
@@ -295,33 +294,29 @@ function LocationCardsRedirect() {
 
   cards.forEach((card) => {
     card.addEventListener("click", (e) => {
-      try{
-      if (card && e.currentTarget.dataset.href) {
-        
-        window.location.href = e.currentTarget.dataset.href;
-        
+      try {
+        if (card && e.currentTarget.dataset.href) {
+          window.location.href = e.currentTarget.dataset.href;
         }
-      }catch(error){
-          console.error("Navigation failed.",error);
-        }
-    
-      
+      } catch (error) {
+        console.error("Navigation failed.", error);
+      }
     });
   });
 }
 /**Validate forms using bootstrap utility classes and functions */
 function validateContactForms() {
-
   // select forms excluding booking form which has separate validation and submit handling.
   const forms = document.querySelectorAll(
     ".needs-validation:not(#booking-form)",
-  ); 
+  );
 
   // early return if no forms found.
   if (!forms || forms.length === 0) {
+    console.error("No forms found");
     return;
   }
- /* on submit, validate each form and if valid post to dummy endpoint and show success modal */
+  /* on submit, validate each form and if valid post to dummy endpoint and show success modal */
   forms.forEach((form) => {
     form.addEventListener("submit", (event) => {
       event.preventDefault();
@@ -351,6 +346,11 @@ function validateContactForms() {
  * Show submitted modal screen using Bootstrap's modal JS utility functions.
  */
 function showFormSubmissionModal() {
+  const successContainer = document.getElementById("success-modal");
+  if (!successContainer) {
+    console.error("Success modal container not found");
+    return;
+  }
   // get instance of contact modal, check it exists if not log error, then hide modal.
   const contactModalElement = document.getElementById("contact-modal");
   const contactModal = bootstrap.Modal.getInstance(contactModalElement);
@@ -358,22 +358,21 @@ function showFormSubmissionModal() {
   /*close contact modal only if it exists.i.e newsletter sign up is used*/
   if (contactModal) {
     // Wait for contact modal to fully hide before showing success modal.
-    contactModalElement.addEventListener("hidden.bs.modal", function onHidden() {
-      contactModalElement.removeEventListener("hidden.bs.modal", onHidden);
+    contactModalElement.addEventListener(
+      "hidden.bs.modal",
+      function onHidden() {
+        contactModalElement.removeEventListener("hidden.bs.modal", onHidden);
 
-      const successContainer = document.getElementById("success-modal");
-      if (!successContainer) {
-        console.error("Success modal container not found");
-        return;
-      }
-
-      const successModal = new bootstrap.Modal(successContainer);
-      successModal.show();
-    });
-
+        const successModal = new bootstrap.Modal(successContainer);
+        successModal.show();
+      },
+    );
     contactModal.hide();
-  
-}
+  }else{
+    /* show successModal for newsletter signup*/
+    const successModal = new bootstrap.Modal(successContainer);
+    successModal.show()
+  }
 }
 
 /**
@@ -588,12 +587,13 @@ function createBookingFormModal() {
 
     if (confirmBooking.checkValidity()) {
       const formData = new FormData(confirmBooking);
-      fetch("https://httpbin.org/post",{
-        method:"POST",
+      fetch("https://httpbin.org/post", {
+        method: "POST",
         body: formData,
-      }).then((response)=>response.json())
-        .then((data)=>console.log("Booking submitted",data))
-        .catch((e)=>console.error("Error",e))
+      })
+        .then((response) => response.json())
+        .then((data) => console.log("Booking submitted", data))
+        .catch((e) => console.error("Error", e));
 
       handleBookingConfirmation();
     } else {
@@ -606,7 +606,7 @@ function createBookingFormModal() {
  * @param {Object} bookingData
  * @returns
  */
-let previousListener=null; // global variable to store change listener reference
+let previousListener = null; // global variable to store change listener reference
 function calculateTotalPrice(bookingData) {
   const form = document.getElementById("booking-form");
   const totalText = document.getElementById("total");
@@ -618,7 +618,7 @@ function calculateTotalPrice(bookingData) {
 
   totalText.innerText = `Total: €0`;
   // Remove previous change listener if it exists, to prevent multiple listeners being attached .
-  if(previousListener){
+  if (previousListener) {
     form.removeEventListener("change", previousListener);
   }
 
@@ -626,7 +626,6 @@ function calculateTotalPrice(bookingData) {
   const calculator = (e) => {
     console.log("Change event triggered by", e.target.name);
     const formData = new FormData(form);
-
 
     const travellers = parseInt(formData.get("travellers")) || 0;
 
@@ -647,7 +646,7 @@ function calculateTotalPrice(bookingData) {
   //store reference to current listener.
   previousListener = calculator;
   //add change listener to form to calculate price on change.
- form.addEventListener("change",calculator);
+  form.addEventListener("change", calculator);
 }
 
 /**
@@ -656,7 +655,8 @@ function calculateTotalPrice(bookingData) {
  */
 function handleBookingConfirmation() {
   const bookingFormModal = document.querySelector(".booking-modal-container");
-  const bookingFormModalInstance = bootstrap.Modal.getInstance(bookingFormModal);
+  const bookingFormModalInstance =
+    bootstrap.Modal.getInstance(bookingFormModal);
 
   if (!bookingFormModalInstance) {
     console.error("Booking modal instance not found");
@@ -667,7 +667,9 @@ function handleBookingConfirmation() {
   bookingFormModal.addEventListener("hidden.bs.modal", function onHidden() {
     bookingFormModal.removeEventListener("hidden.bs.modal", onHidden);
 
-    const bookingModalContainer = document.getElementById("bookingsuccess-modal");
+    const bookingModalContainer = document.getElementById(
+      "bookingsuccess-modal",
+    );
 
     if (!bookingModalContainer) {
       throw new Error("Booking success modal container not found");

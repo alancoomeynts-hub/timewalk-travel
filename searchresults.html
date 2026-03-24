@@ -63,8 +63,8 @@
                             <button class="btn btn-red" data-bs-toggle="modal" data-bs-target="#contact-modal">Get
                                 Quote</button>
                             <!--Phone CTA button uses on-click window location in place of anchor element for call redirect. -->
-                            <button class="btn btn-red btn-icon" onclick="window.location.href='tel:353871234567'" aria-label="Call us"><i
-                                    class="fa-solid fa-phone-flip"></i></button>
+                            <button class="btn btn-red btn-icon" onclick="window.location.href='tel:353871234567'"
+                                aria-label="Call us"><i class="fa-solid fa-phone-flip"></i></button>
                         </div>
                     </li>
                 </ul>
@@ -126,7 +126,21 @@
         </div>
 
         <!-- Success Modal - Content injected by JavaScript -->
-        <div class="modal fade" id="success-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal fade" id="success-modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title modal-header">Thank You</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>We've received your enquiry. One of our travel agents will contact you within 24 hours!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-white" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
     <!--Main-->

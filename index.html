@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- Preload Critical LCP Images -->
+    <!-- Preload Critical LCP Images -->
     <link rel="preload" href="../assets/images/timewalk-travel-high-resolution-logo-transparent-red.webp" as="image">
     <link rel="preload" href="../assets/images/hero-image.webp" as="image" fetchpriority="high">
 
@@ -69,8 +69,8 @@
                             <button class="btn-red btn" data-bs-toggle="modal" data-bs-target="#contact-modal">Get
                                 Quote</button>
                             <!--Phone CTA button uses on-click window location in place of anchor element for call redirect. -->
-                            <button class="btn-icon btn-red btn" onclick="window.location.href='tel:353871234567'" aria-label="Call us"><i
-                                    class="fa-solid fa-phone-flip"></i></button>
+                            <button class="btn-icon btn-red btn" onclick="window.location.href='tel:353871234567'"
+                                aria-label="Call us"><i class="fa-solid fa-phone-flip"></i></button>
                         </div>
                     </li>
                 </ul>
@@ -78,36 +78,38 @@
         </div>
     </nav>
 
-    <!-- Contact Form Modal - Content injected by JavaScript -->
-    <div class="modal fade" id="contact-modal" role="dialog" tabindex="-1" aria-labelledby="contact-modal-label" aria-hidden="true">
+    <div class="modal fade" id="contact-modal" tabindex="-1" role="dialog" aria-labelledby="contact-modal-label"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title modal-label" id="contact-modal-label">Please Provide Contact Details</h5>
+                    <h3 class="modal-title modal-label" id="contact-modal-label">Please Provide Contact Details</h3>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form id="contact-form" class="needs-validation" novalidate>
                         <div class="row">
                             <div class="col-12 col-lg-6 mb-3">
-                                <label for="name" class="form-label">Name</label>
-                                <input class="form-control" id="name" name="name" type="text" required>
+                                <label for="contact-name" class="form-label">Name</label>
+                                <input class="form-control" id="contact-name" name="name" type="text" required>
                                 <div class="invalid-feedback">Please enter your name.</div>
                             </div>
                             <div class="col-12 col-lg-6 mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input class="form-control" id="email" name="email" type="email" required>
+                                <label for="contact-email" class="form-label">Email</label>
+                                <input class="form-control" id="contact-email" name="email" type="email" required>
                                 <div class="invalid-feedback">Please use a valid email address</div>
                             </div>
                             <div class="col-12 col-lg-6 mb-3">
-                                <label for="phone" class="form-label">Phone number (e.g. +353 87 123 4567)</label>
-                                <input class="form-control" id="phone" name="phone" type="tel"
+                                <label for="contact-phone" class="form-label">Phone number (e.g. +353 87 123
+                                    4567)</label>
+                                <input class="form-control" id="contact-phone" name="phone" type="tel"
                                     pattern="\+?[\d\s\-\(\)]{10,20}" required>
                                 <div class="invalid-feedback">Please enter your number in international format.</div>
                             </div>
                             <div class="col-12 mb-3">
-                                <label for="message" class="form-label">Message</label>
-                                <textarea class="form-control" rows="6" id="message" name="message" required></textarea>
+                                <label for="contact-message" class="form-label">Message</label>
+                                <textarea class="form-control" rows="6" id="contact-message" name="message"
+                                    required></textarea>
                             </div>
                         </div>
                     </form>
@@ -121,7 +123,21 @@
     </div>
 
     <!-- Success Modal - Content injected by JavaScript -->
-    <div class="modal fade" id="success-modal" role="dialog" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="success-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title modal-header">Thank You</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>We've received your enquiry. One of our travel agents will contact you within 24 hours!</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-white" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!--Main-->
@@ -330,31 +346,31 @@
 
     <!--Footer-->
     <!--Bootstrap grid layout for contact info, links, and newsletter signup-->
+
     <footer id="footer" class="pt-2 mt-auto">
         <div class="container mt-2">
             <div class="row justify-content-center px-4">
                 <div class="col-12 col-md-4">
-                    <h3 class="d-block mb-3 text-uppercase small">Contact us:</h3>
+                    <strong class="d-block mb-3 text-uppercase small">Contact us:</strong>
                     <address class="d-flex align-items-start">
                         <span class="flex-shrink-0"><i class="fa-solid fa-building-columns"></i></span>
                         <span>
                             Timewalk Travel House<br>
-                            14 Jervis Court, Jervis Street<br> Dublin 1, D01 X2F8.
+                            14 Jervis Court, Jervis Street<br>
+                            Dublin 1, D01 X2F8.
                         </span>
                     </address>
-
                     <div class="d-flex align-items-start mb-3">
                         <span class="flex-shrink-0"><i class="fa-solid fa-phone"></i></span>
                         <span> <a href="tel:3531234567">+353 87 1234567</a><br> </span>
                     </div>
-
                     <div class="d-flex align-items-start">
                         <span class="flex-shrink-0"><i class="fa-regular fa-paper-plane"></i></span>
-                        <span> <a href="mailto:info@TimewalkTravel.ie">info@TimewalkTravel.ie</a><br>
+                        <span>
+                            <a href="mailto:info@TimewalkTravel.ie">info@TimewalkTravel.ie</a><br>
                         </span>
                     </div>
-
-                    <h3 class="d-block mt-2 mb-1 text-uppercase small">Connect with us:</h3>
+                    <strong class="d-block mt-2 mb-1 text-uppercase small">Connect with us:</strong>
                     <div class="d-flex align-items-center social-links">
                         <a href="https://www.instagram.com" target="_blank"
                             aria-label="Visit our Instagram page (opens in a new tab)" rel="noopener"><i
@@ -364,15 +380,15 @@
                                 class="fa-brands fa-square-facebook"></i></a>
                         <a href="https://www.x.com" target="_blank" aria-label="Visit our X feed (opens in a new tab)"
                             rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
-
-
                     </div>
                 </div>
                 <div class="col-12 col-md-4">
-                    <h3 class="d-block mb-3 small text-uppercase">Quick Links</h3>
+                    <strong class="d-block mb-3 small text-uppercase">Quick Links</strong>
                     <ul class="quick-links d-flex flex-column align-items-start">
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="itineraryitaly1.html">Rome, Naples and Amalfi Coast</a></li>
+                        <li>
+                            <a href="itineraryitaly1.html">Rome, Naples and Amalfi Coast</a>
+                        </li>
                         <li><a href="itineraryitaly2.html">Tuscany</a></li>
                         <li><a href="itineraryczechia.html">Czech Republic</a></li>
                         <li><a href="itineraryaustria.html">Austria & Venice</a></li>
@@ -380,26 +396,27 @@
                         <li><a href="itineraryireland.html">Ireland & Scotland</a></li>
                     </ul>
                 </div>
-
-                <div class="col-12 col-md-4 ">
-                    <h3 class="d-block mb-3 small text-uppercase">Newsletter</h3>
+                <div class="col-12 col-md-4">
+                    <strong class="d-block mb-3 small text-uppercase">Newsletter</strong>
                     <div class="d-flex flex-column gap-2 newsletter-signup">
-                        <p>Stay updated with our latest history-packed getaways and deals.</p>
+                        <p>
+                            Stay updated with our latest history-packed getaways and deals.
+                        </p>
                         <form class="needs-validation" novalidate>
                             <label for="newsletter-email" class="visually-hidden">Email Address</label>
                             <input type="email" id="newsletter-email" name="email" class="form-control flex-grow-1 mb-3"
                                 placeholder="Enter your Email" required>
-                            <div class="invalid-feedback">Please use a valid email address</div>
-                            <button type="submit" class="btn btn-gold flex-shrink-0 justify-content-center gap-1">Sign
-                                Up</button>
+                            <div class="invalid-feedback">
+                                Please use a valid email address
+                            </div>
+                            <button type="submit" class="btn btn-gold flex-shrink-0 justify-content-center gap-1">
+                                Sign Up
+                            </button>
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
-
-
     </footer>
 
 
