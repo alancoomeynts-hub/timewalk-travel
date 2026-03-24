@@ -438,7 +438,7 @@ Website was thoroughly tested using user personas and stories as a guide.
 ---
 ## Javascript Manual Testing Log
 
-### initMap() testing:
+### initMap() && createMarker() testing:
 
 | Test Case | Input | Expected | Actual | Status |Screenshot |
 |-----------|-------|----------|--------|--------|---------|
@@ -448,9 +448,6 @@ Website was thoroughly tested using user personas and stories as a guide.
 | Invalid Map data attributes | Set data-lat="abc", reload | Map centers on fallback location lng:0, lng: 0, zoom 5 | Map centers on fallback coordinates lng:0, lat:0, zoom:5 | PASS | ![test 4](image-5.png) |
 | Map load failure | comment out mapInstance, set mapInstance to null, reload | Pages loads with map load failure message in map container |Error message appears | PASS | ![test 5](image-6.png)|
 
-* Tests produce expected results, error handling functions correctly, and map functionality is robust against invalid inputs and load failures on all itinerary pages.
-
-### createMarker() testing:
 
 | Test Case | Input | Expected | Actual | Status |Screenshot |
 |-----------|-------|----------|--------|--------|---------|
@@ -458,17 +455,34 @@ Website was thoroughly tested using user personas and stories as a guide.
 |InfoWindows and Pinelement | Click Florence marker, verify popup | InfoWindow displays "Day 1-3: Florence" | InfoWindow displays with correct styles | PASS | ![createMarker test 2](image-8.png)|
 ||Invalid Marker Data | Alter lat/lng values in markersCoordinates for Florence marker , reload | Marker not displayed for altered marker,  error logged "Invalid location data,[location]", all other markers present | PASS | ![createMarker test 3](image-9.png) |
 
+* Tests produce expected results, error handling functions correctly, and map functionality is robust against invalid inputs and load failures on all itinerary pages.
+
+
 ### LocationCardsRedirect() testing:
 
 | Test Case | Input | Expected | Actual | Status |Screenshot |
 |-----------|-------|----------|--------|--------|---------|
-|Valid Card Click | Click Rome, Naples and Amalfi Coast card with data-href="/itineraryitaly1"\n Insert console.log("Event:", e); debugger; into line 299 of function| event message appears in console showing correct href for the card | Page navigates to itineraryItaly1| PASS |![LocationCardRedirect Test 1](image-11.png)|
-|Card redirect successfully|add console.log("Redirected from",document.referrer); to line 19, Click Rome, Naples and Amalfi Coast card with data-href="/itineraryitaly1" | Page navigates to itineraryItaly1 | Page navigates to itineraryItaly1, redirect logs in console | PASS |![LocationCardRedirect Test 2](image-12.png)|
-| All 6 cards have listeners | `getEventListeners()` bulk check | Console shows "Card 0: 1, Card 1: 1..." | All 6 cards show 1 listener each | PASS  |![LocationCardRedirect Test 3](image-13.png)|
-| Missing data attribute logs error| click .cards with missing data-href value, e.g. data-href="" (Alter line 185 index.html) |Silent failure, no redirect, console clean| Silent failure, no redirect, console clean | PASS |
-| Invalid data attribute logs error| click .cards with corrupted data-href value, e.g. data-href="invalidurl" (Alter line 185 index.html) |Redirect to 404| Redirected to 404 page | PASS |![LocationCardRedirect Test 4](image-14.png)|
+|Valid Card Click | Click Rome/Naples/Amalfi cards console.log("Event:", e); debugger; line 299| event logged | Event Logged Correctly| PASS |![LocationCardRedirect Test 1](image-11.png)|
+|Cards redirect successfully| console.log("Redirected from", document.referrer); line 19 | Page navigates to itineraryItaly1 | Page navigates to itineraryItaly1, redirect logs in console | PASS |![LocationCardRedirect Test 2](image-12.png)|
+| All 6 cards have listeners | `getEventListeners()` bulk check | Console shows "Card 0: 1, Card 1: 1..." for all | All 6 cards show 1 listener each | PASS  |![LocationCardRedirect Test 3](image-13.png)|
+| Missing data attribute | click .cards with missing data-href value, e.g. data-href="" (Alter line 185 index.html) |Silent failure, no redirect, console clean| Silent failure, no redirect, console clean | PASS |
+| Invalid data attribute| click .cards with corrupted data-href value, e.g. data-href="invalidurl" (Alter line 185 index.html) |Redirect to 404| Redirected to 404 page | PASS |![LocationCardRedirect Test 4](image-14.png)|
 
-Observation: try catch ineffective at handling invalid URLs or missing data attributes, not effective at catching failed navigation. Retain for defensive programming reasons.
+Observation: try/catch ineffective at handling invalid URLs or missing data attributes, not effective at catching failed navigation. Retain for defensive programming reasons.
+
+### validateContactForms() && showFormSubmissionModal() testing log:
+| Test Case | Input | Expected | Actual | Status |Screenshot |
+|-----------|-------|----------|--------|--------|---------|
+|No Forms triggers early return| Remove .needs-validation from index.html, reload | Console logs no forms found | Error Logged | PASS |![validateContactForms test 1](image-15.png)|
+|Valid Form Submission| Fill in valid form data and submit | Form submits successfully, endpoint logs to console, modal displayed | Form submits successfully, endpoint logs to console, modal displayed | PASS |![ValidateContactForms test 2](image-16.png)|
+|Invalid Form Submission| Fill in invalid form data and submit | Form does not submit, validation function triggers, no modal displayed | Validation event triggers | PASS |![ValidateContactForms test 3](image-20.png)|
+|Newsletter Sign Up submitted|Enter email in newsletter form and submit | Form submits successfully, endpoint logs to console, modal displayed | Form submits successfully, endpoint logs to console, modal displayed | PASS |![ValidateContactForms test 4](image-19.png)|
+|No Success Modal|Remove #success-modal element from DOM and submit form | Form submits successfully, endpoint logs to console, no modal displayed | Form submits successfully, endpoint logs to console, no modal displayed | PASS |![ValidateContactForms test 5](image-21.png)|
+|Contact Modal closes on submit|Submit valid contact form  | Modal closes successfully, listener triggers log to console, modal closes | Modal closes successfully | PASS |![ValidateContactForms test 6](image-22.png)|
+
+
+### filterResults() testing:
+
 ## Future Improvement
 - Implement backend API  and CRM to handle form submissions and store leads/bookings in a database.
 - Swap sessionStorage for URL query parameters to allow sharing of filtered search results and improve SEO.

@@ -368,6 +368,7 @@ function showFormSubmissionModal() {
       },
     );
     contactModal.hide();
+    
   }else{
     /* show successModal for newsletter signup*/
     const successModal = new bootstrap.Modal(successContainer);
