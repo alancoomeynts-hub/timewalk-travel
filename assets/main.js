@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (document.body.classList.contains("page-itinerary")) {
+    
     createBookingFormModal();
     validateContactForms();
   }
@@ -294,13 +295,17 @@ function LocationCardsRedirect() {
 
   cards.forEach((card) => {
     card.addEventListener("click", (e) => {
+      try{
       if (card && e.currentTarget.dataset.href) {
-        try{
+        
         window.location.href = e.currentTarget.dataset.href;
-        }catch(error){
+        
+        }
+      }catch(error){
           console.error("Navigation failed.",error);
         }
-      }
+    
+      
     });
   });
 }
