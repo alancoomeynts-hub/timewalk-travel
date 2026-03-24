@@ -215,8 +215,8 @@ async function initMap() {
   const mapInstance = new google.maps.Map(container, {
     center: latlng,
     zoom: parseInt(container.dataset.zoom) || 5,
-    mapId: "b9be43830a6f2268789bed1fcbd1b8",
-    mapTypeId: google.maps.MapTypeId.ROADMAP, // mapId created in Google Cloud Console
+    mapId: "b9be43830a6f2268789bed1f", // mapId created in Google Cloud Console
+    mapTypeId: google.maps.MapTypeId.ROADMAP, 
     mapTypeControl: false,
   });
 
