@@ -31,7 +31,7 @@
 The color palette was carefully selected to evoke elegance, trust, and historical authenticity:
 
 - **Deep Charcoal (#1a1a1a)**: Primary background for navigation bar and main content areas.
-- **Warm Beige (#f5f0e8)**: Secondary background for main content sections.
+- **Warm Beige (#fafaf9)**: Secondary background for main content sections.
 - **Crimson Red (#dc143c)**: Primary accent for headings, CTAs, and key interactive elements.
 - **Dark Crimson (#8b0000)**: Hover state for interactive elements.
 - **Gold (#c9940a)**: Action primary color for booking buttons and highlights.
@@ -460,12 +460,18 @@ Website was thoroughly tested using user personas and stories as a guide.
 
 ### LocationCardsRedirect() testing:
 
+| Test Case | Input | Expected | Actual | Status |Screenshot |
+|-----------|-------|----------|--------|--------|---------|
+|Valid Card Click | Click Rome, Naples and Amalfi Coast card with data-href="/itineraryitaly1"\n Insert console.log("Event:", e); debugger; into line 299 of function| event message appears in console showing correct href for the card | Page navigates to itineraryItaly1| PASS |![LocationCardRedirect Test 1](image-11.png)|
+|Card redirect successfully|add console.log("Redirected from",document.referrer); to line 19, Click Rome, Naples and Amalfi Coast card with data-href="/itineraryitaly1" | Page navigates to itineraryItaly1 | Page navigates to itineraryItaly1, redirect logs in console | PASS |![LocationCardRedirect Test 2](image-12.png)|
+| All 6 cards have listeners | `getEventListeners()` bulk check | Console shows "Card 0: 1, Card 1: 1..." | All 6 cards show 1 listener each | PASS  |![LocationCardRedirect Test 3](image-13.png)|
+| Missing data attribute logs error| click .cards with missing data-href value, e.g. data-href="" (Alter line 185 index.html) |Silent failure, no redirect, console clean| Silent failure, no redirect, console clean | PASS |
+| Invalid data attribute logs error| click .cards with corrupted data-href value, e.g. data-href="invalidurl" (Alter line 185 index.html) |Redirect to 404| Redirected to 404 page | PASS |![LocationCardRedirect Test 4](image-14.png)|
 
-
-
-
+Observation: try catch ineffective at handling invalid URLs or missing data attributes, not effective at catching failed navigation. Retain for defensive programming reasons.
 ## Future Improvement
 - Implement backend API  and CRM to handle form submissions and store leads/bookings in a database.
+- Swap sessionStorage for URL query parameters to allow sharing of filtered search results and improve SEO.
 - Blog section with articles about historical sites, travel tips, and tour highlights to drive SEO and engage users.
 - Payment processing integration (e.g., Stripe) for secure online bookings directly from the website.
 - Expandable Image carousel on itinerary pages to showcase more photos.
@@ -538,3 +544,18 @@ Media Sources:
 **APIs & Endpoints:**
 - https://httpbin.org/post dummy API endpoint for form testing
 
+## Future Improvement
+- Implement backend API  and CRM to handle form submissions and store leads/bookings in a database.
+- Swap filter function using sessionStorage for AJAX with fetch to allow search without redirection and URL query parameters to allow sharing of filtered search results.
+- Blog section with articles about historical sites, travel tips, and tour highlights to drive SEO and engage users.
+- Payment processing integration (e.g., Stripe) for secure online bookings directly from the website.
+- Expandable Image carousel on itinerary pages to showcase more photos.
+
+
+# Deployment
+The site was deployed to GitHub pages. The steps to deploy are as follows: 
+  - In the GitHub repository, navigate to the Settings tab 
+  - From the source section drop-down menu, select the Master Branch
+  - Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment. 
+
+The live link can be found here - https://alancoomeynts-hub.github.io/timewalk-travel/
