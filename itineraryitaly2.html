@@ -75,7 +75,7 @@
     </nav>
 
     <!-- Contact Form Modal - Content injected by JavaScript -->
-    <div class="modal fade" id="contact-modal" tabindex="-1" aria-labelledby="contact-modal-label" aria-hidden="true">
+    <div class="modal fade" id="contact-modal" role="dialog" tabindex="-1" aria-labelledby="contact-modal-label" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -180,7 +180,7 @@
             </div>
 
             <!-- Booking Modal -->
-            <div id="booking-modal" class="modal fade booking-modal-container" tabindex="-1"
+            <div id="booking-modal" class="modal fade booking-modal-container" role="dialog" tabindex="-1"
                 aria-labelledby="booking-modal-label" data-price="1599" data-upgrade-first-class="75"
                 data-upgrade-hotel="350" data-add-excursions="150" aria-hidden="true">
                 <div class="modal-dialog">
@@ -239,13 +239,13 @@
                                     <legend> Optional Upgrades: </legend>
                                     <input type="checkbox" id="upgradeFirstClass" name="upgradeFirstClass"
                                         value="upgradeFirstClass">
-                                    <label for="upgradeFirstClass">Upgrade to First Class Flights: €500
+                                    <label for="upgradeFirstClass">Upgrade to First Class Flights: €75
                                     </label><br>
                                     <input type="checkbox" id="upgradeHotel" name="upgradeHotel" value="upgradeHotel">
-                                    <label for="upgradeHotel">Upgrade to 5 Star Hotels: €300</label><br>
+                                    <label for="upgradeHotel">Upgrade to 5 Star Hotels: €350</label><br>
                                     <input type="checkbox" id="addExcursions" name="addExcursions"
                                         value="addExcursions">
-                                    <label for="addExcursions">Add Guided Excursions: €100</label><br>
+                                    <label for="addExcursions">Add Guided Excursions: €150</label><br>
                                 </fieldset>
                             </form>
                         </div>
@@ -264,7 +264,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title modal-header">Booking Confirmed</h5>
+                            <h4 class="modal-title modal-header">Booking Confirmed</h4>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -424,7 +424,7 @@
                 </div>
 
             </div>
-            </div>
+            
         </section>
         <button class="btn btn-gold btn-thumb-cta d-lg-none" data-action="book-tour" data-bs-toggle="modal"
             data-bs-target="#booking-modal">

@@ -264,32 +264,14 @@ This website is built as a responsive, static site using HTML5, CSS3 with Bootst
 
 ![Footer screenshot](assets/screenshots/footer.webp)    
 
-## Code
-- window.location from W3S: https://www.w3schools.com/js/js_window_location.asp
-- learned to use text shadow from https://www.programiz.com/css/text-shadow.
-- learned how to style navbar-toggler and svg icon from https://codingyaar.com/shorts/bootstrap-navbar-toggler-color-change/
-### Sources for Google Maps API: 
-    - **Initial version from publicapis: https://publicapis.io/google-maps-api-api
-    - **Final implementation Google Maps Javascript documentation.
-            - Scripting Loading Tag:  https://developers.google.com/maps/documentation/javascript/load-maps-js-api
-            - Migrating Markers to Advanced Markers: https://developers.google.com/maps/documentation/javascript/advanced-markers/migration.
-            - InfoWindows: https://developers.google.com/maps/documentation/javascript/reference/info-window
-            -Error handling: https://developers.google.com/maps/documentation/javascript/error-handling
+# Future Improvements
+- Implement backend API  and CRM to handle form submissions and store leads/bookings in a database.
+- Swap sessionStorage for URL query parameters to allow sharing of filtered search results and improve SEO.
+- Blog section with articles about historical sites, travel tips, and tour highlights to drive SEO and engage users.
+- Payment processing integration (e.g., Stripe) for secure online bookings directly from the website.
+- Expandable Image carousel on itinerary pages to showcase more photos.
 
-### Attributions and references for SearchResults related functions:
-- sessionStorage: video tutorial - https://www.youtube.com/watch?v=RxUc6ZWwgfw&t=3s
-- HTML Templates and Cloning: video tutorial - https://www.youtube.com/watch?v=lvAIkoKKIiA and https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/template
-- matchMedia() method: https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia
-- filter array method: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter  and (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR#short-circuit_evaluation)
-### Attributions for Form Validation and CreateBookingFormModal Functions:
- - Fetch for form submission: https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Sending_forms_through_JavaScript
- - Pattern attribute: https://www.w3schools.com/tags/att_input_pattern.asp
- -Bootstrap Form Validation: https://getbootstrap.com/docs/5.3/forms/validation/
- - Bootstrap Modal Methods: https://getbootstrap.com/docs/5.3/components/modal/#methods
- - Bootstraps Modal Events: https://getbootstrap.com/docs/5.3/components/modal/#events
-  - Remove Listener : https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener and https://zetcode.com/dom/element-removeeventlistener/
-
-## Testing
+# Testing
 
 Website was thoroughly tested using user personas and stories as a guide.
 
@@ -516,28 +498,58 @@ Website was thoroughly tested using user personas and stories as a guide.
 |-----------|-------|----------|--------|--------|---------|
 |Missing Confirmation Modal Container or Instance|Remove modal instance and attempt to submit form | Error thrown or form submission fails gracefully | Error thrown or form submission fails gracefully | PASS |![calculate Price test 7](assets/screenshots/image-44.png)|
 
-## Future Improvements
-- Implement backend API  and CRM to handle form submissions and store leads/bookings in a database.
-- Swap sessionStorage for URL query parameters to allow sharing of filtered search results and improve SEO.
-- Blog section with articles about historical sites, travel tips, and tour highlights to drive SEO and engage users.
-- Payment processing integration (e.g., Stripe) for secure online bookings directly from the website.
-- Expandable Image carousel on itinerary pages to showcase more photos.
-
-##Validation
+## Validation
 - HTML: all warning resolved and files validate with W3C Markup Validation Service with no errors.
 - CSS: all files validate with W3C CSS Validation Service with no errors.
 - JavaScript: Validated with JSHint with no errors using the following configuration:
-/* jshint esversion: 8 */
-/* global google: true, bootstrap: true*/
+  /* jshint esversion: 8 */
+  /* global google: true, bootstrap: true*/
+
+## Lighthouse Automatic Testing
+- Performed Lighthouse audits on homepage and itinerary pages in mobile and desktop views.
+### Performance Optimizations
+- Compressed WebP images via tinypng.com to reduce file sizes.
+- Review aria labelling and alt text to improve accessibility score.
+- Added <link rel="preload"> for hero images to improve LCP.
+- defer attribute added to JS files on index.html and search.html to improve performance.
+- lazy loading added to all images below the fold to improve performance.
+- Set explicit width/height attributes on navbar logo, hero images, and all below-the-fold images on index.html and searchresults.html.
 
 
-Media Sources:
+# Code Sources and Credits
+- window.location from W3S: https://www.w3schools.com/js/js_window_location.asp
+- learned to use text shadow from https://www.programiz.com/css/text-shadow.
+- learned how to style navbar-toggler and svg icon from https://codingyaar.com/shorts/bootstrap-navbar-toggler-color-change/
+### Sources for Google Maps API: 
+    - **Initial version from publicapis: https://publicapis.io/google-maps-api-api
+    - **Final implementation Google Maps Javascript documentation.
+            - Scripting Loading Tag:  https://developers.google.com/maps/documentation/javascript/load-maps-js-api
+            - Migrating Markers to Advanced Markers: https://developers.google.com/maps/documentation/javascript/advanced-markers/migration.
+            - InfoWindows: https://developers.google.com/maps/documentation/javascript/reference/info-window
+            -Error handling: https://developers.google.com/maps/documentation/javascript/error-handling
+
+### Attributions and references for SearchResults related functions:
+- sessionStorage: video tutorial - https://www.youtube.com/watch?v=RxUc6ZWwgfw&t=3s
+- HTML Templates and Cloning: video tutorial - https://www.youtube.com/watch?v=lvAIkoKKIiA and https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/template
+- matchMedia() method: https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia
+- filter array method: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter  and (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR#short-circuit_evaluation)
+
+### Attributions for Form Validation and CreateBookingFormModal Functions:
+ - Fetch for form submission: https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Sending_forms_through_JavaScript
+ - Pattern attribute: https://www.w3schools.com/tags/att_input_pattern.asp
+ -Bootstrap Form Validation: https://getbootstrap.com/docs/5.3/forms/validation/
+ - Bootstrap Modal Methods: https://getbootstrap.com/docs/5.3/components/modal/#methods
+ - Bootstraps Modal Events: https://getbootstrap.com/docs/5.3/components/modal/#events
+  - Remove Listener : https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener and https://zetcode.com/dom/element-removeeventlistener/
+
+
+# Media Sources:
 - Text content generated with assistance from Perplexity.
 - Images generated by Artlist.io, except the below.
 - https://www.reddit.com/r/ancientrome/comments/13as01n/great_view_of_the_forum_from_the_tabularium/
 - https://www.visittuscany.com/en/attractions/piazzale-michelangelo-in-florence/
 
-## Bugs and Issues
+# Bugs and Issues
 
 - when first deploying project with API call. I got an email from Google saying my API key is exposed. To solve this I restrict API to GitHub deployed project URL and restricted key to Google Maps Javascript API. https://developers.google.com/maps/api-security-best-practices.
 - Frequent Google Maps API 404s fixed by reordering scripts in HTML and placing async in JS function instead in HTML. As per https://developers.google.com/maps/documentation/javascript/add-google-map#maps_map_simple-javascript and https://developers.google.com/maps/documentation/javascript/load-maps-js-api
@@ -562,7 +574,7 @@ Media Sources:
 
 - For in page buttons to prevent the event listeners stacking multiple submit, change and shown.bs.modal listeners each time the modal is opened, potentially causing multiple event triggers. I refactored those listeners to use removeEventListener. These include hidden.bs.modal events in showFormSubmissionModal and handleBookingConfirmation(), and the change listeners in calculateTotalPrice(). References: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener and https://zetcode.com/dom/element-removeeventlistener/
 
-## Tools and Resources
+# Tools and Resources
 
 **Development Environment:**
 - Visual Studio Code for code editing and debugging
@@ -587,17 +599,10 @@ Media Sources:
 - GitHub Copilot for QA analysis, CSS patterns, templating, and consistent editing across itinerary pages
 - Canva for wireframing and image editing
 - Artlist.io for generative image creation
+- TinyPNG for image compression
 
 **APIs & Endpoints:**
 - https://httpbin.org/post dummy API endpoint for form testing
-
-## Future Improvement
-- Implement backend API  and CRM to handle form submissions and store leads/bookings in a database.
-- Swap filter function using sessionStorage for AJAX with fetch to allow search without redirection and URL query parameters to allow sharing of filtered search results.
-- Blog section with articles about historical sites, travel tips, and tour highlights to drive SEO and engage users.
-- Payment processing integration (e.g., Stripe) for secure online bookings directly from the website.
-- Expandable Image carousel on itinerary pages to showcase more photos.
-
 
 # Deployment
 The site was deployed to GitHub pages. The steps to deploy are as follows: 

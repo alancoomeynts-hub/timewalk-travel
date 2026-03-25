@@ -204,7 +204,7 @@ async function initMap() {
   };
   const container = document.querySelector("#map-container");
   if (!container) {
-    alert("Map failed to load. Try refreshing website")
+    alert("Map failed to load. Try refreshing website");
     throw new Error("No map containers found");
   }
 
@@ -300,9 +300,9 @@ function LocationCardsRedirect() {
       if(!url){
         return;
       }
-      debugger
+      
       try {
-        const response = await fetch(url)
+        const response = await fetch(url);
         if(!response.ok){
           throw new Error(`404:${url}`);
         }
@@ -342,9 +342,8 @@ function validateContactForms() {
           body: formData,
         })
           .then((response) => response.json())
-          .then((data) => console.log("Response:", data))
           .catch((e) =>{ 
-            alert("Sorry, submission failed. Please refresh and try again.")
+            alert("Sorry, submission failed. Please refresh and try again.");
             console.error("Error:", e);
           });
 
@@ -387,7 +386,7 @@ function showFormSubmissionModal() {
   }else{
     /* show successModal for newsletter signup*/
     const successModal = new bootstrap.Modal(successContainer);
-    successModal.show()
+    successModal.show();
   }
 }
 
@@ -511,8 +510,7 @@ function filterResults() {
   ];
   /* recover search parameters from sessionStorage and parse to object*/
   let searchTerms = sessionStorage.getItem("filterParameters");
-  console.log(searchTerms);
-
+  
   let filterParameters = {
     destination: "",
     theme: "",
@@ -608,7 +606,6 @@ function createBookingFormModal() {
         body: formData,
       })
         .then((response) => response.json())
-        .then((data) => console.log("Booking submitted", data))
         .catch((e) => console.error("Error", e));
 
       handleBookingConfirmation();
@@ -641,7 +638,7 @@ function calculateTotalPrice(bookingData) {
 
   //calculate current form price.
   const calculator = (e) => {
-    console.log("Change event triggered by", e.target.name);
+    
     const formData = new FormData(form);
 
     const travellers = parseInt(formData.get("travellers"));
