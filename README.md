@@ -444,18 +444,18 @@ Website was thoroughly tested using user personas and stories as a guide.
 
 | Test Case | Input | Expected | Actual | Status |Screenshot |
 |-----------|-------|----------|--------|--------|---------|
-| Map initialization | Load Rome map on itinerary page | Map renders with center position and 3 markers | Map loads correctly | PASS | ![test1](image-1.png)| 
-| Invalid MarkerId | Change data-marker-id to invalid value | Map loads with no markers, Error logged:"Invalid marker data invalid" | Error thrown: Invalid marker ID | PASS | ![test 2](image-3.png)|
-| No map container | alter #map-container-broken, reload page | throw error no map containers found | Error thrown: No map containers found | PASS | ![test 3](image-4.png) |
-| Invalid Map data attributes | Set data-lat="abc", reload | Map centers on fallback location lng:0, lng: 0, zoom 5 | Map centers on fallback coordinates lng:0, lat:0, zoom:5 | PASS | ![test 4](image-5.png) |
-| Map load failure | comment out mapInstance, set mapInstance to null, reload | Pages loads with map load failure message in map container |Error message appears | PASS | ![test 5](image-6.png)|
+| Map initialization | Load Rome map on itinerary page | Map renders with center position and 3 markers | Map loads correctly | PASS | ![test1](assets/screenshots/image-1.png)| 
+| Invalid MarkerId | Change data-marker-id to invalid value | Map loads with no markers, Error logged:"Invalid marker data invalid" | Error thrown: Invalid marker ID | PASS | ![test 2](assets/screenshots/image-3.png)|
+| No map container | delete #map-container-broken, reload page | throw error no map containers found | Error thrown: No map containers found | PASS | ![initMap test 3](assets/screenshots/image-35.png) |
+| Invalid Map data attributes | Set data-lat="abc", reload | Map centers on fallback location lng:0, lng: 0, zoom 5 | Map centers on fallback coordinates lng:0, lat:0, zoom:5 | PASS | ![test 4](assets/screenshots/image-5.png) |
+| Map load failure | comment out mapInstance, set mapInstance to null, reload | Pages loads with map load failure message in map container |Error message appears | PASS | ![test 5](assets/screenshots/image-6.png)|
 
 
 | Test Case | Input | Expected | Actual | Status |Screenshot |
 |-----------|-------|----------|--------|--------|---------|
-|Valid Marker Data | Load Tuscany map on itinerary pages | Map loads with all markers at correct coordinates | Markers displayed correctly | PASS | ![createMarker test 1](image-7.png)|
-|InfoWindows and Pinelement | Click Florence marker, verify popup | InfoWindow displays "Day 1-3: Florence" | InfoWindow displays with correct styles | PASS | ![createMarker test 2](image-8.png)|
-||Invalid Marker Data | Alter lat/lng values in markersCoordinates for Florence marker , reload | Marker not displayed for altered marker,  error logged "Invalid location data,[location]", all other markers present | PASS | ![createMarker test 3](image-9.png) |
+|Valid Marker Data | Load Tuscany map on itinerary pages | Map loads with all markers at correct coordinates | Markers displayed correctly | PASS | ![createMarker test 1](assets/screenshots/image-7.png)|
+|InfoWindows and Pinelement | Click Florence marker, verify popup | InfoWindow displays "Day 1-3: Florence" | InfoWindow displays with correct styles | PASS | ![createMarker test 2](assets/screenshots/image-8.png)|
+||Invalid Marker Data | Alter lat/lng values in markersCoordinates for Florence marker , reload | Marker not displayed for altered marker,  error logged "Invalid location data,[location]", all other markers present | PASS | ![createMarker test 3](assets/screenshots/image-9.png) |
 
 * Tests produce expected results, error handling functions correctly, and map functionality is robust against invalid inputs and load failures on all itinerary pages.
 
@@ -464,48 +464,59 @@ Website was thoroughly tested using user personas and stories as a guide.
 
 | Test Case | Input | Expected | Actual | Status |Screenshot |Notes|
 |-----------|-------|----------|--------|--------|---------|----------|
-|Valid Card Click | Click Rome/Naples/Amalfi cards console.log("Event:", e); debugger; line 299| event logged | Event Logged Correctly| PASS |![LocationCardRedirect Test 1](image-11.png)|
-|Cards redirect successfully| console.log("Redirected from", document.referrer); line 19 | Page navigates to itineraryItaly1 | Page navigates to itineraryItaly1, redirect logs in console | PASS |![LocationCardRedirect Test 2](image-12.png)|
-| All 6 cards have listeners | `getEventListeners()` bulk check | Console shows "Card 0: 1, Card 1: 1..." for all | All 6 cards show 1 listener each | PASS  |![LocationCardRedirect Test 3](image-13.png)|
+|Valid Card Click | Click Rome/Naples/Amalfi cards console.log("Event:", e); debugger; line 299| event logged | Event Logged Correctly| PASS |![LocationCardRedirect Test 1](assets/screenshots/image-11.png)|
+|Cards redirect successfully| console.log("Redirected from", document.referrer); line 19 | Page navigates to itineraryItaly1 | Page navigates to itineraryItaly1, redirect logs in console | PASS |![LocationCardRedirect Test 2](assets/screenshots/image-12.png)|
+| All 6 cards have listeners | `getEventListeners()` bulk check | Console shows "Card 0: 1, Card 1: 1..." for all | All 6 cards show 1 listener each | PASS  |![LocationCardRedirect Test 3](assets/screenshots/image-13.png)|
 | Missing data attribute | click .cards with missing data-href value, e.g. data-href="" (Alter line 185 index.html) |Silent failure, no redirect, console clean| Silent failure, no redirect, console clean | PASS |
-| Invalid data attribute| click .cards with corrupted data-href value, e.g. data-href="invalidurl" (Alter line 185 index.html) |Redirect to 404| Redirected to 404 page | PASS |![LocationCardRedirect Test 4](image-30.png)| Refactor function to catch 404|
-|Invalid data attribute version 2| click .cards with corrupted data-href value, e.g. data-href="http://invalidurl" (Alter line 185 index.html) |404 caught, logged to console| 404 caught, logged to console | PASS |![LocationCardRedirect Test 5](image-34.png)| Refactor previous version to use fetch to catch 404 before redirect|
+| Invalid data attribute| click .cards with corrupted data-href value, e.g. data-href="invalidurl" (Alter line 185 index.html) |Redirect to 404| Redirected to 404 page | PASS |![LocationCardRedirect Test 4](assets/screenshots/image-30.png)| Refactor function to catch 404|
+|Invalid data attribute version 2| click .cards with corrupted data-href value, e.g. data-href="http://invalidurl" (Alter line 185 index.html) |404 caught, logged to console| 404 caught, logged to console | PASS |![LocationCardRedirect Test 5](assets/screenshots/image-34.png)| Refactor previous version to use fetch to catch 404 before redirect|
 
 
 
 ### validateContactForms(), showFormSubmissionModal() testing log:
 | Test Case | Input | Expected | Actual | Status |Screenshot |
 |-----------|-------|----------|--------|--------|---------|
-|No Forms triggers early return| Remove .needs-validation from index.html, reload | Console logs no forms found | Error Logged | PASS |![validateContactForms test 1](image-15.png)|
-|Valid Form Submission| Fill in valid form data and submit | Form submits successfully, endpoint logs to console, modal displayed | Form submits successfully, endpoint logs to console, modal displayed | PASS |![ValidateContactForms test 2](image-16.png)|
-|Invalid Form Submission| Fill in invalid form data and submit | Form does not submit, validation function triggers, no modal displayed | Validation event triggers | PASS |![ValidateContactForms test 3](image-20.png)|
-|Newsletter Sign Up submitted|Enter email in newsletter form and submit | Form submits successfully, endpoint logs to console, modal displayed | Form submits successfully, endpoint logs to console, modal displayed | PASS |![ValidateContactForms test 4](image-19.png)|
-|No Success Modal|Remove #success-modal element from DOM and submit form | Form submits successfully, endpoint logs to console, no modal displayed | Form submits successfully, endpoint logs to console, no modal displayed | PASS |![ValidateContactForms test 5](image-21.png)|
-|Contact Modal closes on submit|Submit valid contact form  | Modal closes successfully, listener triggers log to console, modal closes | Modal closes successfully | PASS |![ValidateContactForms test 6](image-22.png)|
+|No Forms triggers early return| Remove .needs-validation from index.html, reload | Console logs no forms found | Error Logged | PASS |![validateContactForms test 1](assets/screenshots/image-15.png)|
+|Valid Form Submission| Fill in valid form data and submit | Form submits successfully, endpoint logs to console, modal displayed | Form submits successfully, endpoint logs to console, modal displayed | PASS |![ValidateContactForms test 2](assets/screenshots/image-16.png)|
+|Invalid Form Submission| Fill in invalid form data and submit | Form does not submit, validation function triggers, no modal displayed | Validation event triggers | PASS |![ValidateContactForms test 3](assets/screenshots/image-20.png)|
+|Newsletter Sign Up submitted|Enter email in newsletter form and submit | Form submits successfully, endpoint logs to console, modal displayed | Form submits successfully, endpoint logs to console, modal displayed | PASS |![ValidateContactForms test 4](assets/screenshots/image-19.png)|
+|No Success Modal|Remove #success-modal element from DOM and submit form | Form submits successfully, endpoint logs to console, no modal displayed | Form submits successfully, endpoint logs to console, no modal displayed | PASS |![ValidateContactForms test 5](assets/screenshots/image-21.png)|
+|Contact Modal closes on submit|Submit valid contact form  | Modal closes successfully, listener triggers log to console, modal closes | Modal closes successfully | PASS |![ValidateContactForms test 6](assets/screenshots/image-22.png)|
 
 
 ### searchFormRedirect(), filterResults() and cloneItineraryCards() testing:
 | Test Case | Input | Expected | Actual | Status |Screenshot |
 |-----------|-------|----------|--------|--------|---------|
-|Desktop filter Happy Path|Manually clear searchresults.html and then filter by destination "Italy","Renaissance","Cork" on desktop, submit form | Search results display only Tuscany tour | Only Tuscany tour displayed | PASS |![FilterResults test 1](image-14.png)|
-|Mobile filter Happy Path|Manually clear searchresults.html and then filter by destination "Italy","Renaissance","Cork" on mobile, submit form | Search results display only Tuscany tour | Only Tuscany tour displayed | PASS |![FilterResults test 2](image-24.png)|
-|No Results container|Manually clear searchresults.html and then filter by destination "Mars" on desktop, submit form | No search results displayed | No search results displayed | PASS |![FilterResults test 3](image-25.png)|
-|Filter all cards|Search with no filters selected, submit form | All 6 tour cards displayed | All 6 tour cards displayed | PASS |![FilterResults test 4](image-26.png)|
-|Partial filter|Filter by destination "Italy" on desktop, submit form | Only Italy tour cards displayed | Only Italy tour cards displayed | PASS |![FilterResults test 5](image-27.png)|
-|No container|Remove the container element from searchresults.html and submit form | No search results displayed | No search results displayed | PASS |![FilterResults test 6](image-28.png)|
-|No template|Remove the template element from searchresults.html and submit form | No search results displayed | No search results displayed | PASS |![FilterResults test 7](image-29.png)|
+|Desktop filter Happy Path|Manually clear searchresults.html and then filter by destination "Italy","Renaissance","Cork" on desktop, submit form | Search results display only Tuscany tour | Only Tuscany tour displayed | PASS |![FilterResults test 1](assets/screenshots/image-14.png)|
+|Mobile filter Happy Path|Manually clear searchresults.html and then filter by destination "Italy","Renaissance","Cork" on mobile, submit form | Search results display only Tuscany tour | Only Tuscany tour displayed | PASS |![FilterResults test 2](assets/screenshots/image-24.png)|
+|No Results container|Manually clear searchresults.html and then filter by destination "Mars" on desktop, submit form | No search results displayed | No search results displayed | PASS |![FilterResults test 3](assets/screenshots/image-25.png)|
+|Filter all cards|Search with no filters selected, submit form | All 6 tour cards displayed | All 6 tour cards displayed | PASS |![FilterResults test 4](assets/screenshots/image-26.png)|
+|Partial filter|Filter by destination "Italy" on desktop, submit form | Only Italy tour cards displayed | Only Italy tour cards displayed | PASS |![FilterResults test 5](assets/screenshots/image-27.png)|
+|No container|Remove the container element from searchresults.html and submit form | No search results displayed | No search results displayed | PASS |![FilterResults test 6](assets/screenshots/image-28.png)|
+|No template|Remove the template element from searchresults.html and submit form | No search results displayed | No search results displayed | PASS |![FilterResults test 7](assets/screenshots/image-29.png)|
 
 
 ### createBookingFormModal(), calculateTotalPrice(), handleBookingConfirmation() testing log:
 | Test Case | Input | Expected | Actual | Status |Screenshot |
 |-----------|-------|----------|--------|--------|---------|
-|Create Booking Form|Click Book Now on Itinerary page | Booking form displayed | Booking form displayed | PASS |![create Booking Form test 1](image-31.png)|
-|Book Now Button && container Removed|Remove Book Now and modal container from Itinerary page | Booking form not displayed, error thrown | Booking form not displayed, error thrown | PASS |![create Booking Form test 2](image-32.png)|
-|Invalid Form Submission|Manual submit form unfilled|Form validation messages displayed |Form validation messages displayed | PASS |![alt text](image-33.png)|
+|Create Booking Form|Click Book Now on Itinerary page | Booking form displayed | Booking form displayed | PASS |![create Booking Form test 1](assets/screenshots/image-31.png)|
+|Book Now Button && container Removed|Remove Book Now and modal container from Itinerary page | Booking form not displayed, error thrown | Booking form not displayed, error thrown | PASS |![create Booking Form test 2](assets/screenshots/image-32.png)|
+|Invalid Form Submission|Manual submit form unfilled|Form validation messages displayed |Form validation messages displayed | PASS |![create Booking Form Test 3](assets/screenshots/image-33.png)|
+|Valid Form Submission|Manual submit form filled correctly|Form submits successfully, modal displayed |Form submits successfully, modal displayed | PASS |![create Booking Form Test 4](assets/screenshots/image-36.png)|
 
-|Valid Form Submission|Manual submit form filled correctly|Form submits successfully, modal displayed |Form submits successfully, modal displayed | PASS |![alt text](image-34.png)|
+| Test Case | Input | Expected | Actual | Status |Screenshot |
+|-----------|-------|----------|--------|--------|---------|
+|Base Price applies correctly|Select a tour and view booking form | Base price displayed correctly and updates when number of travelers changes | Base price displayed correctly | PASS |![calculate Price test 1](assets/screenshots/image-37.png)|
+|Listener Cleanup|Manually trigger calculateTotalPrice() multiple times and check event listeners| No duplicate event listeners added, price calculation remains accurate | No duplicate listeners, price calculation accurate | PASS |![calculate Price 2](assets/screenshots/image-39.png)|
+|Upgrades add to total|Select upgrade checkboxes and trigger change event| Total price updates correctly based on selected upgrades | Total price updates correctly | PASS |![calculate Price test 3](assets/screenshots/image-40.png)|
+|Missing Form Elements|Remove form elements and attempt to calculate total price | Error thrown or calculation fails gracefully | Error thrown or calculation fails gracefully | PASS |![calculate Price test 4](assets/screenshots/image-41.png)|
+|Missing bookingData|Remove bookingData and attempt to calculate total price | Error thrown or calculation fails gracefully | Error thrown or calculation fails gracefully | PASS |![calculate Price test 5](assets/screenshots/image-42.png)|
 
-## Future Improvement
+| Test Case | Input | Expected | Actual | Status |Screenshot |
+|-----------|-------|----------|--------|--------|---------|
+|Missing Confirmation Modal Container or Instance|Remove modal instance and attempt to submit form | Error thrown or form submission fails gracefully | Error thrown or form submission fails gracefully | PASS |![calculate Price test 7](assets/screenshots/image-44.png)|
+
+## Future Improvements
 - Implement backend API  and CRM to handle form submissions and store leads/bookings in a database.
 - Swap sessionStorage for URL query parameters to allow sharing of filtered search results and improve SEO.
 - Blog section with articles about historical sites, travel tips, and tour highlights to drive SEO and engage users.

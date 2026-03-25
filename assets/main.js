@@ -204,6 +204,7 @@ async function initMap() {
   };
   const container = document.querySelector("#map-container");
   if (!container) {
+    alert("Map failed to load. Try refreshing website")
     throw new Error("No map containers found");
   }
 
@@ -309,6 +310,7 @@ function LocationCardsRedirect() {
           window.location.href = url;
         }
       } catch (error) {
+        alert(`Navigation failed, please refresh. Error: ${error}`);
         console.error("Navigation failed.", error);
       }
     });
@@ -341,7 +343,10 @@ function validateContactForms() {
         })
           .then((response) => response.json())
           .then((data) => console.log("Response:", data))
-          .catch((e) => console.error("Error:", e));
+          .catch((e) =>{ 
+            alert("Sorry, submission failed. Please refresh and try again.")
+            console.error("Error:", e);
+          });
 
         showFormSubmissionModal();
         form.reset();
@@ -624,6 +629,7 @@ function calculateTotalPrice(bookingData) {
 
   if (!form || !totalText || !bookingData) {
     console.error("Form, totalText, or bookingData missing");
+    alert("A problem occured loading Booking Form, please refresh");
     return;
   }
 
@@ -671,6 +677,7 @@ function handleBookingConfirmation() {
 
   if (!bookingFormModalInstance) {
     console.error("Booking modal instance not found");
+    alert("An error occured, please refresh.");
     return;
   }
 
