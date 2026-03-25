@@ -293,10 +293,20 @@ function LocationCardsRedirect() {
   const cards = document.querySelectorAll(".card");
 
   cards.forEach((card) => {
-    card.addEventListener("click", (e) => {
+    card.addEventListener("click", async (e) => {
+      e.preventDefault();
+      const url=e.currentTarget.dataset.href;
+      if(!url){
+        return;
+      }
+      debugger
       try {
-        if (card && e.currentTarget.dataset.href) {
-          window.location.href = e.currentTarget.dataset.href;
+        const response = await fetch(url)
+        if(!response.ok){
+          throw new Error(`404:${url}`);
+        }
+        else {
+          window.location.href = url;
         }
       } catch (error) {
         console.error("Navigation failed.", error);

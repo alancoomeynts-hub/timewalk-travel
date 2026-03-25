@@ -462,15 +462,16 @@ Website was thoroughly tested using user personas and stories as a guide.
 
 ### LocationCardsRedirect() testing:
 
-| Test Case | Input | Expected | Actual | Status |Screenshot |
-|-----------|-------|----------|--------|--------|---------|
+| Test Case | Input | Expected | Actual | Status |Screenshot |Notes|
+|-----------|-------|----------|--------|--------|---------|----------|
 |Valid Card Click | Click Rome/Naples/Amalfi cards console.log("Event:", e); debugger; line 299| event logged | Event Logged Correctly| PASS |![LocationCardRedirect Test 1](image-11.png)|
 |Cards redirect successfully| console.log("Redirected from", document.referrer); line 19 | Page navigates to itineraryItaly1 | Page navigates to itineraryItaly1, redirect logs in console | PASS |![LocationCardRedirect Test 2](image-12.png)|
 | All 6 cards have listeners | `getEventListeners()` bulk check | Console shows "Card 0: 1, Card 1: 1..." for all | All 6 cards show 1 listener each | PASS  |![LocationCardRedirect Test 3](image-13.png)|
 | Missing data attribute | click .cards with missing data-href value, e.g. data-href="" (Alter line 185 index.html) |Silent failure, no redirect, console clean| Silent failure, no redirect, console clean | PASS |
-| Invalid data attribute| click .cards with corrupted data-href value, e.g. data-href="invalidurl" (Alter line 185 index.html) |Redirect to 404| Redirected to 404 page | PASS |![LocationCardRedirect Test 4](image-14.png)|
+| Invalid data attribute| click .cards with corrupted data-href value, e.g. data-href="invalidurl" (Alter line 185 index.html) |Redirect to 404| Redirected to 404 page | PASS |![LocationCardRedirect Test 4](image-30.png)| Refactor function to catch 404|
+|Invalid data attribute version 2| click .cards with corrupted data-href value, e.g. data-href="http://invalidurl" (Alter line 185 index.html) |404 caught, logged to console| 404 caught, logged to console | PASS |![LocationCardRedirect Test 5](image-34.png)| Refactor previous version to use fetch to catch 404 before redirect|
 
-Observation: try/catch ineffective at handling invalid URLs or missing data attributes, not effective at catching failed navigation. Retain for defensive programming reasons.
+
 
 ### validateContactForms(), showFormSubmissionModal() testing log:
 | Test Case | Input | Expected | Actual | Status |Screenshot |
@@ -483,7 +484,7 @@ Observation: try/catch ineffective at handling invalid URLs or missing data attr
 |Contact Modal closes on submit|Submit valid contact form  | Modal closes successfully, listener triggers log to console, modal closes | Modal closes successfully | PASS |![ValidateContactForms test 6](image-22.png)|
 
 
-### searchFormRedirect(), filterResults and cloneItineraryCards testing:
+### searchFormRedirect(), filterResults() and cloneItineraryCards() testing:
 | Test Case | Input | Expected | Actual | Status |Screenshot |
 |-----------|-------|----------|--------|--------|---------|
 |Desktop filter Happy Path|Manually clear searchresults.html and then filter by destination "Italy","Renaissance","Cork" on desktop, submit form | Search results display only Tuscany tour | Only Tuscany tour displayed | PASS |![FilterResults test 1](image-14.png)|
@@ -494,6 +495,15 @@ Observation: try/catch ineffective at handling invalid URLs or missing data attr
 |No container|Remove the container element from searchresults.html and submit form | No search results displayed | No search results displayed | PASS |![FilterResults test 6](image-28.png)|
 |No template|Remove the template element from searchresults.html and submit form | No search results displayed | No search results displayed | PASS |![FilterResults test 7](image-29.png)|
 
+
+### createBookingFormModal(), calculateTotalPrice(), handleBookingConfirmation() testing log:
+| Test Case | Input | Expected | Actual | Status |Screenshot |
+|-----------|-------|----------|--------|--------|---------|
+|Create Booking Form|Click Book Now on Itinerary page | Booking form displayed | Booking form displayed | PASS |![create Booking Form test 1](image-31.png)|
+|Book Now Button && container Removed|Remove Book Now and modal container from Itinerary page | Booking form not displayed, error thrown | Booking form not displayed, error thrown | PASS |![create Booking Form test 2](image-32.png)|
+|Invalid Form Submission|Manual submit form unfilled|Form validation messages displayed |Form validation messages displayed | PASS |![alt text](image-33.png)|
+
+|Valid Form Submission|Manual submit form filled correctly|Form submits successfully, modal displayed |Form submits successfully, modal displayed | PASS |![alt text](image-34.png)|
 
 ## Future Improvement
 - Implement backend API  and CRM to handle form submissions and store leads/bookings in a database.
