@@ -65,8 +65,8 @@
                             <button class="btn-red btn" data-bs-toggle="modal" data-bs-target="#contact-modal">Get
                                 Quote</button>
                             <!--Phone CTA button uses on-click window location in place of anchor element for call redirect. -->
-                            <button class="btn-icon btn-red btn" onclick="window.location.href='tel:353871234567'" aria-label="Call us"><i
-                                    class="fa-solid fa-phone-flip"></i></button>
+                            <button class="btn-icon btn-red btn" onclick="window.location.href='tel:353871234567'"
+                                aria-label="Call us"><i class="fa-solid fa-phone-flip"></i></button>
                         </div>
                     </li>
                 </ul>
@@ -96,14 +96,16 @@
                                 <div class="invalid-feedback">Please use a valid email address</div>
                             </div>
                             <div class="col-12 col-lg-6 mb-3">
-                                <label for="contact-phone" class="form-label">Phone number (e.g. +353 87 123 4567)</label>
+                                <label for="contact-phone" class="form-label">Phone number (e.g. +353 87 123
+                                    4567)</label>
                                 <input class="form-control" id="contact-phone" name="phone" type="tel"
                                     pattern="\+?[\d\s\-\(\)]{10,20}" required>
                                 <div class="invalid-feedback">Please enter your number in international format.</div>
                             </div>
                             <div class="col-12 mb-3">
                                 <label for="contact-message" class="form-label">Message</label>
-                                <textarea class="form-control" rows="6" id="contact-message" name="message" required></textarea>
+                                <textarea class="form-control" rows="6" id="contact-message" name="message"
+                                    required></textarea>
                             </div>
                         </div>
                     </form>
@@ -222,7 +224,6 @@
                                     <legend> No. of Travellers: </legend>
                                     <select id="travellers" class="form-select form-select-lg p-1" name="travellers"
                                         aria-label="form number of travellers">
-                                        <option selected>0</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -267,7 +268,9 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <p>Thank you for your booking! We've received your booking request and you'll receive a confirmation email shortly with all the details. One of our travel agents will contact you within 24 hours to finalize the arrangements.</p>
+                            <p>Thank you for your booking! We've received your booking request and you'll receive a
+                                confirmation email shortly with all the details. One of our travel agents will contact
+                                you within 24 hours to finalize the arrangements.</p>
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-white" data-bs-dismiss="modal">Close</button>

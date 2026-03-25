@@ -617,7 +617,7 @@ function calculateTotalPrice(bookingData) {
     return;
   }
 
-  totalText.innerText = `Total: €0`;
+  totalText.innerText = `Total: €${bookingData.price}`;
   // Remove previous change listener if it exists, to prevent multiple listeners being attached .
   if (previousListener) {
     form.removeEventListener("change", previousListener);
@@ -628,7 +628,7 @@ function calculateTotalPrice(bookingData) {
     console.log("Change event triggered by", e.target.name);
     const formData = new FormData(form);
 
-    const travellers = parseInt(formData.get("travellers")) || 0;
+    const travellers = parseInt(formData.get("travellers"));
 
     let total = parseInt(bookingData.price) * travellers;
 
