@@ -208,6 +208,7 @@ This website is built as a responsive, static site using HTML5, CSS3 with Bootst
 - Booking confirmation handled by `handleBookingConfirmation()` which displays success modal and clears form
 
 ![Booking modal screenshot](assets/screenshots/booking-form.webp)
+![Booking confirmation modal screenshot](assets/screenshots/confirmation-modal.webp)
 
 ## 7. Contact Form Modal (Multi-Purpose)
 **Description:** Accessible contact form modal available from multiple pages (navbar, homepage, itinerary pages) for lead generation and customer inquiries.
@@ -226,6 +227,7 @@ This website is built as a responsive, static site using HTML5, CSS3 with Bootst
 - Accessible via navbar "Enquire" button and other strategic CTAs throughout the site
 
 ![Contact form modal screenshot](assets/screenshots/contact-modal.webp)
+![Successful Submission Modal](assets/screenshots/success-modal.webp)
 
 ## 8. Search Results Page with Filtering
 **Description:** Dedicated results page that displays filtered tour options based on user search criteria (destination, theme, budget, airport).
