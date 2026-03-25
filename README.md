@@ -438,7 +438,7 @@ Website was thoroughly tested using user personas and stories as a guide.
 ---
 ## Javascript Manual Testing Log
 
-### initMap() && createMarker() testing:
+### initMap(), createMarker() testing:
 
 | Test Case | Input | Expected | Actual | Status |Screenshot |
 |-----------|-------|----------|--------|--------|---------|
@@ -470,7 +470,7 @@ Website was thoroughly tested using user personas and stories as a guide.
 
 Observation: try/catch ineffective at handling invalid URLs or missing data attributes, not effective at catching failed navigation. Retain for defensive programming reasons.
 
-### validateContactForms() && showFormSubmissionModal() testing log:
+### validateContactForms(), showFormSubmissionModal() testing log:
 | Test Case | Input | Expected | Actual | Status |Screenshot |
 |-----------|-------|----------|--------|--------|---------|
 |No Forms triggers early return| Remove .needs-validation from index.html, reload | Console logs no forms found | Error Logged | PASS |![validateContactForms test 1](image-15.png)|
@@ -481,7 +481,17 @@ Observation: try/catch ineffective at handling invalid URLs or missing data attr
 |Contact Modal closes on submit|Submit valid contact form  | Modal closes successfully, listener triggers log to console, modal closes | Modal closes successfully | PASS |![ValidateContactForms test 6](image-22.png)|
 
 
-### filterResults() testing:
+### searchFormRedirect(), filterResults and cloneItineraryCards testing:
+| Test Case | Input | Expected | Actual | Status |Screenshot |
+|-----------|-------|----------|--------|--------|---------|
+|Desktop filter Happy Path|Manually clear searchresults.html and then filter by destination "Italy","Renaissance","Cork" on desktop, submit form | Search results display only Tuscany tour | Only Tuscany tour displayed | PASS |![FilterResults test 1](image-14.png)|
+|Mobile filter Happy Path|Manually clear searchresults.html and then filter by destination "Italy","Renaissance","Cork" on mobile, submit form | Search results display only Tuscany tour | Only Tuscany tour displayed | PASS |![FilterResults test 2](image-24.png)|
+|No Results container|Manually clear searchresults.html and then filter by destination "Mars" on desktop, submit form | No search results displayed | No search results displayed | PASS |![FilterResults test 3](image-25.png)|
+|Filter all cards|Search with no filters selected, submit form | All 6 tour cards displayed | All 6 tour cards displayed | PASS |![FilterResults test 4](image-26.png)|
+|Partial filter|Filter by destination "Italy" on desktop, submit form | Only Italy tour cards displayed | Only Italy tour cards displayed | PASS |![FilterResults test 5](image-27.png)|
+|No container|Remove the container element from searchresults.html and submit form | No search results displayed | No search results displayed | PASS |![FilterResults test 6](image-28.png)|
+|No template|Remove the template element from searchresults.html and submit form | No search results displayed | No search results displayed | PASS |![FilterResults test 7](image-29.png)|
+
 
 ## Future Improvement
 - Implement backend API  and CRM to handle form submissions and store leads/bookings in a database.

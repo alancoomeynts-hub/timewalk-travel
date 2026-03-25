@@ -115,7 +115,7 @@ h6 {
 }
 
 .modal-title {
-  color: var(--bg-primary);
+  color: var(--bg-secondary-contrast);
 }
 
 .btn-white {
