@@ -551,11 +551,15 @@ Website was thoroughly tested using user personas and stories as a guide.
 
 # Bugs and Issues
 
-- when first deploying project with API call. I got an email from Google saying my API key is exposed. To solve this I restrict API to GitHub deployed project URL and restricted key to Google Maps Javascript API. https://developers.google.com/maps/api-security-best-practices.
+- When first deploying project with API call. I got an email from Google saying my API key is exposed. To solve this I restrict API to GitHub deployed project URL and restricted key to Google Maps Javascript API. https://developers.google.com/maps/api-security-best-practices.
+
 - Frequent Google Maps API 404s fixed by reordering scripts in HTML and placing async in JS function instead in HTML. As per https://developers.google.com/maps/documentation/javascript/add-google-map#maps_map_simple-javascript and https://developers.google.com/maps/documentation/javascript/load-maps-js-api
+
 - Initialy implemented Google Maps API using tutorial on Publicapis but noticed depreciation message in console. In order to remove this and future proof project, I migrated to advanced marker with guidance from official Javascript API documentation.
 -  When styling infoWindows headerContent I initially tried using a similar method as content using string but this would not work for headerContent. Solved by using createElement() to create a HTML element prompted by Google API documentation: https://developers.google.com/maps/documentation/javascript/reference/info-window
+
 - Unable to access Google Cloud Map Styles or Map Management. I thus use the demo map_id for default map styling
+
 - In calculator function, checkboxes were not adding their value to total. Discovered checkboxes are only present in FormData when set to true so used has() method to test FormData object and extract value if true. https://developer.mozilla.org/en-US/docs/Web/API/FormData/has
 
 - In an effort to reduce HTML I tried Javasacript functions to generate modals for contact and booking forms. On testing the forms were inconsistent in opening and closing. To solve I reverted to static HTML for modals and used javascript to show and handle events in the modal. I also added a reset() method to clear form data on each open of the modal to prevent data from previous booking attempts being present on new attempts, and added a once:true option to the event listeners to prevent multiple submit and shown.bs.modal listeners being added on each open of the modal. references: https://getbootstrap.com/docs/5.3/components/modal/#methods and https://getbootstrap.com/docs/5.3/components/modal/#events
