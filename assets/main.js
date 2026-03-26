@@ -376,7 +376,7 @@ function showFormSubmissionModal() {
       "hidden.bs.modal",
       function onHidden() {
         contactModalElement.removeEventListener("hidden.bs.modal", onHidden);
-
+        successContainer.focus();
         const successModal = new bootstrap.Modal(successContainer);
         successModal.show();
       },
@@ -681,10 +681,12 @@ function handleBookingConfirmation() {
   // Wait for the booking form modal to hide before showing success modal
   bookingFormModal.addEventListener("hidden.bs.modal", function onHidden() {
     bookingFormModal.removeEventListener("hidden.bs.modal", onHidden);
+    
 
     const bookingModalContainer = document.getElementById(
       "bookingsuccess-modal",
     );
+    bookingModalContainer.focus();
 
     if (!bookingModalContainer) {
       throw new Error("Booking success modal container not found");
@@ -692,6 +694,7 @@ function handleBookingConfirmation() {
 
     const bookingConfirmationModal = new bootstrap.Modal(bookingModalContainer);
     bookingConfirmationModal.show();
+    
   });
 
   bookingFormModalInstance.hide();

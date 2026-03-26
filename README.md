@@ -574,6 +574,9 @@ Website was thoroughly tested using user personas and stories as a guide.
 
 - For in page buttons to prevent the event listeners stacking multiple submit, change and shown.bs.modal listeners each time the modal is opened, potentially causing multiple event triggers. I refactored those listeners to use removeEventListener. These include hidden.bs.modal events in showFormSubmissionModal and handleBookingConfirmation(), and the change listeners in calculateTotalPrice(). References: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener and https://zetcode.com/dom/element-removeeventlistener/
 
+- Corrected warning about Bootstrap modal retaining focus. This is occured when triggering confirmation and success modals in contact form and booking form. To prevent those modal retaining focs, i manually added focus to the next modal when the previous modal is hidden. References: https://getbootstrap.com/docs/5.3/components/modal/#passing-options
+
+
 # Tools and Resources
 
 **Development Environment:**
