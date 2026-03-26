@@ -152,7 +152,7 @@ h6 {
 }
 
 /*Main*/
-/* Hero Image Section*/
+/* Hero Image Section and Filter Styles */
 #hero-header {
   background: url("../assets/images/hero-image.webp") center/cover no-repeat;
   min-height: 40vh;
@@ -248,7 +248,7 @@ p.card-text.small {
   margin-top: 0.25rem;
 }
 
-/* itinerary pages main content*/
+/* Itinerary Pages Main Content Styles */
 .hero-banner {
   position: relative;
   height: 80vh;
@@ -344,7 +344,7 @@ legend {
   font-weight: 500;
   color: var(--accent-primary);
 }
-/* Accordion */
+/* Accordion Styles */
 .accordion-item {
   border: 1px solid var(--bg-primary-contrast);
   border-left: none;
@@ -365,7 +365,7 @@ legend {
   -webkit-box-shadow: none;
           box-shadow: none;
 }
-/* Footer */
+/* Footer Styles */
 #footer {
   background: -o-linear-gradient(315deg, var(--bg-secondary) 0%, #f0e8d9 100%);
   background: linear-gradient(135deg, var(--bg-secondary) 0%, #f0e8d9 100%);
